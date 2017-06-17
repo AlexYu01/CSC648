@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CakePHP Application Skeleton
 
 [![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
@@ -52,3 +51,5 @@ framework by default. You can, however, replace it with any other library or
 custom styles.
 
 # csc648_team5
+I have created a About page for our group at here: [Group 5 About Page](http://sfsuse.com/~su17g05/)
+
