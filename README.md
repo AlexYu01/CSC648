@@ -53,3 +53,13 @@ custom styles.
 # csc648_team5
 I have created a About page for our group at here: [Group 5 About Page](http://sfsuse.com/~su17g05/)
 
+Run the following command under 'public_html' to clone the project to your individual shell account for testing
+```
+git init
+git remote add origin https://github.com/tycku/csc648_team5.git
+git fetch
+git checkout <Your Branch Name>
+git pull
+chmod 777 -R tmp/ logs/
+```
+
