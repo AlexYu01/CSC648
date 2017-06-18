@@ -20,7 +20,7 @@ class AboutController extends AppController
         
     }
     
-    public function about_teng() {
+    public function teng() {
         
     }
 }
