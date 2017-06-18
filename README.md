@@ -60,7 +60,7 @@ git init    //Create an empty Git repository
 git remote add origin https://github.com/tycku/csc648_team5.git          //Add remote repository
 git fetch                           //Fetch all data
 git checkout <Your Branch Name>    //Change current branch to your branch
-chmod -R 766 tmp/ logs/            //Change folder permission to give log and tmp the right permission
+chmod -R 777 tmp/ logs/            //Change folder permission to give log and tmp the right permission
 ```
 
 Visit your individual page at http://sfsuse.com/~username/    (change 'username' to your login username) if you able to see our team about page without any error message which mean everything is working properly.
