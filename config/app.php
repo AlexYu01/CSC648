@@ -231,7 +231,7 @@ return [
             //'port' => 'non_standard_port_number',
             'username' => 'tyu1',
             'password' => '915014261',
-            'database' => 'student_tyu',
+            'database' => 'student_tyu1',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],
