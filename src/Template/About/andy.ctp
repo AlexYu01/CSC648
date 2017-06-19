@@ -19,7 +19,10 @@ $this->layout = false;
     </head>
     <body class="home">
         <header class="row">
+
             <p>My Name is andy. This is my about page</p>
+
+
         </header>
     </body>
 </html>
