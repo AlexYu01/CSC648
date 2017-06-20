@@ -22,9 +22,9 @@ use Cake\Network\Exception\NotFoundException;
                 <?= $this->Html->link('Andy\'s About Page','/about/andy',['class' => 'button'])?>
 
             </div> 
-            <div class="header-title" style="margin-left: 15px;margin-left: 15px;">
+            <div class="header-title" style="margin-left: 0px;margin-top: 0px;">
                 <?= $this->Html->link('Haotian\'s About Page','/about/Haotian',['class' => 'button'])?>
-                   
+             </div>      
     </body>
 </html>
 
