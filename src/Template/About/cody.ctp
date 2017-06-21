@@ -14,13 +14,16 @@ $this->layout = false;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cody's About Page</title>
          <?= $this->Html->meta('icon') ?>
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+
     </head>
     <body class="home">
         <header class="row">
-            <p>My Name is Cody This is my about page</p>
+            <p>My Name is Cody</p>
+            <p>I like school </p>
+          <?php echo $this->Html->image('IMG_1609.JPG', array('alt' => 'CakePHP', 'border' => '0', 'data-src' => 'holder.js/1x1')); ?>
+                
         </header>
+        
     </body>
 </html>
 
