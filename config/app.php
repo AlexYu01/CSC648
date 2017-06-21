@@ -231,9 +231,9 @@ return [
             //'port' => 'non_standard_port_number',
 
 
-            'username' => 'ip',
-            'password' => 'lop43ioa',
-            'database' => 'student_ip',
+            'username' => 'su17g05',
+            'password' => 'csc648su17g05',
+            'database' => 'su17g05',
 
             'encoding' => 'utf8',
             'timezone' => 'UTC',
