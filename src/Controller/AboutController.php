@@ -21,6 +21,11 @@ class AboutController extends AppController
     }
     
 
+    public function haotian()
+    {
+
+    }
+
     public function calvin(){
     }
 
@@ -32,4 +37,5 @@ class AboutController extends AppController
 
         
     }
+
 }

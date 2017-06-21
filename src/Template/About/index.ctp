@@ -18,6 +18,15 @@ use Cake\Network\Exception\NotFoundException;
     </head>
     <body>
             <!--<div class="header-image"><?= $this->Html->image('cake.logo.svg') ?></div>-->
+
+            <div class="header-title" style="margin-top: 15px;margin-top: 15px;">
+                <?= $this->Html->link('Andy\'s About Page','/about/andy',['class' => 'button'])?>
+
+            </div> 
+            <div class="header-title" style="margin-left: 0px;margin-top: 0px;">
+                <?= $this->Html->link('Haotian\'s About Page','/about/Haotian',['class' => 'button'])?>
+             </div>      
+
         <div class="header-title" style="margin-top: 15px;margin-left: 15px;">
                 <?= $this->Html->link('Andy\'s About Page','/about/andy',['class' => 'button'])?>
 
