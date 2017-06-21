@@ -21,6 +21,9 @@ use Cake\Network\Exception\NotFoundException;
         <div class="header-title" style="margin-top: 15px;margin-left: 15px;">
                 <?= $this->Html->link('Andy\'s About Page','/about/andy',['class' => 'button'])?>
 
+		<?= $this->Html->link('Calvin\'s About Page','/about/calvin',['class' => 'button'])?>            
+</div>  
+
         </div>
         <div class="header-title" style="margin-top: 15px;margin-left: 15px;">
                 <?= $this->Html->link('Teng\'s About Page','/about/teng',['class' => 'button'])?>
@@ -28,6 +31,7 @@ use Cake\Network\Exception\NotFoundException;
       
                 <?= $this->Html->link('Cody\'s About Page','/about/cody',['class' => 'button'])?>
             </div>        
+
     </body>
 </html>
 
