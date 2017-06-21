@@ -24,10 +24,8 @@ class AboutController extends AppController
     public function tiffany(){
 
     }
-}
 
     
-
     public function haotian()
     {
 
