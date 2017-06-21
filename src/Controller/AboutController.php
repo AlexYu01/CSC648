@@ -20,7 +20,16 @@ class AboutController extends AppController
         
     }
     
+
     public function calvin(){
+    }
+
+    public function teng() {
+      
+    }
+  
+    public function cody(){
+
         
     }
 }

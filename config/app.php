@@ -229,9 +229,11 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
+
             'username' => 'ip',
             'password' => 'lop43ioa',
             'database' => 'student_ip',
+
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],
