@@ -19,6 +19,13 @@ class AboutController extends AppController
     public function andy(){
         
     }
+
+
+    public function tiffany(){
+
+    }
+}
+
     
 
     public function haotian()
@@ -39,3 +46,4 @@ class AboutController extends AppController
     }
 
 }
+
