@@ -20,6 +20,7 @@ $this->layout = false;
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Calvin's About Page </title>
+        <?= $this->Html->css('base.css') ?>
     </head>
     <body>
         <header style="text-align: center">
@@ -29,6 +30,11 @@ $this->layout = false;
             <p style="align-content: center">
                 Hey there, my name is Calvin Ip and I am a CS major at San Francisco State University.
             </p>
+            
+            <p>
+                <?= $this->Html->image("Okinawa",array('width'=> '500px', 'height'=>'250px')) ?>
+            </p>
+            
         </div>
     </body>
 </html>
