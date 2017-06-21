@@ -13,14 +13,24 @@ $this->layout = false;
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Andy's About Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
          <?= $this->Html->meta('icon') ?>
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('bootstrap.css') ?>
+    <?= $this->Html->script('bootstrap.min.js')?>
     </head>
-    <body class="home">
-        <header class="row">
-            <p>My Name is Andy This is my about page</p>
-        </header>
+
+    <div class="container" style="margin-top: 20px">
+        <div class="row">
+            <div class="col-md-4">
+                <h1 style="text-align: center">Andy</h1>
+                <h3>Hi, My name is Andy I'm a CS major student from SFSU</h3>
+            </div>            
+            <div class="col-md-4">
+                <img src="https://ichef.bbci.co.uk/images/ic/640x360/p049tgdb.jpg">
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
     </body>
 </html>
 
