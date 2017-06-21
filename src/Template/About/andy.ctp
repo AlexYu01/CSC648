@@ -18,10 +18,11 @@ $this->layout = false;
     <?= $this->Html->css('bootstrap.css') ?>
     <?= $this->Html->script('bootstrap.min.js')?>
     </head>
+
     <div class="container" style="margin-top: 20px">
         <div class="row">
             <div class="col-md-4">
-                <h1 style="text-align: right">Andy</h1>
+                <h1 style="text-align: center">Andy</h1>
                 <h3>Hi, My name is Andy I'm a CS major student from SFSU</h3>
             </div>            
             <div class="col-md-4">
