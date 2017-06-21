@@ -21,6 +21,10 @@ class AboutController extends AppController
     }
     
     public function teng() {
+      
+    }
+  
+    public function cody(){
         
     }
 }
