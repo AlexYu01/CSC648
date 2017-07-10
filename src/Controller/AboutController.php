@@ -23,4 +23,8 @@ class AboutController extends AppController
     public function calvin(){
         
     }
+    
+    public function registration(){
+        
+    }
 }
