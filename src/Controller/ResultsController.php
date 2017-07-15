@@ -19,13 +19,25 @@ class ResultsController extends AppController {
         parent::initialize();
         $this->loadComponent('Paginator');
         $this->loadModel('Media');
+        $this->loadModel('MediaGenres');
     }
 
-    public function search($searchTerm = null, $search = null) {//add $contact
+    public function search($searchTerm = null, $search = null) {
         if ($search == null) {
             $search = new SearchForm();
         }
-        // copy paste index code starting from is post to get search bar on view
+        
+        if ($this->request->is('post')) {
+            if ($search->execute($this->request->getData())) {
+                $searchTerm = $this->request->data('search');
+                $searchGenre = $this->request->data('dropDown');
+
+                return $this->redirect(['controller' => 'Results', 'action' => 'search', $searchTerm, $search]);
+            } else {
+                // something went wrong with search.
+            }
+        }
+       
 
 
         $results = $this->Media->find('all', [
@@ -34,9 +46,19 @@ class ResultsController extends AppController {
                     'Media.media_desc LIKE' => '%' . $searchTerm . '%']
             ]
         ]);
+        
+        if ($results->isEmpty()) {
+            $results = $this->Media->find('all', ['conditions' => ['Media.type_id' => 1]]);
+        }
 
         $this->set('results', $this->paginate($results));
         $this->set(compact('contact'));
+        
+        
+        $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
+                            'valueField' => 'genre_name'])
+                        ->hydrate(false)->toArray();
+        $this->set(compact('search', 'genreList'));
     }
 
 }
