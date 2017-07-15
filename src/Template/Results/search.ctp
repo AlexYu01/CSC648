@@ -14,7 +14,7 @@
         <td><?= $media->media_id ?> </td>
         <td><?= $media->media_title ?></td>
         <td><?= $media->media_desc ?></td>
-        <td><?= $media->created->format(DATE_RFC850) ?></td>
+        <td><?= $media->upload_date->format(DATE_RFC850) ?></td>
         <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'height' => '100px', 'width' => '100px']) ?></td>
     </tr>
         <?php endforeach; ?>
