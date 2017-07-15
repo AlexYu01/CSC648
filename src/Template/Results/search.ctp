@@ -4,6 +4,7 @@
     <tr>
         <th>Id</th>
         <th>Title</th>
+        <th>Description</th>
         <th>Created</th>
         <th>Media</th>
     </tr>
@@ -12,7 +13,8 @@
     <tr>
         <td><?= $media->media_id ?> </td>
         <td><?= $media->media_title ?></td>
-        <td><?= $media->created ?></td>
+        <td><?= $media->media_desc ?></td>
+        <td><?= $media->created->format(DATE_RFC850) ?></td>
         <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'height' => '100px', 'width' => '100px']) ?></td>
     </tr>
         <?php endforeach; ?>
