@@ -28,7 +28,7 @@ class ResultsController extends AppController {
         // copy paste index code starting from is post to get search bar on view
 
         $results = $this->Media->find('all', [
-            'conditions' => ['Media.media_title LIKE' => '%' . $searchTerm . '%', 'Media.media_type' => 1]]);
+            'conditions' => ['Media.media_title LIKE' => '%' . $searchTerm . '%', 'Media.type_id' => 1]]);
 
         $this->set('results', $this->paginate($results));
         $this->set(compact('contact'));
