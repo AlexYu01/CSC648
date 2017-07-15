@@ -1,4 +1,3 @@
-<html>
     <style>
         li {
             list-style: none;
@@ -22,7 +21,7 @@
             <td><?= $media->media_id ?> </td>
             <td><?= $media->media_title ?></td>
             <td><?= $media->created ?></td>
-            <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title]) ?></td>
+            <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'height' => '100px', 'width' => '100px']) ?></td>
         </tr>
         <?php endforeach; ?>
     </table>
@@ -42,4 +41,3 @@ echo $this->Paginator->counter([
              {{count}} total, starting on record {{start}}, ending on {{end}}'
 ])
 ?>
-</html>
