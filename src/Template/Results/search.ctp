@@ -1,32 +1,25 @@
-    <style>
-        li {
-            list-style: none;
-            display: inline;
-            padding: 5px;
-        }
-    </style>
+<h1>Retrieved Articles</h1>
 
-    <h1>Retrieved Articles</h1>
-
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Created</th>
-            <th>Media</th>
-        </tr>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Created</th>
+        <th>Media</th>
+    </tr>
 
         <?php foreach ($results as $media): ?>
-        <tr>
-            <td><?= $media->media_id ?> </td>
-            <td><?= $media->media_title ?></td>
-            <td><?= $media->created ?></td>
-            <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'height' => '100px', 'width' => '100px']) ?></td>
-        </tr>
+    <tr>
+        <td><?= $media->media_id ?> </td>
+        <td><?= $media->media_title ?></td>
+        <td><?= $media->created ?></td>
+        <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'height' => '100px', 'width' => '100px']) ?></td>
+    </tr>
         <?php endforeach; ?>
-    </table>
+</table>
 
-<div class= "pagination">
+<div class="pagination pagination-large">
+    <ul class="pagination">
 <?php
 echo $this->Paginator->first('< first');
 echo $this->Paginator->prev(' << ' . __('previous'));
@@ -34,6 +27,7 @@ echo $this->Paginator->numbers(['first' => 'First Page']);
 echo $this->Paginator->next(' >> ' . __('next'));
 echo $this->Paginator->last('last >');
 ?>
+    </ul>
 </div>
 <?php
 echo $this->Paginator->counter([
