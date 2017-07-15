@@ -26,15 +26,15 @@
         <?php endforeach; ?>
     </table>
 
-
-<?php/*
+<div class= "pagination">
+<?php
 echo $this->Paginator->first('< first');
 echo $this->Paginator->prev(' << ' . __('previous'));
 echo $this->Paginator->numbers(['first' => 'First Page']);
 echo $this->Paginator->next(' >> ' . __('next'));
 echo $this->Paginator->last('last >');
-*/?>
-
+?>
+</div>
 <?php
 echo $this->Paginator->counter([
     'format' => 'Page {{page}} of {{pages}}, showing {{current}} records out of
