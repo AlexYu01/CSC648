@@ -20,12 +20,12 @@
         <td><?= $media->media_id ?> </td>
         <td><?= $media->media_title ?></td>
         <td><?= $media->created ?></td>
-        <td><?= $this->Html->image($media->media_link, ['height' => '75px', 'height' => '75px']) ?></td>
+        <td><?= $this->Html->image($media->media_link, []'alt' => $media->media_title]) ?></td>
     </tr>
         <?php endforeach; ?>
 </table>
 
-<ul>
+
 <?php/*
 echo $this->Paginator->first('< first');
 echo $this->Paginator->prev(' << ' . __('previous'));
@@ -33,7 +33,6 @@ echo $this->Paginator->numbers(['first' => 'First Page']);
 echo $this->Paginator->next(' >> ' . __('next'));
 echo $this->Paginator->last('last >');
 */?>
-</ul>
 
 <?php
 echo $this->Paginator->counter([
