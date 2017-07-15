@@ -8,7 +8,7 @@ use App\Form\SearchForm;
 class ResultsController extends AppController {
 
     public $paginate = [
-        'limit' => 2
+        'limit' => 4
     ];
 
     public function index() {
@@ -27,18 +27,16 @@ class ResultsController extends AppController {
         }
         // copy paste index code starting from is post to get search bar on view
 
-        //$results = $this->Media->find('all', [
-        //    'conditions' => ['Media.media_title LIKE' => '%' . $searchTerm . '%', 'Media.type_id' => 1]]);
-        
+
         $results = $this->Media->find('all', [
-            'conditions' => ['Media.type_id' => 1, 
+            'conditions' => ['Media.type_id' => 1,
                 'OR' => ['Media.media_title LIKE' => '%' . $searchTerm . '%',
-                    'Media.media_desc LIKE' => '%' . $searchTerm . '%']]
-            ]);
+                    'Media.media_desc LIKE' => '%' . $searchTerm . '%']
+            ]
+        ]);
 
         $this->set('results', $this->paginate($results));
         $this->set(compact('contact'));
-       
     }
 
 }

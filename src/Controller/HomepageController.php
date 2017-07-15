@@ -19,7 +19,6 @@ class HomepageController extends AppController {
                 $searchTerm = $this->request->data('search');
                 $searchGenre = $this->request->data('dropDown');
 
-                $this->Flash->success($searchGenre);
                 return $this->redirect(['controller' => 'Results', 'action' => 'search', $searchTerm, $search]);
             } else {
                 // something went wrong with search.
@@ -27,7 +26,9 @@ class HomepageController extends AppController {
         }
 
         //$genreList = $this->MediaGenres->find()->select(['genre_name'])->toArray();
-        $genreList = $this->MediaGenres->find('list')->hydrate(false)->toArray();
+        $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
+                            'valueField' => 'genre_name'])
+                        ->hydrate(false)->toArray();
         $this->set(compact('search', 'genreList'));
     }
 
