@@ -20,7 +20,7 @@
         <td><?= $media->media_id ?> </td>
         <td><?= $media->media_title ?></td>
         <td><?= $media->created ?></td>
-        <td><?= $this->Html->image($media->media_link, ['height' => '75px', 'height' => '75px']);
+        <td><?= $this->Html->image($media->media_link, ['height' => '75px', 'height' => '75px']) ?></td>
     </tr>
         <?php endforeach; ?>
 </table>

@@ -26,7 +26,7 @@ class HomepageController extends AppController {
             }
         }
 
-        $genreList = $this->MediaGenres->find('list')->toArray();
+        $genreList = $this->MediaGenres->find()->select(['genre_name'])->toArray();
         $this->set(compact('search', 'genreList'));
     }
 
