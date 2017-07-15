@@ -37,6 +37,10 @@ class ResultsController extends AppController {
                 // something went wrong with search.
             }
         }
+        
+        if ($this->request->is('get')) {
+            $this->request->data('search', $searchTerm);
+        }
        
 
 
