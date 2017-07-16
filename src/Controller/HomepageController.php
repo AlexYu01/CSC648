@@ -12,7 +12,7 @@ class HomepageController extends AppController {
     }
 
     public function index() {
-        $searchFields = null;
-        $this->searchBar($searchFields); // inherited from AppController
+        
+        $this->searchBar(); // inherited from AppController
     }
 }

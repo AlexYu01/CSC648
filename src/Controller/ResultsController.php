@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Controller\AppController;
 use App\Form\SearchForm;
 
+use Cake\Network\Exception\NotFoundException;
+
 class ResultsController extends AppController {
 
     public $paginate = [
@@ -21,8 +23,8 @@ class ResultsController extends AppController {
         $this->loadModel('Media');
     }
 
-    public function search($searchFields = null) {
-        $this->searchBar($searchFields); // inherited from AppController
+    public function search() {
+        $this->searchBar(); // inherited from AppController
         $session = $this->request->session();
         $searchTerm = $session->read('searchTerm');
         $searchGenre = $session->read('searchGenre');
@@ -58,7 +60,16 @@ class ResultsController extends AppController {
                             'valueField' => 'genre_name'])
                         ->hydrate(false)->toArray();
 
-        $this->set('results', $this->paginate($results));
+	try {
+        	$this->set('results', $this->paginate($results));
+    	} catch (NotFoundException $e) {
+	return $this->redirect(['controller' => 'Results', 'action' => 'search']);
+
+
+        // Do something here like redirecting to first or last page.
+        // $this->request->getParam('paging') will give you required info.
     }
+
+}
 
 }

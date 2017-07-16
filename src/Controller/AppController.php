@@ -69,11 +69,11 @@ class AppController extends Controller {
         }
     }
 
-    public function searchBar($searchFields) {
+    public function searchBar() {
         $session = $this->request->session();
-        if ($searchFields == null) {
+        
             $searchFields = new SearchForm();
-        }
+        
         if ($this->request->is('post')) {
             if ($searchFields->execute($this->request->getData())) {
                 $searchTerm = $this->request->data('search');
@@ -83,7 +83,7 @@ class AppController extends Controller {
                 $session->write('searchGenre', $searchGenre);
 
 
-                return $this->redirect(['controller' => 'Results', 'action' => 'search', $searchFields]);
+                return $this->redirect(['controller' => 'Results', 'action' => 'search']);
             } else {
                 // something went wrong with search.
             }
