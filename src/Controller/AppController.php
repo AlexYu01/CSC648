@@ -73,6 +73,8 @@ class AppController extends Controller {
         if ($searchFields == null) {
             $searchFields = new SearchForm();
         }
+        $searchTerm = "";
+        $searchGenre = "";
         if ($this->request->is('post')) {
             if ($searchFields->execute($this->request->getData())) {
                 $searchTerm = $this->request->data('search');
@@ -86,10 +88,10 @@ class AppController extends Controller {
         }
 
         if ($this->request->is('get')) {
-            if ($searchTerm != "") {
+            if (strlen($searchTerm) > 0) {
             $this->request->data('search', $searchTerm);
             }
-            if ($searchGenre != "") {
+            if (strlen($searchGenre) > 0) {
             $this->request->data('dropDown', $searchGenre);
             }
         }
