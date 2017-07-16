@@ -69,7 +69,7 @@ class AppController extends Controller {
         }
     }
 
-    public function searchBar($searchFields = null) {
+    public function searchBar($searchFields) {
         if ($searchFields == null) {
             $searchFields = new SearchForm();
         }
