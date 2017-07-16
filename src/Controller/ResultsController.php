@@ -21,7 +21,7 @@ class ResultsController extends AppController {
         $this->loadModel('Media');
     }
 
-    public function search($searchTerm = null, $searchGenre, $searchFields = null) {
+    public function search($searchTerm = null, $searchGenre = null, $searchFields = null) {
         $this->searchBar($searchFields); // inherited from AppController
 
         if ($this->request->is('get')) {
