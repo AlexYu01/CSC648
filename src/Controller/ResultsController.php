@@ -21,16 +21,16 @@ class ResultsController extends AppController {
         $this->loadModel('Media');
     }
 
-    public function search($searchTerm = null, $searchFields = null) {
-        $this->searchBar($searchFields);
-        
+    public function search($searchTerm = null, $searchGenre, $searchFields = null) {
+        $this->searchBar($searchFields); // inherited from AppController
+
         if ($this->request->is('get')) {
             $this->request->data('search', $searchTerm);
-            $this->request->data('dropDown', 'Beach');
+            $this->request->data('dropDown', $searchGenre);
         }
-        
+
         $results = $this->Media->find('all', [
-            'conditions' => ['Media.type_id' => 1,
+            'conditions' => ['Media.type_id' => 1, 'Media.genre_id' => $searchGenre,
                 'OR' => ['Media.media_title LIKE' => '%' . $searchTerm . '%',
                     'Media.media_desc LIKE' => '%' . $searchTerm . '%']
             ]
@@ -43,7 +43,7 @@ class ResultsController extends AppController {
         $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
                             'valueField' => 'genre_name'])
                         ->hydrate(false)->toArray();
-        
+
         $this->set('results', $this->paginate($results));
     }
 

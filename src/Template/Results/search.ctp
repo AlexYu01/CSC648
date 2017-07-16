@@ -33,7 +33,7 @@ echo $this->Form->end();
 echo $this->Paginator->first('< first');
 echo $this->Paginator->prev(' << ' . __('previous'));
 echo $this->Paginator->numbers(['first' => 'First Page']);
-echo $this->Paginator->next(' >> ' . __('next'));
+echo $this->Paginator->next(__('next') . ' >> ');
 echo $this->Paginator->last('last >');
 ?>
     </ul>
