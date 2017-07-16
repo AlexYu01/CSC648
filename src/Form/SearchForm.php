@@ -10,7 +10,7 @@ class SearchForm extends Form {
 
     protected function _buildSchema(Schema $schema) {
         return $schema->addField('search', 'string')
-         ->addField('dropDown', ['type' => 'string']);
+                        ->addField('dropDown', ['type' => 'string']);
         // ->addField('body', ['type' => 'text']);
     }
 

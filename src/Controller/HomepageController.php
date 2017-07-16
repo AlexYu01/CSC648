@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
-
 class HomepageController extends AppController {
 
     public function initialize() {
@@ -12,7 +11,8 @@ class HomepageController extends AppController {
     }
 
     public function index() {
-        
+
         $this->searchBar(); // inherited from AppController
     }
+
 }

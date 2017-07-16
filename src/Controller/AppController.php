@@ -71,17 +71,14 @@ class AppController extends Controller {
 
     public function searchBar() {
         $session = $this->request->session();
-        
-            $searchFields = new SearchForm();
-        
+
+        $searchFields = new SearchForm();
+
         if ($this->request->is('post')) {
             if ($searchFields->execute($this->request->getData())) {
-                $searchTerm = $this->request->data('search');
-                $searchGenre = $this->request->data('dropDown');
 
-                $session->write('searchTerm', $searchTerm);
-                $session->write('searchGenre', $searchGenre);
-
+                $session->write('searchTerm', $this->request->data('search'));
+                $session->write('searchGenre', $this->request->data('dropDown'));
 
                 return $this->redirect(['controller' => 'Results', 'action' => 'search']);
             } else {
