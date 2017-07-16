@@ -29,12 +29,24 @@ class ResultsController extends AppController {
             $this->request->data('dropDown', $searchGenre);
         }
 
+    
+            
         $results = $this->Media->find('all', [
             'conditions' => ['Media.type_id' => 1,
                 'OR' => ['Media.media_title LIKE' => '%' . $searchTerm . '%',
                     'Media.media_desc LIKE' => '%' . $searchTerm . '%']
             ]
         ]);
+        
+       /* } else {
+            $results = $this->Media->find('all', [
+            'conditions' => ['Media.type_id' => 1, 'Media.media_genre' => $searchGenre,
+                'OR' => ['Media.media_title LIKE' => '%' . $searchTerm . '%',
+                    'Media.media_desc LIKE' => '%' . $searchTerm . '%']
+            ]
+        ]); */
+            
+        
 
         if ($results->isEmpty()) {
             $results = $this->Media->find('all', ['conditions' => ['Media.type_id' => 1]]);
