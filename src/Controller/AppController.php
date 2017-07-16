@@ -74,7 +74,7 @@ class AppController extends Controller {
             $searchFields = new SearchForm();
         }
         if ($this->request->is('post')) {
-            if ($search->execute($this->request->getData())) {
+            if ($searchFields->execute($this->request->getData())) {
                 $searchTerm = $this->request->data('search');
                 $searchGenre = $this->request->data('dropDown');
 
