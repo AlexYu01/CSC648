@@ -21,9 +21,13 @@ class ResultsController extends AppController {
         $this->loadModel('Media');
     }
 
-    public function search($searchTerm = null, $searchGenre = null, $searchFields = null) {
+    public function search($searchFields = null) {
         $this->searchBar($searchFields); // inherited from AppController
 
+        $session = $this->request->session();
+        $searchTerm = $session->read('searchTerm');
+        $searchGenre = $session->read('searchGenre');
+        
         $results = $this->Media->find('all', [
             'conditions' => ['Media.type_id' => 1,
                 'OR' => ['Media.media_title LIKE' => '%' . $searchTerm . '%',
