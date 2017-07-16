@@ -13,6 +13,6 @@ class HomepageController extends AppController {
     }
 
     public function index() {
-        searchBar();
+        $this->searchBar();
     }
 }
