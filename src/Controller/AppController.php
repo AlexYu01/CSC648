@@ -73,26 +73,16 @@ class AppController extends Controller {
         if ($searchFields == null) {
             $searchFields = new SearchForm();
         }
-        $searchTerm = "";
-        $searchGenre = "";
+
         if ($this->request->is('post')) {
             if ($searchFields->execute($this->request->getData())) {
                 $searchTerm = $this->request->data('search');
                 $searchGenre = $this->request->data('dropDown');
-                
+
 
                 return $this->redirect(['controller' => 'Results', 'action' => 'search', $searchTerm, $searchGenre, $searchFields]);
             } else {
                 // something went wrong with search.
-            }
-        }
-
-        if ($this->request->is('get')) {
-            if (strlen($searchTerm) > 0) {
-            $this->request->data('search', $searchTerm);
-            }
-            if (strlen($searchGenre) > 0) {
-            $this->request->data('dropDown', $searchGenre);
             }
         }
 
