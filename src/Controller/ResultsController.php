@@ -30,7 +30,7 @@ class ResultsController extends AppController {
         }
 
         $results = $this->Media->find('all', [
-            'conditions' => ['Media.type_id' => 1, 'Media.genre_id' => $searchGenre,
+            'conditions' => ['Media.type_id' => 1,
                 'OR' => ['Media.media_title LIKE' => '%' . $searchTerm . '%',
                     'Media.media_desc LIKE' => '%' . $searchTerm . '%']
             ]

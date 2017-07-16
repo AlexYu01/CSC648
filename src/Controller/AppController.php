@@ -77,6 +77,7 @@ class AppController extends Controller {
             if ($searchFields->execute($this->request->getData())) {
                 $searchTerm = $this->request->data('search');
                 $searchGenre = $this->request->data('dropDown');
+                
 
                 return $this->redirect(['controller' => 'Results', 'action' => 'search', $searchTerm, $searchGenre, $searchFields]);
             } else {
