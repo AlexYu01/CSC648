@@ -21,8 +21,13 @@ class ResultsController extends AppController {
         $this->loadModel('Media');
     }
 
-    public function search($searchTerm = null) {
-        $this->searchBar();
+    public function search($searchTerm = null, $searchFields = null) {
+        $this->searchBar($searchFields);
+        
+        if ($this->request->is('get')) {
+            $this->request->data('search', $searchTerm);
+            $this->request->data('dropDown', 'Beach');
+        }
         
         $results = $this->Media->find('all', [
             'conditions' => ['Media.type_id' => 1,

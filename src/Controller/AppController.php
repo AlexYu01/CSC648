@@ -69,23 +69,21 @@ class AppController extends Controller {
         }
     }
 
-    public function searchBar() {
-        $searchFields = new SearchForm();
+    public function searchBar($searchFields = null) {
+        if ($searchFields == null) {
+            $searchFields = new SearchForm();
+        }
         if ($this->request->is('post')) {
             if ($search->execute($this->request->getData())) {
                 $searchTerm = $this->request->data('search');
                 $searchGenre = $this->request->data('dropDown');
 
-                return $this->redirect(['controller' => 'Results', 'action' => 'search', $searchTerm]);
+                return $this->redirect(['controller' => 'Results', 'action' => 'search', $searchTerm, $searchFields]);
             } else {
                 // something went wrong with search.
             }
         }
 
-        if ($this->request->is('get')) {
-            $this->request->data('search', $searchTerm);
-            $this->request->data('dropDown', 'Beach');
-        }
 
         $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
                             'valueField' => 'genre_name'])

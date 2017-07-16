@@ -12,6 +12,6 @@ class HomepageController extends AppController {
     }
 
     public function index() {
-        $this->searchBar(); // inherited from AppController
+        $this->searchBar($searchFields); // inherited from AppController
     }
 }
