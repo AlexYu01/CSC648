@@ -70,9 +70,7 @@ class AppController extends Controller {
     }
 
     public function searchBar() {
-        if ($searchFields == null) {
-            $searchFields = new SearchForm();
-        }
+        $searchFields = new SearchForm();
         if ($this->request->is('post')) {
             if ($search->execute($this->request->getData())) {
                 $searchTerm = $this->request->data('search');
@@ -88,7 +86,7 @@ class AppController extends Controller {
             $this->request->data('search', $searchTerm);
             $this->request->data('dropDown', 'Beach');
         }
-        
+
         $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
                             'valueField' => 'genre_name'])
                         ->hydrate(false)->toArray();
