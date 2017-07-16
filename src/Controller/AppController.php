@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -12,11 +13,11 @@
  * @since     0.2.9
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-
 use App\Form\SearchForm;
 
 /**
@@ -27,8 +28,7 @@ use App\Form\SearchForm;
  *
  * @link http://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller
-{
+class AppController extends Controller {
 
     /**
      * Initialization hook method.
@@ -39,12 +39,13 @@ class AppController extends Controller
      *
      * @return void
      */
-    public function initialize()
-    {
+    public function initialize() {
         parent::initialize();
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
+        $this->loadModel('MediaGenres');
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -60,32 +61,38 @@ class AppController extends Controller
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
-    public function beforeRender(Event $event)
-    {
+    public function beforeRender(Event $event) {
         if (!array_key_exists('_serialize', $this->viewVars) &&
-            in_array($this->response->type(), ['application/json', 'application/xml'])
+                in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
             $this->set('_serialize', true);
         }
     }
-    
+
     public function searchBar() {
-                $search = new SearchForm();
+        if ($searchFields == null) {
+            $searchFields = new SearchForm();
+        }
         if ($this->request->is('post')) {
             if ($search->execute($this->request->getData())) {
                 $searchTerm = $this->request->data('search');
                 $searchGenre = $this->request->data('dropDown');
 
-                return $this->redirect(['controller' => 'Results', 'action' => 'search', $searchTerm, $search]);
+                return $this->redirect(['controller' => 'Results', 'action' => 'search', $searchTerm]);
             } else {
                 // something went wrong with search.
             }
         }
 
+        if ($this->request->is('get')) {
+            $this->request->data('search', $searchTerm);
+            $this->request->data('dropDown', 'Beach');
+        }
+        
         $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
                             'valueField' => 'genre_name'])
                         ->hydrate(false)->toArray();
-        $this->set(compact('search', 'genreList'));
+        $this->set(compact('searchFields', 'genreList'));
     }
 
 }

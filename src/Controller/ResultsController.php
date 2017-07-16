@@ -19,31 +19,11 @@ class ResultsController extends AppController {
         parent::initialize();
         $this->loadComponent('Paginator');
         $this->loadModel('Media');
-        $this->loadModel('MediaGenres');
     }
 
-    public function search($searchTerm = null, $search = null) {
-        if ($search == null) {
-            $search = new SearchForm();
-        }
-
-        if ($this->request->is('post')) {
-            if ($search->execute($this->request->getData())) {
-                $searchTerm = $this->request->data('search');
-                $searchGenre = $this->request->data('dropDown');
-
-                return $this->redirect(['controller' => 'Results', 'action' => 'search', $searchTerm, $search]);
-            } else {
-                // something went wrong with search.
-            }
-        }
-
-        if ($this->request->is('get')) {
-            $this->request->data('search', $searchTerm);
-        }
-
-
-
+    public function search($searchTerm = null) {
+        $this->searchBar();
+        
         $results = $this->Media->find('all', [
             'conditions' => ['Media.type_id' => 1,
                 'OR' => ['Media.media_title LIKE' => '%' . $searchTerm . '%',
@@ -60,7 +40,6 @@ class ResultsController extends AppController {
                         ->hydrate(false)->toArray();
         
         $this->set('results', $this->paginate($results));
-        $this->set(compact('search', 'genreList'));
     }
 
 }

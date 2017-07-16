@@ -9,10 +9,9 @@ class HomepageController extends AppController {
 
     public function initialize() {
         parent::initialize();
-        $this->loadModel('MediaGenres');
     }
 
     public function index() {
-        $this->searchBar();
+        $this->searchBar(); // inherited from AppController
     }
 }
