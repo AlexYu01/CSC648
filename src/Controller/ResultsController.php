@@ -26,7 +26,7 @@ class ResultsController extends AppController {
         if ($search == null) {
             $search = new SearchForm();
         }
-        
+
         if ($this->request->is('post')) {
             if ($search->execute($this->request->getData())) {
                 $searchTerm = $this->request->data('search');
@@ -37,11 +37,11 @@ class ResultsController extends AppController {
                 // something went wrong with search.
             }
         }
-        
+
         if ($this->request->is('get')) {
             $this->request->data('search', $searchTerm);
         }
-       
+
 
 
         $results = $this->Media->find('all', [
@@ -50,18 +50,16 @@ class ResultsController extends AppController {
                     'Media.media_desc LIKE' => '%' . $searchTerm . '%']
             ]
         ]);
-        
+
         if ($results->isEmpty()) {
             $results = $this->Media->find('all', ['conditions' => ['Media.type_id' => 1]]);
         }
 
-        $this->set('results', $this->paginate($results));
-        $this->set(compact('contact'));
-        
-        
         $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
                             'valueField' => 'genre_name'])
                         ->hydrate(false)->toArray();
+        
+        $this->set('results', $this->paginate($results));
         $this->set(compact('search', 'genreList'));
     }
 
