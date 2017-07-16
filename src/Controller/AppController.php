@@ -85,6 +85,14 @@ class AppController extends Controller {
             }
         }
 
+        if ($this->request->is('get')) {
+            if ($searchTerm != "") {
+            $this->request->data('search', $searchTerm);
+            }
+            if ($searchGenre != "") {
+            $this->request->data('dropDown', $searchGenre);
+            }
+        }
 
         $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
                             'valueField' => 'genre_name'])

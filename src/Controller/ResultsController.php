@@ -23,13 +23,6 @@ class ResultsController extends AppController {
 
     public function search($searchTerm = null, $searchGenre = null, $searchFields = null) {
         $this->searchBar($searchFields); // inherited from AppController
-
-        if ($this->request->is('get')) {
-            $this->request->data('search', $searchTerm);
-            $this->request->data('dropDown', $searchGenre);
-        }
-
-    
             
         $results = $this->Media->find('all', [
             'conditions' => ['Media.type_id' => 1,
