@@ -47,6 +47,8 @@ class AppController extends Controller {
 
         $this->loadModel('MediaGenres');
 
+        $session = $this->request->session();
+
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -73,12 +75,11 @@ class AppController extends Controller {
         if ($searchFields == null) {
             $searchFields = new SearchForm();
         }
-$session = $this->request->session();
         if ($this->request->is('post')) {
             if ($searchFields->execute($this->request->getData())) {
                 $searchTerm = $this->request->data('search');
                 $searchGenre = $this->request->data('dropDown');
-                
+
                 $session->write('searchTerm', $searchTerm);
                 $session->write('searchGenre', $searchGenre);
 
