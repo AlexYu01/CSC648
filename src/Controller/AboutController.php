@@ -20,12 +20,30 @@ class AboutController extends AppController
         
     }
     
+    public function andrew(){
+    
+    }
+  
+    public function tiffany(){
+
+    }
+
+    
     public function haotian()
     {
 
     }
 
-   
+    public function calvin(){
+    }
 
-    
+    public function teng() {
+      
+    }
+  
+    public function cody(){
+
+        
+    }
+
 }
