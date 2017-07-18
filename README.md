@@ -79,9 +79,11 @@ You should see at leaset two files 'index.ctp' and 'andy.ctp'
 Create your own .ctp file this will be your about page.
 
 
-##Milestone 3
+### Milestone 3
 Run the following command in your account to sync with master branch
+
 ```git pull origin master ```
+
 You might get file conflicts fix them manually
 
 
