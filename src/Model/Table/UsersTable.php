@@ -9,6 +9,11 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
+<<<<<<< HEAD
+=======
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
+ *
+>>>>>>> 1afd4d745843686236e853b048040ef26b6b0e8e
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\User[] newEntities(array $data, array $options = [])
@@ -33,6 +38,14 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('user_id');
         $this->setPrimaryKey('user_id');
+<<<<<<< HEAD
+=======
+
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
+        ]);
+>>>>>>> 1afd4d745843686236e853b048040ef26b6b0e8e
     }
 
     /**
@@ -44,12 +57,17 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
+<<<<<<< HEAD
             ->integer('userID')
             ->allowEmpty('userID', 'create')
             ->add('userID', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
             ->allowEmpty('username')
+=======
+            ->requirePresence('username', 'create')
+            ->notEmpty('username')
+>>>>>>> 1afd4d745843686236e853b048040ef26b6b0e8e
             ->add('username', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
@@ -63,6 +81,7 @@ class UsersTable extends Table
             ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
+<<<<<<< HEAD
             ->integer('CreatedDate')
             ->requirePresence('CreatedDate', 'create')
             ->notEmpty('CreatedDate');
@@ -78,6 +97,25 @@ class UsersTable extends Table
         $validator
             ->requirePresence('Salt', 'create')
             ->notEmpty('Salt');
+=======
+            ->dateTime('registered_date')
+            ->allowEmpty('registered_date');
+
+        $validator
+            ->dateTime('last_login_date')
+            ->allowEmpty('last_login_date');
+
+        $validator
+            ->allowEmpty('token');
+
+        $validator
+            ->allowEmpty('salt');
+
+        $validator
+            ->integer('role')
+            ->requirePresence('role', 'create')
+            ->notEmpty('role');
+>>>>>>> 1afd4d745843686236e853b048040ef26b6b0e8e
 
         return $validator;
     }
@@ -93,7 +131,11 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
+<<<<<<< HEAD
         $rules->add($rules->isUnique(['userID']));
+=======
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
+>>>>>>> 1afd4d745843686236e853b048040ef26b6b0e8e
 
         return $rules;
     }

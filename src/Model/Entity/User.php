@@ -6,6 +6,7 @@ use Cake\ORM\Entity;
 /**
  * User Entity
  *
+<<<<<<< HEAD
  * @property int $userID
  * @property string $username
  * @property string $password
@@ -14,6 +15,19 @@ use Cake\ORM\Entity;
  * @property int $LastLoginDate
  * @property string $TOKEN
  * @property string $Salt
+=======
+ * @property int $user_id
+ * @property string $username
+ * @property string $password
+ * @property string $email
+ * @property \Cake\I18n\FrozenTime $registered_date
+ * @property \Cake\I18n\FrozenTime $last_login_date
+ * @property string $token
+ * @property string $salt
+ * @property int $role
+ *
+ * @property \App\Model\Entity\User $user
+>>>>>>> 1afd4d745843686236e853b048040ef26b6b0e8e
  */
 class User extends Entity
 {
@@ -38,6 +52,11 @@ class User extends Entity
      * @var array
      */
     protected $_hidden = [
+<<<<<<< HEAD
         'password'
+=======
+        'password',
+        'token'
+>>>>>>> 1afd4d745843686236e853b048040ef26b6b0e8e
     ];
 }

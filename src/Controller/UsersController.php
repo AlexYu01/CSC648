@@ -12,14 +12,16 @@ use App\Controller\AppController;
  */
 class UsersController extends AppController
 {
-    
+
     /**
      * Index method
      *
      * @return \Cake\Http\Response|void
      */
     public function index()
-    {        
+    {
+        $this->Users->Behaviors->load('Containable');
+        
         $users = $this->paginate($this->Users);
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
@@ -33,18 +35,13 @@ class UsersController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
-    {        
+    {
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
-        
+
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
-        
-        $this->loadModel('Genre');
-        $genre = $this->Genre->get($id);
-        
-        $this->set('genre', $genre);
     }
 
     /**
