@@ -92,7 +92,7 @@ class AppController extends Controller {
     public function searchBar() {
         $session = $this->request->session();
 
-        $searchFields = searchFieldsInstance();
+        $searchFields = AppController::searchFieldsInstance();
 
         if ($this->request->is('post')) {
             if ($searchFields->execute($this->request->getData())) {
@@ -110,7 +110,7 @@ class AppController extends Controller {
                             'valueField' => 'genre_name'])
                         ->hydrate(false)->toArray();
         // send genreList to view.
-        $this->set(compact('genreList'));
+        $this->set(compact('searchFields','genreList'));
     }
 
 }
