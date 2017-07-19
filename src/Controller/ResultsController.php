@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use App\Form\SearchForm;
 use Cake\Network\Exception\NotFoundException;
 
 class ResultsController extends AppController {
@@ -29,8 +28,11 @@ class ResultsController extends AppController {
         $searchTerm = $session->read('searchTerm');
         $searchGenre = $session->read('searchGenre');
 
-        // user searched with genre and a term
-        if (strlen($searchGenre) > 0) {
+        $genreSelected = (!empty($searchGenre));
+        $results = null;
+
+        // user searched with genre and a term.
+        if ($genreSelected) {
             $results = $this->Media->find('all', [
                 'conditions' => ['Media.type_id' => 1,
                     'Media.genre_id' => $searchGenre, 'OR' =>
@@ -39,14 +41,23 @@ class ResultsController extends AppController {
                 ]
             ]);
 
+
             /* Raw query form for above
              * SELECT *
              * FROM media
              * WHERE type_id = 1 AND genre_id = $searchGenre AND 
              * (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%;
              */
-            
-        // user only entered a term
+
+            if (!empty($searchTerm)) {
+                $session->write('searchResults', 'Showing results for '
+                        . $searchTerm . ' under ' . $searchGenre . '!');
+            } else {
+                $session->write('searchResults', 'Showing results under '
+                        . $searchGenre . '!');
+            }
+
+            // user only entered a term
         } else {
             $results = $this->Media->find('all', [
                 'conditions' => ['Media.type_id' => 1, 'OR' =>
@@ -59,35 +70,39 @@ class ResultsController extends AppController {
              * SELECT *
              * FROM media
              * WHERE type_id = 1 AND 
-             * (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%;
+             * (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%);
              */
+            $session->write('searchResults', 'Showing results for '
+                    . $searchTerm . '!');
         }
 
 
-        // User search returned empty. Give them top sellers under the genre 
-        // they chose if applicable else return top sellers in all genres.
-         
+        // User search term returned empty results. Give them top sellers under 
+        // the genre they chose if applicable else return top sellers in all
+        // genres.
+
         if ($results->isEmpty()) {
-            if (strlen($searchGenre) > 0) {
+            if ($genreSelected) {
                 $results = $this->Media->find('all', [
-                    'conditions' => ['Media.type_id' => 1,
-                        'Media.genre_id' => $searchGenre, 'OR' =>
-                        ['Media.media_title LIKE' => '%' . $searchTerm . '%',
-                            'Media.media_desc LIKE' => '%' . $searchTerm . '%']
-                    ]
-                ])
-                        ->order(['Media.sold_count' => 'DSC']);
-                
+                            'conditions' => ['Media.type_id' => 1,
+                                'Media.genre_id' => $searchGenre
+                            ]
+                        ])
+                        ->order(['Media.sold_count' => 'DESC']);
+
                 /* Raw query form for above
                  * SELECT *
                  * FROM media
                  * WHERE type_id = 1 AND genre_id = $searchGenre
                  * ORDER BY Media.sold_count DESC;
                  */
+                $session->write('searchResults', 'There were no results for '
+                        . $searchTerm . ' here are some top sellers under '
+                        . $searchGenre . '!');
             } else {
                 $results = $this->Media->find('all', ['conditions' =>
-                    ['Media.type_id' => 1]])
-                        ->order(['Media.sold_count' => 'DSC']);
+                            ['Media.type_id' => 1]])
+                        ->order(['Media.sold_count' => 'DESC']);
 
                 /* Raw query form for above
                  * SELECT *
@@ -95,9 +110,11 @@ class ResultsController extends AppController {
                  * WHERE type_id = 1
                  * ORDER BY Media.sold_count DESC;
                  */
+                $session->write('searchResults', 'There were no results for '
+                        . $searchTerm . ' here are some top sellers!');
             }
         }
-        
+
         // fills in search fields with user's input on results page
         if ($this->request->is('get')) {
             $this->request->data('search', $searchTerm);
