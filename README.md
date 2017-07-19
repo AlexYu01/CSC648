@@ -12,7 +12,7 @@ framework by default. You can, however, replace it with any other library or
 custom styles.
 
 # csc648_team5
-I have created a About page for our group at here: [Group 5 About Page](http://sfsuse.com/~su17g05/)
+About pages for our group member can be found here: [Group 5 About Page](http://sfsuse.com/~su17g05/)
 
 ### M0
 Run the following commands under 'public_html' to clone the project to your individual shell account for testing
