@@ -36,7 +36,7 @@ $cakeDescription = 'Group 5 About Page';
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
-                <h1><?= $this->Html->link('Group 5','/pages')?></h1>
+                <h1><?= $this->Html->link('Picturesque','/')?></h1>
             </li>
         </ul>
     </nav>
