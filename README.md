@@ -64,3 +64,4 @@ You might get file conflicts fix them manually
  ### Item Page
     Controller Name: Item
     Default View: index
+    Required Data: media_id
