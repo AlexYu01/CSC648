@@ -32,23 +32,17 @@ class ResultsController extends AppController {
         $searchTermExist = (!empty($searchTerm));
         $results = null;
 
+        
+        
         // user searched with genre and a term.
         if ($genreSelected) {
-            $results = $this->Media->find(['all', 'conditions' =>
-                ['type_id' => 1, 'genre_id' => $searchGenre,
-                    'OR' => ['media_title LIKE' => '%' . $searchTerm . '%',
-                        'media_desc LIKE' => '%' . $searchTerm . '%']
-                ]])->select(['media_id', 'media_title', 'upload_date', 
-                    'media_link', 'media_desc', 'u.username'])->
-                    join([
-                        'table' => 'users',
-                        'alias' => 'u',
-                        'type' => 'INNER',
-                        'conditions' => 'u.user_id = media.author_id',
-                    ]);
+            $results = $this->Media->find(['all', 'conditions' => 
+                ['type_id' => 1, 'genre_id' => $searchGenre, 'OR' => 
+                    ['media_title LIKE' => '%' . $searchTerm . '%', 
+                        'media_desc LIKE' => '%' . $searchTerm . '%']]]);
 
-
-            /* Raw query form for above
+            /* Raw query form for above(part of the query is towards the bottom 
+             * of search)
              * SELECT media_id, media_title, upload_date, media_link, price, 
              *      media_desc, u.username
              * FROM media INNER JOIN users u ON u.user_id = author_id
@@ -58,9 +52,8 @@ class ResultsController extends AppController {
 
             //grab the actual name of the genre chosen
             $genre = $this->MediaGenres->find()->select(['genre_name'])->
-                    where(['genre_id' => $searchGenre])->toArray();
+                            where(['genre_id' => $searchGenre])->toArray();
 
-            
             foreach ($genre as $genreNames) {
                 $genreName = $genreNames->genre_name;
             }
@@ -73,23 +66,17 @@ class ResultsController extends AppController {
                         . $genreName . '\'');
             }
 
+            
+            
             // user only entered a term
         } else {
-            $results = $this->Media->find('all', [
-                'conditions' => ['type_id' => 1, 'OR' =>
-                    ['media_title LIKE' => '%' . $searchTerm . '%',
-                        'media_desc LIKE' => '%' . $searchTerm . '%']
-                ]
-            ])->select(['media_id', 'media_title', 'upload_date', 
-                    'media_link', 'media_desc', 'u.username'])->
-                    join([
-                        'table' => 'users',
-                        'alias' => 'u',
-                        'type' => 'INNER',
-                        'conditions' => 'u.user_id = media.author_id',
-                    ]);
+            $results = $this->Media->find('all', ['conditions' => 
+                ['type_id' => 1, 'OR' => ['media_title LIKE' => 
+                    '%' . $searchTerm . '%', 'media_desc LIKE' => 
+                    '%' . $searchTerm . '%']]]);
 
-            /* Raw query form for above
+            /* Raw query form for above(part of the query is towards the bottom 
+             * of search())
              * SELECT media_id, media_title, upload_date, media_link, price, 
              *      media_desc, u.username
              * FROM media INNER JOIN users u ON u.user_id = author_id
@@ -105,6 +92,7 @@ class ResultsController extends AppController {
             }
         }
 
+        
 
         // User search term returned empty results. Give them top sellers under 
         // the genre they chose if applicable else return top sellers in all
@@ -112,19 +100,12 @@ class ResultsController extends AppController {
 
         if ($results->isEmpty()) {
             if ($genreSelected) {
-                $results = $this->Media->find('all', ['conditions' =>
-                            ['type_id' => 1, 'genre_id' => $searchGenre]])
-                        ->order(['sold_count' => 'DESC'])
-                        ->select(['media_id', 'media_title', 'upload_date', 
-                    'media_link', 'media_desc', 'u.username'])->
-                    join([
-                        'table' => 'users',
-                        'alias' => 'u',
-                        'type' => 'INNER',
-                        'conditions' => 'u.user_id = media.author_id',
-                    ]);
+                $results = $this->Media->find('all', ['conditions' => 
+                    ['type_id' => 1, 'genre_id' => $searchGenre]])
+                        ->order(['sold_count' => 'DESC']);
 
-                /* Raw query form for above
+                /* Raw query form for above(part of the query is towards the 
+                 * bottom of search())
                  * SELECT media_id, media_title, upload_date, media_link, price, 
                  *      media_desc, u.username
                  * FROM media INNER JOIN users u ON u.user_id = author_id
@@ -135,22 +116,17 @@ class ResultsController extends AppController {
                 $session->write('searchResults', 'There were no results for \''
                         . $searchTerm . '\' here are some top sellers under \''
                         . $genreName . '\'');
+
                 
+                              
                 // user did not select a genre and term did not match anything
             } else {
-                $results = $this->Media->find('all', ['conditions' =>
-                            ['type_id' => 1]])
-                        ->order(['sold_count' => 'DESC'])
-                        ->select(['media_id', 'media_title', 'upload_date', 
-                    'media_link', 'media_desc', 'u.username'])->
-                    join([
-                        'table' => 'users',
-                        'alias' => 'u',
-                        'type' => 'INNER',
-                        'conditions' => 'u.user_id = media.author_id',
-                    ]);
+                $results = $this->Media->find('all', ['conditions' => 
+                    ['type_id' => 1]])
+                        ->order(['sold_count' => 'DESC']);
 
-                /* Raw query form for above
+                /* Raw query form for above(part of the query is towards the 
+                 * bottom)
                  * SELECT media_id, media_title, upload_date, media_link, price, 
                  *      media_desc, u.username
                  * FROM media INNER JOIN users u ON u.user_id = author_id
@@ -162,13 +138,31 @@ class ResultsController extends AppController {
                         . $searchTerm . '\' here are some top sellers');
             }
         }
+        
+        
+        
+        /* Added on query at the end for all queries. Having it here rather than 
+         * four different areas of the if-else statement queries. */
+        
+        $results->select(['media_id', 'media_title', 'upload_date', 
+            'media_link', 'media_desc', 'u.username'])
+                ->join([
+                    'table' => 'users', 
+                    'alias' => 'u', 
+                    'type' => 'INNER', 
+                    'conditions' => 'u.user_id = Media.author_id',
+                    ]);
 
+        
+        
         // fills in search fields with user's input on results page
         if ($this->request->is('get')) {
             $this->request->data('search', $searchTerm);
             $this->request->data('dropDown', $searchGenre);
         }
 
+        
+                
         try {
             // send results as paginated to view
             $this->set('results', $this->paginate($results));
