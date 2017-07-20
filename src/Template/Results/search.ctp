@@ -7,12 +7,18 @@ echo $this->Form->button('Search');
 echo $this->Form->end();
 ?>
 
+<h3><?php 
+$session = $this->request->session();
+        echo $session->read('searchResults');
+        ?>
+</h3>
 <table>
     <tr>
         <th>Id</th>
         <th>Title</th>
         <th>Description</th>
         <th>Created</th>
+        <th>Author</th>
         <th>Media</th>
     </tr>
 
@@ -22,6 +28,7 @@ echo $this->Form->end();
         <td><?= $media->media_title ?></td>
         <td><?= $media->media_desc ?></td>
         <td><?= $media->upload_date->format(DATE_RFC850) ?></td>
+        <td><?= $media->u['username'] ?></td>
         <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'height' => '200px', 'width' => '200px']) ?></td>
     </tr>
         <?php endforeach; ?>

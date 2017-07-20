@@ -68,11 +68,31 @@ class AppController extends Controller {
             $this->set('_serialize', true);
         }
     }
-
+    
+    /*
+     * Implementation of a singleton for searchFields. Static variables in 
+     * functions are only initialized in the first call of the function for PHP.
+     * 
+     * @return instance of searchFields
+     */
+    public static function searchFieldsInstance() {
+        static $searchFields = null; 
+        if ($searchFields === null) {
+            $searchFields = new SearchForm();
+        }
+        return $searchFields;
+    }
+    
+    /*
+     * Creates a modelless form as a search bar. Sessions allow the storing of 
+     * data to be accessed across Controllers/Views/Helpers/Cells/Components.
+     * $genreList is an array of containing the names of genres that will 
+     * populate the dropdown.
+     */
     public function searchBar() {
         $session = $this->request->session();
 
-        $searchFields = new SearchForm();
+        $searchFields = AppController::searchFieldsInstance();
 
         if ($this->request->is('post')) {
             if ($searchFields->execute($this->request->getData())) {
@@ -89,7 +109,8 @@ class AppController extends Controller {
         $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
                             'valueField' => 'genre_name'])
                         ->hydrate(false)->toArray();
-        $this->set(compact('searchFields', 'genreList'));
+        // send genreList to view.
+        $this->set(compact('searchFields','genreList'));
     }
 
 }
