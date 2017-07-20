@@ -115,7 +115,7 @@ class ResultsController extends AppController {
                  */
 
                 $session->write('searchResults', 'There were no results for \''
-                        . $searchTerm . '\' here are some top sellers under \''
+                        . $searchTerm . '\'. Here are some top sellers under \''
                         . $genreName . '\'');
 
                 
@@ -136,7 +136,7 @@ class ResultsController extends AppController {
                  */
 
                 $session->write('searchResults', 'There were no results for \''
-                        . $searchTerm . '\' here are some top sellers');
+                        . $searchTerm . '\'. Here are some top sellers');
             }
         }
         
