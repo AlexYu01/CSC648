@@ -7,11 +7,8 @@ echo $this->Form->button('Search');
 echo $this->Form->end();
 ?>
 
-<h3><?php 
-$session = $this->request->session();
-        echo $session->read('searchResults');
-        ?>
-</h3>
+<h3><?php echo $resultReport ?></h3>
+
 <table>
     <tr>
         <th>Id</th>
