@@ -36,10 +36,11 @@ class ResultsController extends AppController {
         
         // user searched with genre and a term.
         if ($genreSelected) {
-            $results = $this->Media->find(['all', 'conditions' => 
-                ['type_id' => 1, 'genre_id' => $searchGenre, 'OR' => 
-                    ['media_title LIKE' => '%' . $searchTerm . '%', 
-                        'media_desc LIKE' => '%' . $searchTerm . '%']]]);
+            $results = $this->Media->find('all', ['conditions' => 
+                ['type_id' => 1, 'genre_id' => $searchGenre,
+                    'OR' => ['media_title LIKE' => 
+                    '%' . $searchTerm . '%', 'media_desc LIKE' => 
+                    '%' . $searchTerm . '%']]]);
 
             /* Raw query form for above(part of the query is towards the bottom 
              * of search)
