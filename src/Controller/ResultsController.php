@@ -34,17 +34,24 @@ class ResultsController extends AppController {
 
         // user searched with genre and a term.
         if ($genreSelected) {
-            $results = $this->Media->find('all', ['conditions' =>
+            $results = $this->Media->find(['all', 'conditions' =>
                 ['type_id' => 1, 'genre_id' => $searchGenre,
                     'OR' => ['media_title LIKE' => '%' . $searchTerm . '%',
                         'media_desc LIKE' => '%' . $searchTerm . '%']
-                ]
-            ]);
+                ]])->select(['media_id', 'media_title', 'upload_date', 
+                    'media_link', 'media_desc', 'u.username'])->
+                    join([
+                        'table' => 'users',
+                        'alias' => 'u',
+                        'type' => 'INNER',
+                        'conditions' => 'u.user_id = media.author_id',
+                    ]);
 
 
             /* Raw query form for above
-             * SELECT *
-             * FROM media
+             * SELECT media_id, media_title, upload_date, media_link, price, 
+             *      media_desc, u.username
+             * FROM media INNER JOIN users u ON u.user_id = author_id
              * WHERE type_id = 1 AND genre_id = $searchGenre AND 
              * (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%;
              */
@@ -73,11 +80,19 @@ class ResultsController extends AppController {
                     ['media_title LIKE' => '%' . $searchTerm . '%',
                         'media_desc LIKE' => '%' . $searchTerm . '%']
                 ]
-            ]);
+            ])->select(['media_id', 'media_title', 'upload_date', 
+                    'media_link', 'media_desc', 'u.username'])->
+                    join([
+                        'table' => 'users',
+                        'alias' => 'u',
+                        'type' => 'INNER',
+                        'conditions' => 'u.user_id = media.author_id',
+                    ]);
 
             /* Raw query form for above
-             * SELECT *
-             * FROM media
+             * SELECT media_id, media_title, upload_date, media_link, price, 
+             *      media_desc, u.username
+             * FROM media INNER JOIN users u ON u.user_id = author_id
              * WHERE type_id = 1 AND 
              * (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%);
              */
@@ -99,11 +114,20 @@ class ResultsController extends AppController {
             if ($genreSelected) {
                 $results = $this->Media->find('all', ['conditions' =>
                             ['type_id' => 1, 'genre_id' => $searchGenre]])
-                        ->order(['sold_count' => 'DESC']);
+                        ->order(['sold_count' => 'DESC'])
+                        ->select(['media_id', 'media_title', 'upload_date', 
+                    'media_link', 'media_desc', 'u.username'])->
+                    join([
+                        'table' => 'users',
+                        'alias' => 'u',
+                        'type' => 'INNER',
+                        'conditions' => 'u.user_id = media.author_id',
+                    ]);
 
                 /* Raw query form for above
-                 * SELECT *
-                 * FROM media
+                 * SELECT media_id, media_title, upload_date, media_link, price, 
+                 *      media_desc, u.username
+                 * FROM media INNER JOIN users u ON u.user_id = author_id
                  * WHERE type_id = 1 AND genre_id = $searchGenre
                  * ORDER BY Media.sold_count DESC;
                  */
@@ -111,14 +135,25 @@ class ResultsController extends AppController {
                 $session->write('searchResults', 'There were no results for \''
                         . $searchTerm . '\' here are some top sellers under \''
                         . $genreName . '\'');
+                
+                // user did not select a genre and term did not match anything
             } else {
                 $results = $this->Media->find('all', ['conditions' =>
                             ['type_id' => 1]])
-                        ->order(['sold_count' => 'DESC']);
+                        ->order(['sold_count' => 'DESC'])
+                        ->select(['media_id', 'media_title', 'upload_date', 
+                    'media_link', 'media_desc', 'u.username'])->
+                    join([
+                        'table' => 'users',
+                        'alias' => 'u',
+                        'type' => 'INNER',
+                        'conditions' => 'u.user_id = media.author_id',
+                    ]);
 
                 /* Raw query form for above
-                 * SELECT *
-                 * FROM media
+                 * SELECT media_id, media_title, upload_date, media_link, price, 
+                 *      media_desc, u.username
+                 * FROM media INNER JOIN users u ON u.user_id = author_id
                  * WHERE type_id = 1
                  * ORDER BY Media.sold_count DESC;
                  */
