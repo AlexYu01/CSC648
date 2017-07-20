@@ -29,7 +29,9 @@ class ResultsController extends AppController {
         $searchGenre = $this->request->getQuery( 'searchGenre' );
         $results = null;
 
-        $results = returnedResults( $searchTerm, $searchGenre );
+        $queryResults = $this->returnedResults( $searchTerm, $searchGenre );
+        $results = $queryResults['results'];
+        $resultReport = $queryResults['resultReport'];
         // Added on query at the end for all search results.
         $results->select( ['media_id', 'media_title', 'upload_date',
                     'media_link', 'media_desc', 'u.username'] )
@@ -46,8 +48,7 @@ class ResultsController extends AppController {
             $this->request->data( 'dropDown', $searchGenre );
         }
 
-        $this->set( compact( 'searchResults' ) );
-
+        $this->set( compact( 'resultReport' ) );
         try {
             // send results as paginated to view
             $this->set( 'results', $this->paginate( $results ) );
@@ -60,36 +61,23 @@ class ResultsController extends AppController {
 
     private function returnedResults( $searchTerm, $searchGenre ) {
 
+        //grab the actual name of the genre chosen
+        $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
+                        where( ['genre_id' => $searchGenre] )->toArray();
+        foreach ( $genre as $genreNames ) {
+            $genreName = $genreNames->genre_name;
+        }
         
+        //use the ternary operator ?: to determine if null 
+        //(true then set genreName to 'all genres').
+        $genreName = $genreName ?: 'all genres';
+
         // if preg_match == 1 then searchTerm contains invalid characters.
         // if preg_match == 0 then searchTerm only contains valid characters.
         if ( preg_match( '/[[:digit:][:punct:]]+/', $searchTerm ) == 0 ) {
+            $validTerm = $searchTerm ?: 'all';
 
-            //grab the actual name of the genre chosen
-            $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
-                            where( ['genre_id' => $searchGenre] )->toArray();
-            foreach ( $genre as $genreNames ) {
-                // retrieve the genre name and use the ternary operator ?: to 
-                // determine if null (true then set genreName to 'all genres').
-                $genreName = $genreNames->genre_name ?: 'all genres';
-            }
-
-            /* if ( $searchTermExist ) {
-              if ( $genreSelected ) {
-              $searchResults = 'Showing results for \'' . $searchTerm .
-              '\' under \'' . $genreName . '\'';
-              } else {
-              $searchResults = 'Showing results for \'' . $searchTerm . '\'';
-              }
-              } else {
-              if ( $genreSelected ) {
-              $searchResults = 'Showing results under \'' . $genreName . '\'';
-              } else {
-              $searchResults = 'Showing all media';
-              }
-              } */
-
-            // user searched with either genre and/or a term. 
+            // user searched with either genre and/or a term.
             $results = $this->Media
                     ->find( 'all' )
                     ->where( ['type_id' => 1, 'OR' => [['media_title LIKE' => '%' . $searchTerm . '%'],
@@ -97,7 +85,7 @@ class ResultsController extends AppController {
                     ->where( ['genre_id LIKE' => '%' . $searchGenre . '%'],
                     ['genre_id' => 'string'] );
 
-            /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later 
+            /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
              * after results is returned).
              * SELECT media_id, media_title, upload_date, media_link, price,
              *      media_desc, u.username
@@ -106,23 +94,23 @@ class ResultsController extends AppController {
              * (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%);
              */
 
-            $resultReport = 'Displaying results for \'' . $searchTerm ?: 'all' . '\' under ' . $genreName . '.';
+            $resultReport = 'Displaying results for \'' . $validTerm . '\' under ' . $genreName . '.';
 
             if ( $results->isEmpty() ) {
-                $results = defaultResults( $searchGenre );
-                $resultReport = 'There were no results for \'' . $searchTerm . '\'. Here are some top sellers under ' . $genreName . '.';
+                $results = $this->defaultResults( $searchGenre );
+                $resultReport = 'There were no results for \'' . $validTerm . '\'. Here are some top sellers under ' . $genreName . '.';
             }
         } else {
-            $results = defaultResults( $searchGenre );
-            $resultReport = '.\'' . $searchTerm . '\' is an invalid search. Here are ' . 'some top sellers under ' . $genreName . '.';
+            $results = $this->defaultResults( $searchGenre );
+            $resultReport = '\'' . $searchTerm . '\' is an invalid search. Here are ' . 'some top sellers under ' . $genreName . '.';
         }
-        return $results;
+        return ['results' => $results, 'resultReport' => $resultReport];
     }
 
-    /** user entered invalid characters into search or user search yielded no 
-     * results. Give them top sellers in the genre they chose (if applicable), 
+    /** user entered invalid characters into search or user search yielded no
+     * results. Give them top sellers in the genre they chose (if applicable),
      * or in all genres.
-     * 
+     *
      * @param string $searchGenre
      * @return Cake\ORM\Entity $results
      */
@@ -132,17 +120,17 @@ class ResultsController extends AppController {
                 ->where( ['type_id' => 1] )
                 ->where( ['genre_id LIKE' => '%' . $searchGenre . '%'],
                         ['genre_id' => 'string'] )
-                ->order( ['sold_count' => DESC] );
+                ->order( ['sold_count' => 'DESC'] );
 
-        /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later 
+        /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
          * after results is returned.
-         * 
+         *
          * SELECT media_id, media_title, upload_date, media_link, price,
          *      media_desc, u.username
          * FROM media INNER JOIN users u ON u.user_id = author_id
          * WHERE type_id = 1 AND CONVERT(genre_id, CHAR) LIKE %$searchGenre%
          * ORDER BY Media.sold_count DESC;
-         * 
+         *
          */
 
         return $results;
