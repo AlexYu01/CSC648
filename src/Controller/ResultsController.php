@@ -60,7 +60,7 @@ class ResultsController extends AppController {
     }
 
     private function returnedResults( $searchTerm, $searchGenre ) {
-
+	$genreName = null;
         //grab the actual name of the genre chosen
         $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
                         where( ['genre_id' => $searchGenre] )->toArray();
@@ -75,7 +75,7 @@ class ResultsController extends AppController {
         // if preg_match == 1 then searchTerm contains invalid characters.
         // if preg_match == 0 then searchTerm only contains valid characters.
         if ( preg_match( '/[[:digit:][:punct:]]+/', $searchTerm ) == 0 ) {
-            $validTerm = $searchTerm ?: 'all';
+            $validTerm = $searchTerm ?: 'all media';
 
             // user searched with either genre and/or a term.
             $results = $this->Media
