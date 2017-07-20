@@ -6,26 +6,54 @@ echo $this->Form->select('dropDown', $genreList, ['empty' => 'All', 'style' => '
 echo $this->Form->button('Search');
 echo $this->Form->end();
 ?>
+<html>
+    <style type="text/css">
+        body{margin: 0;padding: 0;}
+        #filter{ width:210px; height: 1300px; background: #ffffff;float: left;}
+        #searchField{ width:83%; height: 1300px; background: #ffffff;float: right;} 
+        #titleLink{font-size: larger; font-style: italic; font-weight: 800;}
+    </style>
+    <style>
+        .itemDisplay-left{float: left;wigth: 500px;height: 300px;}
+        .itemDisplay-right{float: right; width: 600px;height: 300px;}
+        .pagination{font-size: larger;}
+    </style>
+    
+    <div id="filter">
+    <h1>Filter</h1>
+    </div>
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Created</th>
-        <th>Media</th>
-    </tr>
-
+    <div id="searchField">
+        <h1>Result</h1>
         <?php foreach ($results as $media): ?>
-    <tr>
-        <td><?= $media->media_id ?> </td>
-        <td><?= $media->media_title ?></td>
-        <td><?= $media->media_desc ?></td>
-        <td><?= $media->upload_date->format(DATE_RFC850) ?></td>
-        <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'height' => '200px', 'width' => '200px']) ?></td>
-    </tr>
+        <div class="itemDisplay-left"> 
+            <div id="titleOfItem">
+                <div id="titleLink"><?= $this->Html->link(__($media->media_title),['controller'=>'Item','action'=>'index',$media->media_id]) ?></div>  
+            </div>
+                
+            <tr>
+                <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'height' => '350px', 'width' => '350px']) ?></td>
+                
+            </tr>
+                
+        </div>  
+        <div class="itemDisplay-right">
+            <br></br>
+            <br></br>
+            <div id="titleLink">anthor id: <?= $this->Html->link(__($media->author_id),['controller'=>'Item','action'=>'index',$media->author_id]) ?></div> 
+            <div id="titleLink">Description: <?= $this->Html->link(__($media->media_desc),['controller'=>'Item','action'=>'index',$media->media_desc]) ?></div>
+            <div id="titleLink">Price: <?= $this->Html->link(__($media->price),['controller'=>'Item','action'=>'index',$media->price]) ?> dollars</div>
+
+        </div>
         <?php endforeach; ?>
-</table>
+    </div>
+
+</html>
+
+
+
+
+
 
 <div class="pagination pagination-large">
     <ul class="pagination">

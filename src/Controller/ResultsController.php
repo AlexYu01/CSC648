@@ -27,7 +27,7 @@ class ResultsController extends AppController {
         $session = $this->request->session();
         $searchTerm = $session->read('searchTerm');
         $searchGenre = $session->read('searchGenre');
-
+        
         if (strlen($searchGenre) > 0) {
             $results = $this->Media->find('all', [
                 'conditions' => ['Media.type_id' => 1,
