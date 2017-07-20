@@ -42,10 +42,10 @@ class AppController extends Controller {
     public function initialize() {
         parent::initialize();
 
-        $this->loadComponent('RequestHandler');
-        $this->loadComponent('Flash');
+        $this->loadComponent( 'RequestHandler' );
+        $this->loadComponent( 'Flash' );
 
-        $this->loadModel('MediaGenres');
+        $this->loadModel( 'MediaGenres' );
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -61,15 +61,16 @@ class AppController extends Controller {
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
-    public function beforeRender(Event $event) {
-        if (!array_key_exists('_serialize', $this->viewVars) &&
-                in_array($this->response->type(), ['application/json', 'application/xml'])
+    public function beforeRender( Event $event ) {
+        if ( !array_key_exists( '_serialize', $this->viewVars ) &&
+                in_array( $this->response->type(),
+                        ['application/json', 'application/xml'] )
         ) {
-            $this->set('_serialize', true);
+            $this->set( '_serialize', true );
         }
     }
 
-    /*
+    /**
      * Implementation of a singleton for searchFields. Static variables in
      * functions are only initialized in the first call of the function for PHP.
      *
@@ -77,39 +78,36 @@ class AppController extends Controller {
      */
     public static function searchFieldsInstance() {
         static $searchFields = null;
-        if ($searchFields === null) {
+        if ( $searchFields === null ) {
             $searchFields = new SearchForm();
         }
         return $searchFields;
     }
 
-    /*
+    /**
      * Creates a modelless form for the search bar.
      * $genreList is an array of containing the names of genres that will
-     * populate the dropdown.
+     * populate the drop down.
      */
     public function searchBar() {
-        $session = $this->request->session();
-
         $searchFields = AppController::searchFieldsInstance();
+        if ( $this->request->is( 'post' ) ) {
+            if ( $searchFields->execute( $this->request->getData() ) ) {
 
-        if ($this->request->is('post')) {
-            if ($searchFields->execute($this->request->getData())) {
-
-                return $this->redirect(['controller' => 'Results', 'action' => 
-                    'search', '?' => ['searchQuery' => 
-                        $this->request->data('search'), 'searchGenre' =>
-                        $this->request->data('dropDown')]]);
+                return $this->redirect( ['controller' => 'Results', 'action' => 'search',
+                            '?' => ['searchQuery' => $this->request->data( 'search' ),
+                                'searchGenre' => $this->request->data( 'dropDown' )]] );
             } else {
                 // something went wrong with search.
             }
         }
 
-        $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
-                            'valueField' => 'genre_name'])
-                        ->hydrate(false)->toArray();
+        $genreList = $this->MediaGenres->find( 'list',
+                                ['keyField' => 'genre_id',
+                            'valueField' => 'genre_name'] )
+                        ->hydrate( false )->toArray();
         // send genreList to view.
-        $this->set(compact('searchFields','genreList'));
+        $this->set( compact( 'searchFields', 'genreList' ) );
     }
 
 }
