@@ -24,10 +24,6 @@ class AboutController extends AppController
         
     }
     
-    public function registration(){
-        
-    }
-    
     public function homeButton(){
         
     }
