@@ -173,3 +173,1551 @@ Stack Trace:
 2017-06-21 23:06:21 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
 2017-06-21 23:06:23 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
 2017-06-21 23:07:33 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-10 21:32:47 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-10 21:32:48 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-10 21:32:49 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-10 21:32:52 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-10 21:32:55 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-10 21:32:57 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-10 21:54:25 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-10 21:54:57 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-10 21:56:08 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-12 05:28:16 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-15 04:51:42 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 06:30:25 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 20:46:36 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 20:52:15 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 20:52:15 Warning: Warning (512): SplFileInfo::openFile(/home/cjackso5/public_html/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s): failed to open stream: Permission denied in [/home/cjackso5/public_html/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 396]
+Request URL: /
+Client IP: 130.212.93.174
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 396
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 148
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 145
+__ - CORE/src/I18n/functions.php, line 35
+Cake\View\Helper\FormHelper::label() - CORE/src/View/Helper/FormHelper.php, line 843
+Cake\View\Helper\FormHelper::_inputLabel() - CORE/src/View/Helper/FormHelper.php, line 1493
+Cake\View\Helper\FormHelper::_getLabel() - CORE/src/View/Helper/FormHelper.php, line 1435
+Cake\View\Helper\FormHelper::control() - CORE/src/View/Helper/FormHelper.php, line 1134
+include - APP/Template/Homepage/index.ctp, line 4
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1011
+Cake\View\View::_render() - CORE/src/View/View.php, line 972
+Cake\View\View::render() - CORE/src/View/View.php, line 596
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 623
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 125
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-17 20:52:15 Warning: Warning (512): SplFileInfo::openFile(/home/cjackso5/public_html/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s) [<a href='http://php.net/splfileinfo.openfile'>splfileinfo.openfile</a>]: failed to open stream: Permission denied in [/home/cjackso5/public_html/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 396]
+Request URL: /
+Client IP: 130.212.93.174
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 396
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 151
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 145
+__ - CORE/src/I18n/functions.php, line 35
+Cake\View\Helper\FormHelper::label() - CORE/src/View/Helper/FormHelper.php, line 843
+Cake\View\Helper\FormHelper::_inputLabel() - CORE/src/View/Helper/FormHelper.php, line 1493
+Cake\View\Helper\FormHelper::_getLabel() - CORE/src/View/Helper/FormHelper.php, line 1435
+Cake\View\Helper\FormHelper::control() - CORE/src/View/Helper/FormHelper.php, line 1134
+include - APP/Template/Homepage/index.ctp, line 4
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1011
+Cake\View\View::_render() - CORE/src/View/View.php, line 972
+Cake\View\View::render() - CORE/src/View/View.php, line 596
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 623
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 125
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-17 21:03:13 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:03:13 Warning: Warning (512): SplFileInfo::openFile(/home/cjackso5/public_html/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s): failed to open stream: Permission denied in [/home/cjackso5/public_html/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 396]
+Request URL: /
+Client IP: 130.212.93.174
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 396
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 148
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 145
+__ - CORE/src/I18n/functions.php, line 35
+Cake\View\Helper\FormHelper::label() - CORE/src/View/Helper/FormHelper.php, line 843
+Cake\View\Helper\FormHelper::_inputLabel() - CORE/src/View/Helper/FormHelper.php, line 1493
+Cake\View\Helper\FormHelper::_getLabel() - CORE/src/View/Helper/FormHelper.php, line 1435
+Cake\View\Helper\FormHelper::control() - CORE/src/View/Helper/FormHelper.php, line 1134
+include - APP/Template/Homepage/index.ctp, line 4
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1011
+Cake\View\View::_render() - CORE/src/View/View.php, line 972
+Cake\View\View::render() - CORE/src/View/View.php, line 596
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 623
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 125
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-17 21:03:13 Warning: Warning (512): SplFileInfo::openFile(/home/cjackso5/public_html/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s) [<a href='http://php.net/splfileinfo.openfile'>splfileinfo.openfile</a>]: failed to open stream: Permission denied in [/home/cjackso5/public_html/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 396]
+Request URL: /
+Client IP: 130.212.93.174
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 396
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 151
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 145
+__ - CORE/src/I18n/functions.php, line 35
+Cake\View\Helper\FormHelper::label() - CORE/src/View/Helper/FormHelper.php, line 843
+Cake\View\Helper\FormHelper::_inputLabel() - CORE/src/View/Helper/FormHelper.php, line 1493
+Cake\View\Helper\FormHelper::_getLabel() - CORE/src/View/Helper/FormHelper.php, line 1435
+Cake\View\Helper\FormHelper::control() - CORE/src/View/Helper/FormHelper.php, line 1134
+include - APP/Template/Homepage/index.ctp, line 4
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1011
+Cake\View\View::_render() - CORE/src/View/View.php, line 972
+Cake\View\View::render() - CORE/src/View/View.php, line 596
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 623
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 125
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-17 21:08:03 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:08:03 Warning: Warning (512): SplFileInfo::openFile(/home/cjackso5/public_html/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s): failed to open stream: Permission denied in [/home/cjackso5/public_html/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 396]
+Request URL: /
+Client IP: 130.212.93.174
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 396
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 148
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 145
+__ - CORE/src/I18n/functions.php, line 35
+Cake\View\Helper\FormHelper::label() - CORE/src/View/Helper/FormHelper.php, line 843
+Cake\View\Helper\FormHelper::_inputLabel() - CORE/src/View/Helper/FormHelper.php, line 1493
+Cake\View\Helper\FormHelper::_getLabel() - CORE/src/View/Helper/FormHelper.php, line 1435
+Cake\View\Helper\FormHelper::control() - CORE/src/View/Helper/FormHelper.php, line 1134
+include - APP/Template/Homepage/index.ctp, line 4
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1011
+Cake\View\View::_render() - CORE/src/View/View.php, line 972
+Cake\View\View::render() - CORE/src/View/View.php, line 596
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 623
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 125
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-17 21:08:03 Warning: Warning (512): SplFileInfo::openFile(/home/cjackso5/public_html/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s) [<a href='http://php.net/splfileinfo.openfile'>splfileinfo.openfile</a>]: failed to open stream: Permission denied in [/home/cjackso5/public_html/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 396]
+Request URL: /
+Client IP: 130.212.93.174
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 396
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 151
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 145
+__ - CORE/src/I18n/functions.php, line 35
+Cake\View\Helper\FormHelper::label() - CORE/src/View/Helper/FormHelper.php, line 843
+Cake\View\Helper\FormHelper::_inputLabel() - CORE/src/View/Helper/FormHelper.php, line 1493
+Cake\View\Helper\FormHelper::_getLabel() - CORE/src/View/Helper/FormHelper.php, line 1435
+Cake\View\Helper\FormHelper::control() - CORE/src/View/Helper/FormHelper.php, line 1134
+include - APP/Template/Homepage/index.ctp, line 4
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1011
+Cake\View\View::_render() - CORE/src/View/View.php, line 972
+Cake\View\View::render() - CORE/src/View/View.php, line 596
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 623
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 125
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-17 21:08:13 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:08:13 Warning: Warning (512): SplFileInfo::openFile(/home/cjackso5/public_html/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s): failed to open stream: Permission denied in [/home/cjackso5/public_html/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 396]
+Request URL: /
+Client IP: 130.212.93.174
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 396
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 148
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 145
+__ - CORE/src/I18n/functions.php, line 35
+Cake\View\Helper\FormHelper::label() - CORE/src/View/Helper/FormHelper.php, line 843
+Cake\View\Helper\FormHelper::_inputLabel() - CORE/src/View/Helper/FormHelper.php, line 1493
+Cake\View\Helper\FormHelper::_getLabel() - CORE/src/View/Helper/FormHelper.php, line 1435
+Cake\View\Helper\FormHelper::control() - CORE/src/View/Helper/FormHelper.php, line 1134
+include - APP/Template/Homepage/index.ctp, line 4
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1011
+Cake\View\View::_render() - CORE/src/View/View.php, line 972
+Cake\View\View::render() - CORE/src/View/View.php, line 596
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 623
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 125
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-17 21:08:13 Warning: Warning (512): SplFileInfo::openFile(/home/cjackso5/public_html/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s) [<a href='http://php.net/splfileinfo.openfile'>splfileinfo.openfile</a>]: failed to open stream: Permission denied in [/home/cjackso5/public_html/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 396]
+Request URL: /
+Client IP: 130.212.93.174
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 396
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 151
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 145
+__ - CORE/src/I18n/functions.php, line 35
+Cake\View\Helper\FormHelper::label() - CORE/src/View/Helper/FormHelper.php, line 843
+Cake\View\Helper\FormHelper::_inputLabel() - CORE/src/View/Helper/FormHelper.php, line 1493
+Cake\View\Helper\FormHelper::_getLabel() - CORE/src/View/Helper/FormHelper.php, line 1435
+Cake\View\Helper\FormHelper::control() - CORE/src/View/Helper/FormHelper.php, line 1134
+include - APP/Template/Homepage/index.ctp, line 4
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1011
+Cake\View\View::_render() - CORE/src/View/View.php, line 972
+Cake\View\View::render() - CORE/src/View/View.php, line 596
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 623
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 125
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-17 21:10:03 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:10:44 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:10:47 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:10:48 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:10:49 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:11:09 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:11:09 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:12:04 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:24:00 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-17 21:24:00 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-21 20:22:33 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-21 20:22:33 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-21 20:22:35 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-21 20:22:35 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Users could not be found.
+Exception Attributes: array (
+  'class' => 'Users',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-21 22:54:50 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-21 22:54:51 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-21 22:54:52 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-21 22:54:52 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-21 23:25:56 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-21 23:25:57 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-21 23:25:57 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:10:33 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:10:33 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:10:33 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:10:34 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:10:34 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:12:28 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:12:28 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:12:30 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:12:30 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:19:48 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:19:48 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:19:49 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:19:50 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:19:56 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:19:56 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /Users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:20:07 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:20:07 Error: [Cake\Routing\Exception\MissingControllerException] Controller class User could not be found.
+Exception Attributes: array (
+  'class' => 'User',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /User
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-22 01:20:07 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:20:07 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /Users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:20:11 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:20:11 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /Users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:24:37 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:24:37 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /Users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:26:18 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:26:18 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:30:44 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:30:44 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 01:37:29 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 01:37:29 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 04:21:35 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 04:21:35 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 05:25:16 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 05:25:16 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 18:07:45 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 18:07:45 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 19:52:18 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 19:52:18 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 19:53:21 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 19:53:21 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 20:05:18 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 20:05:18 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 20:17:51 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 20:17:51 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 20:24:44 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 20:24:44 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 20:24:49 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 20:24:49 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-22 20:24:50 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 20:24:50 Error: [Cake\Routing\Exception\MissingControllerException] Controller class User could not be found.
+Exception Attributes: array (
+  'class' => 'User',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /user
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-22 20:25:03 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-22 20:25:03 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-24 18:52:50 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 18:52:50 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-24 21:13:22 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:13:22 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-24 21:13:23 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:13:23 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-24 21:13:24 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:13:24 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-24 21:17:27 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:17:27 Error: [PDOException] SQLSTATE[HY000] [1045] Access denied for user 'sfsu17g05'@'localhost' (using password: YES)
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(47): PDO->__construct('mysql:host=loca...', 'sfsu17g05', 'csc648sfsu17g05', Array)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(104): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(367): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Table.php(530): Cake\Database\Connection->getSchemaCollection()
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(210): Cake\ORM\Table->getSchema()
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(167): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\UsersTable))
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Table.php(1569): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\UsersTable))
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Table.php(1171): Cake\ORM\Table->query()
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(185): Cake\ORM\Table->find('all', Array)
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#14 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#22 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#24 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#25 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#26 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#27 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#28 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#29 {main}
+
+
+2017-07-24 21:18:19 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:18:19 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Component/PaginatorComponent.php(190): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(717): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\UsersTable), Array)
+#8 /home/cjackso5/public_html/src/Controller/UsersController.php(26): Cake\Controller\Controller->paginate(Object(App\Model\Table\UsersTable))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->index()
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#23 {main}
+
+
+2017-07-24 21:22:55 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:23:11 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:31:03 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:31:03 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:33:39 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:50:46 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:50:46 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:50:49 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:52:41 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:58:46 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:58:50 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:59:10 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 21:59:10 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'Users'
+Request URL: /users/view/1
+Referer URL: http://www.sfsuse.com/~cjackso5/users
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(1011): Cake\Database\Query->execute()
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Query.php(960): Cake\ORM\Query->_all()
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(404): Cake\ORM\Query->all()
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(415): Cake\ORM\Query->first()
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/ORM/Table.php(1432): Cake\ORM\Query->firstOrFail()
+#9 /home/cjackso5/public_html/src/Controller/UsersController.php(42): Cake\ORM\Table->get(Array, Array)
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->view('1')
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#13 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#14 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#15 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#16 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#17 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#18 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#19 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#20 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#21 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#24 {main}
+
+
+2017-07-24 21:59:14 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:00:06 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:31:20 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:33:32 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:33:32 Error: [Cake\Controller\Exception\MissingActionException] Action UsersController::test() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'test',
+  'prefix' => '',
+  'plugin' => false,
+)
+Request URL: /users/test
+Referer URL: http://www.sfsuse.com/~cjackso5/users/add
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-24 22:33:50 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:41:56 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:42:06 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:46:25 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:47:49 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:48:23 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:48:54 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:49:02 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:49:17 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:50:35 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:50:43 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:50:43 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:52:08 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:52:10 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:52:13 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:52:34 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:53:10 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:53:14 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:53:24 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:56:04 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:57:29 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:58:33 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:58:40 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:59:18 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:59:18 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:59:19 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:59:20 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:59:20 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:59:29 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 22:59:37 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:00:01 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:00:01 Error: [Error] Call to a member function identify() on boolean in /home/cjackso5/public_html/src/Controller/UsersController.php on line 99
+Request URL: /users/test
+Referer URL: http://www.sfsuse.com/~cjackso5/users/test
+Client IP: 130.212.93.174
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\UsersController->test()
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\UsersController))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#14 {main}
+
+
+2017-07-24 23:03:23 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:03:27 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:03:31 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:03:32 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:03:32 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:07:05 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:07:09 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:07:12 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:07:12 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Add could not be found.
+Exception Attributes: array (
+  'class' => 'Add',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /add
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-24 23:07:56 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:07:56 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Add could not be found.
+Exception Attributes: array (
+  'class' => 'Add',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /add
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-24 23:07:57 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:07:57 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Add could not be found.
+Exception Attributes: array (
+  'class' => 'Add',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /add
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-24 23:07:57 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:07:57 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Test could not be found.
+Exception Attributes: array (
+  'class' => 'Test',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /test
+Stack Trace:
+#0 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /home/cjackso5/public_html/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /home/cjackso5/public_html/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-24 23:08:49 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:08:54 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:11:13 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:11:13 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:11:14 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:11:50 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:11:53 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:12:04 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:13:54 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:15:05 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:15:18 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-24 23:15:52 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
