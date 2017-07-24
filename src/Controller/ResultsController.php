@@ -62,9 +62,6 @@ class ResultsController extends AppController {
         // use the ternary operator ?: to determine if genreName is null if 
         // true then set genreName to 'all genres'.
         $genreName = $genreName ?: 'all genres';
-
-
-        //if ( preg_match( '/[[:digit:][:punct:]]+/', $searchTerm ) == 0 ) {
         $validTerm = $searchTerm ?: 'all media';
 
         // user searched with either genre and/or a term.
@@ -84,18 +81,12 @@ class ResultsController extends AppController {
          * (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%);
          */
 
-        if ( !empty( $results ) ) {
+        if ( !($results->isEmpty()) ) {
             $resultReport = 'Displaying results for \'' . $validTerm . '\' under ' . $genreName . '.';
         } else {
             $results = $this->defaultResults( $searchGenre );
             $resultReport = 'There were no results for \'' . $validTerm . '\'. Here are some top sellers under ' . $genreName . '.';
         }
-
-        /* } else {
-          // user entered invalid characters
-          $results = $this->defaultResults( $searchGenre );
-          $resultReport = '\'' . $searchTerm . '\' is an invalid search. Here are ' . 'some top sellers under ' . $genreName . '.';
-          } */
 
         // Added on query at the end for all search results.
         $results->select( ['media_id', 'media_title', 'upload_date',
@@ -111,8 +102,8 @@ class ResultsController extends AppController {
     }
 
     /**
-     * user entered invalid characters into search or user search yielded no
-     * results. Give them top sellers in the genre they chose (if applicable).
+     * user search yielded no results. Give them top sellers in the genre they 
+     * chose (if applicable).
      *
      * @param string $searchGenre
      * @return Cake\ORM\Entity $results

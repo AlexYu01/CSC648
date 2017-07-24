@@ -7,9 +7,9 @@ use Cake\Form\Schema;
 use Cake\Validation\Validator;
 
 /**
- * SearchForm is a model-less form as search is not tied to any database tables.
- * Do not create forms like SearchForm when creating registration/login forms; 
- * they will use the UsersTable.php class for validation.  
+ * Since search is not adding, updating, or deleting an entry in a table we use
+ * a model-less form like this one. For registration the form will use the 
+ * UsersTable model to define its structure.
  */
 class SearchForm extends Form {
 
@@ -21,19 +21,21 @@ class SearchForm extends Form {
 
     protected function _buildValidator( Validator $validator ) {
         $validator
+                // all forms created from SearchForm must have a field called search
+                ->requirePresence('search')
                 // allow the search field to be empty
                 ->allowEmpty( 'search' )
-                // calls maxLength method from Validator class to ensure length <= 30
+                // adds a rule to call maxLength method from Validator class to ensure length <= 30
                 ->add( 'search', 'length',
-                        ['rule' => ['maxLength', 30], 'message' => 'Please no more than 30 characters'] )
-                // calls custom method from Validator class to run a custom regex
+                        ['rule' => ['maxLength', 30], 'message' => 'Please enter no more than 30 characters'] )
+                // adds a rule to call custom method from Validator class to run a custom regex
                 ->add( 'search', 'validChars',
                         ['rule' => ['custom', '/^[[:alnum:][:blank:]]+$/'], 'message' => 'Please enter only alphabets, numbers, or spaces'] );
         return $validator;
     }
 
     protected function _execute( array $data ) {
-        // Send an email.
+        
         return true;
     }
 
