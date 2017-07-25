@@ -9,6 +9,7 @@ class MediaController extends AppController {
     public function initialize() {
         parent::initialize();
         $this->loadModel( 'Media' );
+        $this->loadModel( 'Users' );
     }
     
     public function upload() {
@@ -30,6 +31,14 @@ class MediaController extends AppController {
                                 ['keyField' => 'genre_id',
                             'valueField' => 'genre_name'] )
                         ->hydrate( false )->toArray();
-        $this->set(compact('genreList'));
+        $userList = $this->Users->find( 'list',
+                                ['keyField' => 'user_id',
+                            'valueField' => 'username'] )
+                        ->hydrate( false )->toArray();
+        $typeList = $this->Users->find( 'list',
+                                ['keyField' => 'type_id',
+                            'valueField' => 'type_name'] )
+                        ->hydrate( false )->toArray();
+        $this->set(compact('genreList', 'newMedia', 'userList', 'typeList'));
     }
 }
