@@ -51,17 +51,11 @@ class ResultsController extends MediaHelper {
     }
 
     private function returnedResults( $searchTerm, $searchGenre ) {
-        $genreName = null;
-        //grab the actual name of the genre chosen
-        $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
-                        where( ['genre_id' => $searchGenre] )->toArray();
-        foreach ( $genre as $genreNames ) {
-            $genreName = $genreNames->genre_name;
-        }
+        $searchGenreName = $this->getGenreName($searchGenreId);
 
-        // use the ternary operator ?: to determine if genreName is null if 
-        // true then set genreName to 'all genres'.
-        $genreName = $genreName ?: 'all genres';
+        // use the ternary operator ?: to determine if searchGenreName is null if 
+        // true then set searchGenreName to 'all genres'.
+        $searchGenreName = $searchGenreName ?: 'all genres';
         $validTerm = $searchTerm ?: 'all media';
 
         // user searched with either genre and/or a term.
@@ -82,10 +76,10 @@ class ResultsController extends MediaHelper {
          */
 
         if ( !($results->isEmpty()) ) {
-            $resultReport = 'Displaying results for \'' . $validTerm . '\' under ' . $genreName . '.';
+            $resultReport = 'Displaying results for \'' . $validTerm . '\' under ' . $searchGenreName . '.';
         } else {
             $results = $this->defaultResults( $searchGenre );
-            $resultReport = 'There were no results for \'' . $validTerm . '\'. Here are some top sellers under ' . $genreName . '.';
+            $resultReport = 'There were no results for \'' . $validTerm . '\'. Here are some top sellers under ' . $searchGenreName . '.';
         }
 
         // Added on query at the end for all search results.
