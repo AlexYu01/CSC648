@@ -28,7 +28,7 @@ class MediaHelper extends AppController {
         return $searchFields;
     }
     
-    protected static function getGenreList() {
+    protected function getGenreList() {
         static $genreList = null;
         if ( $genreList === null ) {
             $genreList = $this->MediaGenres->find( 'list',
@@ -56,7 +56,7 @@ class MediaHelper extends AppController {
             }
         }
 
-        $genreList = MediaHelper::getGenreList();
+        $genreList = $this->getGenreList();
         // send genreList to view.
         $this->set( compact( 'searchFields', 'genreList' ) );
     }
