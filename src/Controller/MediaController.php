@@ -16,19 +16,21 @@ class MediaController extends AppController {
     public function upload() {
         $newMedia = $this->Media->newEntity();
         if ( $this->request->is( 'post' ) ) {
-
+$searchGenre = $this->request->data( 'genre_id' );
             $genreName = null;
             //grab the actual name of the genre chosen
             $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
                             where( ['genre_id' => $searchGenre] )->toArray();
             foreach ( $genre as $genreNames ) {
-                $genreName = $genreNames->genre_name;
+                $genreName = strtolower($genreNames->genre_name);
             }
-
+echo $genreName;
+$genreName = 'beach';
             $mediaName = $this->request->data['file']['name'];
             $uploadPath = 'media/';
             $uploadFile = $uploadPath . $genreName . '/' . $mediaName;
-            if ( move_uploaded_file( $this->request->data['file']['tmp_name'] ) ) {
+
+             if(move_uploaded_file( $this->request->data['file']['tmp_name'], WWW_ROOT . 'img/' . $uploadFile)) {
                 $this->request->data['media_link'] = $uploadFile;
             }
 
