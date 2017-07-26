@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Controller\AppController;
+use App\Utility\MediaHelper;
 
-class HomepageController extends AppController {
+class HomepageController extends MediaHelper {
 
     public function initialize() {
         parent::initialize();
@@ -12,7 +12,7 @@ class HomepageController extends AppController {
 
     public function index() {
 
-        $this->searchBar(); // inherited from AppController
+        $this->searchBar(); // inherited from MediaHelper
     }
 
 }
