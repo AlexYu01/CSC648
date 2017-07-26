@@ -10,7 +10,7 @@ class MediaController extends AppController {
         parent::initialize();
         $this->loadModel( 'Media' );
         $this->loadModel( 'Users' );
-        $this->loadModel( 'MediaTypes')
+        $this->loadModel( 'MediaTypes');
     }
 
     public function upload() {
