@@ -48,6 +48,13 @@ class MediaHelper extends AppController {
         }
         return $genreList;
     }
+    
+    /**
+     * Use the selected genre id to retrieve the name
+     * 
+     * @param string $searchGenreId
+     * @return string $genreName
+     */
 
     protected function getGenreName($searchGenreId) {
         $genreName = null;
