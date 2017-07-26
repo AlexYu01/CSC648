@@ -11,6 +11,8 @@ The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
 
+We use Twitter Bootstrap mainly to build our layout for more details see http://getbootstrap.com/
+
 # csc648_team5
 Team members' about page can be found here: [Group 5 About Page](http://sfsuse.com/~su17g05/about)
 
@@ -56,12 +58,22 @@ You might get file conflicts fix them manually
  Item Page | Andy | Andy 
  
  ### Home Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | | |
  
  ### Search Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | | |
  
  ### Login Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | | |
  
  ### Item Page
-    Controller Name: Item
-    Default View: index
-    Required Data: media_id
+ Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ Item | index | media_id via GET | Show Detail Item Page
+ Item | image | media_id via GET | WaterMark Image in Real Time
