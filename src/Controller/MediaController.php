@@ -10,6 +10,7 @@ class MediaController extends AppController {
         parent::initialize();
         $this->loadModel( 'Media' );
         $this->loadModel( 'Users' );
+        $this->loadModel( 'MediaTypes')
     }
 
     public function upload() {
@@ -40,7 +41,7 @@ class MediaController extends AppController {
                                 ['keyField' => 'user_id',
                             'valueField' => 'username'] )
                         ->hydrate( false )->toArray();
-        $typeList = $this->Users->find( 'list',
+        $typeList = $this->MediaTypes->find( 'list',
                                 ['keyField' => 'type_id',
                             'valueField' => 'type_name'] )
                         ->hydrate( false )->toArray();
