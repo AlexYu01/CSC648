@@ -26,17 +26,17 @@ class ResultsController extends MediaHelper {
 
         $this->searchBar(); // inherited from MediaHelper
         $searchTerm = $this->request->getQuery( 'searchQuery' );
-        $searchGenre = $this->request->getQuery( 'searchGenre' );
+        $searchGenreId = $this->request->getQuery( 'searchGenre' );
         $results = null;
 
-        $queryResults = $this->returnedResults( $searchTerm, $searchGenre );
+        $queryResults = $this->returnedResults( $searchTerm, $searchGenreId );
         $results = $queryResults['results'];
         $resultReport = $queryResults['resultReport'];
 
         // fills in search fields with user's input on results page
         if ( $this->request->is( 'get' ) ) {
             $this->request->data( 'search', $searchTerm );
-            $this->request->data( 'dropDown', $searchGenre );
+            $this->request->data( 'dropDown', $searchGenreId );
         }
 
         $this->set( compact( 'resultReport' ) );
@@ -50,18 +50,12 @@ class ResultsController extends MediaHelper {
         }
     }
 
-    private function returnedResults( $searchTerm, $searchGenre ) {
-        $genreName = null;
-        //grab the actual name of the genre chosen
-        $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
-                        where( ['genre_id' => $searchGenre] )->toArray();
-        foreach ( $genre as $genreNames ) {
-            $genreName = $genreNames->genre_name;
-        }
+    private function returnedResults( $searchTerm, $searchGenreId ) {
+        $searchGenreName = $this->getGenreName($searchGenreId);
 
-        // use the ternary operator ?: to determine if genreName is null if 
-        // true then set genreName to 'all genres'.
-        $genreName = $genreName ?: 'all genres';
+        // use the ternary operator ?: to determine if searchGenreName is null if 
+        // true then set searchGenreName to 'all genres'.
+        $searchGenreName = $searchGenreName ?: 'all genres';
         $validTerm = $searchTerm ?: 'all media';
 
         // user searched with either genre and/or a term.
@@ -69,7 +63,7 @@ class ResultsController extends MediaHelper {
                 ->find( 'all' )
                 ->where( ['type_id' => 1, 'OR' => [['media_title LIKE' => '%' . $searchTerm . '%'],
                         ['media_desc LIKE' => '%' . $searchTerm . '%']]] )
-                ->where( ['genre_id LIKE' => '%' . $searchGenre . '%'],
+                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'],
                 ['genre_id' => 'string'] );
 
         /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
@@ -77,15 +71,15 @@ class ResultsController extends MediaHelper {
          * SELECT media_id, media_title, upload_date, media_link, price,
          *      media_desc, u.username
          * FROM media INNER JOIN users u ON u.user_id = author_id
-         * WHERE type_id = 1 AND CONVERT(genre_id, CHAR) LIKE %$searchGenre% AND
+         * WHERE type_id = 1 AND CONVERT(genre_id, CHAR) LIKE %$searchGenreId% AND
          * (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%);
          */
 
         if ( !($results->isEmpty()) ) {
-            $resultReport = 'Displaying results for \'' . $validTerm . '\' under ' . $genreName . '.';
+            $resultReport = 'Displaying results for \'' . $validTerm . '\' under ' . $searchGenreName . '.';
         } else {
-            $results = $this->defaultResults( $searchGenre );
-            $resultReport = 'There were no results for \'' . $validTerm . '\'. Here are some top sellers under ' . $genreName . '.';
+            $results = $this->defaultResults( $searchGenreId );
+            $resultReport = 'There were no results for \'' . $validTerm . '\'. Here are some top sellers under ' . $searchGenreName . '.';
         }
 
         // Added on query at the end for all search results.
@@ -105,14 +99,14 @@ class ResultsController extends MediaHelper {
      * user search yielded no results. Give them top sellers in the genre they 
      * chose (if applicable).
      *
-     * @param string $searchGenre
+     * @param string $searchGenreId
      * @return Cake\ORM\Entity $results
      */
-    private function defaultResults( $searchGenre ) {
+    private function defaultResults( $searchGenreId ) {
         $results = $this->Media
                 ->find( 'all' )
                 ->where( ['type_id' => 1] )
-                ->where( ['genre_id LIKE' => '%' . $searchGenre . '%'],
+                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'],
                         ['genre_id' => 'string'] )
                 ->order( ['sold_count' => 'DESC'] );
 
@@ -122,7 +116,7 @@ class ResultsController extends MediaHelper {
          * SELECT media_id, media_title, upload_date, media_link, price,
          *      media_desc, u.username
          * FROM media INNER JOIN users u ON u.user_id = author_id
-         * WHERE type_id = 1 AND CONVERT(genre_id, CHAR) LIKE %$searchGenre%
+         * WHERE type_id = 1 AND CONVERT(genre_id, CHAR) LIKE %$searchGenreId%
          * ORDER BY Media.sold_count DESC;
          *
          */

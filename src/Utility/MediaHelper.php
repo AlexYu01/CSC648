@@ -48,7 +48,24 @@ class MediaHelper extends AppController {
         }
         return $genreList;
     }
+    
+    /**
+     * Use the selected genre id to retrieve the name
+     * 
+     * @param string $searchGenreId
+     * @return string $genreName
+     */
 
+    protected function getGenreName($searchGenreId) {
+        $genreName = null;
+            //grab the actual name of the genre chosen
+            $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
+                            where( ['genre_id' => $searchGenreId] )->toArray();
+            foreach ( $genre as $genreNames ) {
+                $genreName = $genreNames->genre_name;
+            }
+            return $genreName;
+    }
     /**
      * Creates a modelless form for the search bar.
      * $genreList is an array of containing the names of genres that will
