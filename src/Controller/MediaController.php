@@ -2,31 +2,36 @@
 
 namespace App\Controller;
 
-use App\Controller\AppController;
+use App\Utility\MediaHelper;
 
-class MediaController extends AppController {
+class MediaController extends MediaHelper {
 
     public function initialize() {
         parent::initialize();
         $this->loadModel( 'Media' );
+        // temporary until authentication is done
         $this->loadModel( 'Users' );
+        // temporary until checks for file type is implemented
         $this->loadModel( 'MediaTypes' );
+    }
+    
+    public function delete($id) {
+        // allow authors to delete an entry
+    }
+    
+    public function edit($id) {
+        // allow authors to update an entry
     }
 
     public function upload() {
         $newMedia = $this->Media->newEntity();
         if ( $this->request->is( 'post' ) ) {
-            $searchGenre = $this->request->data( 'genre_id' );
-            $genreName = null;
-            //grab the actual name of the genre chosen
-            $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
-                            where( ['genre_id' => $searchGenre] )->toArray();
-            foreach ( $genre as $genreNames ) {
-                $genreName = $genreNames->genre_name;
-            }
+            $searchGenreId = $this->request->data( 'genre_id' );
+            $searchGenreName = $this->getGenreName($searchGenreId);
+            
             $mediaName = $this->request->data['file']['name'];
             $uploadPath = 'media/';
-            $uploadFile = $uploadPath . $genreName . '/' . $mediaName;
+            $uploadFile = $uploadPath . $searchGenreName . '/' . $mediaName;
 
             if ( move_uploaded_file( $this->request->data['file']['tmp_name'],
                             WWW_ROOT . 'img/' . $uploadFile ) ) {
@@ -43,14 +48,15 @@ class MediaController extends AppController {
                 $this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
             }
         }
-        $genreList = $this->MediaGenres->find( 'list',
-                                ['keyField' => 'genre_id',
-                            'valueField' => 'genre_name'] )
-                        ->hydrate( false )->toArray();
+        $genreList = $this->getGenreList();
+        
+        // temporary until authentication can grab user's id
         $userList = $this->Users->find( 'list',
                                 ['keyField' => 'user_id',
                             'valueField' => 'username'] )
                         ->hydrate( false )->toArray();
+        
+        // temporary until file can be checked for video or image
         $typeList = $this->MediaTypes->find( 'list',
                                 ['keyField' => 'type_id',
                             'valueField' => 'type_name'] )
