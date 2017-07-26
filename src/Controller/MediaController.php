@@ -10,20 +10,29 @@ class MediaController extends AppController {
         parent::initialize();
         $this->loadModel( 'Media' );
         $this->loadModel( 'Users' );
-        $this->loadModel( 'MediaTypes');
+        $this->loadModel( 'MediaTypes' );
     }
 
     public function upload() {
         $newMedia = $this->Media->newEntity();
         if ( $this->request->is( 'post' ) ) {
-            $mediaData = $this->request->data['file']['name'];
-            $mediaContent = file_get_contents( $_FILES['file']['tmp_name'] );
-            /*echo $mediaContent;
-            echo $mediaData;
-            echo gettype( $mediaData );*/
-            $mediaType = pathinfo( $mediaData, PATHINFO_EXTENSION );
-            $this->request->data['media_data'] = $mediaContent;
-            $this->request->data['media_ext'] = $mediaType;
+
+            $genreName = null;
+            //grab the actual name of the genre chosen
+            $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
+                            where( ['genre_id' => $searchGenre] )->toArray();
+            foreach ( $genre as $genreNames ) {
+                $genreName = $genreNames->genre_name;
+            }
+
+            $mediaName = $this->request->data['file']['name'];
+            $uploadPath = 'media/';
+            $uploadFile = $uploadPath . $genreName . '/' . $mediaName;
+            if ( move_uploaded_file( $this->request->data['file']['tmp_name'] ) ) {
+                $this->request->data['media_link'] = $uploadFile;
+            }
+
+            //$mediaType = pathinfo( $mediaName, PATHINFO_EXTENSION );
 
             $newMedia = $this->Media->patchEntity( $newMedia,
                     $this->request->data );
