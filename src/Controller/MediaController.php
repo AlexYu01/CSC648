@@ -16,12 +16,12 @@ class MediaController extends AppController {
     public function upload() {
         $newMedia = $this->Media->newEntity();
         if ( $this->request->is( 'post' ) ) {
-            $mediaData = $this->request->data['file']['tmp_name'];
+            $mediaData = $this->request->data['file']['name'];
             $mediaContent = file_get_contents( $_FILES['file']['tmp_name'] );
             /*echo $mediaContent;
             echo $mediaData;
             echo gettype( $mediaData );*/
-            $mediaType = pathinfo( $mediaData, PARTHINFO_EXTENSION );
+            $mediaType = pathinfo( $mediaData, PATHINFO_EXTENSION );
             $this->request->data['media_data'] = $mediaContent;
             $this->request->data['media_ext'] = $mediaType;
 
