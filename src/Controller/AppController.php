@@ -18,7 +18,6 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use App\Form\SearchForm;
 
 /**
  * Application Controller

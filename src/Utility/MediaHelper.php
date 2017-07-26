@@ -3,7 +3,7 @@
 namespace App\Utility;
 
 use App\Controller\AppController;
-
+use App\Form\SearchForm;
 
 class MediaHelper extends AppController {
     public function initialize() {
