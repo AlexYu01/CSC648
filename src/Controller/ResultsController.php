@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Controller\AppController;
+use App\Utility\MediaHelper;
 use Cake\Network\Exception\NotFoundException;
 
-class ResultsController extends AppController {
+class ResultsController extends MediaHelper {
 
     // limit 4 results per page
     public $paginate = [
@@ -24,7 +24,7 @@ class ResultsController extends AppController {
 
     public function search() {
 
-        $this->searchBar(); // inherited from AppController
+        $this->searchBar(); // inherited from MediaHelper
         $searchTerm = $this->request->getQuery( 'searchQuery' );
         $searchGenre = $this->request->getQuery( 'searchGenre' );
         $results = null;

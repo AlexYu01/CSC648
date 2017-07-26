@@ -18,7 +18,6 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use App\Form\SearchForm;
 
 /**
  * Application Controller
@@ -45,8 +44,6 @@ class AppController extends Controller {
         $this->loadComponent( 'RequestHandler' );
         $this->loadComponent( 'Flash' );
 
-        $this->loadModel( 'MediaGenres' );
-
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -68,46 +65,6 @@ class AppController extends Controller {
         ) {
             $this->set( '_serialize', true );
         }
-    }
-
-    /**
-     * Implementation of a singleton for searchFields. Static variables in
-     * functions are only initialized in the first call of the function for PHP.
-     *
-     * @return instance of searchFields
-     */
-    public static function searchFieldsInstance() {
-        static $searchFields = null;
-        if ( $searchFields === null ) {
-            $searchFields = new SearchForm();
-        }
-        return $searchFields;
-    }
-
-    /**
-     * Creates a modelless form for the search bar.
-     * $genreList is an array of containing the names of genres that will
-     * populate the drop down.
-     */
-    public function searchBar() {
-        $searchFields = AppController::searchFieldsInstance();
-        if ( $this->request->is( 'post' ) ) {
-            if ( $searchFields->execute( $this->request->getData() ) ) {
-
-                return $this->redirect( ['controller' => 'Results', 'action' => 'search',
-                            '?' => ['searchQuery' => $this->request->data( 'search' ),
-                                'searchGenre' => $this->request->data( 'dropDown' )]] );
-            } else {
-                // something went wrong with search.
-            }
-        }
-
-        $genreList = $this->MediaGenres->find( 'list',
-                                ['keyField' => 'genre_id',
-                            'valueField' => 'genre_name'] )
-                        ->hydrate( false )->toArray();
-        // send genreList to view.
-        $this->set( compact( 'searchFields', 'genreList' ) );
     }
 
 }
