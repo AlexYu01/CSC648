@@ -5,6 +5,11 @@ namespace App\Utility;
 use App\Controller\AppController;
 use App\Form\SearchForm;
 
+/**
+ * MediaHelper
+ * 
+ * Provide objects related to media to controllers.
+ */
 class MediaHelper extends AppController {
     public function initialize() {
         parent::initialize();
@@ -28,6 +33,12 @@ class MediaHelper extends AppController {
         return $searchFields;
     }
     
+    /**
+     * Returns a list of the genres currently inside the MediaGenresTable
+     * 
+     * @staticvar Cake\ORM\Entity $genreList
+     * @return Cake\ORM\Entity $genreList
+     */
     protected function getGenreList() {
         static $genreList = null;
         if ( $genreList === null ) {
@@ -43,6 +54,7 @@ class MediaHelper extends AppController {
      * $genreList is an array of containing the names of genres that will
      * populate the drop down.
      */
+    
     protected function searchBar() {
         $searchFields = MediaHelper::searchFieldsInstance();
         if ( $this->request->is( 'post' ) ) {
