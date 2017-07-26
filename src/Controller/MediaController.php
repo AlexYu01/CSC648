@@ -30,12 +30,16 @@ class MediaController extends MediaHelper {
             $searchGenreName = $this->getGenreName($searchGenreId);
             
             $mediaName = $this->request->data['file']['name'];
-            $uploadPath = 'media/';
-            $uploadFile = $uploadPath . $searchGenreName . '/' . $mediaName;
+            
+            // path link that will be stored in the database
+            $mediaPathLink = 'media/' . $searchGenreName . '/' . $mediaName;
+            
+            // the absolute path where the media will be stored
+            $storedPath = WWW_ROOT . 'img/' . $mediaPathLink;
 
             if ( move_uploaded_file( $this->request->data['file']['tmp_name'],
-                            WWW_ROOT . 'img/' . $uploadFile ) ) {
-                $this->request->data['media_link'] = $uploadFile;
+                            $storedPath) ) {
+                $this->request->data['media_link'] = $mediaPathLink;
             }
 
             //$mediaType = pathinfo( $mediaName, PATHINFO_EXTENSION );

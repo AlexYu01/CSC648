@@ -8,7 +8,7 @@ use App\Form\SearchForm;
 /**
  * MediaHelper
  * 
- * Provide objects related to media to controllers.
+ * Provide objects related to media to controllers (ResultsController & MediaController).
  */
 class MediaHelper extends AppController {
     public function initialize() {
