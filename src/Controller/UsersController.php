@@ -20,8 +20,7 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $this->Users->Behaviors->load('Containable');
-        
+                
         $users = $this->paginate($this->Users);
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);

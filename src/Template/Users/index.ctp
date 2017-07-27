@@ -20,14 +20,14 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('userID') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('username') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('password') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('CreatedDate') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('LastLoginDate') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('TOKEN') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('Salt') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('registered_date') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('last_login_date') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('token') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('salt') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -38,8 +38,8 @@
                 <td><?= h($user->username) ?></td>
                 <td><?= h($user->password) ?></td>
                 <td><?= h($user->email) ?></td>
-                <td><?= date('Y-m-d G:i:s',$user->registered_date) ?></td>
-                <td><?= date('Y-m-d G:i:s',$user->last_login_date) ?></td>
+                <td><?= date('Y-m-d G:i:s',strtotime($user->registered_date)) ?></td>
+                <td><?= date('Y-m-d G:i:s',strtotime($user->last_login_date)) ?></td>
                 <td><?= h($user->token) ?></td>
                 <td><?= h($user->salt) ?></td>
                 <td class="actions">

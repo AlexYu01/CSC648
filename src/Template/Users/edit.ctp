@@ -23,10 +23,9 @@
             echo $this->Form->control('username');
             echo $this->Form->control('password');
             echo $this->Form->control('email');
-            echo $this->Form->control('CreatedDate');
-            echo $this->Form->control('LastLoginDate');
-            echo $this->Form->control('TOKEN');
-            echo $this->Form->control('Salt');
+            echo $this->Form->control('registered_date',['value'=>date('Y-m-d G:i:s',$user->registered_date)]);
+            echo $this->Form->control('last_login_date',['value'=>date('Y-m-d G:i:s',$user->registered_date)]);
+            echo $this->Form->control('salt',['value'=>h($user->salt)]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

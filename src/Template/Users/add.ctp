@@ -17,10 +17,9 @@
             echo $this->Form->control('username');
             echo $this->Form->control('password');
             echo $this->Form->control('email');
-            echo $this->Form->control('CreatedDate',['value'=> time()]);
-            echo $this->Form->control('LastLoginDate',['value'=> time()]);
-            echo $this->Form->control('TOKEN');
-            echo $this->Form->control('Salt',['value'=> sha1(substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 5)), 0, 5))]);
+            echo $this->Form->control('registered_date',['value'=> date('Y-m-d G:i:s',time())]);
+            echo $this->Form->control('last_login_date',['value'=> date('Y-m-d G:i:s',time())]);
+            echo $this->Form->control('salt',['value'=> sha1(substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 5)), 0, 5))]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
