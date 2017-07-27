@@ -41,10 +41,8 @@ class MediaController extends MediaHelper {
             $searchGenreId = $this->request->data( 'genre_id' );
             $searchGenreName = strtolower( $this->getGenreName( $searchGenreId ) );
 
-            $mediaInfo = pathinfo( $this->request->data['file']['name'] );
-            $mediaName = $mediaInfo['basename'];
-            $mediaExt = strtolower( $mediaInfo['extension'] );
-            $mediaStoredName = $mediaName . uniqid() . $mediaExt;
+            $mediaName = $this->request->data['file']['name'];
+            $mediaStoredName = uniqid() . $mediaName;
 
             // path link for full image that will be stored in the database
             $mediaPathLink = 'media/' . $searchGenreName . '/' . $mediaStoredName;
@@ -55,12 +53,8 @@ class MediaController extends MediaHelper {
             // the absolute path where the media will be stored
             $storedPath = WWW_ROOT . 'img/' . $mediaPathLink;
 
-            $this->generateThumbnail( $this->request->data['file']['tmp_name'],
-                    $mediaThumbLink );
-
             $this->request->data['media_link'] = $mediaPathLink;
             $this->request->data['thumb_link'] = $mediaThumbLink;
-
 
             $newMedia = $this->Media->patchEntity( $newMedia,
                     $this->request->getData() );
@@ -68,12 +62,15 @@ class MediaController extends MediaHelper {
             if ( $this->Media->save( $newMedia ) ) {
                 move_uploaded_file( $this->request->data['file']['tmp_name'],
                         $storedPath );
+                $this->generateThumbnail( $this->request->data['file']['tmp_name'],
+                        $mediaThumbLink );
             } else {
                 unlink( WWW_ROOT . 'img/' . $mediaThumbLink );
                 $this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
             }
-            return $this->redirect( ['action' => 'upload'] );
+            return $this->redirect('');
         }
+        
         $genreList = $this->getGenreList();
 
         // temporary until authentication can grab user's id
@@ -87,22 +84,22 @@ class MediaController extends MediaHelper {
         $this->set( compact( 'genreList', 'newMedia', 'userList', 'typeList' ) );
     }
 
-    private function generateThumbnail( $source, $mediaThumbLink, $mediaExt ) {
-        // Get the dimension of source image
+    private function generateThumbnail( $source, $mediaThumbLink ) {
         $nw = 300;
         $nh = 300;
         $imageInfo = getimagesize( $source );
         $w = $imageInfo[0];
         $h = $imageInfo[1];
+        $type = $imageInfo['mime'];
 
-        switch ( $mediaExt ) {
-            case 'gif':
+        switch ( $type ) {
+            case 'image/gif':
                 $simg = imagecreatefromgif( $source );
                 break;
-            case 'jpg':
+            case 'image/jpg':
                 $simg = imagecreatefromjpeg( $source );
                 break;
-            case 'png':
+            case 'image/png':
                 $simg = imagecreatefrompng( $source );
                 break;
             default:
@@ -136,20 +133,7 @@ class MediaController extends MediaHelper {
         }
 
         $dest = WWW_ROOT . 'img/' . $mediaThumbLink;
-
-        switch ( $mediaExt ) {
-            case 'gif':
-                imagegif( $dimg, $dest );
-                break;
-            case 'jpg':
-                imagejpeg( $dimg, $dest, 100 );
-                break;
-            case 'png':
-                imagepng( $dimg, $dest, 0 );
-                break;
-            default:
-                imagejpeg( $dimg, $dest, 100 );
-        }
+        imagejpeg( $dimg, $dest, 100 );
 
         imagedestroy( $simg );
         imagedestroy( $dimg );
