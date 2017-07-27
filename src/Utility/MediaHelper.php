@@ -24,7 +24,6 @@ class MediaHelper extends AppController {
      *
      * @return instance of searchFields
      */
-    
     protected static function searchFieldsInstance() {
         static $searchFields = null;
         if ( $searchFields === null ) {
@@ -59,12 +58,12 @@ class MediaHelper extends AppController {
             }
             return $genreName;
     }
+    
     /**
      * Creates a modelless form for the search bar.
      * $genreList is an array of containing the names of genres that will
      * populate the drop down.
      */
-    
     protected function searchBar() {
         $searchFields = MediaHelper::searchFieldsInstance();
         if ( $this->request->is( 'post' ) ) {

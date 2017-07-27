@@ -15,6 +15,9 @@ class MediaController extends MediaHelper {
         $this->loadModel( 'MediaTypes' );
     }
 
+    public function index() {
+        // all posts an author has
+    }
     public function delete( $id ) {
         // allow authors to delete an entry
         $this->request->allowMethod( ['post', 'delete'] );
@@ -32,7 +35,7 @@ class MediaController extends MediaHelper {
         // allow authors to update an entry
     }
 
-    public function upload() {
+    public function add() {
         $newMedia = $this->Media->newEntity();
 
         if ( $this->request->is( 'post' ) ) {
@@ -48,12 +51,13 @@ class MediaController extends MediaHelper {
             // the absolute path where the media will be stored
             $storedPath = WWW_ROOT . 'img/' . $mediaPathLink;
 
-            $this->request->data['media_link'] = $mediaPathLink;
-
             //$mediaType = pathinfo( $mediaName, PATHINFO_EXTENSION );
 
             $newMedia = $this->Media->patchEntity( $newMedia,
                     $this->request->getData() );
+
+            $newMedia->media_link = $mediaPathLink;
+            //$newMedia->author_id = $this->Auth->user( 'id' );
 
             if ( $this->Media->save( $newMedia ) ) {
                 move_uploaded_file( $this->request->data['file']['tmp_name'],
@@ -61,6 +65,7 @@ class MediaController extends MediaHelper {
             } else {
                 $this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
             }
+            return $this->redirect( ['action' => 'add'] );
         }
         $genreList = $this->getGenreList();
 

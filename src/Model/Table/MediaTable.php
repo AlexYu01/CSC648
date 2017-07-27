@@ -101,8 +101,15 @@ class MediaTable extends Table {
          */
         $validator
                 ->requirePresence( 'file', 'create' )
-                ->add( 'file', 'fileParameters',
-                        ['rule' => ['uploadedFile', ['maxSize' => 31,457,280, 'types' => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'video/avi', 'video/wmv', 'video/flv', 'video/mpg', 'video/mp4']]], 'message' => 'Accepted formats: .jpg .jpeg .png .gif .avi .wmv .flv .mpg .mp4'] );
+                ->notEmpty( 'file' )
+                ->add( 'file', 'validSize',
+                        ['rule' => ['fileSize', '30MB'], 'message' => 'Max 30MB'] )
+                ->add( 'file', 'validFormat',
+                        ['rule' => ['uploadedFile', ['types' => ['image/jpeg', 'image/jpg',
+                                'image/png', 'image/gif', 'video/avi', 'video/wmv',
+                                'video/flv', 'video/mpg', 'video/mp4']]],
+                    'message' => 'Accepted formats: .jpg .jpeg .png .gif'
+                    . ' .avi .wmv .flv .mpg .mp4'] );
 
         return $validator;
     }
