@@ -22,7 +22,7 @@ class SearchForm extends Form {
     protected function _buildValidator( Validator $validator ) {
         $validator
                 // all forms created from SearchForm must have a field called search
-                ->requirePresence('search')
+                ->requirePresence( 'search' )
                 // allow the search field to be empty
                 ->allowEmpty( 'search' )
                 // adds a rule to call maxLength method from Validator class to ensure length <= 30
@@ -35,7 +35,7 @@ class SearchForm extends Form {
     }
 
     protected function _execute( array $data ) {
-        
+
         return true;
     }
 
