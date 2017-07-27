@@ -7,6 +7,316 @@
 	overflow: auto
 }
 
+#team-footer, #team-footer body, .wix-svg-font-icons, [class*=" wix-svg-font-icons-"]:before,
+	[class^=wix-svg-font-icons-]:before {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased
+}
+
+#team-footer .pull-right {
+	float: right
+}
+
+#team-footer .pull-left, #team-footer .wf-column {
+	float: left
+}
+
+#team-footer .clearfix {
+	overflow: hidden
+}
+
+#team-footer .is-crossed {
+	text-decoration: line-through
+}
+
+#team-footer .ng-cloak, #team-footer .x-ng-cloak .ng-hide, #team-footer [data-ng-cloak],
+	#team-footer [ng-cloak], #team-footer [ng\:cloak], #team-footer [x-ng-cloak]
+	{
+	display: none !important
+}
+
+#team-footer .btn-default, #team-footer .btn-default-market, #team-footer .btn-default-premium,
+	#team-footer .btn-default-warn, #team-footer .btn-primary, #team-footer .btn-primary-market,
+	#team-footer .btn-primary-premium, #team-footer .btn-primary-warn {
+	font-family: HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma,
+		HelveticaNeueW10-55Roma, sans-serif;
+	background: #FFF;
+	text-decoration: none;
+	font-size: 13px;
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 7px 20px 8px
+}
+
+#team-footer .btn-default-market:hover, #team-footer .btn-default-premium:hover,
+	#team-footer .btn-default-warn:hover, #team-footer .btn-default:hover,
+	#team-footer .btn-primary-market:hover, #team-footer .btn-primary-premium:hover,
+	#team-footer .btn-primary-warn:hover, #team-footer .btn-primary:hover {
+	text-decoration: none
+}
+
+#team-footer .btn-default-market:focus, #team-footer .btn-default-premium:focus,
+	#team-footer .btn-default-warn:focus, #team-footer .btn-default:focus,
+	#team-footer .btn-primary-market:focus, #team-footer .btn-primary-premium:focus,
+	#team-footer .btn-primary-warn:focus, #team-footer .btn-primary:focus {
+	outline: 0
+}
+
+#team-footer .disabled.btn-default, #team-footer .disabled.btn-default-market,
+	#team-footer .disabled.btn-default-premium, #team-footer .disabled.btn-default-warn,
+	#team-footer .disabled.btn-primary, #team-footer .disabled.btn-primary-market,
+	#team-footer .disabled.btn-primary-premium, #team-footer .disabled.btn-primary-warn,
+	#team-footer [disabled=disabled].btn-default, #team-footer [disabled=disabled].btn-default-market,
+	#team-footer [disabled=disabled].btn-default-premium, #team-footer [disabled=disabled].btn-default-warn,
+	#team-footer [disabled=disabled].btn-primary, #team-footer [disabled=disabled].btn-primary-market,
+	#team-footer [disabled=disabled].btn-primary-premium, #team-footer [disabled=disabled].btn-primary-warn
+	{
+	opacity: .4;
+	cursor: default
+}
+
+#team-footer .btn-large.btn-default, #team-footer .btn-large.btn-default-market,
+	#team-footer .btn-large.btn-default-premium, #team-footer .btn-large.btn-default-warn,
+	#team-footer .btn-large.btn-primary, #team-footer .btn-large.btn-primary-market,
+	#team-footer .btn-large.btn-primary-premium, #team-footer .btn-large.btn-primary-warn
+	{
+	padding: 11px 20px
+}
+
+#team-footer .btn-default-market.btn-large, #team-footer .btn-default-premium.btn-large,
+	#team-footer .btn-default-warn.btn-large, #team-footer .btn-default.btn-large
+	{
+	padding: 11px 21px 10px;
+	font-size: 15px
+}
+
+#team-footer a.btn-default, #team-footer a.btn-default-market, #team-footer a.btn-default-premium,
+	#team-footer a.btn-default-warn, #team-footer a.btn-primary, #team-footer a.btn-primary-market,
+	#team-footer a.btn-primary-premium, #team-footer a.btn-primary-warn {
+	display: inline-block
+}
+
+#team-footer .btn-default {
+	border: 1px solid #3899EC;
+	color: #3899EC
+}
+
+#team-footer .btn-default:hover:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #3899EC;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(236, 236, 236, .1))
+}
+
+#team-footer .btn-default:active:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #3899EC;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(0, 0, 0, .1))
+}
+
+#team-footer .btn-default-premium {
+	border: 1px solid #AA4DC8;
+	color: #AA4DC8
+}
+
+#team-footer .btn-default-premium:hover:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #AA4DC8;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(236, 236, 236, .1))
+}
+
+#team-footer .btn-default-premium:active:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #AA4DC8;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(0, 0, 0, .1))
+}
+
+#team-footer .btn-default-market {
+	border: 1px solid #FB7D33;
+	color: #FB7D33
+}
+
+#team-footer .btn-default-market:hover:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #FB7D33;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(236, 236, 236, .1))
+}
+
+#team-footer .btn-default-market:active:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #FB7D33;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(0, 0, 0, .1))
+}
+
+#team-footer .btn-default-warn {
+	border: 1px solid #ec4d4d;
+	color: #ec4d4d
+}
+
+#team-footer .btn-default-warn:hover:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #ec4d4d;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(236, 236, 236, .1))
+}
+
+#team-footer .btn-default-warn:active:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #ec4d4d;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(0, 0, 0, .1))
+}
+
+#team-footer .btn-primary {
+	background: #3899EC;
+	color: #FFF;
+	border: none;
+	background-image: linear-gradient(to top, rgba(0, 0, 0, .1),
+		rgba(236, 236, 236, .1));
+	padding: 8px 20px 9px
+}
+
+#team-footer .btn-primary.btn-large {
+	font-size: 15px;
+	padding: 12px 21px 11px
+}
+
+#team-footer .btn-primary:hover:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #3899EC;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(236, 236, 236, .1))
+}
+
+#team-footer .btn-primary:active:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #3899EC;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(0, 0, 0, .1))
+}
+
+#team-footer .btn-primary-premium {
+	background: #AA4DC8;
+	color: #FFF;
+	border: none;
+	background-image: linear-gradient(to top, rgba(0, 0, 0, .1),
+		rgba(236, 236, 236, .1));
+	padding: 8px 20px 9px
+}
+
+#team-footer .btn-primary-premium.btn-large {
+	font-size: 15px;
+	padding: 12px 21px 11px
+}
+
+#team-footer .btn-primary-premium:hover:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #AA4DC8;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(236, 236, 236, .1))
+}
+
+#team-footer .btn-primary-premium:active:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #AA4DC8;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(0, 0, 0, .1))
+}
+
+#team-footer .btn-primary-market {
+	background: #FB7D33;
+	color: #FFF;
+	border: none;
+	background-image: linear-gradient(to top, rgba(0, 0, 0, .1),
+		rgba(236, 236, 236, .1));
+	padding: 8px 20px 9px
+}
+
+#team-footer .btn-primary-market.btn-large {
+	font-size: 15px;
+	padding: 12px 21px 11px
+}
+
+#team-footer .btn-primary-market:hover:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #FB7D33;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(236, 236, 236, .1))
+}
+
+#team-footer .btn-primary-market:active:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #FB7D33;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(0, 0, 0, .1))
+}
+
+#team-footer .btn-primary-warn {
+	background: #ec4d4d;
+	color: #FFF;
+	border: none;
+	background-image: linear-gradient(to top, rgba(0, 0, 0, .1),
+		rgba(236, 236, 236, .1));
+	padding: 8px 20px 9px
+}
+
+#team-footer .btn-primary-warn.btn-large {
+	font-size: 15px;
+	padding: 12px 21px 11px
+}
+
+#team-footer .btn-primary-warn:hover:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #ec4d4d;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(236, 236, 236, .1))
+}
+
+#team-footer .btn-primary-warn:active:not ([disabled=disabled] ):not (.disabled
+	){
+	background: #ec4d4d;
+	color: #FFF;
+	background-image: linear-gradient(to top, rgba(236, 236, 236, .1),
+		rgba(0, 0, 0, .1))
+}
+
+
+.header-and-footer-svg-font-icons, [class*=" header-and-footer-svg-font-icons-"]:before,
+	[class^=header-and-footer-svg-font-icons-]:before {
+	font-family: header-and-footer-svg-font-icons;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+	font-weight: 400;
+	font-style: normal;
+	speak: none;
+	text-decoration: inherit;
+	text-transform: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+
 .header-and-footer-svg-font-icons-close:before {
 	content: "\f101"
 }
@@ -15,9 +325,14 @@
 	content: "\f102"
 }
 
+body {
+	margin: 0
+}
+
 #team-footer {
 	min-width: 768px;
-	font-family: 'Slabo 27px', serif;
+	font-family: HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma,
+		HelveticaNeueW10-55Roma, Helvetica, Arial, sans-serif;
 	clear: both;
 	background: #fff;
 	color: #43515c;
@@ -44,7 +359,8 @@
 	clear: both
 }
 
-@supports ((-webkit-flex-wrap:wrap ) or (-ms-flex-wrap:wrap ) or (flex-wrap:wrap
+@
+supports ((-webkit-flex-wrap:wrap ) or (-ms-flex-wrap:wrap ) or (flex-wrap:wrap
 	)){ #
 	team-footer .wf-column-container{display: -webkit-flex;
 	display: -ms-flexbox;
@@ -61,7 +377,8 @@
 }
 
 #team-footer .wf-column div.wf-title {
-	font-family: 'Slabo 27px', serif;
+	font-family: HelveticaNeueW01-65Medi, HelveticaNeueW02-65Medi,
+		HelveticaNeueW10-65Medi, Helvetica, Arial, sans-serif;
 	color: #20303c;
 	font-size: 16px;
 	line-height: 16px;
@@ -70,7 +387,8 @@
 
 body[lang=ja] #team-footer .wf-column div.wf-title, body[lang=ko] #team-footer .wf-column div.wf-title
 	{
-	font-family: 'Slabo 27px', serif;
+	font-family: HelveticaNeueW10-75Bold, HelveticaNeueW01-65Medi,
+		HelveticaNeueW02-65Medi, HelveticaNeueW10-65Medi, sans-serif;
 	font-weight: 700
 }
 
