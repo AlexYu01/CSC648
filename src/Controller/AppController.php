@@ -67,6 +67,11 @@ class AppController extends Controller {
         ) {
             $this->set('_serialize', true);
         }
+        
+        // category menu
+        $this->loadModel ( 'MediaGenres' );
+        $mgResults = $this->MediaGenres->find ( 'all' )->toArray ();
+        $this->set ('genresData', $mgResults);
     }
 
     public function searchBar() {
