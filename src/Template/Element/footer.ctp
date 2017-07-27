@@ -24,4 +24,7 @@
 		</div>
 	</div>
 </footer>
-<script type="text/javascript" src="js/home-scripts-2.js"></script>
+
+<?php if($this->layout != 'default_no_menu'){ ?>
+	<script type="text/javascript" src="js/home-scripts-2.js"></script>
+<?php } ?>

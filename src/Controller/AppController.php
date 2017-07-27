@@ -46,6 +46,11 @@ class AppController extends Controller {
         $this->loadComponent('Flash');
 
         $this->loadModel('MediaGenres');
+        
+        // category menu
+        $this->loadModel ( 'MediaGenres' );
+        $mgResults = $this->MediaGenres->find ( 'all' )->toArray ();
+        $this->set ('genresData', $mgResults);
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -67,11 +72,6 @@ class AppController extends Controller {
         ) {
             $this->set('_serialize', true);
         }
-        
-        // category menu
-        $this->loadModel ( 'MediaGenres' );
-        $mgResults = $this->MediaGenres->find ( 'all' )->toArray ();
-        $this->set ('genresData', $mgResults);
     }
 
     public function searchBar() {
