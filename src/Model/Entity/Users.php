@@ -18,7 +18,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\User $user
  */
-class User extends Entity
+class Users extends Entity
 {
 
     /**
@@ -41,6 +41,7 @@ class User extends Entity
      * @var array
      */
     protected $_hidden = [
+
         'password',
         'token'
     ];
