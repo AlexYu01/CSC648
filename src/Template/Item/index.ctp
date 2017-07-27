@@ -132,7 +132,7 @@ $videos_type = "mp4";
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <img id="lb-image"class="img-responsive" src="http://sfsuse.com/~dmao1/item/image?id=<?= $item->media_id ?>">
+                            <img id="lb-image"class="img-responsive" src="<?php echo "http://www." . $this->request->env('HTTP_HOST') . strtok($this->request->env('REQUEST_URI'), '?') . '/image?id=' . $item->media_id; ?>">
                         </div>
 
                     </div>                
