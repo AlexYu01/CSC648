@@ -84,7 +84,6 @@ class MediaTable extends Table
             ->notEmpty('permission');
 
         $validator
-            ->requirePresence('media_link', 'create')
             ->notEmpty('media_link');
 
         $validator
