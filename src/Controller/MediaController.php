@@ -43,7 +43,7 @@ class MediaController extends MediaHelper {
             $searchGenreId = $input['genre_id'];
             $searchGenreName = strtolower( $this->getGenreName( $searchGenreId ) );
 
-            $mediaName = $input['file']['name'];
+            $mediaName = strtolower($input['file']['name']);
             
             // add "unique" string to the name of the file to avoid over writes
             $mediaStoredName = uniqid() . '-' . $mediaName;
@@ -92,7 +92,7 @@ class MediaController extends MediaHelper {
         $imageInfo = getimagesize( $source );
         $w = $imageInfo[0];
         $h = $imageInfo[1];
-        $type = $imageInfo['mime'];
+        $type = strtolower($imageInfo['mime']);
 
         switch ( $type ) {
             case 'image/gif':
