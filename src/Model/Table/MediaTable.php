@@ -89,6 +89,9 @@ class MediaTable extends Table {
                 ->notEmpty( 'media_link' );
 
         $validator
+                ->notEmpty( 'thumb_link' );
+
+        $validator
                 ->integer( 'sold_count' )
                 ->allowEmpty( 'sold_count' );
 
