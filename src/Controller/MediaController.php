@@ -21,6 +21,7 @@ class MediaController extends MediaHelper {
 
         $media = $this->Media->get( $id );
         if ( $this->Media->delete( $media ) ) {
+            // remove files from filesystem
             unlink( WWW_ROOT . 'img/' . $media['media_link'] );
             unlink( WWW_ROOT . 'img/' . $media['thumb_link'] );
             $this->Flash->success( __( 'The article with id: {0} has been deleted.',
@@ -38,11 +39,14 @@ class MediaController extends MediaHelper {
 
         if ( $this->request->is( 'post' ) ) {
 
-            $searchGenreId = $this->request->data( 'genre_id' );
+            $input = $this->request->data;
+            $searchGenreId = $input['genre_id'];
             $searchGenreName = strtolower( $this->getGenreName( $searchGenreId ) );
 
-            $mediaName = $this->request->data['file']['name'];
-            $mediaStoredName = uniqid() . $mediaName;
+            $mediaName = $input['file']['name'];
+            
+            // add "unique" string to the name of the file to avoid over writes
+            $mediaStoredName = uniqid() . '-' . $mediaName;
 
             // path link for full image that will be stored in the database
             $mediaPathLink = 'media/' . $searchGenreName . '/' . $mediaStoredName;
@@ -53,24 +57,22 @@ class MediaController extends MediaHelper {
             // the absolute path where the media will be stored
             $storedPath = WWW_ROOT . 'img/' . $mediaPathLink;
 
-            $this->request->data['media_link'] = $mediaPathLink;
-            $this->request->data['thumb_link'] = $mediaThumbLink;
+            $input['media_link'] = $mediaPathLink;
+            $input['thumb_link'] = $mediaThumbLink;
 
-            $newMedia = $this->Media->patchEntity( $newMedia,
-                    $this->request->getData() );
+            $newMedia = $this->Media->patchEntity( $newMedia, $input );
 
             if ( $this->Media->save( $newMedia ) ) {
-                move_uploaded_file( $this->request->data['file']['tmp_name'],
-                        $storedPath );
-                $this->generateThumbnail( $this->request->data['file']['tmp_name'],
+                // generate and store thumbnail it. Also store uploaded file
+                $this->generateThumbnail( $input['file']['tmp_name'],
                         $mediaThumbLink );
+                move_uploaded_file( $input['file']['tmp_name'], $storedPath );
             } else {
-                unlink( WWW_ROOT . 'img/' . $mediaThumbLink );
                 $this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
             }
-            return $this->redirect('');
+            return $this->redirect( '' );
         }
-        
+
         $genreList = $this->getGenreList();
 
         // temporary until authentication can grab user's id
@@ -133,7 +135,20 @@ class MediaController extends MediaHelper {
         }
 
         $dest = WWW_ROOT . 'img/' . $mediaThumbLink;
-        imagejpeg( $dimg, $dest, 100 );
+
+        switch ( $type ) {
+            case 'image/gif':
+                imagegif( $dimg, $dest );
+                break;
+            case 'image/jpg':
+                imagejpeg( $dimg, $dest, 100 );
+                break;
+            case 'image/png':
+                imagepng( $dimg, $dest, 0 );
+                break;
+            default:
+                imagejpeg( $dimg, $dest, 100 );
+        }
 
         imagedestroy( $simg );
         imagedestroy( $dimg );

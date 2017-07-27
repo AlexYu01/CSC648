@@ -106,7 +106,7 @@ class MediaTable extends Table {
                 ->requirePresence( 'file', 'create' )
                 ->notEmpty( 'file' )
                 ->add( 'file', 'validSize',
-                        ['rule' => ['fileSize', '=<', '30MB'], 'message' => 'Max 30MB'] )
+                        ['rule' => ['fileSize', '<=', '30MB'], 'message' => 'Max 30MB'] )
                 ->add( 'file', 'validFormat',
                         ['rule' => ['uploadedFile', ['types' => ['image/jpeg', 'image/jpg',
                                 'image/png', 'image/gif', 'video/avi', 'video/wmv',
