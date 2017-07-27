@@ -14,57 +14,63 @@ class MediaController extends MediaHelper {
         // temporary until checks for file type is implemented
         $this->loadModel( 'MediaTypes' );
     }
-    
-    public function delete($id) {
+
+    public function delete( $id ) {
         // allow authors to delete an entry
+        $this->request->allowMethod( ['post', 'delete'] );
+
+        $article = $this->Media->get( $id );
+        if ( $this->Media->delete( $article ) ) {
+            unlink( WWW_ROOT . 'img/' . $article['media_link'] );
+            $this->Flash->success( __( 'The article with id: {0} has been deleted.',
+                            h( $id ) ) );
+            return $this->redirect( ['controller' => 'Results', 'action' => 'search'] );
+        }
     }
-    
-    public function edit($id) {
+
+    public function edit( $id ) {
         // allow authors to update an entry
     }
 
     public function upload() {
         $newMedia = $this->Media->newEntity();
+
         if ( $this->request->is( 'post' ) ) {
+
             $searchGenreId = $this->request->data( 'genre_id' );
-            $searchGenreName = $this->getGenreName($searchGenreId);
-            
+            $searchGenreName = strtolower( $this->getGenreName( $searchGenreId ) );
+
             $mediaName = $this->request->data['file']['name'];
-            
+
             // path link that will be stored in the database
             $mediaPathLink = 'media/' . $searchGenreName . '/' . $mediaName;
-            
+
             // the absolute path where the media will be stored
             $storedPath = WWW_ROOT . 'img/' . $mediaPathLink;
 
-            if ( move_uploaded_file( $this->request->data['file']['tmp_name'],
-                            $storedPath) ) {
-                $this->request->data['media_link'] = $mediaPathLink;
-            }
+            $this->request->data['media_link'] = $mediaPathLink;
 
             //$mediaType = pathinfo( $mediaName, PATHINFO_EXTENSION );
 
             $newMedia = $this->Media->patchEntity( $newMedia,
-                    $this->request->data );
+                    $this->request->getData() );
+
             if ( $this->Media->save( $newMedia ) ) {
-                $this->Flash->success( __( 'The media  has been saved.' ) );
+                move_uploaded_file( $this->request->data['file']['tmp_name'],
+                        $storedPath );
             } else {
                 $this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
             }
         }
         $genreList = $this->getGenreList();
-        
+
         // temporary until authentication can grab user's id
         $userList = $this->Users->find( 'list',
-                                ['keyField' => 'user_id',
-                            'valueField' => 'username'] )
-                        ->hydrate( false )->toArray();
-        
+                ['keyField' => 'user_id', 'valueField' => 'username'] );
+
         // temporary until file can be checked for video or image
         $typeList = $this->MediaTypes->find( 'list',
-                                ['keyField' => 'type_id',
-                            'valueField' => 'type_name'] )
-                        ->hydrate( false )->toArray();
+                ['keyField' => 'type_id', 'valueField' => 'type_name'] );
 
         $this->set( compact( 'genreList', 'newMedia', 'userList', 'typeList' ) );
     }
