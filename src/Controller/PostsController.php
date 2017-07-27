@@ -20,9 +20,13 @@ class PostsController extends AppController
     public function index()
     {
         $posts = $this->paginate($this->Posts);
-
+        
         $this->set(compact('posts'));
         $this->set('_serialize', ['posts']);
+        
+        $username = $this->Auth->user('username');
+        $this->set(compact('username'));
+        $this->set('_serialize', ['username']);
     }
 
     /**
@@ -41,6 +45,9 @@ class PostsController extends AppController
         $this->set('post', $post);
         $this->set('_serialize', ['post']);
     }
+        public function logout() {
+    return $this->redirect($this->Auth->logout());
+}
 
     /**
      * Add method

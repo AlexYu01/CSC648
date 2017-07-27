@@ -104,6 +104,10 @@ class UsersController extends AppController
         }
         
     }
+    
+    public function logout() {
+    return $this->redirect($this->Auth->logout());
+}
  
     public function beforeFilter(Event $event){
         $this->Auth->allow();

@@ -12,6 +12,8 @@
 </nav>
 <div class="posts index large-9 medium-8 columns content">
     <h3><?= __('Posts') ?></h3>
+    <?php echo 'Current User : '.$username?>
+     <?= $this->Html->link('Logout',['controller'=>'Users', 'action' => 'logout']) ?>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
