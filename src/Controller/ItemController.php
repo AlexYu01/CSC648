@@ -60,6 +60,13 @@ class ItemController extends AppController {
         //get image request
         $id = $this->request->getQuery('id');
         $resize = $this->request->getQuery('resize');
+        $resize_verify = preg_match('/^([0-9]{1,4})x([0-9]{1,4})$/', $resize, $match);
+        //if image < 500pixel no watermark
+        if ($resize_verify && $match[1] < 500 && $match[2] < 500) {
+                $watermark = false;
+        } else {
+            $watermark = true;
+        }
         $this->loadModel('Media');
         try {
             $item = $this->Media->get($id, [
@@ -76,16 +83,19 @@ class ItemController extends AppController {
 
 
 
+
                 // Copy the stamp image onto our photo using the margin offsets and the photo 
                 // width to calculate positioning of the stamp. 
-                $counter = 1;
-                while ($counter < 9) {
-                    imagecopy($im, $stamp, rand(10, intval($max_x)), rand(10, intval($max_y)), 0, 0, imagesx($stamp), imagesy($stamp));
-                    $counter += 1;
+                if ($watermark == true) {
+                    $counter = 1;
+                    while ($counter < 9) {
+                        imagecopy($im, $stamp, rand(10, intval($max_x)), rand(10, intval($max_y)), 0, 0, imagesx($stamp), imagesy($stamp));
+                        $counter += 1;
+                    }
                 }
 
                 // Check for resize            
-                if (preg_match('/^([0-9]{1,4})x([0-9]{1,4})$/', $resize, $match)) {
+                if ($resize_verify) {
                     $new_x = $match[1];
                     $new_y = $match[2];
                     $thumb_nail = imagecreatetruecolor($new_x, $new_y);
