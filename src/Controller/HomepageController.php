@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Controller\AppController;
+use App\Utility\MediaHelper;
 
-class HomepageController extends AppController {
+class HomepageController extends MediaHelper {
 
     public function initialize() {
         parent::initialize();

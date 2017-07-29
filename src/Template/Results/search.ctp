@@ -2,6 +2,7 @@
 //$this->layout = 'default_no_menu'
 ?>
 
+
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="favicon.ico">
 
@@ -66,7 +67,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 

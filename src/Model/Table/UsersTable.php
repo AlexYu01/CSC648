@@ -10,7 +10,6 @@ use Cake\Validation\Validator;
  * Users Model
  *
  * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
- *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\User[] newEntities(array $data, array $options = [])
@@ -36,6 +35,7 @@ class UsersTable extends Table
         $this->setDisplayField('user_id');
         $this->setPrimaryKey('user_id');
 
+
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
@@ -51,6 +51,13 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
+
+            ->integer('user_id')
+            ->allowEmpty('user_id', 'create')
+            ->add('user_id', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+
+        $validator
+            ->allowEmpty('username')
             ->requirePresence('username', 'create')
             ->notEmpty('username')
             ->add('username', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
@@ -68,6 +75,13 @@ class UsersTable extends Table
         $validator
             ->dateTime('registered_date')
             ->allowEmpty('registered_date');
+
+        $validator
+            ->allowEmpty('token');
+
+        $validator
+            ->requirePresence('salt', 'create')
+            ->notEmpty('salt');
 
         $validator
             ->dateTime('last_login_date')
@@ -98,6 +112,7 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->isUnique(['userID']));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
