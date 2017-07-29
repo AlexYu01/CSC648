@@ -41,8 +41,15 @@ class AppController extends Controller {
     public function initialize() {
         parent::initialize();
 
-        $this->loadComponent( 'RequestHandler' );
-        $this->loadComponent( 'Flash' );
+        $this->loadComponent('RequestHandler');
+        $this->loadComponent('Flash');
+
+        $this->loadModel('MediaGenres');
+        
+        // category menu
+        $this->loadModel ( 'MediaGenres' );
+        $mgResults = $this->MediaGenres->find ( 'all' )->toArray ();
+        $this->set ('genresData', $mgResults);
 
         /*
          * Enable the following components for recommended CakePHP security settings.
