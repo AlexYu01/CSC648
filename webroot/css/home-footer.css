@@ -1,0 +1,286 @@
+#team-footer .wf-container {
+	width: 90%;
+	max-width: 1044px;
+	margin: 0 auto;
+	padding: 25px 0 0px 383px;
+	box-sizing: content-box;
+	overflow: auto
+}
+
+#team-footer, #team-footer body, .wix-svg-font-icons, [class*=" wix-svg-font-icons-"]:before,
+	[class^=wix-svg-font-icons-]:before {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased
+}
+
+#team-footer .pull-right {
+	float: right
+}
+
+#team-footer .pull-left, #team-footer .wf-column {
+	float: left
+}
+
+#team-footer .clearfix {
+	overflow: hidden
+}
+
+#team-footer .is-crossed {
+	text-decoration: line-through
+}
+
+#team-footer .ng-cloak, #team-footer .x-ng-cloak .ng-hide, #team-footer [data-ng-cloak],
+	#team-footer [ng-cloak], #team-footer [ng\:cloak], #team-footer [x-ng-cloak]
+	{
+	display: none !important
+}
+
+
+.header-and-footer-svg-font-icons, [class*=" header-and-footer-svg-font-icons-"]:before,
+	[class^=header-and-footer-svg-font-icons-]:before {
+	font-family: header-and-footer-svg-font-icons;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+	font-weight: 400;
+	font-style: normal;
+	speak: none;
+	text-decoration: inherit;
+	text-transform: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+
+.header-and-footer-svg-font-icons-close:before {
+	content: "\f101"
+}
+
+.header-and-footer-svg-font-icons-menu:before {
+	content: "\f102"
+}
+
+#team-footer {
+	min-width: 768px;
+	font-family: 'Slabo 27px', serif;
+	clear: both;
+	background: #fff;
+	color: #43515c;
+	position: relative
+}
+
+.gray-background #team-footer {
+	background: #f5f7f7
+}
+
+#team-footer a {
+	color: #fff
+}
+
+#team-footer ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0
+}
+
+#team-footer .wf-column-container {
+	display: block;
+	clear: both
+}
+
+@
+supports ((-webkit-flex-wrap:wrap ) or (-ms-flex-wrap:wrap ) or (flex-wrap:wrap
+	)){ #
+	team-footer .wf-column-container{display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between
+}
+
+}
+#team-footer .wf-column-container>ul {
+	width: 168px;
+	padding-right: 24px
+}
+
+#team-footer .wf-column div.wf-title {
+	font-family: 'Slabo 27px', serif;
+	color: #20303c;
+	font-size: 16px;
+	line-height: 16px;
+	margin-bottom: 27px
+}
+
+body[lang=ja] #team-footer .wf-column div.wf-title, body[lang=ko] #team-footer .wf-column div.wf-title
+	{
+	font-family: 'Slabo 27px', serif;
+	font-weight: 700
+}
+
+#team-footer .wf-column li {
+	margin-bottom: 14px
+}
+
+#team-footer .wf-column a {
+	color: #43515c;
+	font-weight: 500;
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 16px
+}
+
+#team-footer .wf-column a body.ja, #team-footer .wf-column a body.ko {
+	line-height: 27px
+}
+
+#team-footer .wf-column a:hover {
+	color: #459fed
+}
+
+#team-footer .wf-column.wf-about-wix-column {
+	width: 261px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-logo {
+	display: block;
+	margin-bottom: 24px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-logo svg {
+	width: 86px;
+	height: 21px;
+	margin-top: -7px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-description {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 22px;
+	margin-top: 15px;
+	margin-bottom: 8px;
+	overflow: hidden
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-description:nth-child(2)
+	{
+	margin-top: -1px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social {
+	margin-top: 27px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li {
+	display: inline-block
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-facebook>img,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-facebook>svg,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-google-plus>img,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-google-plus>svg,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-instagram>img,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-instagram>svg,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-linkedin>img,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-linkedin>svg,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-pinterest>img,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-pinterest>svg,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-twitter>img,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-twitter>svg,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-youtube>img,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-youtube>svg
+	{
+	width: 24px;
+	height: 24px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a {
+	display: block;
+	overflow: hidden;
+	float: left;
+	margin-right: 14px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-linkedin,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a:not (:last-child
+	){
+	margin-right: 0
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a path,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a rect {
+	fill: #43515c
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a:first-child {
+	margin-left: -7px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a:hover {
+	opacity: 1
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-facebook:hover path,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-facebook:hover rect
+	{
+	fill: #3b5998
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-twitter:hover path,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-twitter:hover rect
+	{
+	fill: #55acee
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-google-plus:hover path,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-google-plus:hover rect
+	{
+	fill: #d34836
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-pinterest:hover path,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-pinterest:hover rect
+	{
+	fill: #cc2127
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-instagram
+	{
+	position: relative;
+	top: -2px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-instagram:hover path,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-instagram:hover rect
+	{
+	fill: #3f729b
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-instagram svg
+	{
+	width: 20px;
+	height: 20px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-linkedin:hover path,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-linkedin:hover rect
+	{
+	fill: #0077b5
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-youtube {
+	position: relative;
+	left: 3px
+}
+
+#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-youtube:hover path,
+	#team-footer .wf-column.wf-about-wix-column .wf-social li a.wf-youtube:hover rect
+	{
+	fill: #cd201f
+}
+
+.wf-column a {
+	display: block
+}

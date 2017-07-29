@@ -14,34 +14,31 @@
  */
 $cakeDescription = 'Group 5 About Page';
 ?>
+
+
 <!DOCTYPE html>
-<html>
-<head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <?= $this->Html->meta('icon') ?>
 
-<!--
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
--->
+<html lang="en">
+    <head>
+        <!-- css & js file import --> <?= $this->element('header-base'); ?> <!-- css & js file import -->
+        <title>CSC648 - Team5 - PictureSque - Home</title>
+    </head>
 
-    <?= $this->Html->css('bootstrap.css') ?>
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
-</head>
-<body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-            <div class="text-center">
-                <h1><?= $this->Html->image('logos/Logomakr_5mkyX3.png',[])?></h1>
-            </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div>
-        <?= $this->fetch('content') ?>
-    </div>
-    <footer>
-    </footer>
-</body>
+    <body class="gray-background" style="background: none !important;">
+        <div id="app" class="app-wrapper">
+            <!-- header - logo & signin  --> <?= $this->element('header'); ?> <!-- header - logo & signin  -->
+
+            <main class="-sidebar-open"> 
+                <!-- left side menu  --> <?= $this->element('menu'); ?> <!-- left side menu  -->
+
+                <section id="gallery-container" class="tg-container">
+                    <!-- start right side content -->
+                    <?= $this->fetch('content') ?>
+                    <!-- stop right side content -->
+                </section>
+            </main>
+
+            <!-- footer --> <?= $this->element('footer'); ?> <!-- footer -->
+        </div>
+    </body>
 </html>
