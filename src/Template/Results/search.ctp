@@ -1,74 +1,104 @@
 <?php
-
-echo $this->Form->create($searchFields);
-echo $this->Form->Control('search', ['style' => 'width:25%; height:25%;']);
-echo $this->Form->select('dropDown', $genreList, ['empty' => 'All', 'style' => 'width:25%; height:25%;']);
-echo $this->Form->button('Search');
-echo $this->Form->end();
+//$this->layout = 'default_no_menu'
 ?>
-<html>
-    <style type="text/css">
-        body{margin: 0;padding: 0;}
-        #filter{ width:210px; height: 1300px; background: #ffffff;float: left;}
-        #searchField{ width:83%; height: 1300px; background: #ffffff;float: right;} 
-        #titleLink{font-size: larger; font-style: italic; font-weight: 800;}
-    </style>
-    <style>
-        .itemDisplay-left{float: left;wigth: 500px;height: 300px;}
-        .itemDisplay-right{float: right; width: 600px;height: 300px;}
-        .pagination{font-size: larger;}
-    </style>
-    
-    <div id="filter">
-    <h1>Filter</h1>
-    </div>
 
-    <div id="searchField">
-        <h1>Result</h1>
-        <?php foreach ($results as $media): ?>
-        <div class="itemDisplay-left"> 
-            <div id="titleOfItem">
-                <div id="titleLink"><?= $this->Html->link(__($media->media_title),['controller'=>'Item','action'=>'index',$media->media_id]) ?></div>  
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="favicon.ico">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="css/animate.css">
+<!-- Icomoon Icon Fonts-->
+<link rel="stylesheet" href="css/icomoon.css">
+<!-- Magnific Popup -->
+
+<link rel="stylesheet" href="css/magnific-popup.css">
+<!-- Salvattore -->
+<link rel="stylesheet" href="css/salvattore.css">
+<!-- Theme Style -->
+<link rel="stylesheet" href="css/style.css">
+<!-- Modernizr JS -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+<h1 class="page-header">
+    <?php
+    $session = $this->request->session();
+    echo $session->read('searchResults');
+    ?>
+
+</h1>
+
+<div  id="gallery-container" class="tg-gallery">	
+
+    <div id="fh5co-main">
+        <div class="container">
+
+            <div class="row">
+
+                <div id="fh5co-board" data-columns>
+                    <?php foreach ($results as $media): ?>
+                        <div class="item">
+                            <div class="animate-box">
+                                <a href="img/<?= $media->media_link ?>" class="image-popup fh5co-board-img"><?= $this->Html->image($media->media_link) ?></a >  
+                            </div>
+                            <div class="fh5co-desc">
+                                Title: <?= $media->media_title ?><br>
+                                Author Name: <?= $media->u['username'] ?><br>
+                                Price: <?= $media->price ?> dollars <br>  
+                                <?php echo $this->Html->link(__('View More Info and Buy it'), ['controller' => 'Item', 'action' => 'index', '?' => array('id' => $media->media_id)]); ?>
+
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
             </div>
-                
-            <tr>
-                <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'height' => '350px', 'width' => '350px']) ?></td>
-                
-            </tr>
-                
-        </div>  
-        <div class="itemDisplay-right">
-            <br></br>
-            <br></br>
-            <div id="titleLink">anthor id: <?= $this->Html->link(__($media->author_id),['controller'=>'Item','action'=>'index',$media->author_id]) ?></div> 
-            <div id="titleLink">Description: <?= $this->Html->link(__($media->media_desc),['controller'=>'Item','action'=>'index',$media->media_desc]) ?></div>
-            <div id="titleLink">Price: <?= $this->Html->link(__($media->price),['controller'=>'Item','action'=>'index',$media->price]) ?> dollars</div>
-
         </div>
-        <?php endforeach; ?>
     </div>
 
-</html>
-
-
-
-
-
-
-<div class="pagination pagination-large">
-    <ul class="pagination">
-<?php
-echo $this->Paginator->first('< first');
-echo $this->Paginator->prev(' << ' . __('previous'));
-echo $this->Paginator->numbers(['first' => 'First Page']);
-echo $this->Paginator->next(__('next') . ' >> ');
-echo $this->Paginator->last('last >');
-?>
-    </ul>
 </div>
-<?php
-echo $this->Paginator->counter([
-    'format' => 'Page {{page}} of {{pages}}, showing {{current}} records out of
-             {{count}} total, starting on record {{start}}, ending on {{end}}'
-])
-?>
+
+
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- Magnific Popup -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<!-- Salvattore -->
+<script src="js/salvattore.min.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

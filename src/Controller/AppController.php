@@ -41,12 +41,14 @@ class AppController extends Controller {
      */
     public function initialize() {
         parent::initialize();
-
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
         $this->loadModel('MediaGenres');
 
+        // category menu
+        $this->loadModel('MediaGenres');
+        $mgResults = $this->MediaGenres->find('all')->toArray();
+        $this->set('genresData', $mgResults);
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -71,21 +73,16 @@ class AppController extends Controller {
 
     public function searchBar() {
         $session = $this->request->session();
-
         $searchFields = new SearchForm();
-
         if ($this->request->is('post')) {
             if ($searchFields->execute($this->request->getData())) {
-
                 $session->write('searchTerm', $this->request->data('search'));
                 $session->write('searchGenre', $this->request->data('dropDown'));
-
                 return $this->redirect(['controller' => 'Results', 'action' => 'search']);
             } else {
                 // something went wrong with search.
             }
         }
-
         $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
                             'valueField' => 'genre_name'])
                         ->hydrate(false)->toArray();
