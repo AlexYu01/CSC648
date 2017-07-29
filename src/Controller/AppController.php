@@ -44,6 +44,10 @@ class AppController extends Controller {
         $this->loadComponent( 'RequestHandler' );
         $this->loadComponent( 'Flash' );
 
+        // category menu
+        $this->loadModel('MediaGenres');
+        $mgResults = $this->MediaGenres->find('all')->toArray();
+        $this->set('genresData', $mgResults);
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
