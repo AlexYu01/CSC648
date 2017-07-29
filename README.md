@@ -49,6 +49,11 @@ Run the following command in your account to sync with master branch
 
 You might get file conflicts fix them manually
 
+Add the following command in your view to remove sidebar
+
+```$this->layout = 'default_no_menu'; ```
+
+
 
  Parts | Frontend | Backend 
  --- | --- | ---
@@ -76,4 +81,5 @@ You might get file conflicts fix them manually
  Controller Name | Views Name | Required Data | Description
  --- | --- | --- | ---
  Item | index | media_id via GET | Show Detail Item Page
- Item | image | media_id via GET | WaterMark Image in Real Time
+ Item | image | media_id via GET <br> New Image Size via GET(optional) | WaterMark Image in Real Time <br> Example URL Usage: <br>```item/image?id=2&resize=350x350```;<br>id is media_id; resize is the new image size formatted in (digits)x(digits)
+
