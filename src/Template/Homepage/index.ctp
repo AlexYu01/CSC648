@@ -1,6 +1,6 @@
 
 <?php
-
+echo $this->Html->css('home-index1');
 echo $this->Form->create($searchFields);
 echo $this->Form->Control('search', ['style' => 'width:25%; height:25%;', 'autofocus' => true]);
 echo $this->Form->select('dropDown', $genreList, ['empty' => 'All', 'style' => 'width:25%; height:25%;']);
