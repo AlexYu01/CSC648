@@ -17,12 +17,10 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 use Cake\Core\Plugin;
 use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
 use Cake\Routing\Route\DashedRoute;
-
 /**
  * The default class to use for all routes
  *
@@ -42,7 +40,6 @@ use Cake\Routing\Route\DashedRoute;
  *
  */
 Router::defaultRouteClass(DashedRoute::class);
-
 Router::scope('/', function (RouteBuilder $routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
@@ -52,13 +49,12 @@ Router::scope('/', function (RouteBuilder $routes) {
     //$routes->connect('/', ['controller' => 'About', 'action' => 'index', 'home']);
     $routes->connect('/', ['controller' => 'Homepage', 'action' => 'index']);
     $routes->connect('/search', ['controller' => 'Results', 'action' => 'search']);
-    $routes->connect('registration',['controller'=>'Registration','action'=>'registration']);
-
+    $routes->connect('registration',['controller'=>'Users','action'=>'add']);
+    $routes->connect('login',['controller'=>'Users','action'=>'login']);
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     //$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display','home']);
-
     /**
      * Connect catchall routes for all controllers.
      *
@@ -77,7 +73,6 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->fallbacks(DashedRoute::class);
 });
-
 /**
  * Load all plugin routes. See the Plugin documentation on
  * how to customize the loading of plugin routes.
