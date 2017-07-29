@@ -1,3 +1,4 @@
+
 <?php
 
 echo $this->Form->create($searchFields);
@@ -8,4 +9,5 @@ echo $this->Form->end();
 
 echo $this->Html->link(__('item1'),['controller'=>'Item','action'=>'index','?'=>array('id'=>1,'what'=>'what')]);
 ?>
+
 

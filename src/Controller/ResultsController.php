@@ -9,7 +9,7 @@ class ResultsController extends MediaHelper {
 
     // limit 4 results per page
     public $paginate = [
-        'limit' => 4
+        'limit' => 1000
     ];
 
     public function index() {
@@ -123,5 +123,10 @@ class ResultsController extends MediaHelper {
 
         return $results;
     }
+    
+    
+     public function view()
+    {
 
+    }
 }
