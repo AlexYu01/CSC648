@@ -56,14 +56,13 @@ class ItemController extends AppController {
     }
 
     public function image() {
-
         //get image request
         $id = $this->request->getQuery('id');
         $resize = $this->request->getQuery('resize');
         $resize_verify = preg_match('/^([0-9]{1,4})x([0-9]{1,4})$/', $resize, $match);
         //if image < 500pixel no watermark
         if ($resize_verify && $match[1] < 500 && $match[2] < 500) {
-                $watermark = false;
+            $watermark = false;
         } else {
             $watermark = true;
         }
