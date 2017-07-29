@@ -7,13 +7,17 @@ echo $this->Form->button('Search');
 echo $this->Form->end();
 ?>
 
+<h3><?php echo $resultReport ?></h3>
+
 <table>
     <tr>
         <th>Id</th>
         <th>Title</th>
         <th>Description</th>
         <th>Created</th>
+        <th>Author</th>
         <th>Media</th>
+        <th>Actions</th>
     </tr>
 
         <?php foreach ($results as $media): ?>
@@ -22,7 +26,14 @@ echo $this->Form->end();
         <td><?= $media->media_title ?></td>
         <td><?= $media->media_desc ?></td>
         <td><?= $media->upload_date->format(DATE_RFC850) ?></td>
-        <td><?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'height' => '200px', 'width' => '200px']) ?></td>
+        <td><?= $media->u['username'] ?></td>
+        <td><?= $this->Html->image($media->thumb_link, ['alt' => $media->media_title]) ?></td>
+        <td><?= $this->Form->postLink(
+                'Delete',
+                ['controller' => 'Media', 'action' => 'delete', $media->media_id],
+                ['confirm' => 'Are you sure?'])
+            ?>
+        </td>
     </tr>
         <?php endforeach; ?>
 </table>

@@ -11,10 +11,12 @@ The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
 
-# csc648_team5
-About pages for our group member can be found here: [Group 5 About Page](http://sfsuse.com/~su17g05/)
+We use Twitter Bootstrap mainly to build our layout for more details see http://getbootstrap.com/
 
-### M0
+# csc648_team5
+Team members' about page can be found here: [Group 5 About Page](http://sfsuse.com/~su17g05/about)
+
+## M0
 Run the following commands under 'public_html' to clone the project to your individual shell account for testing
 ```
 git init    //Create an empty Git repository
@@ -40,12 +42,17 @@ You should see at leaset two files 'index.ctp' and 'andy.ctp'
 Create your own .ctp file this will be your about page.
 
 
-### Milestone 3
+## Milestone 3
 Run the following command in your account to sync with master branch
 
 ```git pull origin master ```
 
 You might get file conflicts fix them manually
+
+Add the following command in your view to remove sidebar
+
+```$this->layout = 'default_no_menu'; ```
+
 
 
  Parts | Frontend | Backend 
@@ -54,3 +61,25 @@ You might get file conflicts fix them manually
  Search Page | Ivan | Teng 
  Login Page | Calvin | Cody 
  Item Page | Andy | Andy 
+ 
+ ### Home Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | | |
+ 
+ ### Search Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | | |
+ 
+ ### Login Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | | |
+ 
+ ### Item Page
+ Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ Item | index | media_id via GET | Show Detail Item Page
+ Item | image | media_id via GET <br> New Image Size via GET(optional) | WaterMark Image in Real Time <br> Example URL Usage: <br>```item/image?id=2&resize=350x350```;<br>id is media_id; resize is the new image size formatted in (digits)x(digits)
+

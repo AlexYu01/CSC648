@@ -52,6 +52,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     //$routes->connect('/', ['controller' => 'About', 'action' => 'index', 'home']);
     $routes->connect('/', ['controller' => 'Homepage', 'action' => 'index']);
     $routes->connect('/search', ['controller' => 'Results', 'action' => 'search']);
+    $routes->connect('/upload', ['controller' => 'Media', 'action' => 'add']);
 
 
     /**

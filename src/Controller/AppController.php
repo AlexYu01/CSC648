@@ -18,7 +18,6 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use App\Form\SearchForm;
 
 /**
  * Application Controller
@@ -66,35 +65,13 @@ class AppController extends Controller {
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
-    public function beforeRender(Event $event) {
-        if (!array_key_exists('_serialize', $this->viewVars) &&
-                in_array($this->response->type(), ['application/json', 'application/xml'])
+    public function beforeRender( Event $event ) {
+        if ( !array_key_exists( '_serialize', $this->viewVars ) &&
+                in_array( $this->response->type(),
+                        ['application/json', 'application/xml'] )
         ) {
-            $this->set('_serialize', true);
+            $this->set( '_serialize', true );
         }
-    }
-
-    public function searchBar() {
-        $session = $this->request->session();
-
-        $searchFields = new SearchForm();
-
-        if ($this->request->is('post')) {
-            if ($searchFields->execute($this->request->getData())) {
-
-                $session->write('searchTerm', $this->request->data('search'));
-                $session->write('searchGenre', $this->request->data('dropDown'));
-
-                return $this->redirect(['controller' => 'Results', 'action' => 'search']);
-            } else {
-                // something went wrong with search.
-            }
-        }
-
-        $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
-                            'valueField' => 'genre_name'])
-                        ->hydrate(false)->toArray();
-        $this->set(compact('searchFields', 'genreList'));
     }
 
 }

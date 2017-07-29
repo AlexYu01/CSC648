@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use App\Controller\AppController;
+use App\Utility\MediaHelper;
+
 
 class HomepageController extends AppController {
 	public function initialize() {
@@ -36,4 +37,5 @@ class HomepageController extends AppController {
 		
 		$this->set ( 'productData', $images );
 	}
+  
 }

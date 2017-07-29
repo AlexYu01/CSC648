@@ -20,6 +20,7 @@ $cakeDescription = 'Group 5 About Page';
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<!-- css & js file import --> <?= $this->element('header-base'); ?> <!-- css & js file import -->
 	<title>CSC648 - Team5 - PictureSque - Home</title>
 </head>
@@ -40,5 +41,6 @@ $cakeDescription = 'Group 5 About Page';
 		
 		<!-- footer --> <?= $this->element('footer'); ?> <!-- footer -->
 	</div>
+  
 </body>
 </html>

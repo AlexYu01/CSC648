@@ -31,6 +31,14 @@ $this->layout = false;
             <div class="col-md-4"></div>
         </div>
     </div>
+    
+    <div>
+        <?php 
+        $connection = ConnectionManager::get('default');
+        $results = $connection->execute('SELECT * FROM users')->fetchALL('assoc');
+        print_r($results)
+        ?>
+    </div>
     </body>
 </html>
 
