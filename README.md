@@ -11,26 +11,21 @@ The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
 
+We use Twitter Bootstrap mainly to build our layout for more details see http://getbootstrap.com/
+
 # csc648_team5
 Team members' about page can be found here: [Group 5 About Page](http://sfsuse.com/~su17g05/about)
 
-<<<<<<< HEAD
-Run the following command under 'public_html' to clone the project to your individual shell account for testing
-=======
 ## M0
 Run the following commands under 'public_html' to clone the project to your individual shell account for testing
->>>>>>> 266ed9950e161f0f30c6917370ffc87f06d2fa6f
 ```
-git init
-git remote add origin https://github.com/tycku/csc648_team5.git
-git fetch
-git checkout <Your Branch Name>
-git pull
-chmod 777 -R tmp/ logs/
+git init    //Create an empty Git repository
+git remote add origin https://github.com/tycku/csc648_team5.git          //Add remote repository
+git fetch                           //Fetch all data
+git checkout <Your Branch Name>    //Change current branch to your branch
+chmod -R 777 tmp/ logs/            //Change folder permission to give log and tmp the right permission
 ```
 
-<<<<<<< HEAD
-=======
 Visit your individual page at http://sfsuse.com/~username/    (change 'username' to your login username) if you able to see our team about page without any error message which mean everything is working properly.
 
 Because the master branch is connecting to our team database so you will need to change it to your own database 
@@ -54,6 +49,11 @@ Run the following command in your account to sync with master branch
 
 You might get file conflicts fix them manually
 
+Add the following command in your view to remove sidebar
+
+```$this->layout = 'default_no_menu'; ```
+
+
 
  Parts | Frontend | Backend 
  --- | --- | ---
@@ -63,13 +63,23 @@ You might get file conflicts fix them manually
  Item Page | Andy | Andy 
  
  ### Home Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | | |
  
  ### Search Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | | |
  
  ### Login Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | | |
  
  ### Item Page
-    Controller Name: Item
-    Default View: index
-    Required Data: media_id
->>>>>>> 266ed9950e161f0f30c6917370ffc87f06d2fa6f
+ Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ Item | index | media_id via GET | Show Detail Item Page
+ Item | image | media_id via GET <br> New Image Size via GET(optional) | WaterMark Image in Real Time <br> Example URL Usage: <br>```item/image?id=2&resize=350x350```;<br>id is media_id; resize is the new image size formatted in (digits)x(digits)
+
