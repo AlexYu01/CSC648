@@ -55,16 +55,16 @@ class AppController extends Controller {
 
         $this->loadComponent( 'Auth',
                 [
-            'authenticate' => [
-                'Form' => [
-                    'fields' => ['username' => 'email', 'password' => 'password']
-                ]
-            ],
-            // possibly dont need loginAction
-            'loginAction' => [
-                'controller' => 'Users',
-                'action' => 'login'],
-            'loginRedirect' => [
+            /*  'authenticate' => [
+              'Form' => [
+              'fields' => ['username' => 'email', 'password' => 'password']
+              ]
+              ],
+              // possibly dont need loginAction
+              'loginAction' => [
+              'controller' => 'Users',
+              'action' => 'login'],
+             */ 'loginRedirect' => [
                 'controller' => 'Homepage',
                 'action' => 'index'
             ],

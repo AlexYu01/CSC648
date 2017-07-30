@@ -5,7 +5,7 @@
         <?php
             echo $this->Form->control('email');
             echo $this->Form->control('username');
-            $this->Form->control('password');
+            echo $this->Form->control('password');
             echo "________________________________________________________________";
             echo "<br><br>";
         ?> 
