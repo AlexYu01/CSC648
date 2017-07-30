@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="css/style.css">
 <!-- Modernizr JS -->
 <script src="js/modernizr-2.6.2.min.js"></script>
+<?php echo $this->Html->css('home-index1');?>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
 <script src="js/respond.min.js"></script>
@@ -40,7 +41,7 @@
 
 </h1>
 
-<div  id="gallery-container" class="tg-gallery">	
+<div  id="gallery-container" class="tg-gallery">
 
     <div id="fh5co-main">
         <div class="container">
@@ -51,12 +52,12 @@
                     <?php foreach ($results as $media): ?>
                         <div class="item">
                             <div class="animate-box">
-                                <a href="img/<?= $media->media_link ?>" class="image-popup fh5co-board-img"><?= $this->Html->image($media->media_link) ?></a >  
+                                <a href="<?= $this->Url->build(['controller' => 'Item', 'action' => 'image', '?' => ['id' => $media->media_id]])?>" class="image-popup fh5co-board-img"><?= $this->Html->image($media->media_link) ?></a >  
                             </div>
                             <div class="fh5co-desc">
                                 Title: <?= $media->media_title ?><br>
                                 Author Name: <?= $media->u['username'] ?><br>
-                                Price: <?= $media->price ?> dollars <br>  
+                                Price: <?= $media->price ?> dollars <br>
                                 <?php echo $this->Html->link(__('View More Info and Buy it'), ['controller' => 'Item', 'action' => 'index', '?' => array('id' => $media->media_id)]); ?>
 
                             </div>
