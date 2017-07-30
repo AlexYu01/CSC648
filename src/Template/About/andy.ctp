@@ -18,7 +18,6 @@ $this->layout = false;
     <?= $this->Html->css('bootstrap.css') ?>
     <?= $this->Html->script('bootstrap.min.js')?>
     </head>
-
     <div class="container" style="margin-top: 20px">
         <div class="row">
             <div class="col-md-4">

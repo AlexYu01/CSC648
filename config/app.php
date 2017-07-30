@@ -230,7 +230,6 @@ return [
              */
             //'port' => 'non_standard_port_number',
 
-
             'username' => 'su17g05',
             'password' => 'csc648su17g05',
             'database' => 'su17g05',
