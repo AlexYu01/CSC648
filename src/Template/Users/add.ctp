@@ -3,15 +3,13 @@
     <?= $this->Form->create($user) ?>
     <fieldset>
         <?php
-            echo $this->Form->control('firstname');
-            echo $this->Form->control('Last Name');
+            echo $this->Form->control('email');
+            echo $this->Form->control('username');
+            echo $this->Form->control('password');
             echo "________________________________________________________________";
             echo "<br><br>";
-            echo $this->Form->control('username');
         ?> 
-        <?= $this->Form->control('password');?>
         <span style="font-size: small">Password must be 8-20 characters long with at least one capital letter.</span>
-        <?= $this->Form->control('email');?>
     </fieldset>
     <div>
         <button type="Submit" class="btn btn-default">Submit</button>
