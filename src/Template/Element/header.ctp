@@ -6,10 +6,13 @@
 
                 <div id="wm-user-component">
                     <?php if($this->request->session()->read('Auth')) {
-echo '<a target="_self" href="http://sfsuse.com/~tyu1/logout" class="signin">logout</a>';
- } else {
-                        echo '<a target="_self" href="http://sfsuse.com/~tyu1/registration" class="signin">Sign Up</a>';
-                        echo '<a target="_self" href="http://sfsuse.com/~tyu1/login" class="signin">Login</a>';
+                       // echo 'Hi'.$this->Auth->user('username');
+echo $this->Html->link('Logout',['controller' => 'Users','action' => 'logout'],['class' => 'signin', 'target' => '_self']);
+ } else {               
+                        echo $this->Html->link('Sign UP',['controller' => 'Users','action' => 'add'],['class' => 'signin', 'target' => '_self']);
+                        echo $this->Html->link('Login',['controller' => 'Users','action' => 'login'],['class' => 'signin', 'target' => '_self']);
+                        //echo '<a target="_self" href="http://sfsuse.com/~tyu1/registration" class="signin">Sign Up</a>';
+                        //echo '<a target="_self" href="http://sfsuse.com/~tyu1/login" class="signin">Login</a>';
  } ?>
                 </div>
         </nav>

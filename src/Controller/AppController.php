@@ -53,8 +53,9 @@ class AppController extends Controller {
         $mgResults = $this->MediaGenres->find( 'all' )->toArray();
         $this->set( 'genresData', $mgResults );
 
-        $this->loadComponent( 'Auth',
-                [
+        
+        //$this->loadComponent( 'Auth',
+        //        [
             /*  'authenticate' => [
               'Form' => [
               'fields' => ['username' => 'email', 'password' => 'password']
@@ -64,7 +65,7 @@ class AppController extends Controller {
               'loginAction' => [
               'controller' => 'Users',
               'action' => 'login'],
-             */ 'loginRedirect' => [
+             * 'loginRedirect' => [
                 'controller' => 'Homepage',
                 'action' => 'index'
             ],
@@ -73,7 +74,7 @@ class AppController extends Controller {
                 'action' => 'index',
             ]
         ] );
-
+            /*
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -89,6 +90,7 @@ class AppController extends Controller {
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
+    
     public function beforeRender( Event $event ) {
         if ( !array_key_exists( '_serialize', $this->viewVars ) &&
                 in_array( $this->response->type(),
@@ -99,7 +101,7 @@ class AppController extends Controller {
     }
 
     public function beforeFilter( Event $event ) {
-        $this->Auth->allow( ['index', 'search'] );
+        //$this->Auth->allow( ['index', 'search'] );
     }
-
+ 
 }

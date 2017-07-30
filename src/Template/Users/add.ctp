@@ -1,3 +1,4 @@
+<?php $this->layout = "default_no_menu";?>
 <div style="width: 800px; margin: 0 auto;">
     <h1 class="text-center">Registration Form </h1>
     <?= $this->Form->create($user) ?>
