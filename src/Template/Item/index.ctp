@@ -83,7 +83,7 @@ $videos_type = "mp4";
             width: 100%;
         }
     </style>
-    <body>       
+    <body>
         <?php if ($item != "No Result Found") { ?>
             <div class="container">
 
@@ -162,24 +162,14 @@ $videos_type = "mp4";
                 <h4 style="margin-left:3%">Images You might like</h4>
             </div>
             <div class="row">
-                <div class="col-lg-2 col-md-2 col-sm-2">
-                    <img class="img-thumbnail" src="http://via.placeholder.com/300x300">
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2">
-                    <img class="img-thumbnail" src="http://via.placeholder.com/300x300">
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2">
-                    <img class="img-thumbnail" src="http://via.placeholder.com/300x300">
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2">
-                    <img class="img-thumbnail" src="http://via.placeholder.com/300x300">
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2">
-                    <img class="img-thumbnail" src="http://via.placeholder.com/300x300">
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2">
-                    <img class="img-thumbnail" src="http://via.placeholder.com/300x300">
-                </div>
+                <?php foreach($similar_items as $similar_item){ ?>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <a href="<?= $this->url->build((['controller' => 'Item', 'action' => 'index', '?' => ['id' => $similar_item->media_id]])) ?>">
+                            <img class="img-thumbnail"  src="<?= $this->url->build((['controller' => 'Item', 'action' => 'image', '?' => ['id' => $similar_item->media_id],'resize'=> '250x250']))?>">
+                        </a>
+                    </div>
+                <?php } ?>
+                
             </div>
         </div>
         <!-- Suggestion -->

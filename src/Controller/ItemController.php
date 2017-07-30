@@ -28,9 +28,17 @@ class ItemController extends AppController {
                 $item = $this->Media->get($id, [
                     'contain' => []
                 ]);
-
+                    
                 $this->set(compact('item'));
                 $this->set('_serialize', ['item']);
+                
+                //search similar pic in same genre exclude $item itself
+                $similar_items = $this->Media->find('all')
+                        ->where(['genre_id' => $item->genre_id,])
+                        ->where(['media_id NOT LIKE' => $item->media_id])
+                        ->limit(6);
+                $similar_items = $similar_items->toArray();
+                $this->set(compact('similar_items'));
             } catch (\Exception $exc) {
                 $item = 'No Result Found';
                 $this->set(compact('item'));
