@@ -3,8 +3,7 @@
     <?= $this->Form->create($user) ?>
     <fieldset>
         <?php
-            echo $this->Form->control('firstname');
-            echo $this->Form->control('Last Name');
+            
             echo "________________________________________________________________";
             echo "<br><br>";
             echo $this->Form->control('username');
