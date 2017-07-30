@@ -1,4 +1,5 @@
 <?php
+$this->layout = 'default_no_menu';
 $images_type = "jpg|png";
 $videos_type = "mp4";
 ?>

@@ -2,8 +2,7 @@
 
 namespace App\Controller;
 
-use App\Utility\MediaHelper;
-
+use App\Controller\AppController;
 
 class HomepageController extends AppController {
 	public function initialize() {
@@ -14,9 +13,9 @@ class HomepageController extends AppController {
 		
 // 		$this->searchBar(); // inherited from AppController
 		
-		$this->loadModel ( 'MediaGenres' );
-		$mgResults = $this->MediaGenres->find ( 'all' )->toArray ();
-		$this->set ('genresData', $mgResults);
+// 		$this->loadModel ( 'MediaGenres' );
+// 		$mgResults = $this->MediaGenres->find ( 'all' )->toArray ();
+// 		$this->set ('genresData', $mgResults);
 		// pr($mgResults);
 		
 		$this->loadComponent ( 'Paginator' );
@@ -37,5 +36,4 @@ class HomepageController extends AppController {
 		
 		$this->set ( 'productData', $images );
 	}
-  
 }

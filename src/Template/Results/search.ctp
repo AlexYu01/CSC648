@@ -1,57 +1,88 @@
 <?php
-
-echo $this->Form->create($searchFields);
-echo $this->Form->Control('search', ['style' => 'width:25%; height:25%;']);
-echo $this->Form->select('dropDown', $genreList, ['empty' => 'All', 'style' => 'width:25%; height:25%;']);
-echo $this->Form->button('Search');
-echo $this->Form->end();
+//$this->layout = 'default_no_menu'
 ?>
 
-<h3><?php echo $resultReport ?></h3>
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Created</th>
-        <th>Author</th>
-        <th>Media</th>
-        <th>Actions</th>
-    </tr>
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="favicon.ico">
 
-        <?php foreach ($results as $media): ?>
-    <tr>
-        <td><?= $media->media_id ?> </td>
-        <td><?= $media->media_title ?></td>
-        <td><?= $media->media_desc ?></td>
-        <td><?= $media->upload_date->format(DATE_RFC850) ?></td>
-        <td><?= $media->u['username'] ?></td>
-        <td><?= $this->Html->image($media->thumb_link, ['alt' => $media->media_title]) ?></td>
-        <td><?= $this->Form->postLink(
-                'Delete',
-                ['controller' => 'Media', 'action' => 'delete', $media->media_id],
-                ['confirm' => 'Are you sure?'])
-            ?>
-        </td>
-    </tr>
-        <?php endforeach; ?>
-</table>
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-<div class="pagination pagination-large">
-    <ul class="pagination">
-<?php
-echo $this->Paginator->first('< first');
-echo $this->Paginator->prev(' << ' . __('previous'));
-echo $this->Paginator->numbers(['first' => 'First Page']);
-echo $this->Paginator->next(__('next') . ' >> ');
-echo $this->Paginator->last('last >');
-?>
-    </ul>
+<!-- Animate.css -->
+<link rel="stylesheet" href="css/animate.css">
+<!-- Icomoon Icon Fonts-->
+<link rel="stylesheet" href="css/icomoon.css">
+<!-- Magnific Popup -->
+
+<link rel="stylesheet" href="css/magnific-popup.css">
+<!-- Salvattore -->
+<link rel="stylesheet" href="css/salvattore.css">
+<!-- Theme Style -->
+<link rel="stylesheet" href="css/style.css">
+<!-- Modernizr JS -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+<?php echo $this->Html->css('home-index1');?>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+<h1 class="page-header">
+    <?php
+    $session = $this->request->session();
+    echo $session->read('searchResults');
+    ?>
+
+</h1>
+
+<div  id="gallery-container" class="tg-gallery">
+
+    <div id="fh5co-main">
+        <div class="container">
+
+            <div class="row">
+
+                <div id="fh5co-board" data-columns>
+                    <?php foreach ($results as $media): ?>
+                        <div class="item">
+                            <div class="animate-box">
+                                <a href="<?= $this->Url->build(['controller' => 'Item', 'action' => 'image', '?' => ['id' => $media->media_id]])?>" class="image-popup fh5co-board-img"><?= $this->Html->image($media->media_link) ?></a >  
+                            </div>
+                            <div class="fh5co-desc">
+                                Title: <?= $media->media_title ?><br>
+                                Author Name: <?= $media->u['username'] ?><br>
+                                Price: <?= $media->price ?> dollars <br>
+                                <?php echo $this->Html->link(__('View More Info and Buy it'), ['controller' => 'Item', 'action' => 'index', '?' => array('id' => $media->media_id)]); ?>
+
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<?php
-echo $this->Paginator->counter([
-    'format' => 'Page {{page}} of {{pages}}, showing {{current}} records out of
-             {{count}} total, starting on record {{start}}, ending on {{end}}'
-])
-?>
+
+
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- Magnific Popup -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<!-- Salvattore -->
+<script src="js/salvattore.min.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>

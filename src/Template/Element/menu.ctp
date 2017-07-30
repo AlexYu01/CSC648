@@ -22,10 +22,26 @@
 		</div>
 	</button>
 
-	<input autofocus tab-index="0" type="text" id="search-bar"
-		class="sb-search" placeholder="E.g music, photography" />
+	<form method="post" accept-charset="utf-8" action="//sfsuse.com/~su17g05/">
+		<div style="display: none;">
+			<input type="hidden" name="_method" value="POST" />
+		</div>
+		<input autofocus tab-index="0" type="text" name="search-bar"
+			id="search-bar" class="sb-search"
+			placeholder="E.g music, photography" />
+		<hr class="sb-separator -blue">
+		<select name="dropDown" id="dropDown" class="select" style="width:80px;">
+			<option value="" selected="selected">All</option>
+			<?php foreach ($genresData as $genre): ?>
+				<option value="<?= $genre->genre_id ?>"><?= $genre->genre_name ?></option>
+			<?php endforeach; ?>
+		</select>
+		<button type="submit" class="button">
+			<span>Search </span>
+		</button>
+	</form>
 
-	<hr class="sb-separator -blue">
+
 
 	<h2>View by</h2>
 	<ul class="sb-filters">
