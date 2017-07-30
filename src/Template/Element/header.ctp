@@ -5,7 +5,7 @@
 		</div>
 
 		<div id="wm-user-component">
-			<a target="_self" href="javascript:alert('not function yet.');"
+			<a target="_self" href="http://sfsuse.com/~ip/registration"
 				class="signin">Sign In</a>
 		</div>
 	</nav>

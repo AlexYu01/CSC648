@@ -13,8 +13,8 @@
         <span style="font-size: small">Password must be 8-20 characters long with at least one capital letter.</span>
         <?= $this->Form->control('email');?>
     </fieldset>
-    <div style="margin-right: auto">
-    <?= $this->Form->button(__('Submit')) ?>
+    <div>
+        <button type="Submit" class="btn btn-default">Submit</button>
     <?= $this->Form->end() ?>  
     </div>
 </div>
