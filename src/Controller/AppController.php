@@ -19,6 +19,10 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 
+use App\Form\SearchForm;
+use Cake\Validation\Validator;
+
+$validator = new Validator();
 /**
  * Application Controller
  *
@@ -41,13 +45,44 @@ class AppController extends Controller {
     public function initialize() {
         parent::initialize();
 
-        $this->loadComponent( 'RequestHandler' );
-        $this->loadComponent( 'Flash' );
+        $this->loadComponent('RequestHandler');
+        $this->loadComponent('Flash');
+
+        $this->loadModel('MediaGenres');
+        
+        // category menu
+        $this->loadModel ( 'MediaGenres' );
+        $mgResults = $this->MediaGenres->find ( 'all' )->toArray ();
+        $this->set ('genresData', $mgResults);
+
+
+        $this->loadModel( 'MediaGenres' );
+        $this->loadModel('MediaGenres');
+        
+        $this->loadComponent('Auth', [
+                'authenticate' =>[
+                    'Form'=>[
+                        'fields'=>[
+                            'username'=>'username',
+                            'password' => 'password'
+                        ]
+                    ]
+                ],
+            'loginAction'=> [
+                'controller'=> 'Users',
+                'action'=> 'login'
+            ]
+            
+            
+                
+        ]);
+
 
         // category menu
         $this->loadModel('MediaGenres');
         $mgResults = $this->MediaGenres->find('all')->toArray();
         $this->set('genresData', $mgResults);
+
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -69,6 +104,11 @@ class AppController extends Controller {
         ) {
             $this->set( '_serialize', true );
         }
+    }
+    
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['index']);
     }
 
 }
