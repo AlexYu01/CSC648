@@ -5,7 +5,8 @@
 		</div>
 
 		<div id="wm-user-component">
-			<a target="_self" href="http://sfsuse.com/~su17g05/registration" class="signin">Sign In</a>
+                        <a target="_self" href="http://sfsuse.com/~su17g05/registration" class="signin">Sign Up</a>
+			<a target="_self" href="http://sfsuse.com/~su17g05/login" class="signin">Login</a>
 		</div>
 	</nav>
 </header>

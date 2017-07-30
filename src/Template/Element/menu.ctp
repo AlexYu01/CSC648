@@ -26,9 +26,11 @@
 		<div style="display: none;">
 			<input type="hidden" name="_method" value="POST" />
 		</div>
-		<input autofocus tab-index="0" type="text" name="search-bar"
-			id="search-bar" class="sb-search"
-			placeholder="E.g music, photography" />
+		<?php
+                    echo $this->Form->create($searchFields);
+                    echo $this->Form->Control('search', ['label' => false, 'class' => 'sb-search', 'placeholder' => 'E.g music, photography', 'type' => 'text', 'tab-index' => '0', 'autofocus' => true]);
+                    echo $this->Form->end();
+                ?>
 		<hr class="sb-separator -blue">
 		<select name="dropDown" id="dropDown" class="select" style="width:80px;">
 			<option value="" selected="selected">All</option>
