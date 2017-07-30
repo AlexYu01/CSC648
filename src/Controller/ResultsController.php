@@ -51,7 +51,7 @@ class ResultsController extends MediaHelper {
     }
 
     private function returnedResults( $searchTerm, $searchGenreId ) {
-        $searchGenreName = $this->getGenreName($searchGenreId);
+        $searchGenreName = $this->getGenreName( $searchGenreId );
 
         // use the ternary operator ?: to determine if searchGenreName is null if 
         // true then set searchGenreName to 'all genres'.
@@ -123,10 +123,9 @@ class ResultsController extends MediaHelper {
 
         return $results;
     }
-    
-    
-     public function view()
-    {
 
+    public function view() {
+        
     }
+
 }

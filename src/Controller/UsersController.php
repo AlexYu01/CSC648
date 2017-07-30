@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Controller;
+
 use App\Controller\AppController;
 use Cake\Event\Event;
+
 /**
  * Users Controller
  *
@@ -9,22 +12,53 @@ use Cake\Event\Event;
  *
  * @method \App\Model\Entity\User[] paginate($object = null, array $settings = [])
  */
-class UsersController extends AppController
-{
+class UsersController extends AppController {
+    public function initialize() {
+        parent::initialize();
+        $this->loadComponent( 'Auth',
+                [
+            /*  'authenticate' => [
+              'Form' => [
+              'fields' => ['username' => 'email', 'password' => 'password']
+              ]
+              ],
+              // possibly dont need loginAction
+              'loginAction' => [
+              'controller' => 'Users',
+              'action' => 'login'],
+             */ 'loginRedirect' => [
+                'controller' => 'Homepage',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Homepage',
+                'action' => 'index',
+            ]
+        ] );
+    }
+    /*
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['add', 'logout']);
+    }
+    */
     /**
      * Index method
      *
      * @return \Cake\Http\Response|void
      */
-    public function index()
-    {
+    public function index() {
         $this->paginate = [
             'contain' => []
         ];
-        $users = $this->paginate($this->Users);
-        $this->set(compact('users'));
-        $this->set('_serialize', ['users']);
+        $users = $this->paginate( $this->Users );
+        $this->set( compact( 'users' ) );
     }
+
     /**
      * View method
      *
@@ -32,103 +66,94 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
-    {
-        $user = $this->Users->get($id, [
+    public function view( $id = null ) {
+        $user = $this->Users->get( $id,
+                [
             'contain' => ['Users']
-        ]);
-        $this->set('user', $user);
-        $this->set('_serialize', ['user']);
+        ] );
+        $this->set(compact('user'));
     }
-     /**
+
+    /**
      * Add method
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add() {
         $user = $this->Users->newEntity();
-        if ($this->request->is('post')) {
-            $current_time = date('Y-m-d G:i:s',time());
-            $salt = sha1(substr(str_shuffle(str_repeat("0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^", 15)),0,15));
+        if ( $this->request->is( 'post' ) ) {
+            //$current_time = date( 'Y-m-d G:i:s', time() );
+            $salt = sha1( substr( str_shuffle( str_repeat( "0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^",
+                                            15 ) ), 0, 15 ) );
             $data = $this->request->getData();
-            $current_time = date('Y-m-d G:i:s',time());
-            $salt = sha1(substr(str_shuffle(str_repeat("0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^", 15)),0,15));
-            $data = $this->request->getData();
-            $data["registered_date"] = $current_time;
-            $data["last_login_date"] = $current_time;
+            //$data["registered_date"] = $current_time;
+            //$data["last_login_date"] = $current_time;
             $data['token'] = "";
             $data['salt'] = $salt;
             $data['role'] = 0;
-            
-            
-            $user = $this->Users->patchEntity($user, $data);
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'index']);
-                
+
+
+            $user = $this->Users->patchEntity( $user, $data );
+            if ( $this->Users->save( $user ) ) {
+                $this->Flash->success( __( 'The user has been saved.' ) );
+                return $this->redirect( ['action' => 'index'] );
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error( __( 'The user could not be saved. Please, try again.' ) );
         }
-        $users = $this->Users->Users->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'users'));
-        $this->set('_serialize', ['user']);
+        //$users = $this->Users->Users->find( 'list', ['limit' => 200] );
+        $this->set( compact( 'user'/*, 'users'*/ ) );
     }
-    
- 
-    public function login(){
-        $user = $this->Users->newEntity();
-        if ($this->request->is('post')) {
-            $current_time = date('Y-m-d G:i:s',time());
-            $salt = sha1(substr(str_shuffle(str_repeat("0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^", 15)),0,15));
-            $data = $this->request->getData();
-            
-            
-            $this->set(compact('data','data'));
-            $this->set('_serialize',['data']);
-        if ($this->request->is('post')) {
+
+    public function login() {
+        /* $user = $this->Users->newEntity();
+          if ( $this->request->is( 'post' ) ) {
+          $current_time = date( 'Y-m-d G:i:s', time() );
+          $salt = sha1( substr( str_shuffle( str_repeat( "0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^",
+          15 ) ), 0, 15 ) );
+          $data = $this->request->getData();
+
+
+          $this->set( compact( 'data', 'data' ) );
+          $this->set( '_serialize', ['data'] ); */
+        if ( $this->request->is( 'post' ) ) {
             $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-              return $this->redirect(['controller' => 'posts']);
+            if ( $user ) {
+                $this->Auth->setUser( $user );
+                return $this->redirect( $this->Auth->redirectUrl() );
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            $this->Flash->error( __( 'Invalid username or password, try again' ) );
         }
-        }
-        
     }
- 
-    public function beforeFilter(Event $event){
-        $this->Auth->allow();
-        
-        
+
+    //}
+
+    public function logout() {
+        return $this->redirect( $this->Auth->logout() );
     }
-    
-    public function test(){
+
+    public function test() {
         $user = $this->Users->newEntity();
-        if ($this->request->is('post')) {
-            $current_time = date('Y-m-d G:i:s',time());
-            $salt = sha1(substr(str_shuffle(str_repeat("0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^", 15)),0,15));
+        if ( $this->request->is( 'post' ) ) {
+            $current_time = date( 'Y-m-d G:i:s', time() );
+            $salt = sha1( substr( str_shuffle( str_repeat( "0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^",
+                                            15 ) ), 0, 15 ) );
             $data = $this->request->getData();
-            
-            
-            $this->set(compact('data','data'));
-            $this->set('_serialize',['data']);
-            
-            if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-               return $this->redirect(['controller' => 'Users']);
+
+
+            $this->set( compact( 'data', 'data' ) );
+            $this->set( '_serialize', ['data'] );
+
+            if ( $this->request->is( 'post' ) ) {
+                $user = $this->Auth->identify();
+                if ( $user ) {
+                    $this->Auth->setUser( $user );
+                    return $this->redirect( ['controller' => 'Users'] );
+                }
+                $this->Flash->error( __( 'Invalid username or password, try again' ) );
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
-        }
-            
-            
-            
-            
         }
     }
+
     /**
      * Edit method
      *
@@ -136,23 +161,23 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
-        $user = $this->Users->get($id, [
+    public function edit( $id = null ) {
+        $user = $this->Users->get( $id, [
             'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'index']);
+        ] );
+        if ( $this->request->is( ['patch', 'post', 'put'] ) ) {
+            $user = $this->Users->patchEntity( $user, $this->request->getData() );
+            if ( $this->Users->save( $user ) ) {
+                $this->Flash->success( __( 'The user has been saved.' ) );
+                return $this->redirect( ['action' => 'index'] );
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error( __( 'The user could not be saved. Please, try again.' ) );
         }
-        $users = $this->Users->Users->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'users'));
-        $this->set('_serialize', ['user']);
+        $users = $this->Users->Users->find( 'list', ['limit' => 200] );
+        $this->set( compact( 'user', 'users' ) );
+        $this->set( '_serialize', ['user'] );
     }
+
     /**
      * Delete method
      *
@@ -160,15 +185,15 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $user = $this->Users->get($id);
-        if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+    public function delete( $id = null ) {
+        $this->request->allowMethod( ['post', 'delete'] );
+        $user = $this->Users->get( $id );
+        if ( $this->Users->delete( $user ) ) {
+            $this->Flash->success( __( 'The user has been deleted.' ) );
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error( __( 'The user could not be deleted. Please, try again.' ) );
         }
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect( ['action' => 'index'] );
     }
+
 }

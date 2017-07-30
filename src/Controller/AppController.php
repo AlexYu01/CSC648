@@ -18,11 +18,11 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-
 use App\Form\SearchForm;
 use Cake\Validation\Validator;
 
 $validator = new Validator();
+
 /**
  * Application Controller
  *
@@ -45,43 +45,36 @@ class AppController extends Controller {
     public function initialize() {
         parent::initialize();
 
-        $this->loadComponent('RequestHandler');
-        $this->loadComponent('Flash');
+        $this->loadComponent( 'RequestHandler' );
+        $this->loadComponent( 'Flash' );
 
-        $this->loadModel('MediaGenres');
-        
         // category menu
-        $this->loadModel ( 'MediaGenres' );
-        $mgResults = $this->MediaGenres->find ( 'all' )->toArray ();
-        $this->set ('genresData', $mgResults);
-
-
         $this->loadModel( 'MediaGenres' );
-        $this->loadModel('MediaGenres');
+        $mgResults = $this->MediaGenres->find( 'all' )->toArray();
+        $this->set( 'genresData', $mgResults );
+
         
-        $this->loadComponent('Auth', [
-                'authenticate' =>[
-                    'Form'=>[
-                        'fields'=>[
-                            'username'=>'username',
-                            'password' => 'password'
-                        ]
-                    ]
-                ],
-            'loginAction'=> [
-                'controller'=> 'Users',
-                'action'=> 'login'
+        //$this->loadComponent( 'Auth',
+        //        [
+            /*  'authenticate' => [
+              'Form' => [
+              'fields' => ['username' => 'email', 'password' => 'password']
+              ]
+              ],
+              // possibly dont need loginAction
+              'loginAction' => [
+              'controller' => 'Users',
+              'action' => 'login'],
+             * 'loginRedirect' => [
+                'controller' => 'Homepage',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Homepage',
+                'action' => 'index',
             ]
-            
-            
-                
-        ]);
-
-
-        // category menu
-        $this->loadModel('MediaGenres');
-        $mgResults = $this->MediaGenres->find('all')->toArray();
-        $this->set('genresData', $mgResults);
+        ] );
+            /*
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -97,6 +90,7 @@ class AppController extends Controller {
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
+    
     public function beforeRender( Event $event ) {
         if ( !array_key_exists( '_serialize', $this->viewVars ) &&
                 in_array( $this->response->type(),
@@ -105,10 +99,9 @@ class AppController extends Controller {
             $this->set( '_serialize', true );
         }
     }
-    
-    public function beforeFilter(Event $event)
-    {
-        $this->Auth->allow(['index']);
-    }
 
+    public function beforeFilter( Event $event ) {
+        //$this->Auth->allow( ['index', 'search'] );
+    }
+ 
 }
