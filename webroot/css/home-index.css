@@ -1952,7 +1952,7 @@ header {
 	margin-top: 20px;
 	margin-bottom: 31px;
 }
-
+/*
 .tg-container {
 	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
@@ -1970,7 +1970,7 @@ header {
 	-ms-flex: 1 1 0px;
 	flex: 1 1 0px;
 }
-
+*/
 .tg-gallery {
 	display: -webkit-flex;
 	display: -ms-flexbox;

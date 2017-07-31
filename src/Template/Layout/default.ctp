@@ -22,6 +22,7 @@ $cakeDescription = 'Group 5 About Page';
     <head>
         <!-- css & js file import --> <?= $this->element('header-base'); ?> <!-- css & js file import -->
         <title>CSC648 - Team5 - PictureSque - Home</title>
+        <?= $this->Html->css('home-index1.css');?>
     </head>
 
     <body class="gray-background" style="background: none !important;">

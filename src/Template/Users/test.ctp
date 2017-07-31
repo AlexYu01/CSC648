@@ -1,3 +1,4 @@
+<?php $this->layout = 'default_no_menu';?>
 <?= var_dump($data); ?>
 <?= $this->Form->create() ?>
     <fieldset>

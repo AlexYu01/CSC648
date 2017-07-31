@@ -14,7 +14,7 @@
 										Price: <b>$<?= $media->price ?></b>
 									</h5>
 		
-									<a class="tg-button -blue" href="#" target="_blank"><span>View Detail</span></a>
+									<a class="tg-button -blue" href="<?= $this->url->build(['controller' => 'Item', 'action' => 'index', '?' => ['id' => $media->media_id]])?>" target="_self"><span>View Detail</span></a>
 									<label for="tg-hover-toggle-<?= $media->media_id ?>" class="tg-info-link">Info </label>
 		
 									<aside class="tg-information ">
