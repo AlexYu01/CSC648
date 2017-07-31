@@ -26547,6 +26547,7 @@ Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 105
 
 
 
+<<<<<<< HEAD
 2017-07-30 01:48:06 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
 2017-07-30 01:48:06 Warning: Warning (512): SplFileInfo::openFile(/home/ip/public_html/tmp/cache/persistent/myapp_cake_core_translations_cake_en__u_s): failed to open stream: Permission denied in [/home/ip/public_html/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 396]
 Request URL: /
@@ -28701,3 +28702,30 @@ Stack Trace:
 2017-07-30 05:53:47 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
 2017-07-30 05:54:13 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
 2017-07-30 05:54:14 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+=======
+2017-07-30 04:33:37 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-30 04:33:37 Error: [Error] Call to undefined method App\Controller\HomepageController::searchBar() in /home/tyu1/cake_proj/src/Controller/HomepageController.php on line 15
+Request URL: /
+Client IP: 108.85.224.232
+Stack Trace:
+#0 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\HomepageController->index()
+#1 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#2 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\HomepageController))
+#3 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#4 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#5 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /home/tyu1/cake_proj/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /home/tyu1/cake_proj/webroot/index.php(37): Cake\Http\Server->run()
+#14 {main}
+
+
+>>>>>>> 6c17b504b7caf8f9c7d4fc6978e169c2c35b8f95
+2017-07-30 06:14:47 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-30 06:14:59 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2017-07-30 06:15:23 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.

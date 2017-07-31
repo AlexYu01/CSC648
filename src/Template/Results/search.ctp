@@ -1,8 +1,3 @@
-<?php
-//$this->layout = 'default_no_menu'
-?>
-
-
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="favicon.ico">
 
@@ -29,15 +24,7 @@
 <script src="js/respond.min.js"></script>
 <![endif]-->
 
-
-
-
-
 <h1 class="page-header">
-    <?php
-    $session = $this->request->session();
-    echo $session->read('searchResults');
-    ?>
 
 </h1>
 
