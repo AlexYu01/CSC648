@@ -28,9 +28,17 @@ class ItemController extends AppController {
                 $item = $this->Media->get($id, [
                     'contain' => []
                 ]);
-
+                    
                 $this->set(compact('item'));
                 $this->set('_serialize', ['item']);
+                
+                //search similar pic in same genre exclude $item itself
+                $similar_items = $this->Media->find('all')
+                        ->where(['genre_id' => $item->genre_id,])
+                        ->where(['media_id NOT LIKE' => $item->media_id])
+                        ->limit(6);
+                $similar_items = $similar_items->toArray();
+                $this->set(compact('similar_items'));
             } catch (\Exception $exc) {
                 $item = 'No Result Found';
                 $this->set(compact('item'));
@@ -56,17 +64,18 @@ class ItemController extends AppController {
     }
 
     public function image() {
-
         //get image request
         $id = $this->request->getQuery('id');
         $resize = $this->request->getQuery('resize');
+
         $resize_verify = preg_match('/^([0-9]{1,4})x([0-9]{1,4})$/', $resize, $match);
         //if image < 500pixel no watermark
         if ($resize_verify && $match[1] < 500 && $match[2] < 500) {
-                $watermark = false;
+            $watermark = false;
         } else {
             $watermark = true;
         }
+
         $this->loadModel('Media');
         try {
             $item = $this->Media->get($id, [
@@ -81,9 +90,6 @@ class ItemController extends AppController {
                 $max_x = imagesx($im);
                 $max_y = imagesy($im);
 
-
-
-
                 // Copy the stamp image onto our photo using the margin offsets and the photo 
                 // width to calculate positioning of the stamp. 
                 if ($watermark == true) {
@@ -96,6 +102,7 @@ class ItemController extends AppController {
 
                 // Check for resize            
                 if ($resize_verify) {
+
                     $new_x = $match[1];
                     $new_y = $match[2];
                     $thumb_nail = imagecreatetruecolor($new_x, $new_y);

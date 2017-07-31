@@ -9,7 +9,7 @@ class ResultsController extends MediaHelper {
 
     // limit 4 results per page
     public $paginate = [
-        'limit' => 4
+        'limit' => 1000
     ];
 
     public function index() {
@@ -51,7 +51,7 @@ class ResultsController extends MediaHelper {
     }
 
     private function returnedResults( $searchTerm, $searchGenreId ) {
-        $searchGenreName = $this->getGenreName($searchGenreId);
+        $searchGenreName = $this->getGenreName( $searchGenreId );
 
         // use the ternary operator ?: to determine if searchGenreName is null if 
         // true then set searchGenreName to 'all genres'.
@@ -84,7 +84,7 @@ class ResultsController extends MediaHelper {
 
         // Added on query at the end for all search results.
         $results->select( ['media_id', 'media_title', 'upload_date',
-                    'media_link', 'media_desc', 'u.username'] )
+                    'media_link', 'thumb_link', 'media_desc', 'u.username'] )
                 ->join( [
                     'table' => 'users',
                     'alias' => 'u',
@@ -122,6 +122,10 @@ class ResultsController extends MediaHelper {
          */
 
         return $results;
+    }
+
+    public function view() {
+        
     }
 
 }
