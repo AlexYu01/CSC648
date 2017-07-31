@@ -1,7 +1,11 @@
-<?php $this->layout = 'default_no_menu';?>
-
-<div style="width: 800px; margin: 0 auto;">
-    <div class="panel">
+<?php $this->layout = 'default_no_menu';
+echo $this->Html->css('bootstrap.css');
+?>
+<html>
+<body>
+<div class="container">
+<div style="width: 800px; margin: 0 auto; position: relative;">
+    <div class="panel row">
         <h2 class ="text-center">Login</h2>
         <?= $this->Flash->render(); ?>
         <?= $this->Form->create(); ?>
@@ -12,3 +16,6 @@
             <?= $this->Form->end(); ?>
     </div>
 </div>
+</div>
+</body>
+</html>
