@@ -63,8 +63,7 @@ class ResultsController extends MediaHelper {
                 ->find( 'all' )
                 ->where( ['type_id' => 1, 'OR' => [['media_title LIKE' => '%' . $searchTerm . '%'],
                         ['media_desc LIKE' => '%' . $searchTerm . '%']]] )
-                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'],
-                ['genre_id' => 'string'] );
+                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'], ['genre_id' => 'string'] );
 
         /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
          * after results is returned).
@@ -106,8 +105,7 @@ class ResultsController extends MediaHelper {
         $results = $this->Media
                 ->find( 'all' )
                 ->where( ['type_id' => 1] )
-                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'],
-                        ['genre_id' => 'string'] )
+                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'], ['genre_id' => 'string'] )
                 ->order( ['sold_count' => 'DESC'] );
 
         /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
