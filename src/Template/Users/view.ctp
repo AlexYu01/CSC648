@@ -1,4 +1,5 @@
 <?php
+$this->layout = 'default_no_menu';
 /**
   * @var \App\View\AppView $this
   * @var \App\Model\Entity\User $user

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Model\Table;
 
 use Cake\ORM\Query;
@@ -23,7 +22,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Media[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Media findOrCreate($search, callable $callback = null, $options = [])
  */
-class MediaTable extends Table {
+class MediaTable extends Table
+{
 
     /**
      * Initialize method
@@ -31,33 +31,30 @@ class MediaTable extends Table {
      * @param array $config The configuration for the Table.
      * @return void
      */
-    public function initialize( array $config ) {
-        parent::initialize( $config );
+    public function initialize(array $config)
+    {
+        parent::initialize($config);
 
-        $this->setTable( 'media' );
-        $this->setDisplayField( 'media_id' );
-        $this->setPrimaryKey( 'media_id' );
+        $this->setTable('media');
+        $this->setDisplayField('media_id');
+        $this->setPrimaryKey('media_id');
 
-        $this->belongsTo( 'Media',
-                [
+        $this->belongsTo('Media', [
             'foreignKey' => 'media_id',
             'joinType' => 'INNER'
-        ] );
-        $this->belongsTo( 'MediaGenres',
-                [
+        ]);
+        $this->belongsTo('MediaGenres', [
             'foreignKey' => 'genre_id',
             'joinType' => 'INNER'
-        ] );
-        $this->belongsTo( 'Users',
-                [
+        ]);
+        $this->belongsTo('Users', [
             'foreignKey' => 'author_id',
             'joinType' => 'INNER'
-        ] );
-        $this->belongsTo( 'MediaTypes',
-                [
+        ]);
+        $this->belongsTo('MediaTypes', [
             'foreignKey' => 'type_id',
             'joinType' => 'INNER'
-        ] );
+        ]);
     }
 
     /**
@@ -66,53 +63,36 @@ class MediaTable extends Table {
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault( Validator $validator ) {
+    public function validationDefault(Validator $validator)
+    {
         $validator
-                ->requirePresence( 'media_title', 'create' )
-                ->notEmpty( 'media_title' );
+            ->requirePresence('media_title', 'create')
+            ->notEmpty('media_title');
 
         $validator
-                ->decimal( 'price' )
-                ->requirePresence( 'price', 'create' )
-                ->notEmpty( 'price' );
+            ->decimal('price')
+            ->requirePresence('price', 'create')
+            ->notEmpty('price');
 
         $validator
-                ->dateTime( 'upload_date' )
-                ->allowEmpty( 'upload_date' );
+            ->dateTime('upload_date')
+            ->allowEmpty('upload_date');
 
         $validator
-                ->integer( 'permission' )
-                ->requirePresence( 'permission', 'create' )
-                ->notEmpty( 'permission' );
+            ->integer('permission')
+            ->requirePresence('permission', 'create')
+            ->notEmpty('permission');
 
         $validator
-                ->notEmpty( 'media_link' );
+            ->requirePresence('media_link', 'create')
+            ->notEmpty('media_link');
 
         $validator
-                ->notEmpty( 'thumb_link' );
+            ->integer('sold_count')
+            ->allowEmpty('sold_count');
 
         $validator
-                ->integer( 'sold_count' )
-                ->allowEmpty( 'sold_count' );
-
-        $validator
-                ->allowEmpty( 'media_desc' );
-
-
-        /* Requires a field called 'file' in forms related to creation of an entry.
-         * File cannot be more than 30MB. File must be jpeg, jpg etc. File cannot be empty (default).
-         */
-        $validator
-                ->requirePresence( 'file', 'create' )
-                ->notEmpty( 'file' )
-                ->add( 'file', 'validSize',
-                        ['rule' => ['fileSize', '<=', '30MB'], 'message' => 'Max 30MB'] )
-                ->add( 'file', 'validFormat',
-                        ['rule' => ['uploadedFile', ['types' => ['image/jpeg', 'image/jpg',
-                                'image/png', 'image/gif', 'video/avi', 'video/wmv',
-                                'video/flv', 'video/mpg', 'video/mp4']]],
-                    'message' => 'Accepted formats: .jpg .jpeg .png .gif'
-                    . ' .avi .wmv .flv .mpg .mp4'] );
+            ->allowEmpty('media_desc');
 
         return $validator;
     }
@@ -124,13 +104,13 @@ class MediaTable extends Table {
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules( RulesChecker $rules ) {
-        $rules->add( $rules->existsIn( ['media_id'], 'Media' ) );
-        $rules->add( $rules->existsIn( ['genre_id'], 'MediaGenres' ) );
-        $rules->add( $rules->existsIn( ['author_id'], 'Users' ) );
-        $rules->add( $rules->existsIn( ['type_id'], 'MediaTypes' ) );
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['media_id'], 'Media'));
+        $rules->add($rules->existsIn(['genre_id'], 'MediaGenres'));
+        $rules->add($rules->existsIn(['author_id'], 'Users'));
+        $rules->add($rules->existsIn(['type_id'], 'MediaTypes'));
 
         return $rules;
     }
-
 }

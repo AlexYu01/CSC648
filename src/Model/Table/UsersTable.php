@@ -64,7 +64,17 @@ class UsersTable extends Table
 
         $validator
             ->requirePresence('password', 'create')
-            ->notEmpty('password');
+            ->notEmpty('password')
+            ->add('password', 
+                    ['length' => 
+                        ['rule' => 
+                            ['lengthBetween', 8, 20], 'message' => 'Passwords must be 8-20 characters'],
+                            'hasUpper' => 
+                                ['rule' => ['custom', '/^[[:upper:]]+$/'], 'message' => 'Please have at least one uppercase character']]);
+        $validator
+            ->requirePresence('confirm_password', 'create')
+            ->notEmpty('confirm_password')
+            ->add('confirm_password', 'no-misspelling', ['rule' => ['compareWith', 'password'], 'message' => 'Passwords do not match']);
 
         $validator
             ->email('email')
@@ -97,7 +107,7 @@ class UsersTable extends Table
             ->integer('role')
             ->requirePresence('role', 'create')
             ->notEmpty('role');
-
+        
         return $validator;
     }
 
@@ -111,6 +121,8 @@ class UsersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['username']));
+        $rules->add($rules->isUnique(['password']));
+        $rules->add($rules->isUnique(['confirm_password']));
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['userID']));
         $rules->add($rules->existsIn(['user_id'], 'Users'));

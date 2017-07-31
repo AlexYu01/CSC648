@@ -13,7 +13,30 @@ use Cake\Event\Event;
  * @method \App\Model\Entity\User[] paginate($object = null, array $settings = [])
  */
 class UsersController extends AppController {
-
+    public function initialize() {
+        parent::initialize();
+        $this->loadComponent( 'Auth',
+                [
+            /*  'authenticate' => [
+              'Form' => [
+              'fields' => ['username' => 'email', 'password' => 'password']
+              ]
+              ],
+              // possibly dont need loginAction
+              'loginAction' => [
+              'controller' => 'Users',
+              'action' => 'login'],
+             */ 'loginRedirect' => [
+                'controller' => 'Homepage',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Homepage',
+                'action' => 'index',
+            ]
+        ] );
+    }
+    
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);

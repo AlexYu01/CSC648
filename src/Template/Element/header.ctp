@@ -6,7 +6,7 @@
 
                 <div id="wm-user-component">
                     <?php if($this->request->session()->read('Auth')) {
-echo '<a target="_self" href="http://sfsuse.com/~tyu1/logout" class="signin">logout</a>';
+echo '<a target="_self" href="http://sfsuse.com/~ip/logout" class="signin">logout</a>';
  } else {
                         echo '<a target="_self" href="http://sfsuse.com/~ip/registration" class="signin">Sign Up</a>';
                         echo '<a target="_self" href="http://sfsuse.com/~ip/login" class="signin">Login</a>';
