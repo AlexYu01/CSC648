@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use App\Utility\MediaHelper;
-
-class HomepageController extends MediaHelper {
+class HomepageController extends AppController {
 
     public $paginate = [
         'limit' => 6
@@ -12,11 +10,12 @@ class HomepageController extends MediaHelper {
 
     public function initialize() {
         parent::initialize();
+        $this->loadComponent( 'MediaHelper' );
     }
 
     public function index() {
 
-        $this->searchBar(); // inherited from MediaHelper
+        $this->MediaHelper->searchBar(); // inherited from MediaHelper
 
         $this->loadComponent( 'Paginator' );
         $this->loadModel( 'Media' );
@@ -27,7 +26,7 @@ class HomepageController extends MediaHelper {
                 ] );
 
         $images = $this->paginate( $results );
-
+        //$this->set('searchFields', $search['searchFields']);
         $this->set( 'productData', $images );
     }
 

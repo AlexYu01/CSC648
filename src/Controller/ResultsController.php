@@ -2,29 +2,25 @@
 
 namespace App\Controller;
 
-use App\Utility\MediaHelper;
 use Cake\Network\Exception\NotFoundException;
 
-class ResultsController extends MediaHelper {
+class ResultsController extends AppController {
 
     // limit 4 results per page
     public $paginate = [
         'limit' => 1000
     ];
 
-    public function index() {
-        
-    }
-
     public function initialize() {
         parent::initialize();
         $this->loadComponent( 'Paginator' );
         $this->loadModel( 'Media' );
+        $this->loadComponent( 'MediaHelper' );
     }
 
     public function search() {
 
-        $this->searchBar(); // inherited from MediaHelper
+        $this->MediaHelper->searchBar(); // inherited from MediaHelper
         $searchTerm = $this->request->getQuery( 'searchQuery' );
         $searchGenreId = $this->request->getQuery( 'searchGenre' );
         $results = null;
@@ -51,7 +47,7 @@ class ResultsController extends MediaHelper {
     }
 
     private function returnedResults( $searchTerm, $searchGenreId ) {
-        $searchGenreName = $this->getGenreName( $searchGenreId );
+        $searchGenreName = $this->MediaHelper->getGenreName( $searchGenreId );
 
         // use the ternary operator ?: to determine if searchGenreName is null if 
         // true then set searchGenreName to 'all genres'.
@@ -120,10 +116,6 @@ class ResultsController extends MediaHelper {
          */
 
         return $results;
-    }
-
-    public function view() {
-        
     }
 
 }

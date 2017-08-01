@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Utility;
+namespace App\Controller\Component;
 
-use App\Controller\AppController;
+use Cake\Controller\Component;
 use App\Form\SearchForm;
 
 /**
  * MediaHelper
  * 
- * Provide objects related to media to controllers (ResultsController & MediaController).
+ * Provide access to functions that are used by two or more controllers
  */
-class MediaHelper extends AppController {
+class MediaHelperComponent extends Component {
 
-    public function initialize() {
-        parent::initialize();
-
-        $this->loadModel( 'MediaGenres' );
+    public function initialize( array $config ) {
+        //$this->controller is the controller using the component class
+        $this->controller = $this->_registry->getController();
+        $this->controller->loadModel( 'MediaGenres' );
     }
 
     /**
@@ -24,7 +24,7 @@ class MediaHelper extends AppController {
      *
      * @return instance of searchFields
      */
-    protected static function searchFieldsInstance() {
+    public static function searchFieldsInstance() {
         static $searchFields = null;
         if ( $searchFields === null ) {
             $searchFields = new SearchForm();
@@ -38,10 +38,10 @@ class MediaHelper extends AppController {
      * @staticvar Cake\ORM\Entity $genreList
      * @return Cake\ORM\Entity $genreList
      */
-    protected function getGenreList() {
+    public function getGenreList() {
         static $genreList = null;
         if ( $genreList === null ) {
-            $genreList = $this->MediaGenres->find( 'list', ['keyField' => 'genre_id',
+            $genreList = $this->controller->MediaGenres->find( 'list', ['keyField' => 'genre_id',
                 'valueField' => 'genre_name'] );
         }
         return $genreList;
@@ -53,14 +53,15 @@ class MediaHelper extends AppController {
      * @param string $searchGenreId
      * @return string $genreName
      */
-    protected function getGenreName( $searchGenreId ) {
+    public function getGenreName( $searchGenreId ) {
         $genreName = null;
         //grab the actual name of the genre chosen
-        $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
+        $genre = $this->controller->MediaGenres->find()->select( ['genre_name'] )->
                         where( ['genre_id' => $searchGenreId] )->toArray();
         foreach ( $genre as $genreNames ) {
             $genreName = $genreNames->genre_name;
         }
+
         return $genreName;
     }
 
@@ -69,12 +70,12 @@ class MediaHelper extends AppController {
      * $genreList is an array of containing the names of genres that will
      * populate the drop down.
      */
-    protected function searchBar() {
-        $searchFields = MediaHelper::searchFieldsInstance();
+    public function searchBar() {
+        $searchFields = MediaHelperComponent::searchFieldsInstance();
         if ( $this->request->is( 'post' ) ) {
             if ( $searchFields->execute( $this->request->getData() ) ) {
 
-                return $this->redirect( ['controller' => 'Results', 'action' => 'search',
+                return $this->controller->redirect( ['controller' => 'Results', 'action' => 'search',
                             '?' => ['searchQuery' => $this->request->data( 'search' ),
                                 'searchGenre' => $this->request->data( 'dropDown' )]] );
             } else {
@@ -84,7 +85,7 @@ class MediaHelper extends AppController {
 
         $genreList = $this->getGenreList();
         // send genreList to view.
-        $this->set( compact( 'searchFields', 'genreList' ) );
+        $this->controller->set( compact( 'searchFields', 'genreList' ) );
     }
 
 }
