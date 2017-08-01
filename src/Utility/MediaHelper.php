@@ -11,13 +11,13 @@ use App\Form\SearchForm;
  * Provide objects related to media to controllers (ResultsController & MediaController).
  */
 class MediaHelper extends AppController {
+
     public function initialize() {
         parent::initialize();
-        
+
         $this->loadModel( 'MediaGenres' );
-        
     }
-    
+
     /**
      * Implementation of a singleton for searchFields. Static variables in
      * functions are only initialized in the first call of the function for PHP.
@@ -31,7 +31,7 @@ class MediaHelper extends AppController {
         }
         return $searchFields;
     }
-    
+
     /**
      * Returns a list of the genres currently inside the MediaGenresTable
      * 
@@ -41,31 +41,29 @@ class MediaHelper extends AppController {
     protected function getGenreList() {
         static $genreList = null;
         if ( $genreList === null ) {
-            $genreList = $this->MediaGenres->find( 'list',
-                                ['keyField' => 'genre_id',
-                            'valueField' => 'genre_name'] );
+            $genreList = $this->MediaGenres->find( 'list', ['keyField' => 'genre_id',
+                'valueField' => 'genre_name'] );
         }
         return $genreList;
     }
-    
+
     /**
      * Use the selected genre id to retrieve the name
      * 
      * @param string $searchGenreId
      * @return string $genreName
      */
-
-    protected function getGenreName($searchGenreId) {
+    protected function getGenreName( $searchGenreId ) {
         $genreName = null;
-            //grab the actual name of the genre chosen
-            $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
-                            where( ['genre_id' => $searchGenreId] )->toArray();
-            foreach ( $genre as $genreNames ) {
-                $genreName = $genreNames->genre_name;
-            }
-            return $genreName;
+        //grab the actual name of the genre chosen
+        $genre = $this->MediaGenres->find()->select( ['genre_name'] )->
+                        where( ['genre_id' => $searchGenreId] )->toArray();
+        foreach ( $genre as $genreNames ) {
+            $genreName = $genreNames->genre_name;
+        }
+        return $genreName;
     }
-    
+
     /**
      * Creates a modelless form for the search bar.
      * $genreList is an array of containing the names of genres that will
@@ -88,4 +86,5 @@ class MediaHelper extends AppController {
         // send genreList to view.
         $this->set( compact( 'searchFields', 'genreList' ) );
     }
+
 }
