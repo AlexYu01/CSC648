@@ -6,7 +6,7 @@
 						<li class="tg-template">
 							<div class="tg-thumbnail ">
 								<i><img src="img/circles.svg"></i>
-								<?= $this->Html->image($media->media_link, ['alt' => $media->media_title, 'class' => 'tg-template-img']) ?>
+								<img class="tg-template-img" src="item/image?id=<?= $media->media_id ?>&resize=400x400" />
 								<aside class="tg-hover">
 									<input type="checkbox" class="tg-hover-toggle"
 										id="tg-hover-toggle-<?= $media->media_id ?>">
@@ -14,7 +14,7 @@
 										Price: <b>$<?= $media->price ?></b>
 									</h5>
 		
-									<a class="tg-button -blue" href="<?= $this->url->build(['controller' => 'Item', 'action' => 'index', '?' => ['id' => $media->media_id]])?>" target="_self"><span>View Detail</span></a>
+									<a class="tg-button -blue" href="<?= $this->url->build(['controller' => 'Item', 'action' => 'index', '?' => ['id' => $media->media_id]])?>" target="_blank"><span>View Detail</span></a>
 									<label for="tg-hover-toggle-<?= $media->media_id ?>" class="tg-info-link">Info </label>
 		
 									<aside class="tg-information ">

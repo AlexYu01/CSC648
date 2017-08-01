@@ -24,15 +24,29 @@
 
                 <?php
                     echo $this->Form->create($searchFields);
-                    echo $this->Form->Control('search', ['label' => false, 'class' => 'sb-search', 'placeholder' => 'E.g music, photography', 'type' => 'text', 'tab-index' => '0', 'autofocus' => true]);
-                    echo $this->Form->end();
+                    //echo $this->Form->Control('search', ['label' => false, 'class' => 'sb-search', 'placeholder' => 'E.g music, photography', 'type' => 'text', 'tab-index' => '0', 'autofocus' => true]);
                 ?>
-                <hr class="sb-separator -blue">
+                	<input type="text" name="search" class="sb-search" placeholder="E.g music, photography" tab-index="0" autofocus="autofocus" id="search"/>
+                	<hr class="sb-separator -blue">
+                	
+                	<select name="dropDown" id="dropDown" class="select" style="width:80px;">
+						<option value="" selected="selected">All</option>
+						<?php foreach ($genresData as $genre): ?>
+							<option value="<?= $genre->genre_id ?>"><?= $genre->genre_name ?></option>
+						<?php endforeach; ?>
+					</select>
+					<button type="submit" class="button">
+						<span>Search </span>
+					</button>
+                <?php
+                	echo $this->Form->end();
+                ?>
+                
 
         <h2>View by</h2>
         <ul class="sb-filters">
-                <li name="new"><a href="#">NEW!</a></li>
-                <li name="most-popular"><a href="#">Most Popular</a></li>
+				<li> <?= $this->Html->link('NEW!', ['controller' => 'Results', 'action' => 'search', '?' => ['sort' => 'upload_date', 'direction' => 'desc']]); ?></li>
+                <li> <?= $this->Html->link('Most Popular', ['controller' => 'Results', 'action' => 'search', '?' => ['sort' => 'sold_count', 'direction' => 'desc']]); ?></li>
         </ul>
 
         <hr class="sb-separator">
@@ -41,12 +55,12 @@
         <ul class="sb-categories">
 
                 <li name="all" class="sb-lvl-1-cat -no-icon "><label>&nbsp;</label>
-                        <a href="#">See All Images / Videos</a></li>
+                        <a href="search?">See All Images / Videos</a></li>
 
                 <?php foreach ($genresData as $genre): ?>
                 <li name="<?= $genre->genre_name ?>" class="sb-lvl-1-cat  "><input
                         type="checkbox" id="sb-cat-<?= $genre->genre_id ?>"> <label
-                        for="sb-cat-<?= $genre->genre_id ?>">&nbsp;</label> <a href="#">
+                        for="sb-cat-<?= $genre->genre_id ?>">&nbsp;</label> <a href="search?searchGenre=<?= $genre->genre_id ?>">
                                 <?= $genre->genre_name ?>
                 </a></li>
                 <?php endforeach; ?>
