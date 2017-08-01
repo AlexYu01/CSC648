@@ -53,30 +53,29 @@ class AppController extends Controller {
         $mgResults = $this->MediaGenres->find( 'all' )->toArray();
         $this->set( 'genresData', $mgResults );
 
-        
         //$this->loadComponent( 'Auth',
         //        [
-            /*  'authenticate' => [
-              'Form' => [
-              'fields' => ['username' => 'email', 'password' => 'password']
-              ]
-              ],
-              // possibly dont need loginAction
-              'loginAction' => [
-              'controller' => 'Users',
-              'action' => 'login'],
-             * 'loginRedirect' => [
-                'controller' => 'Homepage',
-                'action' => 'index'
-            ],
-            'logoutRedirect' => [
-                'controller' => 'Homepage',
-                'action' => 'index',
-            ]
-        ] );
-            /*
+        /*  'authenticate' => [
+          'Form' => [
+          'fields' => ['username' => 'email', 'password' => 'password']
+          ]
+          ],
+          // possibly dont need loginAction
+          'loginAction' => [
+          'controller' => 'Users',
+          'action' => 'login'],
+         * 'loginRedirect' => [
+          'controller' => 'Homepage',
+          'action' => 'index'
+          ],
+          'logoutRedirect' => [
+          'controller' => 'Homepage',
+          'action' => 'index',
+          ]
+          ] );
+          /*
 
-        /*
+          /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
          */
@@ -90,11 +89,9 @@ class AppController extends Controller {
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
-    
     public function beforeRender( Event $event ) {
         if ( !array_key_exists( '_serialize', $this->viewVars ) &&
-                in_array( $this->response->type(),
-                        ['application/json', 'application/xml'] )
+                in_array( $this->response->type(), ['application/json', 'application/xml'] )
         ) {
             $this->set( '_serialize', true );
         }
@@ -103,5 +100,5 @@ class AppController extends Controller {
     public function beforeFilter( Event $event ) {
         //$this->Auth->allow( ['index', 'search'] );
     }
- 
+
 }

@@ -79,6 +79,15 @@ Add the following PHP code in your view to remove sidebar
  | Users | logout | None |  |
  | Users | add (registration) | None | |
  
+  ### Media Page
+ |Controller Name | Views Name | Required Data | Description
+ | --- | --- | --- | ---
+ | Media | add (upload) | user_id | Allow authors to posts their products
+ | Media | None | media_id | Allow authors to delete their product on the posts page
+ | Media | edit | media_id | Allow authors to edit their product descriptions
+ | Media | view | media_id | Allow authors to view individual posts
+ | Media | posts | user_id | Displays all posts made by the author
+ 
  ### Item Page
  Controller Name | Views Name | Required Data | Description
  --- | --- | --- | ---
