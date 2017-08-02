@@ -7,8 +7,7 @@ class MediaController extends AppController {
     public function initialize() {
         parent::initialize();
         $this->loadModel( 'Media' );
-        // temporary until authorization is done
-        $this->loadModel( 'Users' );
+
         $this->loadComponent( 'MediaHelper' );
     }
 
@@ -26,11 +25,11 @@ class MediaController extends AppController {
             return $this->redirect( ['action' => 'posts'] );
         }
     }
-    
-    public function posts () {
-        $userProducts = $this->Media->find('all')
-                ->where(['author_id' => $this->Auth->user('user_id')]);
-        $this->set(compact('userProducts'));
+
+    public function posts() {
+        $userProducts = $this->Media->find( 'all' )
+                ->where( ['author_id' => $this->Auth->user( 'user_id' )] );
+        $this->set( compact( 'userProducts' ) );
     }
 
     public function edit( $id ) {
@@ -78,7 +77,7 @@ class MediaController extends AppController {
                     $this->generateThumbnail( $input['file']['tmp_name'], $mediaThumbLink );
                     move_uploaded_file( $input['file']['tmp_name'], $storedPath );
                 } else {
-                    $this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
+                    //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
                 }
                 // redirect to view later
                 return $this->redirect( ['action' => 'posts'] );
@@ -89,7 +88,7 @@ class MediaController extends AppController {
                 if ( $this->Media->save( $newMedia ) ) {
                     move_uploaded_file( $input['file']['tmp_name'], $storedPath );
                 } else {
-                    $this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
+                    //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
                 }
                 // redirect to view later
                 return $this->redirect( ['action' => 'posts'] );
@@ -102,14 +101,14 @@ class MediaController extends AppController {
         $this->set( compact( 'genreList', 'newMedia' ) );
     }
 
-    private function generateThumbnail( $source, $mediaThumbLink) {
+    private function generateThumbnail( $source, $mediaThumbLink ) {
         $nw = 300;
         $nh = 300;
         $imageInfo = getimagesize( $source );
         $w = $imageInfo[0];
         $h = $imageInfo[1];
 
-        $type = strtolower($imageInfo['mime']);
+        $type = strtolower( $imageInfo['mime'] );
 
         switch ( $type ) {
             case 'image/gif':
@@ -175,7 +174,7 @@ class MediaController extends AppController {
         if ( in_array( $this->request->getParam( 'action' ), ['add', 'posts'] ) ) {
             return true;
         }
-        
+
         // The owner of an article can edit and delete it
         if ( in_array( $this->request->getParam( 'action' ), ['edit', 'delete'] ) ) {
             $articleId = (int) $this->request->getParam( 'pass.0' );

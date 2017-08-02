@@ -68,7 +68,8 @@ class AppController extends Controller {
             'logoutRedirect' => [
                 'controller' => 'Homepage',
                 'action' => 'index',
-            ]
+            ],
+            'authError' => ''
         ] );
 
         /*

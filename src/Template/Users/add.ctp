@@ -30,7 +30,7 @@
                     <!-- Form Name -->
                     <legend>Registration Form</legend>
 
-                    <!-- Text input-->
+                    <!-- Email input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label">E-Mail</label>  
                         <div class="col-md-4 inputGroupContainer">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
 
-                    <!-- Text input-->
+                    <!-- Password input-->
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" >Password</label> 
@@ -67,14 +67,14 @@
                         </div>
                     </div>
                     
-                    <!-- Text input-->
+                    <!-- Password Confirm input-->
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" >Confirm Password</label> 
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <?= $this->Form->control('confirmPassword', ['class' => 'form-control', 'placeholder' => 'Retype your password', 'label' => false, 'type' => 'password']) ?>
+                                <?= $this->Form->control('confirmPassword', ['class' => 'form-control', 'placeholder' => 'Retype password', 'label' => false, 'type' => 'password']) ?>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-chevron-right"></span></button>
+                            <button type="submit" class="btn btn-warning" >Create Account <span class="glyphicon glyphicon-chevron-right"></span></button>
                         </div>
                     </div>
 
