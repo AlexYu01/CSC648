@@ -97,7 +97,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-warning" >Post! <span class="glyphicon glyphicon-upload"></span></button>
+                            <button type="submit" class="btn btn-primary" >Post! <span class="glyphicon glyphicon-upload"></span></button>
                         </div>
                     </div>
 

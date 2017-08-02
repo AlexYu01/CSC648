@@ -68,6 +68,7 @@ class UsersController extends AppController {
         
         $user = $this->Users->newEntity();
         if ( $this->request->is( 'post' ) ) {
+
             $salt = sha1( substr( str_shuffle( str_repeat( "0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^", 15 ) ), 0, 15 ) );
             $data = $this->request->getData();
 

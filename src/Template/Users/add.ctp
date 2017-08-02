@@ -8,90 +8,118 @@
 
         <?= $this->Html->css( 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' ) ?>
         <?= $this->Html->css( 'bootstrap-theme.min' ) ?>
-        
-        <?= $this->Html->script('https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css') ?>
+
+        <?= $this->Html->script( 'https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css' ) ?>
 
         <?= $this->Html->script( 'jquery.min' ) ?>
         <?= $this->Html->script( 'bootstrap.min' ) ?>
-        <?= $this->Html->script('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js') ?>
+        <?= $this->Html->script( 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js' ) ?>
+
+        <?= $this->Html->script( 'https://www.google.com/recaptcha/api.js' ) ?>
+
     </head>
     <style>
         #success_message{ 
             display: none;
         }
+        
+        msg-error {
+  color: #c65848;
+}
+.g-recaptcha.error {
+  border: solid 2px #c64848;
+  padding: .2em;
+  width: 19em;
+}
+
     </style>
 
     <body
         <div class="container">
 
-                <?= $this->Form->create($user, ['id' => 'register_form', 'class' => 'form-horizontal']) ?>
-                <fieldset>
+            <?= $this->Form->create( $user, ['id' => 'register_form',
+                'class' => 'form-horizontal'] )
+            ?>
+            <fieldset>
 
-                    <!-- Form Name -->
-                    <legend>Registration Form</legend>
+                <!-- Form Name -->
+                <legend>Registration Form</legend>
 
-                    <!-- Email input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">E-Mail</label>  
-                        <div class="col-md-4 inputGroupContainer">
-                            <?= $error = $this->Form->isFieldError('email') ? $this->Form->error('email') : ''; ?>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <?= $this->Form->control('email', ['class' => 'form-control', 'placeholder' => 'E-Mail Address', 'label' => false, 'error' => false]) ?>
-                            </div>
+                <!-- Email input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">E-Mail</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                            <?= $error = $this->Form->isFieldError( 'email' ) ? $this->Form->error( 'email' ) : ''; ?>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <?= $this->Form->control( 'email', ['class' => 'form-control',
+                                'placeholder' => 'E-Mail Address', 'label' => false,
+                                'error' => false] )
+                            ?>
                         </div>
                     </div>
-                    
-                    <!-- Text input-->
+                </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Username</label>  
-                        <div class="col-md-4 inputGroupContainer">
-                            <?= $error = $this->Form->isFieldError('username') ? $this->Form->error('username') : ''; ?>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <?= $this->Form->control('username', ['class' => 'form-control', 'placeholder' => 'Username', 'label' => false, 'error' => false]) ?>
-                            </div>
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Username</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                            <?= $error = $this->Form->isFieldError( 'username' ) ? $this->Form->error( 'username' ) : ''; ?>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <?= $this->Form->control( 'username', ['class' => 'form-control',
+                                'placeholder' => 'Username', 'label' => false, 'error' => false] )
+                            ?>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Password input-->
+                <!-- Password input-->
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" >Password</label> 
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <?= $this->Form->control('password', ['class' => 'form-control', 'placeholder' => 'Password', 'label' => false]) ?>
-                            </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" >Password</label> 
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <?= $this->Form->control( 'password', ['class' => 'form-control', 'placeholder' => 'Password', 'label' => false] )?>
                         </div>
                     </div>
-                    
-                    <!-- Password Confirm input-->
+                </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" >Confirm Password</label> 
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <?= $this->Form->control('confirmPassword', ['class' => 'form-control', 'placeholder' => 'Retype password', 'label' => false, 'type' => 'password']) ?>
-                            </div>
+                <!-- Password Confirm input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" >Confirm Password</label> 
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <?= $this->Form->control( 'confirmPassword', ['class' => 'form-control', 'placeholder' => 'Retype password','label' => false, 'type' => 'password'] )?>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Success message -->
-                    <!--<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div> -->
-
-                    <!-- Button -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label"></label>
-                        <div class="col-md-4">
-                            <button type="submit" class="btn btn-warning" >Create Account <span class="glyphicon glyphicon-chevron-right"></span></button>
-                        </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" ></label> 
+                    <div class="col-md-4 inputGroupContainer">
+                        <span class="msg-error error"></span>
+                        <div id="cacaptchaContainer" class="g-recaptcha" data-sitekey="6LcidCsUAAAAADsatdH2I5HXTwwWOhXGYSq1EYwG"></div>
                     </div>
+                </div>
 
-                </fieldset>
-            <?= $this->Form->end(); ?>
+                <!-- Success message -->
+                <!--<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div> -->
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <button id="submit" type="submit" class="btn btn-primary" >Create Account <span class="glyphicon glyphicon-chevron-right"></span></button>
+                    </div>
+                </div>
+
+            </fieldset>
+<?= $this->Form->end(); ?>
         </div>
     </div><!-- /.container -->
 
@@ -99,12 +127,14 @@
     <script>
         $(document).ready(function () {
             $('#register_form').bootstrapValidator({
-                
+
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
                     invalid: 'glyphicon glyphicon-remove',
                     validating: 'glyphicon glyphicon-refresh'
                 },
+
+                
                 fields: {
                     username: {
                         validators: {
@@ -149,29 +179,43 @@
                                 message: 'Please supply a valid email address'
                             }
                         }
-                    }
+                    }            
                 }
             })
                     .on('success.form.bv', function (e) {
                         $('#success_message').slideDown({opacity: "show"}, "slow") // Do something ...
                         $('#register_form').data('bootstrapValidator').resetForm();
-/*
-                        // Prevent form submission
-                        e.preventDefault();
-
-                        // Get the form instance
-                        var $form = $(e.target);
-
-                        // Get the BootstrapValidator instance
-                        var bv = $form.data('bootstrapValidator');
-
-                        // Use Ajax to submit form data
-                        $.post($form.attr('action'), $form.serialize(), function (result) {
-                            console.log(result);
-                        }, 'json');*/
+                        /*
+                         // Prevent form submission
+                         e.preventDefault();
+                         
+                         // Get the form instance
+                         var $form = $(e.target);
+                         
+                         // Get the BootstrapValidator instance
+                         var bv = $form.data('bootstrapValidator');
+                         
+                         // Use Ajax to submit form data
+                         $.post($form.attr('action'), $form.serialize(), function (result) {
+                         console.log(result);
+                         }, 'json');*/
                     });
         });
-
+$( '#submit' ).click(function(){
+  var $captcha = $( '#cacaptchaContainer' ),
+      response = grecaptcha.getResponse();
+  
+  if (response.length === 0) {
+    $( '.msg-error').text( "reCAPTCHA is mandatory" );
+    if( !$captcha.hasClass( "error" ) ){
+      $captcha.addClass( "error" );
+    }
+  } else {
+    $( '.msg-error' ).text('');
+    $captcha.removeClass( "error" );
+    alert( 'reCAPTCHA marked' );
+  }
+})
     </script>
 </body>
 </html>
