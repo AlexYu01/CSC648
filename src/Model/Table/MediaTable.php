@@ -77,33 +77,18 @@ class MediaTable extends Table {
                 ->allowEmpty( 'upload_date' );
 
         $validator
-                ->integer( 'permission' )
-                ->requirePresence( 'permission', 'create' )
-                ->notEmpty( 'permission' );
-
-        $validator
                 ->requirePresence( 'media_link', 'create' )
                 ->notEmpty( 'media_link' );
 
+        $validator
+                ->allowEmpty( 'thumb_link' );
+        
         $validator
                 ->integer( 'sold_count' )
                 ->allowEmpty( 'sold_count' );
 
         $validator
                 ->allowEmpty( 'media_desc' );
-
-        /* Requires a field called 'file' in forms related to creation of an entry.
-         * File cannot be more than 30MB. File must be jpeg, jpg etc. File cannot be empty (default).
-         */
-        $validator
-                ->requirePresence( 'file', 'create' )
-                ->notEmpty( 'file' )
-                ->add( 'file', [
-                    'validSize' => ['rule' => ['fileSize', '<=', '30MB'], 'message' => 'Max 30MB'],
-                    'validFormat' => ['rule' => ['uploadedFile', ['types' => ['image/jpeg',
-                                    'image/jpg', 'image/png', 'image/gif', 'video/avi',
-                                    'video/wmv', 'video/flv', 'video/mpg', 'video/mp4']]],
-                        'message' => 'Accepted formats: .jpg .jpeg .png .gif .avi .wmv .flv .mpg .mp4']] );
 
         return $validator;
     }
@@ -122,6 +107,10 @@ class MediaTable extends Table {
         $rules->add( $rules->existsIn( ['type_id'], 'MediaTypes' ) );
 
         return $rules;
+    }
+    
+    public function isOwnedBy( $articleId, $userId ) {
+        return $this->exists( ['media_id' => $articleId, 'author_id' => $userId] );
     }
 
 }
