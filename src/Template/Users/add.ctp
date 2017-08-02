@@ -3,7 +3,6 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= $this->Html->meta( 'favicon' ) ?>
-        <?= $this->Flash->render(); ?>
         <?= $this->Html->script( 'https://s.codepen.io/assets/libs/modernizr.js' ) ?>
 
         <?= $this->Html->css( 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' ) ?>
@@ -22,7 +21,6 @@
         #success_message{ 
             display: none;
         }
-
     </style>
 
     <body
@@ -94,7 +92,7 @@
                     <label class="col-md-4 control-label" ></label> 
                     <div class="col-md-4 inputGroupContainer">
                         <span class="error">Captcha is required</span>
-                        <div id="cacaptchaContainer" class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LcidCsUAAAAADsatdH2I5HXTwwWOhXGYSq1EYwG"></div>
+                        <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LcidCsUAAAAADsatdH2I5HXTwwWOhXGYSq1EYwG"></div>
                     </div>
                 </div>
 
@@ -105,7 +103,8 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4">
-                        <button id="submit" type="submit" class="btn btn-primary" disabled>Create Account <span class="glyphicon glyphicon-chevron-right"></span></button>
+                        <button id="submitBtn" type="submit" class="btn btn-primary" disabled>Create Account <span class="glyphicon glyphicon-chevron-right"></span></button>
+                        
                     </div>
                 </div>
 
@@ -192,9 +191,9 @@
                          }, 'json');*/
                     });
         });
-    function recaptchaCallback() {
-        $('#submit').removeAttr('disabled');
-       };
+        function recaptchaCallback() {
+            $('#submitBtn').removeAttr('disabled');
+        };
     </script>
 </body>
 </html>
