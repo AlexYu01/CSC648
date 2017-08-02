@@ -17,6 +17,7 @@
             <a href="index.php" id="logo">PictureSque</a>
         </div>
 
+
         <div id="wm-user-component">
             
             <?php
@@ -37,4 +38,5 @@
             ?>
         </div>
     </nav>
+
 </header>
