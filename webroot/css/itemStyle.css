@@ -35,17 +35,33 @@ body{
                 transform: scale(1.1);
             }
         }
-        .modal-content{
+        #lbModal .modal-content{
             background-color: black;
             background: transparent;
             height: 100%;
         }
-
-        .modal-header{
+        
+        #contacModal .modal-content{
+            margin: 10%;
+        }
+        
+        #contacModal .modal-header{
             border-bottom: 0px;
         }
+        
+        #msg-box{
+            height: 150px;
+            margin: 0 auto;
+        }
+        
+        
 
-        .close{
+        #lbModal .modal-header{
+            border-bottom: 0px;
+            background: transparent;
+        }
+
+        #lbModal .close{
             color:white;
             opacity: 1;
             font-size: 3em;

@@ -19,7 +19,7 @@ $videos_type = "mp4";
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <?= $this->Html->script('bootstrap.min'); ?>
         <?= $this->Html->script('notify.js'); ?>
-        <?= $this->Html->css('itemStyle.css')?>
+        <?= $this->Html->css('itemStyle.css') ?>
     </head>
     <body>
         <?php if ($item != "No Result Found") { ?>
@@ -52,7 +52,7 @@ $videos_type = "mp4";
                         <hr>
                         <h3><span style="color:#f49842">$<?= $item->price ?></span></h3>
 
-                        <button type="button" id="contact-button" class="btn btn-warning btn-lg text-center">Contact Owner</button>
+                        <button type="button" class="btn btn-warning btn-lg text-center" data-toggle="modal" data-target="#contacModal">Contact Owner</button>
                         <hr>
                         <h4>Author:&nbsp;<span style="color:#7ae0ff"><?= $user->username ?></span></h4>
                         <p style="font-size:1em">Upload date:&nbsp;<?= date('F d,Y', strtotime($item->upload_date)) ?></p>
@@ -63,7 +63,7 @@ $videos_type = "mp4";
                 <!-- Main Product -->
             </div>            
 
-            <!--Modal lightbox-->
+            <!--Modal photo lightbox-->
             <div class="modal fade" id="lbModal">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -76,13 +76,34 @@ $videos_type = "mp4";
                     </div>
                 </div>
             </div>
+            <!-- Modal photo lightbox-->
+
+            <!-- Modal Leave Message -->
+            <div class="modal fade" id="contacModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="javascript:void(0);">
+                            <div class="form-group">
+                                <label for="textbox">Contact Owner</label>
+                                <input id="msg-box" type="text" step="250" required="required" size="50" placeholder="Enter Your Message Here." maxlength="250" width="50" class="form-control" id="email">
+                            </div>                            
+                            <button id="contact-button" type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Leave Message -->
+
             <?php
         } else {
             ?>
             <div class="container">
                 <h1 class="text-center" style="position:relative;margin:10% 0 10% 0"><span>Oops! There is nothing here, looks like you are in a wrong place!</span></h1>
                 <div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 col-sm-1 col-sm-offset-5">
-    <?= $this->Html->link('Go Back', '/', ['class' => 'btn btn-primary btn-lg text-center']) ?>
+                    <?= $this->Html->link('Go Back', '/', ['class' => 'btn btn-primary btn-lg text-center']) ?>
                 </div>
 
             </div>
@@ -95,29 +116,29 @@ $videos_type = "mp4";
                 <h4 style="margin-left:3%">Images You might like</h4>
             </div>
             <div class="row">
-                <?php foreach($similar_items as $similar_item){ ?>
+                <?php foreach ($similar_items as $similar_item) { ?>
                     <div class="col-lg-2 col-md-2 col-sm-2">
                         <a href="<?= $this->url->build((['controller' => 'Item', 'action' => 'index', '?' => ['id' => $similar_item->media_id]])) ?>">
-                            <img class="img-thumbnail"  src="<?= $this->url->build((['controller' => 'Item', 'action' => 'image', '?' => ['id' => $similar_item->media_id],'resize'=> '250x250']))?>">
+                            <img class="img-thumbnail"  src="<?= $this->url->build((['controller' => 'Item', 'action' => 'image', '?' => ['id' => $similar_item->media_id], 'resize' => '250x250'])) ?>">
                         </a>
                     </div>
                 <?php } ?>
-                
+
             </div>
         </div>
         <!-- Suggestion -->
-        <script>         
-        if(login !== ''){
-            $('#contact-button').click(function () {                    
-                    socket.emit('messages', {id:<?=$user->user_id?>, content: 'new message'});  
-                    $.notify('Message Sent',{position:'top left',style:'bootstrap',className:'success'});
-            });
-        }else{
-            $('#contact-button').click(function () {
-                    $.notify('Please Log in to send message',{position:'top left',style:'bootstrap',className:'info'});
-            });
-            
-        }
+        <script>
+            if (login !== '') {
+                $('#contact-button').click(function () {
+                    socket.emit('messages', {id:<?= $user->user_id ?>, content: 'new message'});
+                    $.notify('Message Sent', {position: 'top left', style: 'bootstrap', className: 'success'});
+                });
+            } else {
+                $('#contact-button').click(function () {
+                    $.notify('Please Log in to send message', {position: 'top left', style: 'bootstrap', className: 'info'});
+                });
+
+            }
         </script>        
     </body>
 </html>
