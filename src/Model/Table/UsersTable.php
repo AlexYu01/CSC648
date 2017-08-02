@@ -110,6 +110,8 @@ class UsersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['username']));
+        $rules->add($rules->isUnique(['password']));
+        $rules->add($rules->isUnique(['confirm_password']));
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['userID']));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
