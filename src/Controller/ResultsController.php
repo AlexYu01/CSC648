@@ -2,29 +2,25 @@
 
 namespace App\Controller;
 
-use App\Utility\MediaHelper;
 use Cake\Network\Exception\NotFoundException;
 
-class ResultsController extends MediaHelper {
+class ResultsController extends AppController {
 
     // limit 4 results per page
     public $paginate = [
         'limit' => 1000
     ];
 
-    public function index() {
-        
-    }
-
     public function initialize() {
         parent::initialize();
         $this->loadComponent( 'Paginator' );
         $this->loadModel( 'Media' );
+        $this->loadComponent( 'MediaHelper' );
     }
 
     public function search() {
 
-        $this->searchBar(); // inherited from MediaHelper
+        $this->MediaHelper->searchBar(); // inherited from MediaHelper
         $searchTerm = $this->request->getQuery( 'searchQuery' );
         $searchGenreId = $this->request->getQuery( 'searchGenre' );
         $results = null;
@@ -51,7 +47,7 @@ class ResultsController extends MediaHelper {
     }
 
     private function returnedResults( $searchTerm, $searchGenreId ) {
-        $searchGenreName = $this->getGenreName( $searchGenreId );
+        $searchGenreName = $this->MediaHelper->getGenreName( $searchGenreId );
 
         // use the ternary operator ?: to determine if searchGenreName is null if 
         // true then set searchGenreName to 'all genres'.
@@ -63,8 +59,7 @@ class ResultsController extends MediaHelper {
                 ->find( 'all' )
                 ->where( ['type_id' => 1, 'OR' => [['media_title LIKE' => '%' . $searchTerm . '%'],
                         ['media_desc LIKE' => '%' . $searchTerm . '%']]] )
-                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'],
-                ['genre_id' => 'string'] );
+                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'], ['genre_id' => 'string'] );
 
         /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
          * after results is returned).
@@ -106,8 +101,7 @@ class ResultsController extends MediaHelper {
         $results = $this->Media
                 ->find( 'all' )
                 ->where( ['type_id' => 1] )
-                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'],
-                        ['genre_id' => 'string'] )
+                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'], ['genre_id' => 'string'] )
                 ->order( ['sold_count' => 'DESC'] );
 
         /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
@@ -122,10 +116,6 @@ class ResultsController extends MediaHelper {
          */
 
         return $results;
-    }
-
-    public function view() {
-        
     }
 
 }
