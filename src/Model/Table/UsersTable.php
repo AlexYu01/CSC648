@@ -72,9 +72,9 @@ class UsersTable extends Table
                             'hasUpper' => 
                                 ['rule' => ['custom', '/^[[:upper:]]+$/'], 'message' => 'Please have at least one uppercase character']]);
         $validator
-            ->requirePresence('confirm_password', 'create')
-            ->notEmpty('confirm_password')
-            ->add('confirm_password', 'no-misspelling', ['rule' => ['compareWith', 'password'], 'message' => 'Passwords do not match']);
+            ->requirePresence('confirmPassword', 'create')
+            ->notEmpty('confirmPassword')
+            ->add('confirmPassword', 'no-misspelling', ['rule' => ['compareWith', 'password'], 'message' => 'Passwords do not match']);
 
         $validator
             ->email('email')
