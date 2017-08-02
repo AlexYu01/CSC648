@@ -18,71 +18,9 @@ $videos_type = "mp4";
         <?= $this->Html->css('bootstrap.css') ?>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <?= $this->Html->script('bootstrap.min'); ?>
+        <?= $this->Html->script('notify.js'); ?>
+        <?= $this->Html->css('itemStyle.css')?>
     </head>
-    <style>
-        body{
-            background-color: #f2fcff;            
-        }
-        .modal-open {
-            overflow: scroll;
-        }
-
-        .container{
-            margin-top: 2%;
-        }
-
-        #detail-container{
-            margin-top: -20px;
-        }
-
-        @media screen and (min-width: 992px){
-            #imgbox:hover{
-                -webkit-transition: all 200ms ease-in;
-                -webkit-transform: scale(1.1);
-                -ms-transition: all 200ms ease-in;
-                -ms-transform: scale(1.1);
-                -mos-transition: all 200ms ease-in;
-                -mos-transform: scale(1.1);
-                transition: all 200ms ease-in;
-                transform: scale(1.1);
-            }
-        }
-        .modal-content{
-            background-color: black;
-            background: transparent;
-            height: 100%;
-        }
-
-        .modal-header{
-            border-bottom: 0px;
-        }
-
-        .close{
-            color:white;
-            opacity: 1;
-            font-size: 3em;
-        }
-
-        #lb-image{
-            width:75%;
-            height:75%;
-            margin-left: 12.5%;
-        }
-
-        #suggest-container{
-            width:100%;
-            margin-top:5%; 
-            background-color: #def1f7;
-        }
-
-        #suggest-container > .row{
-            padding-bottom: 10px;
-        }
-
-        video{
-            width: 100%;
-        }
-    </style>
     <body>
         <?php if ($item != "No Result Found") { ?>
             <div class="container">
@@ -114,7 +52,7 @@ $videos_type = "mp4";
                         <hr>
                         <h3><span style="color:#f49842">$<?= $item->price ?></span></h3>
 
-                        <button type="button" class="btn btn-warning btn-lg text-center">Buy it Now</button>
+                        <button type="button" id="contact-button" class="btn btn-warning btn-lg text-center">Contact Owner</button>
                         <hr>
                         <h4>Author:&nbsp;<span style="color:#7ae0ff"><?= $user->username ?></span></h4>
                         <p style="font-size:1em">Upload date:&nbsp;<?= date('F d,Y', strtotime($item->upload_date)) ?></p>
@@ -135,14 +73,9 @@ $videos_type = "mp4";
                         <div class="container-fluid">
                             <img id="lb-image"class="img-responsive" src="<?php echo "http://www." . $this->request->env('HTTP_HOST') . strtok($this->request->env('REQUEST_URI'), '?') . '/image?id=' . $item->media_id; ?>">
                         </div>
-
-                    </div>                
-
+                    </div>
                 </div>
             </div>
-            <script>
-
-            </script>
             <?php
         } else {
             ?>
@@ -173,5 +106,18 @@ $videos_type = "mp4";
             </div>
         </div>
         <!-- Suggestion -->
+        <script>         
+        if(login !== ''){
+            $('#contact-button').click(function () {                    
+                    socket.emit('messages', {id:<?=$user->user_id?>, content: 'new message'});  
+                    $.notify('Message Sent',{position:'top left',style:'bootstrap',className:'success'});
+            });
+        }else{
+            $('#contact-button').click(function () {
+                    $.notify('Please Log in to send message',{position:'top left',style:'bootstrap',className:'info'});
+            });
+            
+        }
+        </script>        
     </body>
 </html>

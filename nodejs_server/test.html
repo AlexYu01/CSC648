@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <div id="messages">
+        </div>
+        <button>test button</button>
+        <script>
+            var socket = io();
+            $('button').click(function(){
+                socket.emit('2','button clicked');
+            });
+            
+            socket.on('2',function(msg){
+                if(msg == 'button clicked'){
+                    $('#messages').append($('<li>').text(msg))
+                }                
+            })
+        </script>
+    </body>
+</html>

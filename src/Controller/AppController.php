@@ -52,7 +52,6 @@ class AppController extends Controller {
         $this->loadModel( 'MediaGenres' );
         $mgResults = $this->MediaGenres->find( 'all' )->toArray();
         $this->set( 'genresData', $mgResults );
-
         
         //$this->loadComponent( 'Auth',
         //        [
