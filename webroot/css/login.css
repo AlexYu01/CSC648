@@ -13,33 +13,42 @@ and open the template in the editor.
     border-width: 1px; 
     border-radius: 5px; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
 }
 
 #password{
     border-width: 1px; 
     border-radius: 5px; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
 }
 
 #email{
     border-width: 1px; 
     border-radius: 5px; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
 }
 
 #confirmpassword{
     border-width: 1px; 
     border-radius: 5px; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
+}
+
+#text{
+    margin-left: 200px;
 }
 
 span{
     color: blue;
 }
 
-#form{
-    width: 800px;
-    height: 400px;
-    border: 1px solid gray;
-    border-radius: 5px;
+#submit{
+    box-shadow: 3px 3px 3px #01545b;
+}
+
+#login{
+    box-shadow: 3px 3px 3px #01545b;
 }

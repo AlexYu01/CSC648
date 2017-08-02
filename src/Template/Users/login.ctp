@@ -9,17 +9,18 @@ echo $this->Html->css('login.css');
         <h2 class ="text-center">Login</h2>
         <?= $this->Flash->render(); ?>
         <?= $this->Form->create(); ?>
-        <legend><?= __('Please enter your username and password') ?></legend>
-        <?php echo $this->Form->Control('username', array('class' => 'form-control')); ?>
-        <br><br>
-        <?php echo $this->Form->Control('password', array('class' => 'form-control')); ?>
-        <br><br><br><br>
-        <div style="position: relative; bottom: 20px; left: 690px;">
-            <?= $this->Form->submit('Login', array('class' => 'button')); ?>
+        <div id="text">
+            <legend><?= __('Please enter your username and password') ?></legend>
+            <?php echo $this->Form->Control('username', array('class' => 'form-control', 'placeholder' => 'Username')); ?>
+            <br><br>
+            <?php echo $this->Form->Control('password', array('class' => 'form-control', 'placeholder' => 'Password')); ?>
+            <br><br><br><br>
+        </div>
+        <div style="bottom:20px; margin-left: 150px;">
+            <?= $this->Form->submit('Login', array('class' => 'button', 'id' => 'login')); ?>
             <?= $this->Form->end(); ?>
         </div>
     </div>
-</div>
 </div>
 </body>
 </html>

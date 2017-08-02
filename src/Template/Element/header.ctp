@@ -9,7 +9,7 @@
 							echo '<a target="_self" href="logout" class="signin">logout</a>';
  						  } else {
                         	echo '<a target="_self" href="login" class="signin">Log In</a>';
-							echo '<a target="_self" href="registration" class="signin">Free Sign Up</a>';
+							echo '<a target="_self" href="registration" class="signin">Sign Up</a>';
  						  } 
  					?>
                 </div>
