@@ -51,26 +51,27 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-
             ->integer('user_id')
             ->allowEmpty('user_id', 'create')
             ->add('user_id', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
-            ->allowEmpty('username')
-            ->requirePresence('username', 'create')
             ->notEmpty('username')
-            ->add('username', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+            ->requirePresence('username', 'create')
+            ->add('username', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'This username has been taken']);
 
         $validator
             ->requirePresence('password', 'create')
             ->notEmpty('password');
+        
+        $validator
+                ->requirePresence('confirmPassword', 'create');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmpty('email')
-            ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+            ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'This email has already been used']);
 
         $validator
             ->dateTime('registered_date')
@@ -94,9 +95,7 @@ class UsersTable extends Table
             ->allowEmpty('salt');
 
         $validator
-            ->integer('role')
-            ->requirePresence('role', 'create')
-            ->notEmpty('role');
+            ->allowEmpty('role');
 
         return $validator;
     }

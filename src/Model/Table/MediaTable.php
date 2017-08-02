@@ -86,6 +86,9 @@ class MediaTable extends Table {
                 ->notEmpty( 'media_link' );
 
         $validator
+                ->allowEmpty( 'thumb_link' );
+        
+        $validator
                 ->integer( 'sold_count' )
                 ->allowEmpty( 'sold_count' );
 
@@ -122,6 +125,10 @@ class MediaTable extends Table {
         $rules->add( $rules->existsIn( ['type_id'], 'MediaTypes' ) );
 
         return $rules;
+    }
+    
+    public function isOwnedBy( $articleId, $userId ) {
+        return $this->exists( ['media_id' => $articleId, 'author_id' => $userId] );
     }
 
 }
