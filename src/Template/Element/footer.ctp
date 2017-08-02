@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="css/home-footer.css">
 <footer id="team-footer" lang="en">
 	<div class="wf-container">
 		<div class="wf-column-container">

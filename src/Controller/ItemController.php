@@ -127,5 +127,9 @@ class ItemController extends AppController {
             
         }
     }
+    
+    public function test(){
+        
+    }
 
 }
