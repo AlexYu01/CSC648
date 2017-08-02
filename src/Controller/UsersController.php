@@ -13,45 +13,26 @@ use Cake\Event\Event;
  * @method \App\Model\Entity\User[] paginate($object = null, array $settings = [])
  */
 class UsersController extends AppController {
+
     public function initialize() {
         parent::initialize();
-        $this->loadComponent( 'Auth',
-                [
-            /*  'authenticate' => [
-              'Form' => [
-              'fields' => ['username' => 'email', 'password' => 'password']
-              ]
-              ],
-              // possibly dont need loginAction
-              'loginAction' => [
-              'controller' => 'Users',
-              'action' => 'login'],
-             */ 'loginRedirect' => [
-                'controller' => 'Homepage',
-                'action' => 'index'
-            ],
-            'logoutRedirect' => [
-                'controller' => 'Homepage',
-                'action' => 'index',
-            ]
-        ] );
+        
     }
-    
-    public function beforeFilter(Event $event)
-    {
-        parent::beforeFilter($event);
+
+    public function beforeFilter( Event $event ) {
+        parent::beforeFilter( $event );
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout']);
+        $this->Auth->allow( ['add', 'logout'] );
     }
-    
+
     /**
      * Index method
      *
      * @return \Cake\Http\Response|void
      */
-    public function index() {
+    public function userindex() {
         $this->paginate = [
             'contain' => []
         ];
@@ -67,11 +48,10 @@ class UsersController extends AppController {
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view( $id = null ) {
-        $user = $this->Users->get( $id,
-                [
+        $user = $this->Users->get( $id, [
             'contain' => ['Users']
-        ] );
-        $this->set(compact('user'));
+                ] );
+        $this->set( compact( 'user' ) );
     }
 
     /**
@@ -80,78 +60,57 @@ class UsersController extends AppController {
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
     public function add() {
+        
+        // make sure a logged in user cant access registeration
+        if($this->request->session()->read('Auth')) {
+            return $this->redirect(['controller' => 'Media', 'action' => 'posts']);
+        }
+        
         $user = $this->Users->newEntity();
         if ( $this->request->is( 'post' ) ) {
-            //$current_time = date( 'Y-m-d G:i:s', time() );
-            $salt = sha1( substr( str_shuffle( str_repeat( "0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^",
-                                            15 ) ), 0, 15 ) );
+
+            $salt = sha1( substr( str_shuffle( str_repeat( "0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^", 15 ) ), 0, 15 ) );
             $data = $this->request->getData();
-            //$data["registered_date"] = $current_time;
-            //$data["last_login_date"] = $current_time;
+
             $data['token'] = "";
             $data['salt'] = $salt;
-            $data['role'] = 0;
-
 
             $user = $this->Users->patchEntity( $user, $data );
             if ( $this->Users->save( $user ) ) {
-                $this->Flash->success( __( 'The user has been saved.' ) );
-                return $this->redirect( ['action' => 'index'] );
+
+                // login new registered user
+                $authUser = $this->Users->get( $user->user_id )->toArray();
+                $this->Auth->setUser( $authUser );
+
+                // change later in loginRedirect
+                return $this->redirect( ['controller' => 'Homepage', 'action' => 'index'] );
             }
-            $this->Flash->error( __( 'The user could not be saved. Please, try again.' ) );
         }
-        //$users = $this->Users->Users->find( 'list', ['limit' => 200] );
-        $this->set( compact( 'user'/*, 'users'*/ ) );
+        $this->set( compact( 'user' ) );
     }
 
     public function login() {
-        /* $user = $this->Users->newEntity();
-          if ( $this->request->is( 'post' ) ) {
-          $current_time = date( 'Y-m-d G:i:s', time() );
-          $salt = sha1( substr( str_shuffle( str_repeat( "0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^",
-          15 ) ), 0, 15 ) );
-          $data = $this->request->getData();
-
-
-          $this->set( compact( 'data', 'data' ) );
-          $this->set( '_serialize', ['data'] ); */
+        $current_time = date( 'Y-m-d G:i:s', time() );
         if ( $this->request->is( 'post' ) ) {
             $user = $this->Auth->identify();
             if ( $user ) {
                 $this->Auth->setUser( $user );
+
+                // update last_login_date for user
+                $query = $this->Users->query();
+                $query->update()
+                        ->set( ['last_login_date' => $current_time] )
+                        ->where( ['user_id' => $this->Auth->user( 'user_id' )] )
+                        ->execute();
+
                 return $this->redirect( $this->Auth->redirectUrl() );
             }
             $this->Flash->error( __( 'Invalid username or password, try again' ) );
         }
     }
 
-    //}
-
     public function logout() {
         return $this->redirect( $this->Auth->logout() );
-    }
-
-    public function test() {
-        $user = $this->Users->newEntity();
-        if ( $this->request->is( 'post' ) ) {
-            $current_time = date( 'Y-m-d G:i:s', time() );
-            $salt = sha1( substr( str_shuffle( str_repeat( "0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^",
-                                            15 ) ), 0, 15 ) );
-            $data = $this->request->getData();
-
-
-            $this->set( compact( 'data', 'data' ) );
-            $this->set( '_serialize', ['data'] );
-
-            if ( $this->request->is( 'post' ) ) {
-                $user = $this->Auth->identify();
-                if ( $user ) {
-                    $this->Auth->setUser( $user );
-                    return $this->redirect( ['controller' => 'Users'] );
-                }
-                $this->Flash->error( __( 'Invalid username or password, try again' ) );
-            }
-        }
     }
 
     /**
@@ -164,7 +123,7 @@ class UsersController extends AppController {
     public function edit( $id = null ) {
         $user = $this->Users->get( $id, [
             'contain' => []
-        ] );
+                ] );
         if ( $this->request->is( ['patch', 'post', 'put'] ) ) {
             $user = $this->Users->patchEntity( $user, $this->request->getData() );
             if ( $this->Users->save( $user ) ) {
@@ -196,4 +155,9 @@ class UsersController extends AppController {
         return $this->redirect( ['action' => 'index'] );
     }
 
+    public function isAuthorized( $user ) {
+        // All registered users can add articles
+        
+        return parent::isAuthorized( $user );
+    }
 }

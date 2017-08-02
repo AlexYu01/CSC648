@@ -9,6 +9,7 @@ echo $this->Html->css('login.css');
         <h2 class ="text-center">Login</h2>
         <?= $this->Flash->render(); ?>
         <?= $this->Form->create(); ?>
+
         <div id="text">
             <legend><?= __('Please enter your username and password') ?></legend>
             <?php echo $this->Form->Control('username', array('class' => 'form-control', 'placeholder' => 'Username')); ?>

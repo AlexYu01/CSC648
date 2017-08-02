@@ -56,6 +56,8 @@ Router::scope( '/', function (RouteBuilder $routes) {
     $routes->connect( '/login', ['controller' => 'Users', 'action' => 'login'] );
     $routes->connect( '/logout', ['controller' => 'Users', 'action' => 'logout'] );
     $routes->connect( '/upload', ['controller' => 'Media', 'action' => 'add'] );
+    $routes->connect( '/posts', ['controller' => 'Media', 'action' => 'posts'] );
+    $routes->connect( '/allusers', ['controller' => 'Users', 'action' => 'userindex'] );
     
 
 

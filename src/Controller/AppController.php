@@ -53,29 +53,26 @@ class AppController extends Controller {
         $mgResults = $this->MediaGenres->find( 'all' )->toArray();
         $this->set( 'genresData', $mgResults );
 
-        //$this->loadComponent( 'Auth',
-        //        [
-        /*  'authenticate' => [
-          'Form' => [
-          'fields' => ['username' => 'email', 'password' => 'password']
-          ]
-          ],
-          // possibly dont need loginAction
-          'loginAction' => [
-          'controller' => 'Users',
-          'action' => 'login'],
-         * 'loginRedirect' => [
-          'controller' => 'Homepage',
-          'action' => 'index'
-          ],
-          'logoutRedirect' => [
-          'controller' => 'Homepage',
-          'action' => 'index',
-          ]
-          ] );
-          /*
+        $this->loadComponent( 'Auth', [
+            'authorize' => ['Controller'],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email', 'password' => 'password']
+                ]
+            ],
+            // change later
+            'loginRedirect' => [
+                'controller' => 'Media',
+                'action' => 'posts'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Homepage',
+                'action' => 'index',
+            ],
+            'authError' => ''
+        ] );
 
-          /*
+        /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
          */
@@ -98,7 +95,17 @@ class AppController extends Controller {
     }
 
     public function beforeFilter( Event $event ) {
-        //$this->Auth->allow( ['index', 'search'] );
+        $this->Auth->allow( ['index', 'search', 'image'] );
+    }
+    
+    public function isAuthorized( $user ) {
+        // Admin can access every action
+        if ( isset( $user['role'] ) && $user['role'] === 'admin' ) {
+            return true;
+        }
+        
+        // Default deny
+        return false;
     }
 
 }
