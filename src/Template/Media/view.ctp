@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php
         $this->layout = "default_no_menu";
-        echo $this->Html->css( 'bootstrap.min' );
+        echo $this->Html->css( 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
         echo $this->Html->script( 'jquery.min' );
         echo $this->Html->script( 'bootstrap.min' );
         ?>
@@ -53,16 +53,15 @@
                         <dd><?= $userProduct->upload_date->format( DATE_RFC850 ) ?></dd>
                     </dl>
                     <div class="btn-toolbar" role="group">
-                        <?=
-                        $this->Html->link( 'Edit', ['action' => 'edit', $userProduct->media_id], [
-                            'type' => 'button', 'class' => 'btn btn-primary'] )
-                        ?>
-                        <?=
-                        $this->Form->postLink(
-                                'Delete', ['action' => 'delete', $userProduct->media_id], [
-                            'confirm' => 'Are you sure?', 'type' => 'button',
-                            'class' => 'btn btn-warning'] )
-                        ?>
+                        <?= $this->Html->link( $this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-wrench']) . 
+                                    ' Edit', ['action' => 'edit',$userProduct->media_id], 
+                                    ['type' => 'button', 'class' => 'btn btn-info', 'escape' => false] ) ?>
+                            
+                            <?=
+                            $this->Form->postLink($this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-alert']) . 
+                                    ' Delete', ['action' => 'delete', $userProduct->media_id], 
+                                    ['type' => 'button', 'class' => 'btn btn-danger', 'escape' => false, 'confirm' => 'Are you sure?'] )
+                            ?>
                     </div>
                 </div>
             </div>
