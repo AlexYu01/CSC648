@@ -39,6 +39,7 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
                                 <?= $this->Form->control('media_title', ['class' => 'form-control', 'label' => false]) ?>
                             </div>
+                            <small class="form-text text-muted">30 characters max</small>
                         </div>
                     </div>
                     
@@ -49,7 +50,7 @@
                         <div class="col-md-4 inputGroupContainer">            
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                                <?= $this->Form->control('media_desc', ['class' => 'form-control', 'label' => false]) ?>
+                                <?= $this->Form->control('media_desc', ['class' => 'form-control', 'rows' => '3', 'label' => false]) ?>
                             </div>
                         </div>
                     </div>
@@ -161,8 +162,7 @@
                                 message: 'Please select a photo or video file'
                             },
                             file: {
-                                extension: 'gif,png,jpeg,jpg,mp4',
-                                type: 'image/jpeg,image/png,image/jpg,image/gif,video/mp4',
+                                type: 'image/jpeg,image/JPEG,image/png,image/PNG,image/jpg,image/JPG,image/gif,image/GIF,video/mp4,video/MP4',
                                 maxSize: 31457280, // 30 x 1024 x 1024
                                 message: 'The selected file is not valid'
                             }

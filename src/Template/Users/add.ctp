@@ -23,7 +23,7 @@
         }
     </style>
 
-    <body
+    <body>
         <div class="container">
 
             <?= $this->Form->create( $user, ['id' => 'register_form',

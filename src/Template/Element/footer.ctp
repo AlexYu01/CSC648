@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="css/home-footer.css">
+<?= $this->Html->css( 'home-footer' ) ?>
 <footer id="team-footer" lang="en">
 	<div class="wf-container">
 		<div class="wf-column-container">
@@ -25,6 +25,8 @@
 	</div>
 </footer>
 
-<?php if($this->layout != 'default_no_menu'){ ?>
-	<script type="text/javascript" src="js/home-scripts-2.js"></script>
-<?php } ?>
+<?php
+if ( $this->layout != 'default_no_menu' ) {
+    echo $this->Html->script( 'home-scripts-2' );
+}
+?>

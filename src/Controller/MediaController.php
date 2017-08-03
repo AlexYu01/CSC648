@@ -9,8 +9,9 @@ class MediaController extends AppController {
         $this->loadModel( 'Media' );
 
         $this->loadComponent( 'MediaHelper' );
+        $this->viewBuilder()->layout('default_no_menu');
     }
-
+    
     public function delete( $id ) {
         // allow authors to delete an entry
         $this->request->allowMethod( ['post', 'delete'] );
@@ -25,6 +26,12 @@ class MediaController extends AppController {
             return $this->redirect( ['action' => 'posts'] );
         }
     }
+    
+    public function view( $id ) {
+        //$id = $this->request->getQuery( 'id' );
+        $userProduct = $this->Media->get( $id );
+        $this->set( compact( 'userProduct' ) );
+    }
 
     public function posts() {
         $userProducts = $this->Media->find( 'all' )
@@ -33,6 +40,7 @@ class MediaController extends AppController {
     }
 
     public function edit( $id ) {
+        //$id = $this->request->getQuery( 'id' );
         // allow authors to update an entry
     }
 
@@ -176,9 +184,10 @@ class MediaController extends AppController {
         }
 
         // The owner of an article can edit and delete it
-        if ( in_array( $this->request->getParam( 'action' ), ['edit', 'delete'] ) ) {
-            $articleId = (int) $this->request->getParam( 'pass.0' );
-            if ( $this->Media->isOwnedBy( $articleId, $user['user_id'] ) ) {
+        if ( in_array( $this->request->getParam( 'action' ), ['view', 'edit', 'delete'] ) ) {
+            $mediaId = (int) $this->request->getParam( 'pass.0' );
+            //$mediaId = (int) $this->request->getQuery( 'id' );
+            if ( $this->Media->isOwnedBy( $mediaId, $user['user_id'] ) ) {
                 return true;
             }
         }

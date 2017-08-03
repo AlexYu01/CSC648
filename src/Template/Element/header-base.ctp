@@ -5,8 +5,9 @@
 <meta http-equiv="Page-Exit" content="blendTrans(duration=0)" />
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="css/home-index.css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-<script type="text/javascript" src="js/home-scripts.js"></script>
-<script src="js/jquery.infinitescroll.min.js"></script>
+<?php
+echo $this->Html->css( 'home-index' );
+        echo $this->Html->script( 'home-scripts' );
+        echo $this->Html->script( 'jquery.infinitescroll.min' );
+        echo $this->Html->script( 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js' );
+?>

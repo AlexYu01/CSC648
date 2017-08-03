@@ -109,8 +109,8 @@ class MediaTable extends Table {
         return $rules;
     }
     
-    public function isOwnedBy( $articleId, $userId ) {
-        return $this->exists( ['media_id' => $articleId, 'author_id' => $userId] );
+    public function isOwnedBy( $mediaId, $userId ) {
+        return $this->exists( ['media_id' => $mediaId, 'author_id' => $userId] );
     }
 
 }
