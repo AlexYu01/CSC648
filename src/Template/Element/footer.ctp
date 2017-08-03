@@ -1,4 +1,3 @@
-<?= $this->Html->css( 'home-footer' ) ?>
 <footer id="team-footer" lang="en">
 	<div class="wf-container">
 		<div class="wf-column-container">

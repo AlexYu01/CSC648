@@ -1,26 +1,27 @@
 <?php $this->layout = 'default_no_menu';
 echo $this->Html->css('bootstrap.css');
+echo $this->Html->css('login.css');
 ?>
 <html>
 <body>
-<div class="container">
 <div style="width: 800px; margin: 0 auto; position: relative;">
     <div class="panel row">
         <h2 class ="text-center">Login</h2>
         <?= $this->Flash->render(); ?>
         <?= $this->Form->create(); ?>
-        <legend><?= __('Please enter your username and password') ?></legend>
-            Username: <br> <input type="text" name="email" style="border-width: 1px; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <br><br>
-            Password: <br> <input type="password" name="password" style="border-width: 1px; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <br><br><br><br>
-            <div style="position: relative; bottom: 20px; left: 130px;">
 
-            <?= $this->Form->submit('Login', array('class' => 'button')); ?>
+        <div id="text">
+            <legend><?= __('Please enter your username and password') ?></legend>
+            <?php echo $this->Form->Control('username', array('name' => 'email','class' => 'form-control', 'placeholder' => 'Username')); ?>
+            <br><br>
+            <?php echo $this->Form->Control('password', array('name' => 'password' ,'class' => 'form-control', 'placeholder' => 'Password')); ?>
+            <br><br><br><br>
+        </div>
+        <div style="bottom:20px; margin-left: 150px;">
+            <?= $this->Form->submit('Login', array('class' => 'button', 'id' => 'login')); ?>
             <?= $this->Form->end(); ?>
-            </div>
+        </div>
     </div>
-</div>
 </div>
 </body>
 </html>
