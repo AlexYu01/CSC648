@@ -12,9 +12,9 @@ echo $this->Html->css('login.css');
 
         <div id="text">
             <legend><?= __('Please enter your username and password') ?></legend>
-            <?php echo $this->Form->Control('username', array('class' => 'form-control', 'placeholder' => 'Username')); ?>
+            <?php echo $this->Form->Control('username', array('name' => 'email','class' => 'form-control', 'placeholder' => 'Username')); ?>
             <br><br>
-            <?php echo $this->Form->Control('password', array('class' => 'form-control', 'placeholder' => 'Password')); ?>
+            <?php echo $this->Form->Control('password', array('name' => 'password' ,'class' => 'form-control', 'placeholder' => 'Password')); ?>
             <br><br><br><br>
         </div>
         <div style="bottom:20px; margin-left: 150px;">
