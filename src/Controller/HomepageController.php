@@ -26,7 +26,6 @@ class HomepageController extends AppController {
                 ] );
 
         $images = $this->paginate( $results );
-        //$this->set('searchFields', $search['searchFields']);
         $this->set( 'productData', $images );
     }
 

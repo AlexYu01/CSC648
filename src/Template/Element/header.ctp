@@ -6,11 +6,11 @@
         <div style="text-align: center; padding-top: 10px;">
             <a href="index.php" id="logo">PictureSque</a>
         </div>
-
-
-        <div id="wm-user-component">
+        
+      
+      <div id="wm-user-component">
             
-            <?php
+        <?php
             if ($this->request->session()->read('Auth')) {
                 ?>
                 <span class="signin" style="border: 0px; font-size:1.5em; float:left;font-family: 'Slabo 27px', serif;
@@ -43,6 +43,6 @@
             $('.fa-layers-counter').html(counter);
         }
         getNotification(login,counter);
-        
-    </script>
+   
+  </script>
 </header>
