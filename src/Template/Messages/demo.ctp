@@ -40,7 +40,7 @@
                 <td><?= h($message->message_content) ?></td>
                 <td><?= h($message->date) ?></td>
                 <td class="actions">
-                    <?= $this->Form->postLink(__('Read'),['action' => 'read',$message->message_id],['id'=>''])?>
+                    <?= $this->Form->postLink(__('Read'),['controller'=>'Messages','action' => 'read',$message->message_id],['id'=>''])?>
                     <?= $this->Form->postLink(__('add1'),['action' => 'newMsg'],['data'=>['sender_id'=> 2, 'receiver_id'=>34, 'media_id'=>2,'message_content'=>'tshi si test 1']])?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $message->message_id], ['confirm' => __('Are you sure you want to delete # {0}?', $message->message_id)]) ?>
                 </td>

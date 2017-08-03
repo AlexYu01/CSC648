@@ -100,7 +100,7 @@ class AppController extends Controller {
     }
 
     public function beforeFilter( Event $event ) {
-        $this->Auth->allow( ['index', 'search', 'image','newMsg','read','delete'] );
+        $this->Auth->allow( ['index', 'search', 'image'] );
     }
     
     public function isAuthorized( $user ) {

@@ -18,7 +18,7 @@ class MessagesController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-    public function index()
+    public function demo()
     {
         $this->paginate = [
             'contain' => []
@@ -60,11 +60,8 @@ class MessagesController extends AppController
         if ($this->request->is('post')) {
             $message = $this->Messages->patchEntity($message, $this->request->getData());
             if ($this->Messages->save($message)) {
-                $this->Flash->success(__('The message has been saved.'));
-
                 return $this->redirect($this->referer());
             }
-            $this->Flash->error(__('The message could not be saved. Please, try again.'));
         }
         
         $messages = $this->Messages->find('all', ['limit' => 200]);
@@ -135,11 +132,16 @@ class MessagesController extends AppController
         $message->status = 1;
         
         if ($this->Messages->save($message)) {
-            $this->Flash->success(__('The message has been read.'));
         } else {
-            $this->Flash->error(__('The message could not be read. Please, try again.'));
         }
         
         return $this->redirect($this->referer());
+    }
+    
+    public function isAuthorized($user) {
+        if ( in_array( $this->request->getParam( 'action' ), ['demo', 'messages','read','newMsg','delete'] ) ) {
+            return true;
+        }
+        parent::isAuthorized($user);
     }
 }
