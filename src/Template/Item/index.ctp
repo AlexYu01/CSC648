@@ -117,7 +117,6 @@ $videos_type = "mp4";
                 <h4 style="margin-left:3%">Images You might like</h4>
             </div>
             <div class="row">
-                <?= $unreadCount?>
                 <?php foreach ($similar_items as $similar_item) { ?>
                     <div class="col-lg-2 col-md-2 col-sm-2">
                         <a href="<?= $this->url->build((['controller' => 'Item', 'action' => 'index', '?' => ['id' => $similar_item->media_id]])) ?>">
