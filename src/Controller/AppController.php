@@ -52,7 +52,12 @@ class AppController extends Controller {
         $this->loadModel( 'MediaGenres' );
         $mgResults = $this->MediaGenres->find( 'all' )->toArray();
         $this->set( 'genresData', $mgResults );
-
+        if($this->request->session()->read('Auth')){
+            $this->loadModel('Messages');
+            $query = $this->Messages->find('all',['conditions'=>['Messages.status' => '0','Messages.receiver_id'=>$this->request->session()->read('Auth.User.user_id')]]);
+            $unreadCount = $query->count();
+            $this->set(compact('unreadCount'));
+        }
         $this->loadComponent( 'Auth', [
             'authorize' => ['Controller'],
             'authenticate' => [
