@@ -67,4 +67,4 @@
 
         </ul>
 </aside>
-<div class="tg-padding"></div>
+<div id="div-tg-padding" class="tg-padding"></div>

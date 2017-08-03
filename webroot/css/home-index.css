@@ -2439,6 +2439,24 @@ to {
 		padding-top:7px;
 		border-radius:20px;
 	}
+	
+	/* menu control */
+	#sb-switch{
+		display:none;
+	}
+	
+	#sb-toggle{
+		display:none;
+	}
+	
+	#sidebar{
+		display:none;
+	}
+	
+	#div-tg-padding{
+		display:none;
+	}
+	
 }
 
 @media ( max-width : 63.99em) {

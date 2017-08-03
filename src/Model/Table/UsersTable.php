@@ -65,7 +65,9 @@ class UsersTable extends Table
             ->notEmpty('password');
         
         $validator
-                ->requirePresence('confirmPassword', 'create');
+            ->requirePresence('confirmPassword', 'create')
+            ->notEmpty('confirmPassword')
+            ->add('confirmPassword', 'no-misspelling', ['rule' => ['compareWith', 'password'], 'message' => 'Passwords do not match']);
 
         $validator
             ->email('email')
