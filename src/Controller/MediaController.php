@@ -9,7 +9,6 @@ class MediaController extends AppController {
         $this->loadModel( 'Media' );
 
         $this->loadComponent( 'MediaHelper' );
-        $this->viewBuilder()->layout('default_no_menu');
     }
     
     public function delete( $id ) {
