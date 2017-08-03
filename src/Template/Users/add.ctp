@@ -1,4 +1,8 @@
-<?php $this->layout = "default_no_menu"; ?>
+<?php 
+$this->layout = "default_no_menu";
+echo $this->Html->css('login.css');
+?>
+
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +26,6 @@
         #success_message{ 
             display: none;
         }
-
     </style>
 
     <body
@@ -31,14 +34,16 @@
             <?= $this->Form->create( $user, ['id' => 'register_form',
                 'class' => 'form-horizontal'] )
             ?>
+
             <fieldset>
-
-                <!-- Form Name -->
-                <legend>Registration Form</legend>
-
+            <div style="width: 800px; margin: 0 auto; position: relative;">
+            <div class="panel row">
+              <h2 class="text-center">Registration</h2>
+              <legend></legend>
                 <!-- Email input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label">E-Mail</label>  
+                    <label class="col-md-4 control-label">E-Mail</label> 
+
                     <div class="col-md-4 inputGroupContainer">
                             <?= $error = $this->Form->isFieldError( 'email' ) ? $this->Form->error( 'email' ) : ''; ?>
                         <div class="input-group">
@@ -118,14 +123,11 @@
     <script>
         $(document).ready(function () {
             $('#register_form').bootstrapValidator({
-
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
                     invalid: 'glyphicon glyphicon-remove',
                     validating: 'glyphicon glyphicon-refresh'
                 },
-
-                
                 fields: {
                     username: {
                         validators: {
