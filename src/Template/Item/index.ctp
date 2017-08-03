@@ -130,7 +130,7 @@ $videos_type = "mp4";
         <!-- Suggestion -->
         <script>
             if (login !== '') {
-                    $('#contact-button').click(function (e) {
+                    $('#contact-button').click(function () {
                         //e.preventDefault();
                         if ($('#msg-box').val().length > 0) {                                               
                             $.ajax({

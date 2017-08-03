@@ -36,7 +36,7 @@
                             echo false;
                          }
                     ?>'
-        var counter = <?= $unreadCount?>;
+        var counter = <?php if(!empty($counter)){ echo $counters;}else{echo '0';}?>
         
         if(counter > 0){
             $('#message-counter').addClass('fa-layers-counter');
