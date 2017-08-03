@@ -4,7 +4,7 @@
     <?= $this->Html->script('google_analytics.js'); ?>    
     <nav id="team5-menu" class="team5-menu" lang="en" style="position:fixed;right:0;left:0;z-index:1;">
         <div style="text-align: center; padding-top: 10px;">
-            <a href="<?= $this->Url->build(['controller'=>'Homepage','action'=>'index'])?>" id="logo">PictureSque</a>
+            <a href="<?= $this->url->build(['controller' => 'Homepage', 'action' => 'index'])?>" id="logo">PictureSque</a>
         </div>
         
       

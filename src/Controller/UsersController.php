@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Core\Configure;
 
 /**
  * Users Controller
@@ -16,7 +17,6 @@ class UsersController extends AppController {
 
     public function initialize() {
         parent::initialize();
-        
     }
 
     public function beforeFilter( Event $event ) {
@@ -60,30 +60,43 @@ class UsersController extends AppController {
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
     public function add() {
-        
+
         // make sure a logged in user cant access registeration
-        if($this->request->session()->read('Auth')) {
-            return $this->redirect(['controller' => 'Media', 'action' => 'posts']);
+        if ( $this->request->session()->read( 'Auth' ) ) {
+            return $this->redirect( ['controller' => 'Media', 'action' => 'posts'] );
         }
-        
+
         $user = $this->Users->newEntity();
         if ( $this->request->is( 'post' ) ) {
 
             $salt = sha1( substr( str_shuffle( str_repeat( "0123456789qwertyuiopasdfghjklzxcvbnm,.;'*&^", 15 ) ), 0, 15 ) );
             $data = $this->request->getData();
 
-            $data['token'] = "";
-            $data['salt'] = $salt;
+            $captcha = $data['g-recaptcha-response'];
+            $recaptcha_secret = Configure::read( 'google_recatpcha_settings.secret_key' );
+            if ( !$captcha ) {
+                // empty captcha
+                $this->Flash->error( 'Please check the captcha', ['key' => 'captchaEmpty']  );
+            } else {
+                $url = "https://www.google.com/recaptcha/api/siteverify?secret=" . $recaptcha_secret . "&response=" . $captcha;
+                $response = json_decode( file_get_contents( $url ) );
+                if ( $response->success == true ) {
+                    $data['token'] = "";
+                    $data['salt'] = $salt;
 
-            $user = $this->Users->patchEntity( $user, $data );
-            if ( $this->Users->save( $user ) ) {
+                    $user = $this->Users->patchEntity( $user, $data );
+                    if ( $this->Users->save( $user ) ) {
 
-                // login new registered user
-                $authUser = $this->Users->get( $user->user_id )->toArray();
-                $this->Auth->setUser( $authUser );
+                        // login new registered user
+                        $authUser = $this->Users->get( $user->user_id )->toArray();
+                        $this->Auth->setUser( $authUser );
 
-                // change later in loginRedirect
-                return $this->redirect( ['controller' => 'Homepage', 'action' => 'index'] );
+                        return $this->redirect( $this->Auth->redirectUrl() );
+                    }
+                } else {
+                    $this->Flash->error( __( 'Bots are not allowed' ) );
+                    return $this->redirect( ['controller' => 'Homepage', 'action' => 'index'] );
+                }
             }
         }
         $this->set( compact( 'user' ) );
@@ -157,7 +170,8 @@ class UsersController extends AppController {
 
     public function isAuthorized( $user ) {
         // All registered users can add articles
-        
+
         return parent::isAuthorized( $user );
     }
+
 }

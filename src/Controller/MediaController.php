@@ -11,6 +11,10 @@ class MediaController extends AppController {
         $this->loadComponent( 'MediaHelper' );
     }
     
+    public $paginate = [
+        'limit' => 6
+    ];
+    
     public function delete( $id ) {
         // allow authors to delete an entry
         $this->request->allowMethod( ['post', 'delete'] );
@@ -35,7 +39,7 @@ class MediaController extends AppController {
     public function posts() {
         $userProducts = $this->Media->find( 'all' )
                 ->where( ['author_id' => $this->Auth->user( 'user_id' )] );
-        $this->set( compact( 'userProducts' ) );
+        $this->set( 'userProducts', $this->paginate( $userProducts ) );
     }
 
     public function edit( $id ) {
@@ -74,7 +78,7 @@ class MediaController extends AppController {
             if ( strstr( $mime, 'image/' ) ) {
                 // path link for thumbnail that will be stored in the database
                 $mediaThumbLink = 'media/' . $searchGenreName . '/' . 'thumbnail-' . $mediaStoredName;
-                $input['type_id'] = 1;
+                $input['type_id'] = 1; // image
                 $input['thumb_link'] = $mediaThumbLink;
 
                 $newMedia = $this->Media->patchEntity( $newMedia, $input );
@@ -86,10 +90,8 @@ class MediaController extends AppController {
                 } else {
                     //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
                 }
-                // redirect to view later
-                return $this->redirect( ['action' => 'posts'] );
             } else {
-                $input['type_id'] = 2;
+                $input['type_id'] = 2; // video
                 $newMedia = $this->Media->patchEntity( $newMedia, $input );
 
                 if ( $this->Media->save( $newMedia ) ) {
@@ -97,9 +99,8 @@ class MediaController extends AppController {
                 } else {
                     //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
                 }
-                // redirect to view later
-                return $this->redirect( ['action' => 'posts'] );
             }
+            return $this->redirect( ['action' => 'view', $newMedia->media_id] );
         }
 
         $genreList = $this->MediaHelper->getGenreList();
