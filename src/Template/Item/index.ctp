@@ -89,8 +89,9 @@ $videos_type = "mp4";
                             <div class="form-group">
                                 <label for="textbox">Contact Owner</label>
                                 <input id="msg-box" type="text" step="250" required="required" size="50" placeholder="Enter Your Message Here." maxlength="250" width="50" class="form-control" id="email">
-                            </div>                            
-                            <button id="contact-button" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            <button class="btn btn-primary" id="contact-button" type="submit">Leave a Message</button>
+
                         </form>
                     </div>
                 </div>
@@ -116,6 +117,7 @@ $videos_type = "mp4";
                 <h4 style="margin-left:3%">Images You might like</h4>
             </div>
             <div class="row">
+                <?= $unreadCount?>
                 <?php foreach ($similar_items as $similar_item) { ?>
                     <div class="col-lg-2 col-md-2 col-sm-2">
                         <a href="<?= $this->url->build((['controller' => 'Item', 'action' => 'index', '?' => ['id' => $similar_item->media_id]])) ?>">
@@ -129,16 +131,34 @@ $videos_type = "mp4";
         <!-- Suggestion -->
         <script>
             if (login !== '') {
-                $('#contact-button').click(function () {
-                    socket.emit('messages', {id:<?= $user->user_id ?>, content: 'new message'});
-                    $.notify('Message Sent', {position: 'top left', style: 'bootstrap', className: 'success'});
-                });
+                    $('#contact-button').click(function (e) {
+                        //e.preventDefault();
+                        if ($('#msg-box').val().length > 0) {                                               
+                            $.ajax({
+                                url:'<?= $this->Url->build(['controller'=>'Messages','action'=>'newMsg'],['fullBase' => true])?>',
+                                type: 'POST',
+                                data:
+                                {
+                                    sender_id: login,
+                                    receiver_id:<?= $user->user_id ?>,
+                                    media_id: <?= $item->media_id ?>,
+                                    message_content: $('#msg-box').val()
+                                },
+                                        success:function(){
+                                            $.notify('Message Sent', {position: 'top left', style: 'bootstrap', className: 'success'});
+                                            socket.emit('messages', {id:<?= $user->user_id ?>, content: 'new message'});
+                                        }
+                            });
+                        }
+                    });
+                
+
             } else {
                 $('#contact-button').click(function () {
                     $.notify('Please Log in to send message', {position: 'top left', style: 'bootstrap', className: 'info'});
                 });
-
             }
+
         </script>        
     </body>
 </html>
