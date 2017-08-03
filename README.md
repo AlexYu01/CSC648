@@ -93,4 +93,11 @@ Add the following PHP code in your view to remove sidebar
  --- | --- | --- | ---
  Item | index | media_id via GET | Show Detail Item Page
  Item | image | media_id via GET <br> New Image Size via GET(optional) | WaterMark Image in Real Time <br> Example URL Usage: <br>```item/image?id=2&resize=350x350```;<br>id is media_id; resize is the new image size formatted in (digits)x(digits)
-
+ 
+ ### Messages Page
+ |Controller Name | Views Name | Required Data | Description
+ | --- | --- | --- | ---
+ | Messages | demo (will be removed) | NONE | Allow Logged in user to check message table and test <br> visit http://www.sfsuse.com/~su17g05/messages to test <br> login user: a@aba.com password: 1234
+ | Messages | newMsg | ```sender_id``` via POST request <br> ```receiver_id``` via POST <br> ```media_id``` via POST <br> ```message_content``` via POST | Log in required
+ | Messages | read | ```message_id``` | Log in required change message status to 1 (read)
+ | Messages | delete (will be removed) | ```message_id``` | Log in required
