@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 var socket = null;
-function getNotification(login = false) {
+var counter = 0;
+function getNotification(login = false,counter = 0) {
     if (login !== '') {
         
         socket = io('http://sfsuse.com:3000/', {
@@ -13,12 +14,8 @@ function getNotification(login = false) {
             }
         });
         
-        var counter = 0;
-         
         socket.on('messages', function (msg) {
             if (msg.id == login) {
-                //$('#messages').append($('<li>').text(msg.content))
-                //$.notify('New Message Received',{position:'top right'})
                 counter += 1;
                 $('#message-counter').addClass('fa-layers-counter');
                 $('.fa-layers-counter').html(counter);
