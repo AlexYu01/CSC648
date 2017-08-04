@@ -1,5 +1,5 @@
 #/vendor/*
-/tmp/*
-/logs/*
+tmp/*
+logs/*
 nbproject/
 #config/app.php
