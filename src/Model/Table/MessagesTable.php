@@ -37,7 +37,7 @@ class MessagesTable extends Table
 
         $this->setTable('messages');
         $this->setDisplayField('message_id');
-        $this->setPrimaryKey('message_id');
+        $this->setPrimaryKey('message_id');    
 /*
         $this->belongsTo('Messages', [
             'foreignKey' => 'message_id',
