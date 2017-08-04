@@ -57,6 +57,7 @@ class AppController extends Controller {
             $unreadCount = $query->count();
             $this->set(compact('unreadCount'));
         }
+        
         $this->loadComponent( 'Auth', [
             'authorize' => ['Controller'],
             'authenticate' => [
@@ -99,7 +100,7 @@ class AppController extends Controller {
     }
 
     public function beforeFilter( Event $event ) {
-        $this->Auth->allow( ['index', 'search', 'image'] );
+        $this->Auth->allow( ['index', 'search', 'image','facebook'] );
     }
     
     public function isAuthorized( $user ) {
