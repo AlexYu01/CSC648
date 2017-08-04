@@ -103,6 +103,11 @@ class UsersController extends AppController {
     }
 
     public function login() {
+        // make sure a logged in user cant access login page
+        if ( $this->request->session()->read( 'Auth' ) ) {
+            return $this->redirect( ['controller' => 'Media', 'action' => 'posts'] );
+        }
+        
         $current_time = date( 'Y-m-d G:i:s', time() );
         if ( $this->request->is( 'post' ) ) {
             $user = $this->Auth->identify();
