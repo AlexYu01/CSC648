@@ -14,6 +14,7 @@ and open the template in the editor.
     border-radius: 5px; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 300px;
+    margin: 0 auto;
 }
 
 #password{
@@ -21,6 +22,7 @@ and open the template in the editor.
     border-radius: 5px; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 300px;
+    margin: 0 auto;
 }
 
 #email{
@@ -37,18 +39,17 @@ and open the template in the editor.
     width: 300px;
 }
 
-#text{
-    margin-left: 200px;
+legend{
+    margin-left: 250px;
 }
 
 span{
     color: blue;
 }
 
-#submit{
-    box-shadow: 3px 3px 3px #01545b;
-}
 
 #login{
     box-shadow: 3px 3px 3px #01545b;
+    width: 300px;
+    margin-right: 100px;
 }

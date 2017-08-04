@@ -43,7 +43,7 @@ use Cake\Core\Configure;
                 <div style="width: 800px; margin: 0 auto; position: relative;">
                     <div class="panel row">
                         <h2 class="text-center">Registration</h2>
-                        
+                        <legend></legend>
                         <!-- Email input-->
                         <div class="form-group">
                             <label class="col-md-4 control-label">E-Mail</label> 
