@@ -12,15 +12,37 @@
     </head>
     <body>
         <div class="container">
-            <h1>Your products</h1>
-            <p> <?= $this->Html->link( $this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-piggy-bank']) . 
-                    ' Sell', ['action' => 'add'], 
-                    ['type' => 'button', 'class' => 'btn btn-success btn-lg', 'escape' => false] ) ?>
-                
-                <?= $this->Html->link( $this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-shopping-cart']) . 
-                        ' Buy', ['controller' => 'Results', 'action' => 'search'], 
-                        ['type' => 'button', 'class' => 'btn btn-primary btn-lg', 'escape' => false] ) ?>
-            </p>
+            <h1>My products</h1>
+            <?=
+            $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-piggy-bank'] ) .
+                    ' Sell', ['controller' => 'media', 'action' => 'add'], ['type' => 'button',
+                'class' => 'btn btn-success btn-lg', 'escape' => false] )
+            ?>
+
+            <?=
+            $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-shopping-cart'] ) .
+                    ' Buy', ['controller' => 'Results', 'action' => 'search'], [
+                'type' => 'button', 'class' => 'btn btn-primary btn-lg', 'escape' => false] )
+            ?>
+
+            <?=
+            $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-picture'] ) .
+                    ' My Products', ['controller' => 'Media', 'action' => 'posts'], [
+                'type' => 'button', 'class' => 'btn btn-info btn-lg', 'escape' => false] )
+            ?>
+            <div class="pull-right">
+                <?=
+                $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-envelope'] ) .
+                        ' My inbox', ['controller' => 'Messages', 'action' => 'received_msgs'], [
+                    'type' => 'button', 'class' => 'btn btn-info btn-lg', 'escape' => false] )
+                ?>
+                <?=
+                $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-send'] ) .
+                        ' My outbox', ['controller' => 'Messages', 'action' => 'sent_msgs'], [
+                    'type' => 'button', 'class' => 'btn btn-info btn-lg',
+                    'escape' => false] )
+                ?>
+            </div>
             <table class="table table-hover">
                 <tr>
                     <th><?= $this->Paginator->sort('media_id', 
@@ -67,6 +89,15 @@
                     </tr>
                 <?php endforeach; ?>
             </table>
+        </div>
+        <div class="text-center">
+            <ul class="pagination">
+                <?= $this->Paginator->first( '<< ' . __( 'first' ) ) ?>
+                <?= $this->Paginator->prev( '< ' . __( 'previous' ) ) ?>
+                <?= $this->Paginator->numbers() ?>
+                <?= $this->Paginator->next( __( 'next' ) . ' >' ) ?>
+                <?= $this->Paginator->last( __( 'last' ) . ' >>' ) ?>
+            </ul>
         </div>
     </body>
 </html>

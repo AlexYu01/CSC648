@@ -21,30 +21,51 @@ class MessagesController extends AppController {
     }
 
     public $paginate = [
-        'limit' => 20
+        'limit' => 15
     ];
 
-    public function recievedMsgs() {
-        $messages = $this->Messages->find()
-                ->select( 'sender_id', 'media_id', 'message_content', 'date', 'status', 'm.media_title' )
-                ->where( ['reciever_id' => $this->Auth->user( 'user_id' )] )
-                ->join( [
-            'table' => 'media',
-            'alias' => 'm',
-            'type' => 'INNER',
-            'conditions' => 'm.media_id = Messages.media_id'
-                ] );
+    public function receivedMsgs() {
+        $user = $this->Auth->user( 'user_id' );
 
-        $this->set( 'messages', $messages );
+        $messages = $this->Messages->find( 'all' )
+                ->where( ['receiver_id' => $user] );
+        $messages->select( ['message_id', 'media_id', 'message_content', 'status',
+                    'sender_id', 'date', 'm.media_title', 'u.username'] )
+                ->join( [
+                    'table' => 'media',
+                    'alias' => 'm',
+                    'type' => 'INNER',
+                    'conditions' => 'm.media_id = Messages.media_id'
+                ] )
+                ->join( [
+                    'table' => 'users',
+                    'alias' => 'u',
+                    'type' => 'INNER',
+                    'conditions' => 'u.user_id = Messages.receiver_id'
+        ] );
+        $this->set( 'messages', $this->paginate( $messages ) );
     }
 
     public function sentMsgs() {
-        $user = $this->Auth->user( 'user_id');
-        
-        $messages = $this->Messages->find('all')
+        $user = $this->Auth->user( 'user_id' );
+
+        $messages = $this->Messages->find( 'all' )
                 ->where( ['sender_id' => $user] );
-        //$messages->select('message_id', 'sender_id', 'media_id', 'message_content', 'status', 'receiver_id', 'date');
-        $this->set( 'messages', $messages );
+        $messages->select( ['message_id', 'media_id', 'message_content', 'status',
+                    'receiver_id', 'date', 'm.media_title', 'u.username'] )
+                ->join( [
+                    'table' => 'media',
+                    'alias' => 'm',
+                    'type' => 'INNER',
+                    'conditions' => 'm.media_id = Messages.media_id'
+                ] )
+                ->join( [
+                    'table' => 'users',
+                    'alias' => 'u',
+                    'type' => 'INNER',
+                    'conditions' => 'u.user_id = Messages.receiver_id'
+        ] );
+        $this->set( 'messages', $this->paginate( $messages ) );
     }
 
     /**
@@ -158,7 +179,7 @@ class MessagesController extends AppController {
 
     public function isAuthorized( $user ) {
         if ( in_array( $this->request->getParam( 'action' ), ['sentMsgs', 'read',
-                    'receivedMSgs',
+                    'receivedMsgs',
                     'newMsg', 'delete'] ) ) {
             return true;
         }

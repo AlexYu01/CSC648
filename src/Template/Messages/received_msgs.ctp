@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>Sent Messages</h1>
+            <h1>Received Messages</h1>
             <?= $this->Flash->render() ?>
             <?=
             $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-piggy-bank'] ) .
@@ -44,11 +44,13 @@
                     'escape' => false] )
                 ?>
             </div>
+
             <table class="table table-hover">
-                <tr>                 
+                <tr>
+
                     <th><?=
-                        $this->Paginator->sort( 'receiver_id', $this->Html->tag( 'span', '', [
-                                    'class' => 'glyphicon glyphicon-sort'] ) . ' To:', [
+                        $this->Paginator->sort( 'sender_id', $this->Html->tag( 'span', '', [
+                                    'class' => 'glyphicon glyphicon-sort'] ) . ' From: ', [
                             'escape' => false] )
                         ?></th>
 
@@ -72,16 +74,31 @@
                 <!-- Here's where we loop through our $articles query object, printing out article info -->
 
                 <?php foreach ( $messages as $message ): ?>
-                    <tr>
+                    <tr <?php
+                    if ( $message->status == 0 ) {
+                        echo 'class="bg-info" style="font-weight: bold"';
+                    }
+                    ?>>
+
+
                         <td><?= $message->u['username'] ?></td>
                         <td><?=
                             $message->has( 'media_id' ) ? $this->Html->link( $message->m['media_title'], [
                                         'controller' => 'Media', 'action' => 'view',
                                         $message->media_id] ) : ''
                             ?></td>
-                        <td><?= h( $message->message_content ) ?></td>
+                        <td><?= $message->message_content ?></td>
                         <td><?= $message->date->format( DATE_RFC850 ) ?></td>
                         <td class="actions">
+                            <?=
+                            $this->Form->postLink( $this->Html->tag( 'span', '', [
+                                        'class' => 'glyphicon glyphicon-eye-open'] ) .
+                                    ' Mark As Read', ['controller' => 'Messages',
+                                'action' => 'read', $message->message_id], [
+                                'id' => '',
+                                'type' => 'button', 'class' => 'btn btn-info btn-sm',
+                                'escape' => false] )
+                            ?>
                             <?=
                             $this->Form->postLink( $this->Html->tag( 'span', '', [
                                         'class' => 'glyphicon glyphicon-trash'] ) .

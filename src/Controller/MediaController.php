@@ -12,7 +12,7 @@ class MediaController extends AppController {
     }
 
     public $paginate = [
-        'limit' => 6
+        'limit' => 15
     ];
 
     public function delete( $id ) {
