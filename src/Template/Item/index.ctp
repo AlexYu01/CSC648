@@ -1,7 +1,5 @@
 <?php
 $this->layout = 'default_no_menu';
-$images_type = "jpg|png";
-$videos_type = "mp4";
 ?>
 <html>
     <head>
@@ -32,12 +30,12 @@ $videos_type = "mp4";
                     <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-1">                        
                         <?php
                         //Checking File type Image / Video
-                        if (strpos($images_type, substr($item->media_link, strlen($item->media_link) - 3)) !== false) {
+                        if ($item->type_id == 1) {
                             ?>
                             <span  style="font-size: 2em; color:white;position:absolute; margin :50% 20% 25% 30%; text-align: center">Click to Enlarge</span>
                             <img id="imgbox" class="img-responsive img-thumbnail" src="<?php echo $this->url->build(['controller' => 'Item', 'action' => 'image', '?' => ['id' => $item->media_id]]) ?>" data-toggle="modal" data-target="#lbModal" alt="<?= $item->media_title ?>">
                             <?php
-                        } else if (strpos($videos_type, substr($item->media_link, strlen($item->media_link) - 3)) !== false) {
+                        } else if ($item->type_id == 2) {
                             echo $this->Html->media('/img/' . $item->media_link, [
                                 'controls',
                                 'controlsList' => 'nodownload'
@@ -120,7 +118,17 @@ $videos_type = "mp4";
                 <?php foreach ($similar_items as $similar_item) { ?>
                     <div class="col-lg-2 col-md-2 col-sm-2">
                         <a href="<?= $this->url->build((['controller' => 'Item', 'action' => 'index', '?' => ['id' => $similar_item->media_id]])) ?>">
-                            <img class="img-thumbnail"  src="<?= $this->url->build((['controller' => 'Item', 'action' => 'image', '?' => ['id' => $similar_item->media_id], 'resize' => '250x250'])) ?>">
+                            <?php if($similar_item->type_id == 1){?>
+                                <img class="img-thumbnail"  src="<?= $this->url->build((['controller' => 'Item', 'action' => 'image', '?' => ['id' => $similar_item->media_id], 'resize' => '250x250'])) ?>">
+                            <?php }elseif($similar_item->type_id == 2){
+                                echo $this->Html->media('/img/' . $similar_item->media_link, [
+                                'controls',
+                                'controlsList' => 'nodownload',
+                                'class' => 'img-thumbnail embed-responsive-item',
+                                'style' => 'margin-top:25%'
+                                ]);
+                            }?>
+                        
                         </a>
                     </div>
                 <?php } ?>
