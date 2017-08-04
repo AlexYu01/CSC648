@@ -41,7 +41,7 @@ class MessagesController extends AppController {
                     'table' => 'users',
                     'alias' => 'u',
                     'type' => 'INNER',
-                    'conditions' => 'u.user_id = Messages.receiver_id'
+                    'conditions' => 'u.user_id = Messages.sender_id'
         ] );
         $this->set( 'messages', $this->paginate( $messages ) );
     }
