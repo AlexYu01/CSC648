@@ -58,7 +58,7 @@ Router::scope( '/', function (RouteBuilder $routes) {
     $routes->connect( '/upload', ['controller' => 'Media', 'action' => 'add'] );
     $routes->connect( '/posts', ['controller' => 'Media', 'action' => 'posts'] );
     $routes->connect( '/allusers', ['controller' => 'Users', 'action' => 'userindex'] );
-    $routes->connect('/messages',['controller'=>'Messages','action'=>'demo']);
+    $routes->connect('/sent',['controller'=>'Messages','action'=>'sentMsgs']);
     
 
 

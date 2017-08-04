@@ -10,11 +10,11 @@ class MediaController extends AppController {
 
         $this->loadComponent( 'MediaHelper' );
     }
-    
+
     public $paginate = [
         'limit' => 6
     ];
-    
+
     public function delete( $id ) {
         // allow authors to delete an entry
         $this->request->allowMethod( ['post', 'delete'] );
@@ -29,11 +29,11 @@ class MediaController extends AppController {
             return $this->redirect( ['action' => 'posts'] );
         }
     }
-    
+
     public function view( $id ) {
         //$id = $this->request->getQuery( 'id' );
-        $userProduct = $this->Media->get( $id );
-        $this->set( compact( 'userProduct' ) );
+        $userMedia = $this->Media->get( $id );
+        $this->set( compact( 'userMedia' ) );
     }
 
     public function posts() {
@@ -43,8 +43,19 @@ class MediaController extends AppController {
     }
 
     public function edit( $id ) {
-        //$id = $this->request->getQuery( 'id' );
         // allow authors to update an entry
+        $userMedia = $this->Media->get( $id );
+        if ( $this->request->is( ['post', 'put'] ) ) {
+            $this->Media->patchEntity( $userMedia, $this->request->getData() );
+            if ( $this->Media->save( $userMedia ) ) {
+                //$this->Flash->success( __( 'Your media has been updated.' ) );
+                return $this->redirect( ['action' => 'view', $id] );
+            }
+            //$this->Flash->error( __( 'Unable to update your article.' ) );
+        }
+
+        $genreList = $this->MediaHelper->getGenreList();
+        $this->set( compact( 'genreList', 'userMedia' ) );
     }
 
     public function add() {
@@ -53,56 +64,59 @@ class MediaController extends AppController {
         if ( $this->request->is( 'post' ) ) {
 
             $input = $this->request->data;
-            $input['author_id'] = $this->Auth->user( 'user_id' );
+            if ( isset( $input['file']['name'] ) ) {
+                $input['author_id'] = $this->Auth->user( 'user_id' );
 
-            $searchGenreId = $input['genre_id'];
-            $searchGenreName = strtolower( $this->MediaHelper->getGenreName( $searchGenreId ) );
+                $genreId = $input['genre_id'];
+                $genreName = strtolower( $this->MediaHelper->getGenreName( $genreId ) );
 
-            $mediaName = strtolower( $input['file']['name'] );
+                $mediaName = strtolower( $input['file']['name'] );
 
-            // add "unique" string to the name of the file to avoid over writes
-            $mediaStoredName = uniqid() . '-' . $mediaName;
+                // add "unique" string to the name of the file to avoid over writes
+                $mediaStoredName = uniqid() . '-' . $mediaName;
 
-            // path link for full image that will be stored in the database
-            $mediaPathLink = 'media/' . $searchGenreName . '/' . $mediaStoredName;
+                // path link for full image that will be stored in the database
+                $mediaPathLink = 'media/' . $genreName . '/' . $mediaStoredName;
 
-            // the absolute path where the media will be stored
-            $storedPath = WWW_ROOT . 'img/' . $mediaPathLink;
+                // the absolute path where the media will be stored
+                $storedPath = WWW_ROOT . 'img/' . $mediaPathLink;
 
-            $input['media_link'] = $mediaPathLink;
+                $input['media_link'] = $mediaPathLink;
 
-            $finfo = finfo_open();
-            $mime = strtolower( finfo_file( $finfo, $input['file']['tmp_name'], FILEINFO_MIME ) );
-            finfo_close( $finfo );
+                $finfo = finfo_open();
+                $mime = strtolower( finfo_file( $finfo, $input['file']['tmp_name'], FILEINFO_MIME ) );
+                finfo_close( $finfo );
 
-            if ( strstr( $mime, 'image/' ) ) {
-                // path link for thumbnail that will be stored in the database
-                $mediaThumbLink = 'media/' . $searchGenreName . '/' . 'thumbnail-' . $mediaStoredName;
-                $input['type_id'] = 1; // image
-                $input['thumb_link'] = $mediaThumbLink;
+                if ( strstr( $mime, 'image/' ) ) {
+                    // path link for thumbnail that will be stored in the database
+                    $mediaThumbLink = 'media/' . $genreName . '/' . 'thumbnail-' . $mediaStoredName;
+                    $input['type_id'] = 1; // image
+                    $input['thumb_link'] = $mediaThumbLink;
 
-                $newMedia = $this->Media->patchEntity( $newMedia, $input );
+                    $newMedia = $this->Media->patchEntity( $newMedia, $input );
 
-                if ( $this->Media->save( $newMedia ) ) {
-                    // generate and store thumbnail it. Also store uploaded file
-                    $this->generateThumbnail( $input['file']['tmp_name'], $mediaThumbLink );
-                    move_uploaded_file( $input['file']['tmp_name'], $storedPath );
+                    if ( $this->Media->save( $newMedia ) ) {
+                        // generate and store thumbnail it. Also store uploaded file
+                        $this->generateThumbnail( $input['file']['tmp_name'], $mediaThumbLink );
+                        move_uploaded_file( $input['file']['tmp_name'], $storedPath );
+                    } else {
+                        //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
+                    }
                 } else {
-                    //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
-                }
-            } else {
-                $input['type_id'] = 2; // video
-                $newMedia = $this->Media->patchEntity( $newMedia, $input );
+                    $input['type_id'] = 2; // video
+                    $newMedia = $this->Media->patchEntity( $newMedia, $input );
 
-                if ( $this->Media->save( $newMedia ) ) {
-                    move_uploaded_file( $input['file']['tmp_name'], $storedPath );
-                } else {
-                    //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
+                    if ( $this->Media->save( $newMedia ) ) {
+                        move_uploaded_file( $input['file']['tmp_name'], $storedPath );
+                    } else {
+                        //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
+                    }
                 }
+                //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
+                return $this->redirect( ['action' => 'view', $newMedia->media_id] );
+                
             }
-            return $this->redirect( ['action' => 'view', $newMedia->media_id] );
         }
-
         $genreList = $this->MediaHelper->getGenreList();
 
 

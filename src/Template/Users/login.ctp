@@ -28,17 +28,18 @@ echo $this->Html->css('login.css');
         <h2 class ="text-center">Login</h2>
         <?= $this->Flash->render(); ?>
         <?= $this->Form->create(); ?>
-
-        <div id="text">
-            <legend><?= __('Please enter your username and password') ?></legend>
-            <?php echo $this->Form->Control('username', array('name' => 'email','class' => 'form-control', 'placeholder' => 'Username')); ?>
+        <legend><?= __('Please enter your username and password') ?></legend>
+        <div class="text-center">
+            <?php echo $this->Form->Control('username', array('name' => 'username', 
+                'class' => 'form-control', 'placeholder' => 'Username')); ?>
             <br><br>
-            <?php echo $this->Form->Control('password', array('name' => 'password' ,'class' => 'form-control', 'placeholder' => 'Password')); ?>
+            <?php echo $this->Form->Control('password', array('name' => 'username',
+                'class' => 'form-control', 'placeholder' => 'Password')); ?>
             <br><br><br><br>
         </div>
-        <div style="bottom:20px; margin-left: 150px;">
-            <?= $this->Form->submit('Login', array('class' => 'button', 'id' => 'login')); ?>
-            <?= $this->Form->end(); ?>
+        <div class="text-center">
+        <?= $this->Form->submit('Login', array('class' => 'button', 'id' => 'login')); ?>
+        <?= $this->Form->end(); ?>
         </div>
         
         
