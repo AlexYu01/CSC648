@@ -15,11 +15,11 @@
             <h1>Your products</h1>
             <p> <?= $this->Html->link( $this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-piggy-bank']) . 
                     ' Sell', ['action' => 'add'], 
-                    ['type' => 'button', 'class' => 'btn btn-success', 'escape' => false] ) ?>
+                    ['type' => 'button', 'class' => 'btn btn-success btn-lg', 'escape' => false] ) ?>
                 
                 <?= $this->Html->link( $this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-shopping-cart']) . 
                         ' Buy', ['controller' => 'Results', 'action' => 'search'], 
-                        ['type' => 'button', 'class' => 'btn btn-primary', 'escape' => false] ) ?>
+                        ['type' => 'button', 'class' => 'btn btn-primary btn-lg', 'escape' => false] ) ?>
             </p>
             <table class="table table-hover">
                 <tr>
@@ -46,7 +46,7 @@
                             /* $this->Html->link( $product->media_title, ['controller' => 'Media', 'action' => 'view',
                               '?' => ['id' => $product->media_id]] ) */
                             $this->Html->link( $product->media_title, ['action' => 'view',
-                                $product->media_id] )
+                                $product->media_id], ['target' => '_blank'] )
                             ?>
                         </td>
                         <td>
@@ -55,7 +55,7 @@
                         <td>
                             <?= $this->Html->link( $this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-wrench']) . 
                                     ' Edit', ['action' => 'edit',$product->media_id], 
-                                    ['type' => 'button', 'class' => 'btn btn-info', 'escape' => false] ) ?>
+                                    ['type' => 'button', 'class' => 'btn btn-info', 'target' => '_blank', 'escape' => false] ) ?>
                             
                             <?=
                             $this->Form->postLink($this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-alert']) . 
