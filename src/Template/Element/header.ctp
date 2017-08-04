@@ -32,7 +32,7 @@
                       <span id="message-counter" style="font-size:1.5em"></span>
                       </span></div>';
             } else {
-                echo $this->Html->link('Sign UP', ['controller' => 'Users', 'action' => 'add'], ['class' => 'signin', 'target' => '_self']);
+                echo $this->Html->link('Sign Up', ['controller' => 'Users', 'action' => 'add'], ['class' => 'signin', 'target' => '_self']);
                 echo $this->Html->link('Login', ['controller' => 'Users', 'action' => 'login'], ['class' => 'signin', 'target' => '_self']);
             }
             ?>
