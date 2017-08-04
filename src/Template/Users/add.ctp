@@ -43,7 +43,7 @@ use Cake\Core\Configure;
                 <div style="width: 800px; margin: 0 auto; position: relative;">
                     <div class="panel row">
                         <h2 class="text-center">Registration</h2>
-                        
+                        <legend></legend>
                         <!-- Email input-->
                         <div class="form-group">
                             <label class="col-md-4 control-label">E-Mail</label> 
@@ -103,7 +103,12 @@ use Cake\Core\Configure;
                                 <div class="g-recaptcha" data-sitekey="<?php echo Configure::read( 'google_recatpcha_settings.site_key' ); ?>"></div>
                             </div>
                         </div>
-
+                        
+                        <!-- Terms agreement -->
+                        <div class="text-center">
+                            <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions and Privacy Policy
+                            <input type="submit" name="submit" value="submit" />
+                        </div>
                         <!-- Success message -->
                         <!--<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div> -->
 
