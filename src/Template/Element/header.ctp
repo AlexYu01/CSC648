@@ -17,7 +17,7 @@
                       font-weight: 200;" onMouseOver="this.style.background='white';this.style.color='#459fed'" onmouseout="this.style.color='#459fed'"> Welcome,<?= $this->request->session()->read('Auth.User.username')?></span>
                 <?php
                 echo $this->Html->link('Logout', ['controller' => 'Users', 'action' => 'logout'], ['class' => 'signin', 'target' => '_self']);
-                echo '<a class="signin" style="border:0px;" href='. $this->Url->build(['controller'=>'Messages','action'=>'sentMsgs']) .'><span class="fa-layers fa-fw" style="font-size: 2em;">
+                echo '<a class="signin" style="border:0px;" href='. $this->Url->build(['controller'=>'Messages','action'=>'received_msgs']) .'><span class="fa-layers fa-fw" style="font-size: 2em;">
                       <span class="far fa-envelope"></span>
                       <span id="message-counter" style="font-size:1.5em"></span>
                       </span></a>';
