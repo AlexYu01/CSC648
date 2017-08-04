@@ -30,10 +30,10 @@ echo $this->Html->css('login.css');
         <?= $this->Form->create(); ?>
         <legend><?= __('Please enter your username and password') ?></legend>
         <div class="text-center">
-            <?php echo $this->Form->Control('username', array('name' => 'username', 
+            <?php echo $this->Form->Control('username', array('name' => 'email', 
                 'class' => 'form-control', 'placeholder' => 'Username')); ?>
             <br><br>
-            <?php echo $this->Form->Control('password', array('name' => 'username',
+            <?php echo $this->Form->Control('password', array('name' => 'password',
                 'class' => 'form-control', 'placeholder' => 'Password')); ?>
             <br><br><br><br>
         </div>
