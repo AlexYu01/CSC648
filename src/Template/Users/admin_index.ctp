@@ -41,7 +41,7 @@ $this->layout = "default_no_menu";
             <?php foreach ($users as $user): ?>
             <tr>
 
-                <td><?= $user->has('user') ? $this->Html->link($user->user->user_id, ['controller' => 'Users', 'action' => 'view', $user->user->user_id]) : '' ?></td>
+                <td><?= $user->has('user') ? $this->Html->link($user->user_id, ['controller' => 'Users', 'action' => 'view', $user->user_id]) : '' ?></td>
                 <td><?= h($user->username) ?></td>
                 <td><?= h($user->password) ?></td>
                 <td><?= h($user->email) ?></td>
