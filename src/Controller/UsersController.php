@@ -222,9 +222,11 @@ class UsersController extends AppController {
         return $this->redirect(['action' => 'index']);
     }
 
+    /*
+     * general users are only allowed to access login, logout, add, and facebook
+     * all other functions require admin role
+     */
     public function isAuthorized($user) {
-        // All registered users can add articles
-        
 
         return parent::isAuthorized($user);
     }

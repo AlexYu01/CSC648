@@ -12,48 +12,28 @@
     </head>
     <body>
         <div class="container">
+            <?= $this->element( 'user_menu' ); ?>
             <h1>My products</h1>
-            <?=
-            $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-piggy-bank'] ) .
-                    ' Sell', ['controller' => 'media', 'action' => 'add'], ['type' => 'button',
-                'class' => 'btn btn-success btn-lg', 'escape' => false] )
-            ?>
-
-            <?=
-            $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-shopping-cart'] ) .
-                    ' Buy', ['controller' => 'Results', 'action' => 'search'], [
-                'type' => 'button', 'class' => 'btn btn-primary btn-lg', 'escape' => false] )
-            ?>
-
-            <?=
-            $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-picture'] ) .
-                    ' My Products', ['controller' => 'Media', 'action' => 'posts'], [
-                'type' => 'button', 'class' => 'btn btn-info btn-lg', 'escape' => false] )
-            ?>
-            <div class="pull-right">
-                <?=
-                $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-envelope'] ) .
-                        ' My inbox', ['controller' => 'Messages', 'action' => 'received_msgs'], [
-                    'type' => 'button', 'class' => 'btn btn-info btn-lg', 'escape' => false] )
-                ?>
-                <?=
-                $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-send'] ) .
-                        ' My outbox', ['controller' => 'Messages', 'action' => 'sent_msgs'], [
-                    'type' => 'button', 'class' => 'btn btn-info btn-lg',
-                    'escape' => false] )
-                ?>
-            </div>
             <table class="table table-hover">
                 <tr>
-                    <th><?= $this->Paginator->sort('media_id', 
-                            $this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-sort']) . ' ID', ['escape' => false]) ?></th>
-                    
-                    <th><?= $this->Paginator->sort('media_title',
-                            $this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-sort']) . ' Title', ['escape' => false]) ?></th>
-                    
-                    <th><?= $this->Paginator->sort('upload_date', 
-                            $this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-sort']) . ' Created', ['escape' => false]) ?></th>
-                    
+                    <th><?=
+                        $this->Paginator->sort( 'media_id', $this->Html->tag( 'span', '', [
+                                    'class' => 'glyphicon glyphicon-sort'] ) . ' ID', [
+                            'escape' => false] )
+                        ?></th>
+
+                    <th><?=
+                        $this->Paginator->sort( 'media_title', $this->Html->tag( 'span', '', [
+                                    'class' => 'glyphicon glyphicon-sort'] ) . ' Title', [
+                            'escape' => false] )
+                        ?></th>
+
+                    <th><?=
+                        $this->Paginator->sort( 'upload_date', $this->Html->tag( 'span', '', [
+                                    'class' => 'glyphicon glyphicon-sort'] ) . ' Created', [
+                            'escape' => false] )
+                        ?></th>
+
                     <th>Actions</th>
                 </tr>
 
@@ -65,8 +45,6 @@
                         </td>
                         <td>
                             <?=
-                            /* $this->Html->link( $product->media_title, ['controller' => 'Media', 'action' => 'view',
-                              '?' => ['id' => $product->media_id]] ) */
                             $this->Html->link( $product->media_title, ['action' => 'view',
                                 $product->media_id], ['target' => '_blank'] )
                             ?>
@@ -75,16 +53,22 @@
                             <?= $product->upload_date->format( DATE_RFC850 ) ?>
                         </td>
                         <td>
-                            <?= $this->Html->link( $this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-wrench']) . 
-                                    ' Edit', ['action' => 'edit',$product->media_id], 
-                                    ['type' => 'button', 'class' => 'btn btn-info', 'target' => '_blank', 'escape' => false] ) ?>
-                            
                             <?=
-                            $this->Form->postLink($this->Html->tag('span', '', ['class' => 'glyphicon glyphicon-alert']) . 
-                                    ' Delete', ['action' => 'delete', $product->media_id], 
-                                    ['type' => 'button', 'class' => 'btn btn-danger', 'escape' => false, 'confirm' => 'Are you sure?'] )
+                            $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-wrench'] ) .
+                                    ' Edit', ['action' => 'edit', $product->media_id], [
+                                'type' => 'button',
+                                'class' => 'btn btn-info', 'target' => '_blank',
+                                'escape' => false] )
                             ?>
-                            
+
+                            <?=
+                            $this->Form->postLink( $this->Html->tag( 'span', '', [
+                                        'class' => 'glyphicon glyphicon-alert'] ) .
+                                    ' Delete', ['action' => 'delete', $product->media_id], [
+                                'type' => 'button',
+                                'class' => 'btn btn-danger', 'escape' => false, 'confirm' => 'Are you sure?'] )
+                            ?>
+
                         </td>
                     </tr>
                 <?php endforeach; ?>

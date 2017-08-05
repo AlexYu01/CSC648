@@ -22,7 +22,7 @@ use Cake\Core\Configure;
 
     </head>
     <style>
-        .error-message { 
+        .error-message {
             color: #FF0000;
         }
         .error.message {
@@ -43,8 +43,7 @@ use Cake\Core\Configure;
 
                 <!-- Email input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label">E-Mail</label> 
-
+                    <label class="col-md-4 control-label">E-Mail</label>
                     <div class="col-md-4 inputGroupContainer">
                         <?= $error = $this->Form->isFieldError( 'email' ) ? $this->Form->error( 'email' ) : ''; ?>
                         <div class="input-group">
@@ -61,7 +60,7 @@ use Cake\Core\Configure;
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Username</label>  
+                    <label class="col-md-4 control-label">Username</label>
                     <div class="col-md-4 inputGroupContainer">
                         <?= $error = $this->Form->isFieldError( 'username' ) ? $this->Form->error( 'username' ) : ''; ?>
                         <div class="input-group">
@@ -77,7 +76,7 @@ use Cake\Core\Configure;
                 <!-- Password input-->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label" >Password</label> 
+                    <label class="col-md-4 control-label" >Password</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -92,7 +91,7 @@ use Cake\Core\Configure;
                 <!-- Password Confirm input-->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label" >Confirm Password</label> 
+                    <label class="col-md-4 control-label" >Confirm Password</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -106,10 +105,22 @@ use Cake\Core\Configure;
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label class="col-md-4 control-label" ></label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input name="agreement" type="checkbox" class="form-check-input">
+                                I agree to <a href="#">TERMS OF USE</a> and <a href="#">PRIVACY POLICY</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Capctha -->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label" ></label> 
+                    <label class="col-md-4 control-label" ></label>
                     <div class="col-md-4 inputGroupContainer">
                         <?= $this->Flash->render( 'captchaEmpty' ); ?>
                         <div class="g-recaptcha" data-sitekey="<?php echo Configure::read( 'google_recatpcha_settings.site_key' ); ?>"></div>
@@ -184,6 +195,13 @@ use Cake\Core\Configure;
                                     message: 'Please supply a valid email address'
                                 }
                             }
+                        },
+                        agreement: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Required'
+                                }
+                            }
                         }
                     }
                 })
@@ -193,13 +211,13 @@ use Cake\Core\Configure;
                             /*
                              // Prevent form submission
                              e.preventDefault();
-                             
+
                              // Get the form instance
                              var $form = $(e.target);
-                             
+
                              // Get the BootstrapValidator instance
                              var bv = $form.data('bootstrapValidator');
-                             
+
                              // Use Ajax to submit form data
                              $.post($form.attr('action'), $form.serialize(), function (result) {
                              console.log(result);
