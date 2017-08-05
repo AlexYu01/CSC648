@@ -13,14 +13,50 @@
         <?= $this->Html->script( 'jquery.min' ) ?>
         <?= $this->Html->script( 'bootstrap.min' ) ?>
         <?= $this->Html->script( 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js' ) ?>
+
+        <?= $this->Html->css( 'dropzone' ) ?>
+        <?= $this->Html->script( 'dropzone' ) ?>
+
     </head>
+
+    <style>
+        body {
+            background: #333;
+        }
+
+        .dropzone .dz-preview .dz-image {
+            width: 100%;
+            height: auto;
+
+        }
+
+        #previews {
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .dropzone .dz-preview .dz-progress {
+            height: 3%;
+            left: 10%;
+            top: 47%;
+            width: 80%;
+            margin-left: 0px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+        
+    </style>
 
     <body>
         <div class="container">
 
             <?=
-            $this->Form->create( $newMedia, ['type' => 'file',
-                'id' => 'media_form', 'class' => 'form-horizontal'] )
+            $this->Form->create( $newMedia, [
+                'type' => 'file', 'enctype' => 'multipart/form-data',
+                'id' => 'media', 'class' => 'form-horizontal dropzone'] )
             ?>
             <fieldset>
 
@@ -29,9 +65,17 @@
                 <h2 class="text-center">Selling Form</h2>
 
                 <!-- Text input-->
-
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                        <div id="previews" class="dropzone-previews"></div>
+                    </div>
+                </div>
+                <div class="dz-message" data-dz-message><span>Drag and drop files or click here</span></div>
+                    
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Title</label>  
+                    <label class="col-md-4 control-label">Title</label>
+                    
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
@@ -43,7 +87,6 @@
                         <small class="form-text text-muted">30 characters max</small>
                     </div>
                 </div>
-
                 <!-- Text input-->
 
                 <div class="form-group">
@@ -88,24 +131,12 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Fall back for browsers that cannot support drag & drop-->
 
-                <!-- File input-->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label" ></label> 
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-level-up"></i></span>
-                            <?=
-                            $this->Form->input( 'file', ['type' => 'file',
-                                'accept' => 'image/*, video/*', 'class' => 'form-control',
-                                'label' => false] )
-                            ?>
-                        </div>
-                        <small class="form-text text-muted">Max file size: 8MB. Supported formats: jpeg, jpg, gif, png, mp4</small>
-                    </div>
+                <div class="fallback">
+                    <input name="file" type="file" />
                 </div>
-
                 <!-- Success message -->
                 <!--<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i>Text here</div> -->
 
@@ -113,10 +144,9 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4">
-                        <button type="submit" class="btn btn-primary" >Post! <span class="glyphicon glyphicon-upload"></span></button>
+                        <button id="submitBtn" class="btn btn-primary">Post! <span class="glyphicon glyphicon-upload"></span></button>
                     </div>
                 </div>
-
 
             </fieldset>
             <?= $this->Form->end(); ?>
@@ -126,7 +156,7 @@
 
         <script>
             $(document).ready(function () {
-                $('#media_form').bootstrapValidator({
+                $('#media').bootstrapValidator({
 
                     feedbackIcons: {
                         valid: 'glyphicon glyphicon-ok',
@@ -171,24 +201,12 @@
                                     message: 'Price must be less than $1 million'
                                 }
                             }
-                        },
-                        file: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please select a photo or video file'
-                                },
-                                file: {
-                                    type: 'image/jpeg,image/JPEG,image/png,image/PNG,image/jpg,image/JPG,image/gif,image/GIF,video/mp4,video/MP4',
-                                    maxSize: 8388608, // 8 x 1024 x 1024 bytes
-                                    message: 'The selected file is not valid'
-                                }
-                            }
                         }
                     }
                 })
                         .on('success.form.bv', function (e) {
                             $('#success_message').slideDown({opacity: "show"}, "slow") // Do something ...
-                            $('#media_form').data('bootstrapValidator').resetForm();
+                            $('#media').data('bootstrapValidator').resetForm();
                             /*
                              // Prevent form submission
                              e.preventDefault();
@@ -206,6 +224,60 @@
                         });
             });
 
+            Dropzone.options.media = {
+                maxFiles: 1,
+                maxFilesize: 8,
+                timeout: 3600000, // user has 1 hour to upload a file at max 8 MB
+                acceptedFiles: "image/*,video/mp4",
+                thumbnailWidth: 500,
+                thumbnailHeight: 500,
+                previewsContainer: "#previews",
+                addRemoveLinks: true,
+                autoProcessQueue: false,
+                autoDiscover: false,
+                clickable: true,
+
+                init: function () {
+
+                    var myDropzone = this;
+
+                    $("#submitBtn").on('click', function (e) {
+                        var validator = $('#media').data('bootstrapValidator');
+                        validator.validate();
+                        if (validator.isValid()) {
+                            e.preventDefault();
+                            myDropzone.processQueue();
+                        }
+                    });
+
+                    this.on("addedfile", function () {
+                        if (this.files[1] != null) {
+                            this.removeFile(this.files[0]);
+                        }
+                    });
+
+                    this.on("error", function (file, message) {
+                        alert(message);
+                        this.removeFile(file);
+                    });
+                },
+                success: function (file, response) {
+                    window.location.replace('<?=
+            $this->url->build( ['controller' => 'Media',
+                'action' => 'posts'] )
+            ?>');
+                },
+
+                /*error: function (file, errormessage, xhr) {
+                 if (xhr) {
+                 var response = JSON.parse(xhr.responseText);
+                 alert(response.message);
+                 }
+                 },*/
+                error: function (file, response) {
+                    file.previewElement.classList.add("dz-error");
+                }
+            };
         </script>
     </body>
 </html>
