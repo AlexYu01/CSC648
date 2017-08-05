@@ -21,7 +21,7 @@ class HomepageController extends AppController {
         $this->loadModel( 'Media' );
         $results = $this->Media->find( 'all', [
             'conditions' => [
-                'Media.type_id' => 1
+//                 'Media.type_id' => 1
             ]
                 ] );
 

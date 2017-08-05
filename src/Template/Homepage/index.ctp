@@ -15,6 +15,8 @@
 			<!-- left side menu  --> <?= $this->element('menu'); ?> <!-- left side menu  -->
 		
 			<section id="gallery-container" class="tg-container">
+				<!-- left side breadcrumb  --> <?= $this->element('breadcrumb'); ?> <!-- left side breadcrumb  -->
+				
 				<!-- start right side content -->
 					<?= $this->render('index_content'); ?>
 				<!-- stop right side content -->

@@ -277,6 +277,31 @@ body:not (.team5-menu-enabled ) #team5-menu.override-editor-fixes {
 	transition: all .3s linear
 }
 
+.breadcrumb {
+	font-size: 14px;
+	padding: 8px 15px;
+	margin: 10px 0 0 30px;
+	list-style: none;
+}
+
+.breadcrumb>li {
+	display: inline-block
+}
+
+.breadcrumb>li+li:before {
+	padding: 0 5px;
+	color: #ccc;
+	content: "/\00a0"
+}
+
+.breadcrumb a {
+	color: #4eb7f5;
+}
+
+.breadcrumb>.active {
+	color: #ccc;
+}
+
 body:not (.body-achromatic-sidebar ) #team5-menu[data-layout=left] .wm-links-wrapper
 	{
 	margin-left: 72px
