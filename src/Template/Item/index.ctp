@@ -137,35 +137,11 @@ $this->layout = 'default_no_menu';
         </div>
         <!-- Suggestion -->
         <script>
-            if (login !== '') {
-                    $('#contact-button').click(function () {
-                        //e.preventDefault();
-                        if ($('#msg-box').val().length > 0) {                                               
-                            $.ajax({
-                                url:'<?= $this->Url->build(['controller'=>'Messages','action'=>'newMsg'],['fullBase' => true])?>',
-                                type: 'POST',
-                                data:
-                                {
-                                    sender_id: login,
-                                    receiver_id:<?= $user->user_id ?>,
-                                    media_id: <?= $item->media_id ?>,
-                                    message_content: $('#msg-box').val()
-                                },
-                                        success:function(){
-                                            $.notify('Message Sent', {position: 'top left', style: 'bootstrap', className: 'success'});
-                                            socket.emit('messages', {id:<?= $user->user_id ?>, content: 'new message'});
-                                        }
-                            });
-                        }
-                    });
-                
-
-            } else {
-                $('#contact-button').click(function () {
-                    $.notify('Please Log in to send message', {position: 'top left', style: 'bootstrap', className: 'info'});
-                });
-            }
-
-        </script>        
+            var url = '<?= $this->Url->build(['controller'=>'Messages','action'=>'newMsg'],['fullBase' => true])?>';
+            var receiver = <?= $user->user_id ?>;
+            var media = <?= $item->media_id ?>;
+            var self ='<?php if($this->request->session()->read('Auth.User.user_id') == $item->author_id){echo 'true';}else{echo 'false';}?>';
+        </script>
+        <?= $this->Html->script('item-msg')?>
     </body>
 </html>
