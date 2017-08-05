@@ -98,6 +98,9 @@ class MessagesController extends AppController {
         if ( $this->request->is( 'post' ) ) {
             $message = $this->Messages->patchEntity( $message, $this->request->getData() );
             if ( $this->Messages->save( $message ) ) {
+                $media = $this->Media->get($message->media_id);
+                $media['sold_count'] += 1;
+                $this->Media->save( $media );
                 return $this->redirect( $this->referer() );
             }
         }
