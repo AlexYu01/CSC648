@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Routes configuration
  *
@@ -17,7 +18,6 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 use Cake\Core\Plugin;
 use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
@@ -41,24 +41,32 @@ use Cake\Routing\Route\DashedRoute;
  * `:action` markers.
  *
  */
-Router::defaultRouteClass(DashedRoute::class);
-
-Router::scope('/', function (RouteBuilder $routes) {
+Router::defaultRouteClass( DashedRoute::class );
+Router::scope( '/', function (RouteBuilder $routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     //$routes->connect('/', ['controller' => 'About', 'action' => 'index', 'home']);
-    $routes->connect('/', ['controller' => 'Homepage', 'action' => 'index']);
-    $routes->connect('/search', ['controller' => 'Results', 'action' => 'search']);
+    $routes->connect( '/', ['controller' => 'Homepage', 'action' => 'index'] );
+    $routes->connect( '/search', ['controller' => 'Results', 'action' => 'search'] );
+
+    $routes->connect( '/registration', ['controller' => 'Users', 'action' => 'add'] );
+    $routes->connect( '/login', ['controller' => 'Users', 'action' => 'login'] );
+    $routes->connect( '/logout', ['controller' => 'Users', 'action' => 'logout'] );
+    $routes->connect( '/upload', ['controller' => 'Media', 'action' => 'add'] );
+    $routes->connect( '/posts', ['controller' => 'Media', 'action' => 'posts'] );
+    $routes->connect( '/allusers', ['controller' => 'Users', 'action' => 'userindex'] );
+    $routes->connect( '/sent', ['controller' => 'Messages', 'action' => 'sent_msgs'] );
+    $routes->connect( '/inbox', ['controller' => 'Messages', 'action' => 'received_msgs'] );
+
 
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     //$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display','home']);
-
     /**
      * Connect catchall routes for all controllers.
      *
@@ -75,9 +83,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
-    $routes->fallbacks(DashedRoute::class);
-});
-
+    $routes->fallbacks( DashedRoute::class );
+} );
 /**
  * Load all plugin routes. See the Plugin documentation on
  * how to customize the loading of plugin routes.

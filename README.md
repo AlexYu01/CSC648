@@ -11,10 +11,12 @@ The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
 
-# csc648_team5
-I have created a About page for our group at here: [Group 5 About Page](http://sfsuse.com/~su17g05/)
+We use Twitter Bootstrap mainly to build our layout for more details see http://getbootstrap.com/
 
-### M0
+# csc648_team5
+Team members' about page can be found here: [Group 5 About Page](http://sfsuse.com/~su17g05/about)
+
+## M0
 Run the following commands under 'public_html' to clone the project to your individual shell account for testing
 ```
 git init    //Create an empty Git repository
@@ -40,12 +42,17 @@ You should see at leaset two files 'index.ctp' and 'andy.ctp'
 Create your own .ctp file this will be your about page.
 
 
-### Milestone 3
+## Milestone 3
 Run the following command in your account to sync with master branch
 
 ```git pull origin master ```
 
 You might get file conflicts fix them manually
+
+Add the following PHP code in your view to remove sidebar
+
+```echo $this->layout = 'default_no_menu'; ```
+
 
 
  Parts | Frontend | Backend 
@@ -54,3 +61,43 @@ You might get file conflicts fix them manually
  Search Page | Ivan | Teng 
  Login Page | Calvin | Cody 
  Item Page | Andy | Andy 
+ 
+ ### Home Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ |HomePage | index | None | 
+ 
+ ### Search Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | Results | search | searchQuery via GET <br> searchGenre via GET |
+ 
+ ### Login Page
+ |Controller Name | Views Name | Required Data | Description
+ | --- | --- | --- | ---
+ | Users | login | None |  |
+ | Users | logout | None |  |
+ | Users | add (registration) | None | |
+ 
+  ### Media Page
+ |Controller Name | Views Name | Required Data | Description
+ | --- | --- | --- | ---
+ | Media | add (upload) | user_id | Allow authors to posts their products
+ | Media | None | media_id | Allow authors to delete their product on the posts page
+ | Media | edit | media_id | Allow authors to edit their product descriptions
+ | Media | view | media_id | Allow authors to view individual posts
+ | Media | posts | user_id | Displays all posts made by the author
+ 
+ ### Item Page
+ Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ Item | index | media_id via GET | Show Detail Item Page
+ Item | image | media_id via GET <br> New Image Size via GET(optional) | WaterMark Image in Real Time <br> Example URL Usage: <br>```item/image?id=2&resize=350x350```;<br>id is media_id; resize is the new image size formatted in (digits)x(digits)
+ 
+ ### Messages Page
+ |Controller Name | Views Name | Required Data | Description
+ | --- | --- | --- | ---
+ | Messages | demo (will be removed) | NONE | Allow Logged in user to check message table and test <br> visit http://www.sfsuse.com/~su17g05/messages to test <br> login user: a@aba.com password: 1234
+ | Messages | newMsg | ```sender_id``` via POST request <br> ```receiver_id``` via POST <br> ```media_id``` via POST <br> ```message_content``` via POST | Log in required
+ | Messages | read | ```message_id``` | Log in required change message status to 1 (read)
+ | Messages | delete (will be removed) | ```message_id``` | Log in required

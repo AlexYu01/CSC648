@@ -220,3 +220,8 @@ Type::build('timestamp')
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
+
+Configure::write('google_recatpcha_settings', array(
+    'site_key'=>'6LcidCsUAAAAADsatdH2I5HXTwwWOhXGYSq1EYwG',
+    'secret_key'=>'6LcidCsUAAAAAHiBqeUQW8vs6eU-jKym7yfcjG6c'
+));

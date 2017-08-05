@@ -15,10 +15,8 @@ $this->layout = false;
         <title>Andy's About Page</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
          <?= $this->Html->meta('icon') ?>
-    <?= $this->Html->css('bootstrap.css') ?>
-    <?= $this->Html->script('bootstrap.min.js')?>
+    <?= $this->Html->css('bootstrap.min.css') ?>
     </head>
-
     <div class="container" style="margin-top: 20px">
         <div class="row">
             <div class="col-md-4">
@@ -30,6 +28,17 @@ $this->layout = false;
             </div>
             <div class="col-md-4"></div>
         </div>
+    </div>
+    
+    <div>
+        <?php 
+        /*
+        $connection = ConnectionManager::get('default');
+        $results = $connection->execute('SELECT * FROM users')->fetchALL('assoc');
+        print_r($results)
+         * */
+        
+        ?>
     </div>
     </body>
 </html>

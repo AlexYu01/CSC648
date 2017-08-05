@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -10,39 +10,21 @@
 
 namespace App\Controller;
 
-class AboutController extends AppController
-{
-    public function index()
-    {       
-    }
-    
-    public function andy(){
+class AboutController extends AppController {
+
+    public function index() {
         
     }
-    
-    public function andrew(){
-    
-    }
-  
-    public function tiffany(){
 
+    public function andy() {
+        
     }
 
-    
-    public function haotian()
-    {
-
+    public function calvin() {
+        
     }
 
-    public function calvin(){
-    }
-
-    public function teng() {
-      
-    }
-  
-    public function cody(){
-
+    public function about() {
         
     }
 

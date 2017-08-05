@@ -1,0 +1,60 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 31, 2017, 4:26:29 PM
+    Author     : ipcal
+*/
+
+
+#username{
+    border-width: 1px; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
+    margin: 0 auto;
+}
+
+#password{
+    border-width: 1px; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
+    margin: 0 auto;
+}
+
+#email{
+    border-width: 1px; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
+    margin: 0 auto;
+}
+
+#confirmpassword{
+    border-width: 1px; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
+}
+
+legend{
+    text-align: center;
+}
+
+span{
+    color: blue;
+}
+
+
+#login{
+    box-shadow: 3px 3px 3px #01545b;
+    width: 300px;
+    margin-right: 100px;
+}
+
+#fb-bt{
+    margin-top: 15px;
+}

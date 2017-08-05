@@ -18,7 +18,9 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use App\Form\SearchForm;
+use Cake\Validation\Validator;
+
+$validator = new Validator();
 
 /**
  * Application Controller
@@ -42,10 +44,38 @@ class AppController extends Controller {
     public function initialize() {
         parent::initialize();
 
-        $this->loadComponent('RequestHandler');
-        $this->loadComponent('Flash');
+        $this->loadComponent( 'RequestHandler' );
+        $this->loadComponent( 'Flash' );
 
-        $this->loadModel('MediaGenres');
+        // category menu
+        $this->loadModel( 'MediaGenres' );
+        $mgResults = $this->MediaGenres->find( 'all' )->toArray();
+        $this->set( 'genresData', $mgResults );
+        if($this->request->session()->read('Auth')){
+            $this->loadModel('Messages');
+            $query = $this->Messages->find('all',['conditions'=>['Messages.status' => '0','Messages.receiver_id'=>$this->request->session()->read('Auth.User.user_id')]]);
+            $unreadCount = $query->count();
+            $this->set(compact('unreadCount'));
+        }
+        
+        $this->loadComponent( 'Auth', [
+            'authorize' => ['Controller'],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email', 'password' => 'password']
+                ]
+            ],
+            // change later
+            'loginRedirect' => [
+                'controller' => 'Media',
+                'action' => 'posts'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Homepage',
+                'action' => 'index',
+            ],
+            'authError' => ''
+        ] );
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -61,35 +91,26 @@ class AppController extends Controller {
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
-    public function beforeRender(Event $event) {
-        if (!array_key_exists('_serialize', $this->viewVars) &&
-                in_array($this->response->type(), ['application/json', 'application/xml'])
+    public function beforeRender( Event $event ) {
+        if ( !array_key_exists( '_serialize', $this->viewVars ) &&
+                in_array( $this->response->type(), ['application/json', 'application/xml'] )
         ) {
-            $this->set('_serialize', true);
+            $this->set( '_serialize', true );
         }
     }
 
-    public function searchBar() {
-        $session = $this->request->session();
-
-        $searchFields = new SearchForm();
-
-        if ($this->request->is('post')) {
-            if ($searchFields->execute($this->request->getData())) {
-
-                $session->write('searchTerm', $this->request->data('search'));
-                $session->write('searchGenre', $this->request->data('dropDown'));
-
-                return $this->redirect(['controller' => 'Results', 'action' => 'search']);
-            } else {
-                // something went wrong with search.
-            }
+    public function beforeFilter( Event $event ) {
+        $this->Auth->allow( ['index', 'search', 'image','facebook'] );
+    }
+    
+    public function isAuthorized( $user ) {
+        // Admin can access every action
+        if ( isset( $user['role'] ) && $user['role'] === 'admin' ) {
+            return true;
         }
-
-        $genreList = $this->MediaGenres->find('list', ['keyField' => 'genre_id',
-                            'valueField' => 'genre_name'])
-                        ->hydrate(false)->toArray();
-        $this->set(compact('searchFields', 'genreList'));
+        
+        // Default deny
+        return false;
     }
 
 }
