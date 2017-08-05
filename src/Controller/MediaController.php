@@ -100,7 +100,7 @@ class MediaController extends AppController {
                         $this->generateThumbnail( $input['file']['tmp_name'], $mediaThumbLink );
                         move_uploaded_file( $input['file']['tmp_name'], $storedPath );
                     } else {
-                        //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
+                        //$this->Flash->error( __( 'The picture could not be saved. Please, try again.' ) );
                     }
                 } else {
                     $input['type_id'] = 2; // video
@@ -112,9 +112,7 @@ class MediaController extends AppController {
                         //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
                     }
                 }
-                //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
-                return $this->redirect( ['action' => 'view', $newMedia->media_id] );
-                
+                // return $this->redirect( ['controller' => 'Media', 'action' => 'view', $newMedia->media_id] );
             }
         }
         $genreList = $this->MediaHelper->getGenreList();

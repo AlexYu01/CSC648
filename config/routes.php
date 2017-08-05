@@ -57,12 +57,12 @@ Router::scope( '/', function (RouteBuilder $routes) {
     $routes->connect( '/logout', ['controller' => 'Users', 'action' => 'logout'] );
     $routes->connect( '/upload', ['controller' => 'Media', 'action' => 'add'] );
     $routes->connect( '/posts', ['controller' => 'Media', 'action' => 'posts'] );
-    $routes->connect( '/allusers', ['controller' => 'Users', 'action' => 'userindex'] );
     $routes->connect( '/sent', ['controller' => 'Messages', 'action' => 'sent_msgs'] );
     $routes->connect( '/inbox', ['controller' => 'Messages', 'action' => 'received_msgs'] );
 
 
-
+    // admin
+    $routes->connect( '/allusers', ['controller' => 'Users', 'action' => 'userindex'] );
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
