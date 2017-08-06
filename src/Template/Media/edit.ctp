@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?= $this->Flash->render(); ?>
 
-        <?= $this->Html->script( 'https://s.codepen.io/assets/libs/modernizr.js' ) ?>
+        <?= $this->Html->script( 'modernizr-2.6.2.min' ) ?>
 
         <?= $this->Html->css( 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' ) ?>
         <?= $this->Html->css( 'bootstrap-theme.min' ) ?>
@@ -14,6 +15,7 @@
         <?= $this->Html->script( 'bootstrap.min' ) ?>
         <?= $this->Html->script( 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js' ) ?>
 
+        <!-- Input validation -->
         <?= $this->Html->script( 'media_form_validation' ) ?>
     </head>
     <style>

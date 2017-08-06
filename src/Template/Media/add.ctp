@@ -3,7 +3,8 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= $this->Flash->render(); ?>
-        <?= $this->Html->script( 'https://s.codepen.io/assets/libs/modernizr.js' ) ?>
+        
+        <?= $this->Html->script( 'modernizr-2.6.2.min' ) ?>
 
         <?= $this->Html->css( 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' ) ?>
         <?= $this->Html->css( 'bootstrap-theme.min' ) ?>
@@ -14,13 +15,12 @@
         <?= $this->Html->script( 'bootstrap.min' ) ?>
         <?= $this->Html->script( 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js' ) ?>
 
+        <!-- Input validation -->
+        <?= $this->Html->script( 'media_form_validation' ) ?>
+        
         <!-- drag and drop and file validation-->
         <?= $this->Html->css( 'dropzone' ) ?>
         <?= $this->Html->script( 'dropzone' ) ?>
-
-        <!-- Input validation -->
-        <?= $this->Html->script( 'media_form_validation' ) ?>
-
 
         <!-- used for making thumbnail of the video -->
         <?= $this->Html->script( 'rsvp' ) ?>
@@ -179,7 +179,7 @@
             /* Input validation taken care of by media_form_validation.js */
 
             Dropzone.options.media = {
-                maxFiles: 2, // for thumbnail
+                maxFiles: 1,
                 maxFilesize: 8,
                 timeout: 3600000, // user has 1 hour to upload a file at max 8 MB
                 acceptedFiles: "image/*,video/mp4",
