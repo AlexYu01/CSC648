@@ -1,6 +1,13 @@
 <!-- buttons for user posts.ctp, received_msgs.ctp, and sent_msgs.ctp -->
+<style>
+    @media (max-width: 768px) {
+        .btn {
+            font-size:11px;
+            padding:4px 6px;
+        }
+    }
+</style>
 <div class="container-fluid">
-    <div class="row-fluid"> 
         <?=
         $this->Html->link( $this->Html->tag( 'span', '', ['class' => 'glyphicon glyphicon-piggy-bank'] ) .
                 ' Sell', ['controller' => 'media', 'action' => 'add'], [
@@ -33,7 +40,7 @@
                 'type' => 'button', 'class' => 'btn btn-info btn-lg',
                 'escape' => false] )
             ?>
-        </div>
+
     </div>
 </div>
 <?= $this->Flash->render() ?>
