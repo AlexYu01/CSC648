@@ -12,7 +12,9 @@
     </head>
     <body>
         <div class="container">
+            <!-- load buttons from user_menu -->
             <?= $this->element('user_menu'); ?>
+            
             <h1>My Inbox</h1>
             <table class="table table-hover">
                 <tr>
