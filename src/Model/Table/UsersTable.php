@@ -65,9 +65,12 @@ class UsersTable extends Table
             ->notEmpty('password');
         
         $validator
-            ->requirePresence('confirmPassword', 'create')
+            ->requirePresence('confirmPassword', 'create');
+                /* validated by bootstrap validator
             ->notEmpty('confirmPassword')
             ->add('confirmPassword', 'no-misspelling', ['rule' => ['compareWith', 'password'], 'message' => 'Passwords do not match']);
+                 * 
+                 */
 
         $validator
             ->email('email')
@@ -94,6 +97,9 @@ class UsersTable extends Table
 
         $validator
             ->allowEmpty('role');
+        
+        $validator
+                ->allowEmpty('terms');
 
         return $validator;
     }
