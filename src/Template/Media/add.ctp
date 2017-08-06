@@ -217,7 +217,7 @@
                     });
 
 
-// create thumbnail for video
+                    // create thumbnail for video
                     self = this;
                     this.on("addedfile", function (file) {
 
@@ -234,7 +234,7 @@
                             FrameGrab.blob_to_video(file).then(
                                     function videoRendered(videoEl) {
 
-                                        // extract video frame at 1 sec into a 160px image and
+                                        // extract video frame at 1 sec into a 500px image and
                                         // set to the <img> element.
                                         var frameGrab = new FrameGrab({video: videoEl});
                                         frameGrab.grab('img', 1, 500).then(
@@ -254,13 +254,6 @@
                             );
                         }
                     });
-                    
-                    myDropzone.on('thumbnail', function(file, thumb) {
-    file.thumbnail = thumb;
-});
-                    myDropzone.on('sending', function(file, xhr, formData) {
-   formData.append('thumbnail', file.thumbnail);
-});
                 },
                 success: function (file, response) {
                     window.location.replace('<?=
