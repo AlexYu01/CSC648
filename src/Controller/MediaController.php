@@ -4,6 +4,11 @@ namespace App\Controller;
 
 class MediaController extends AppController {
 
+    /**
+     * Initialization hook method.
+     *
+     * @return void
+     */
     public function initialize() {
         parent::initialize();
         $this->loadModel( 'Media' );
@@ -15,36 +20,60 @@ class MediaController extends AppController {
         'limit' => 15
     ];
 
-    public function delete( $id ) {
-        // allow authors to delete an entry
+    /**
+     * Delete individual media post owned by user from database and remove files from filesystem.
+     * 
+     * @param string|null $id Media id.
+     * @return \Cake\Http\Response|null Redirects to posts.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function delete( $id = null) {
         $this->request->allowMethod( ['post', 'delete'] );
 
         $media = $this->Media->get( $id );
         if ( $this->Media->delete( $media ) ) {
-            // remove files from filesystem
+
             unlink( WWW_ROOT . 'img/' . $media['media_link'] );
             if ( $media['thumb_link'] != null ) {
                 unlink( WWW_ROOT . 'img/' . $media['thumb_link'] );
             }
-            $this->Flash->success( __( 'Your media has been deleted.' ) );
+            $this->Flash->success( __( 'Your media posthas been deleted.' ) );
             return $this->redirect( ['action' => 'posts'] );
         }
-        $this->Flash->error( __( 'Unable to delete your post.' ) );
+        $this->Flash->error( __( 'Unable to delete your media post.' ) );
     }
 
-    public function view( $id ) {
-        //$id = $this->request->getQuery( 'id' );
+    /**
+     * View individual media post owned by user.
+     *
+     * @param string|null $id Media id.
+     * @return \Cake\Http\Response|void
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function view( $id = null ) {
         $userMedia = $this->Media->get( $id );
         $this->set( compact( 'userMedia' ) );
     }
 
+    /**
+     * View all media posts owned by user.
+     * 
+     * @return \Cake\Http\Response|void
+     */
     public function posts() {
         $userProducts = $this->Media->find( 'all' )
                 ->where( ['author_id' => $this->Auth->user( 'user_id' )] );
         $this->set( 'userProducts', $this->paginate( $userProducts ) );
     }
 
-    public function edit( $id ) {
+    /**
+     * Edit media post owned by user.
+     * 
+     * @param string|null $id Media id.
+     * @return \Cake\Http\Response|null Redirects on successful edit.
+     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     */
+    public function edit( $id = null ) {
         // allow authors to update an entry
         $userMedia = $this->Media->get( $id );
         if ( $this->request->is( ['post', 'put'] ) ) {
@@ -60,6 +89,11 @@ class MediaController extends AppController {
         $this->set( compact( 'genreList', 'userMedia' ) );
     }
 
+    /**
+     * Allow registered users to upload video or image to sell.
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add.
+     */
     public function add() {
         $newMedia = $this->Media->newEntity();
 
@@ -123,10 +157,14 @@ class MediaController extends AppController {
         }
         $genreList = $this->MediaHelper->getGenreList();
 
-
         $this->set( compact( 'genreList', 'newMedia' ) );
     }
 
+    /**
+     * Generate a thumbnail for images to store in filesystem.
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add.
+     */
     private function generateThumbnail( $source, $mediaThumbLink ) {
         $nw = 400;
         $nh = 400;
@@ -194,17 +232,21 @@ class MediaController extends AppController {
         imagedestroy( $dimg );
     }
 
+    /**
+     * Allow registered users to access add or posts method. Allow media owners to view, edit or delete their posts.
+     * 
+     * 
+     * @param type $user
+     * @return boolean
+     */
     public function isAuthorized( $user ) {
-        // All registered users can add articles
 
         if ( in_array( $this->request->getParam( 'action' ), ['add', 'posts'] ) ) {
             return true;
         }
 
-        // The owner of an article can edit and delete it
         if ( in_array( $this->request->getParam( 'action' ), ['view', 'edit', 'delete'] ) ) {
             $mediaId = (int) $this->request->getParam( 'pass.0' );
-            //$mediaId = (int) $this->request->getQuery( 'id' );
             if ( $this->Media->isOwnedBy( $mediaId, $user['user_id'] ) ) {
                 return true;
             }

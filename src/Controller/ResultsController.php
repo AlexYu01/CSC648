@@ -11,6 +11,11 @@ class ResultsController extends AppController {
         'limit' => 12
     ];
 
+    /**
+     * Initialization hook method.
+     *
+     * @return void
+     */
     public function initialize() {
         parent::initialize();
         $this->loadComponent( 'Paginator' );
@@ -18,9 +23,14 @@ class ResultsController extends AppController {
         $this->loadComponent( 'MediaHelper' );
     }
 
+    /**
+     * Retrieve user inputs for SQL query
+     * 
+     * @return Cake\ORM\Entity $results
+     */
     public function search() {
 
-        $this->MediaHelper->searchBar(); // inherited from MediaHelper
+        $this->MediaHelper->searchBar();
         $searchTerm = $this->request->getQuery( 'searchQuery' );
         $searchGenreId = $this->request->getQuery( 'searchGenre' );
         $results = null;
@@ -37,7 +47,6 @@ class ResultsController extends AppController {
 
         $this->set( compact( 'resultReport' ) );
         try {
-            // send results as paginated to view
             $this->set( 'results', $this->paginate( $results ) );
         } catch ( NotFoundException $e ) {
             // user tried accessing a page that does not exist or run search
@@ -46,6 +55,14 @@ class ResultsController extends AppController {
         }
     }
 
+    /**
+     * Retrieve entries that match user inputs.
+     * 
+     * @param string $searchTerm
+     * @param string $searchGenreId
+     * @return string $resultReport
+     * @return Cake\ORM\Entity $results
+     */
     private function returnedResults( $searchTerm, $searchGenreId ) {
         $searchGenreName = $this->MediaHelper->getGenreName( $searchGenreId );
 
@@ -59,7 +76,7 @@ class ResultsController extends AppController {
         $results = $this->Media
                 ->find( 'all' )
                 ->where( ['genre_id' => $searchGenre, 'OR' => [['media_title LIKE' => '%' . $searchTerm . '%'],
-                        ['media_desc LIKE' => '%' . $searchTerm . '%']]] );
+                ['media_desc LIKE' => '%' . $searchTerm . '%']]] );
 
         /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
          * after results is returned).
@@ -75,7 +92,7 @@ class ResultsController extends AppController {
         if ( !($results->isEmpty()) ) {
             $resultReport = 'Displaying results for \'' . $validTerm . '\' under ' . $searchGenreName . '.';
         } else {
-            $results = $this->defaultResults( $searchGenreId );
+            $results = $this->defaultResults( $searchGenre );
             $resultReport = 'There were no results for \'' . $validTerm . '\'. Here are some top sellers under ' . $searchGenreName . '.';
         }
 
@@ -93,17 +110,16 @@ class ResultsController extends AppController {
     }
 
     /**
-     * user search yielded no results. Give them top sellers in the genre they 
+     * User search yielded no results. Give them top sellers in the genre they 
      * chose (if applicable).
      *
-     * @param string $searchGenreId
+     * @param string $searchGenre
      * @return Cake\ORM\Entity $results
      */
-    private function defaultResults( $searchGenreId ) {
+    private function defaultResults( $searchGenre ) {
         $results = $this->Media
                 ->find( 'all' )
-                ->where( ['type_id' => 1] )
-                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'], ['genre_id' => 'string'] )
+                ->where( ['genre_id' => $searchGenre] )
                 ->order( ['sold_count' => 'DESC'] );
 
         /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
@@ -112,7 +128,7 @@ class ResultsController extends AppController {
          * SELECT media_id, media_title, upload_date, media_link, price,
          *      media_desc, u.username
          * FROM media INNER JOIN users u ON u.user_id = author_id
-         * WHERE type_id = 1 AND CONVERT(genre_id, CHAR) LIKE %$searchGenreId%
+         * WHERE genre_id = $searchGenre
          * ORDER BY Media.sold_count DESC;
          *
          */
