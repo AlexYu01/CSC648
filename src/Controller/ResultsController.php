@@ -8,7 +8,7 @@ class ResultsController extends AppController {
 
     // limit 4 results per page
     public $paginate = [
-        'limit' => 1000
+        'limit' => 12
     ];
 
     public function initialize() {
@@ -51,23 +51,25 @@ class ResultsController extends AppController {
 
         // use the ternary operator ?: to determine if searchGenreName is null if 
         // true then set searchGenreName to 'all genres'.
+        $searchGenre = $searchGenreId ?: 'genre_id';
         $searchGenreName = $searchGenreName ?: 'all genres';
         $validTerm = $searchTerm ?: 'all media';
 
         // user searched with either genre and/or a term.
         $results = $this->Media
                 ->find( 'all' )
-                ->where( ['type_id' => 1, 'OR' => [['media_title LIKE' => '%' . $searchTerm . '%'],
-                        ['media_desc LIKE' => '%' . $searchTerm . '%']]] )
-                ->where( ['genre_id LIKE' => '%' . $searchGenreId . '%'], ['genre_id' => 'string'] );
+                ->where( ['genre_id' => $searchGenre, 'OR' => [['media_title LIKE' => '%' . $searchTerm . '%'],
+                        ['media_desc LIKE' => '%' . $searchTerm . '%']]] );
 
         /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
          * after results is returned).
+         * 
+         * if searchGenreId is null then genre_id = genre_id returns all genres
+         * 
          * SELECT media_id, media_title, upload_date, media_link, price,
          *      media_desc, u.username
          * FROM media INNER JOIN users u ON u.user_id = author_id
-         * WHERE type_id = 1 AND CONVERT(genre_id, CHAR) LIKE %$searchGenreId% AND
-         * (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%);
+         * WHERE genre_id = $searchGenre AND (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%);
          */
 
         if ( !($results->isEmpty()) ) {

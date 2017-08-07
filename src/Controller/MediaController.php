@@ -26,8 +26,10 @@ class MediaController extends AppController {
             if ( $media['thumb_link'] != null ) {
                 unlink( WWW_ROOT . 'img/' . $media['thumb_link'] );
             }
+            $this->Flash->success( __( 'Your media has been deleted.' ) );
             return $this->redirect( ['action' => 'posts'] );
         }
+        $this->Flash->error( __( 'Unable to delete your post.' ) );
     }
 
     public function view( $id ) {
@@ -48,10 +50,10 @@ class MediaController extends AppController {
         if ( $this->request->is( ['post', 'put'] ) ) {
             $this->Media->patchEntity( $userMedia, $this->request->getData() );
             if ( $this->Media->save( $userMedia ) ) {
-                //$this->Flash->success( __( 'Your media has been updated.' ) );
+                $this->Flash->success( __( 'Your post has been updated.' ) );
                 return $this->redirect( ['action' => 'view', $id] );
             }
-            //$this->Flash->error( __( 'Unable to update your article.' ) );
+            $this->Flash->error( __( 'Unable to update your post.' ) );
         }
 
         $genreList = $this->MediaHelper->getGenreList();
@@ -89,7 +91,8 @@ class MediaController extends AppController {
 
                 if ( strstr( $mime, 'image/' ) ) {
                     // path link for thumbnail that will be stored in the database
-                    $mediaThumbLink = 'media/' . $genreName . '/' . 'thumbnail-' . $mediaStoredName;
+                    // use a different uniqid to avoid users from changing url link to access full image
+                    $mediaThumbLink = 'media/' . $genreName . '/' . 'thumbnail-' . uniqid() . '-' . $mediaName;
                     $input['type_id'] = 1; // image
                     $input['thumb_link'] = $mediaThumbLink;
 
@@ -100,7 +103,7 @@ class MediaController extends AppController {
                         $this->generateThumbnail( $input['file']['tmp_name'], $mediaThumbLink );
                         move_uploaded_file( $input['file']['tmp_name'], $storedPath );
                     } else {
-                        //$this->Flash->error( __( 'The picture could not be saved. Please, try again.' ) );
+                        $this->Flash->error( __( 'The picture could not be uploaded. Please, try again.' ) );
                     }
                 } else {
                     $input['type_id'] = 2; // video
@@ -109,7 +112,7 @@ class MediaController extends AppController {
                     if ( $this->Media->save( $newMedia ) ) {
                         move_uploaded_file( $input['file']['tmp_name'], $storedPath );
                     } else {
-                        //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
+                        $this->Flash->error( __( 'The video could not be uploaded. Please, try again.' ) );
                     }
                 }
                 // return $this->redirect( ['controller' => 'Media', 'action' => 'view', $newMedia->media_id] );
