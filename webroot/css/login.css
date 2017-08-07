@@ -55,6 +55,12 @@ span{
     margin-right: 100px;
 }
 
+#submit{
+    box-shadow: 3px 3px 3px #01545b;
+    width: 300px;
+    margin-right: 100px;
+}
+
 #fb-bt{
     margin-top: 15px;
 }

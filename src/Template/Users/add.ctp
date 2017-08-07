@@ -39,7 +39,10 @@ use Cake\Core\Configure;
             ?>
 
             <fieldset>
-                <h2 class="text-center">Registration</h2>
+                <div style="width: 800px; margin: 0 auto; position: relative;">
+                    <div class="panel row">
+                        <h2 class="text-center">Registration</h2>
+                        <legend></legend>
 
                 <!-- Email input-->
                 <div class="form-group">
@@ -53,6 +56,7 @@ use Cake\Core\Configure;
                                 'class' => 'form-control', 'placeholder' => 'E-Mail Address',
                                 'label' => false, 'error' => false] )
                             ?>
+
                         </div>
                     </div>
                 </div>
@@ -120,7 +124,6 @@ use Cake\Core\Configure;
                 </div>
 
                 <!-- Capctha -->
-
                 <div class="form-group">
                     <label class="col-md-4 control-label" ></label>
                     <div class="col-md-4 inputGroupContainer">

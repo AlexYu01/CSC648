@@ -21,6 +21,8 @@ echo $this->Html->css('login.css');
             <br><br>
             <?php echo $this->Form->Control('password', array('name' => 'password',
                 'class' => 'form-control', 'placeholder' => 'Password')); ?>
+            <?php echo $this->Html->link('Forgot Password?', ['controller' => 'Users', 'action' => 'forgot_password'], 
+                            ['class' => 'forgotPassword', 'target' => '_blank']); ?> 
             <br><br><br><br>
         </div>
         <div class="text-center">
@@ -36,4 +38,5 @@ echo $this->Html->css('login.css');
     </div>    
 </div>
 </body>
+
 </html>

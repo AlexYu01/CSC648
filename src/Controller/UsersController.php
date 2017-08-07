@@ -25,7 +25,11 @@ class UsersController extends AppController {
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
+
+        $this->Auth->allow( ['add', 'logout', 'forgotPassword'] );
+
         $this->Auth->allow(['add', 'logout','facebook']);
+
     }
 
     /**
@@ -127,7 +131,11 @@ class UsersController extends AppController {
             $this->Flash->error(__('Invalid username or password, try again'));
         }
     }
-
+    
+    public function forgotPassword(){
+        
+    }
+    
     public function logout() {
         return $this->redirect($this->Auth->logout());
     }
