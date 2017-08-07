@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Model\Entity;
+
 use Cake\ORM\Entity;
-   use Cake\Auth\DefaultPasswordHasher;
- 
+use Cake\Auth\DefaultPasswordHasher;
+
 /**
  * User Entity
  *
@@ -18,8 +20,8 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\User $user
  */
-class User extends Entity
-{
+class User extends Entity {
+
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -33,6 +35,7 @@ class User extends Entity
         '*' => true,
         'user_id' => false
     ];
+
     /**
      * Fields that are excluded from JSON versions of the entity.
      *
@@ -42,10 +45,11 @@ class User extends Entity
         'password',
         'token'
     ];
-      protected function _setPassword($password){
 
-        return(new DefaultPasswordHasher)->hash($password);
-
+    protected function _setPassword( $password ) {
+        if ( strlen( $password ) > 0 ) {
+            return (new DefaultPasswordHasher )->hash( $password );
+        }
     }
-    
+
 }

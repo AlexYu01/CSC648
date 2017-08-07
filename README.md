@@ -1,43 +1,4 @@
-# CakePHP Application Skeleton
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-
-A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.x.
-
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
-
-## Installation
-
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
-
-If Composer is installed globally, run
-
-```bash
-composer create-project --prefer-dist cakephp/app
-```
-
-In case you want to use a custom app dir name (e.g. `/myapp/`):
-
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
-
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
-
-```bash
-bin/cake server -p 8765
-```
-
-Then visit `http://localhost:8765` to see the welcome page.
-
-## Update
-
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
 
 ## Configuration
 
@@ -50,10 +11,12 @@ The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
 
-# csc648_team5
-I have created a About page for our group at here: [Group 5 About Page](http://sfsuse.com/~su17g05/)
+We use Twitter Bootstrap mainly to build our layout for more details see http://getbootstrap.com/
 
-### M0
+# csc648_team5
+Team members' about page can be found here: [Group 5 About Page](http://sfsuse.com/~su17g05/about)
+
+## M0
 Run the following commands under 'public_html' to clone the project to your individual shell account for testing
 ```
 git init    //Create an empty Git repository
@@ -79,6 +42,46 @@ You should see at leaset two files 'index.ctp' and 'andy.ctp'
 Create your own .ctp file this will be your about page.
 
 
+## Milestone 3
+Run the following command in your account to sync with master branch
+
+```git pull origin master ```
+
+You might get file conflicts fix them manually
+
+Add the following PHP code in your view to remove sidebar
+
+```echo $this->layout = 'default_no_menu'; ```
 
 
+
+ Parts | Frontend | Backend 
+ --- | --- | ---
+ Home Page | Tifanny | Andrew 
+ Search Page | Ivan | Teng 
+ Login Page | Calvin | Cody 
+ Item Page | Andy | Andy 
+ 
+ ### Home Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ |HomePage | index | None | 
+ 
+ ### Search Page
+  Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ | Results | search | searchQuery via GET <br> searchGenre via GET |
+ 
+ ### Login Page
+ |Controller Name | Views Name | Required Data | Description
+ | --- | --- | --- | ---
+ | Users | login | None |  |
+ | Users | logout | None |  |
+ | Users | add (registration) | None | |
+ 
+ ### Item Page
+ Controller Name | Views Name | Required Data | Description
+ --- | --- | --- | ---
+ Item | index | media_id via GET | Show Detail Item Page
+ Item | image | media_id via GET <br> New Image Size via GET(optional) | WaterMark Image in Real Time <br> Example URL Usage: <br>```item/image?id=2&resize=350x350```;<br>id is media_id; resize is the new image size formatted in (digits)x(digits)
 

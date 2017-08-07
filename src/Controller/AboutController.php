@@ -13,37 +13,18 @@ namespace App\Controller;
 class AboutController extends AppController
 {
     public function index()
-    {       
+    {
     }
     
     public function andy(){
         
     }
     
-    public function andrew(){
-    
-    }
-  
-    public function tiffany(){
-
-    }
-
-    
-    public function haotian()
-    {
-
-    }
-
     public function calvin(){
-    }
-
-    public function teng() {
-      
-    }
-  
-    public function cody(){
-
         
     }
-
+    
+    public function about(){
+        
+    }
 }
