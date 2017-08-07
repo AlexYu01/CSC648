@@ -37,13 +37,10 @@ use Cake\Core\Configure;
             $this->Form->create( $user, ['id' => 'register_form',
                 'class' => 'form-horizontal'] )
             ?>
-
+            
+            <h2 class="text-center">Registration</h2>    
+            <legend><?= ('Please enter your information') ?> </legend>
             <fieldset>
-                <div style="width: 800px; margin: 0 auto; position: relative;">
-                    <div class="panel row">
-                        <h2 class="text-center">Registration</h2>
-                        <legend></legend>
-
                 <!-- Email input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label">E-Mail</label>
