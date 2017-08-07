@@ -37,10 +37,10 @@ use Cake\Core\Configure;
             $this->Form->create( $user, ['id' => 'register_form',
                 'class' => 'form-horizontal'] )
             ?>
-
+            
+            <h2 class="text-center">Registration</h2>    
+            <legend><?= ('Please enter your information') ?> </legend>
             <fieldset>
-                <h2 class="text-center">Registration</h2>
-
                 <!-- Email input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label">E-Mail</label>
@@ -53,6 +53,7 @@ use Cake\Core\Configure;
                                 'class' => 'form-control', 'placeholder' => 'E-Mail Address',
                                 'label' => false, 'error' => false] )
                             ?>
+
                         </div>
                     </div>
                 </div>
@@ -120,7 +121,6 @@ use Cake\Core\Configure;
                 </div>
 
                 <!-- Capctha -->
-
                 <div class="form-group">
                     <label class="col-md-4 control-label" ></label>
                     <div class="col-md-4 inputGroupContainer">

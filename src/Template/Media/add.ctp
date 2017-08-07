@@ -130,7 +130,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <?=
-                            $this->Form->select( 'genre_id', $genreList, [
+                            $this->Form->select( 'genre_id', $genreList, ['empty' =>'Choose One',
                                 'class' => 'form-control selectpicker', 'label' => false] )
                             ?>
                         </div>
@@ -146,7 +146,7 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
                             <?=
                             $this->Form->control( 'price', ['class' => 'form-control',
-                                'type' => 'number', 'label' => false] )
+                                'type' => 'text', 'label' => false] )
                             ?>
                         </div>
                     </div>
