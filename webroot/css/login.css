@@ -41,7 +41,7 @@ and open the template in the editor.
 }
 
 legend{
-    margin-left: 250px;
+    text-align: center;
 }
 
 span{
@@ -59,4 +59,8 @@ span{
     box-shadow: 3px 3px 3px #01545b;
     width: 300px;
     margin-right: 100px;
+}
+
+#fb-bt{
+    margin-top: 15px;
 }

@@ -84,7 +84,7 @@ class ResultsController extends AppController {
                     'table' => 'users',
                     'alias' => 'u',
                     'type' => 'INNER',
-                    'conditions' => 'u.user_id = Media.author_id',
+                    'conditions' => 'u.user_id = Media.author_id'
                 ] );
 
         return ['results' => $results, 'resultReport' => $resultReport];

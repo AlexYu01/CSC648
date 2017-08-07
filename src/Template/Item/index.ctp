@@ -1,7 +1,5 @@
 <?php
 $this->layout = 'default_no_menu';
-$images_type = "jpg|png";
-$videos_type = "mp4";
 ?>
 <html>
     <head>
@@ -32,12 +30,12 @@ $videos_type = "mp4";
                     <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-1">                        
                         <?php
                         //Checking File type Image / Video
-                        if (strpos($images_type, substr($item->media_link, strlen($item->media_link) - 3)) !== false) {
+                        if ($item->type_id == 1) {
                             ?>
                             <span  style="font-size: 2em; color:white;position:absolute; margin :50% 20% 25% 30%; text-align: center">Click to Enlarge</span>
                             <img id="imgbox" class="img-responsive img-thumbnail" src="<?php echo $this->url->build(['controller' => 'Item', 'action' => 'image', '?' => ['id' => $item->media_id]]) ?>" data-toggle="modal" data-target="#lbModal" alt="<?= $item->media_title ?>">
                             <?php
-                        } else if (strpos($videos_type, substr($item->media_link, strlen($item->media_link) - 3)) !== false) {
+                        } else if ($item->type_id == 2) {
                             echo $this->Html->media('/img/' . $item->media_link, [
                                 'controls',
                                 'controlsList' => 'nodownload'
@@ -120,7 +118,17 @@ $videos_type = "mp4";
                 <?php foreach ($similar_items as $similar_item) { ?>
                     <div class="col-lg-2 col-md-2 col-sm-2">
                         <a href="<?= $this->url->build((['controller' => 'Item', 'action' => 'index', '?' => ['id' => $similar_item->media_id]])) ?>">
-                            <img class="img-thumbnail"  src="<?= $this->url->build((['controller' => 'Item', 'action' => 'image', '?' => ['id' => $similar_item->media_id], 'resize' => '250x250'])) ?>">
+                            <?php if($similar_item->type_id == 1){?>
+                                <img class="img-thumbnail"  src="<?= $this->url->build((['controller' => 'Item', 'action' => 'image', '?' => ['id' => $similar_item->media_id], 'resize' => '250x250'])) ?>">
+                            <?php }elseif($similar_item->type_id == 2){
+                                echo $this->Html->media('/img/' . $similar_item->media_link, [
+                                'controls',
+                                'controlsList' => 'nodownload',
+                                'class' => 'img-thumbnail embed-responsive-item',
+                                'style' => 'margin-top:25%'
+                                ]);
+                            }?>
+                        
                         </a>
                     </div>
                 <?php } ?>
@@ -129,35 +137,11 @@ $videos_type = "mp4";
         </div>
         <!-- Suggestion -->
         <script>
-            if (login !== '') {
-                    $('#contact-button').click(function () {
-                        //e.preventDefault();
-                        if ($('#msg-box').val().length > 0) {                                               
-                            $.ajax({
-                                url:'<?= $this->Url->build(['controller'=>'Messages','action'=>'newMsg'],['fullBase' => true])?>',
-                                type: 'POST',
-                                data:
-                                {
-                                    sender_id: login,
-                                    receiver_id:<?= $user->user_id ?>,
-                                    media_id: <?= $item->media_id ?>,
-                                    message_content: $('#msg-box').val()
-                                },
-                                        success:function(){
-                                            $.notify('Message Sent', {position: 'top left', style: 'bootstrap', className: 'success'});
-                                            socket.emit('messages', {id:<?= $user->user_id ?>, content: 'new message'});
-                                        }
-                            });
-                        }
-                    });
-                
-
-            } else {
-                $('#contact-button').click(function () {
-                    $.notify('Please Log in to send message', {position: 'top left', style: 'bootstrap', className: 'info'});
-                });
-            }
-
-        </script>        
+            var url = '<?= $this->Url->build(['controller'=>'Messages','action'=>'newMsg'],['fullBase' => true])?>';
+            var receiver = <?= $user->user_id ?>;
+            var media = <?= $item->media_id ?>;
+            var self ='<?php if($this->request->session()->read('Auth.User.user_id') == $item->author_id){echo 'true';}else{echo 'false';}?>';
+        </script>
+        <?= $this->Html->script('item-msg')?>
     </body>
 </html>
