@@ -4,6 +4,11 @@ namespace App\Controller;
 
 class MediaController extends AppController {
 
+    /**
+     * Initialization hook method.
+     *
+     * @return void
+     */
     public function initialize() {
         parent::initialize();
         $this->loadModel( 'Media' );
@@ -15,49 +20,80 @@ class MediaController extends AppController {
         'limit' => 15
     ];
 
-    public function delete( $id ) {
-        // allow authors to delete an entry
+    /**
+     * Delete individual media post owned by user from database and remove files from filesystem.
+     * 
+     * @param string|null $id Media id.
+     * @return \Cake\Http\Response|null Redirects to posts.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function delete( $id = null) {
         $this->request->allowMethod( ['post', 'delete'] );
 
         $media = $this->Media->get( $id );
         if ( $this->Media->delete( $media ) ) {
-            // remove files from filesystem
+
             unlink( WWW_ROOT . 'img/' . $media['media_link'] );
             if ( $media['thumb_link'] != null ) {
                 unlink( WWW_ROOT . 'img/' . $media['thumb_link'] );
             }
+            $this->Flash->success( __( 'Your media posthas been deleted.' ) );
             return $this->redirect( ['action' => 'posts'] );
         }
+        $this->Flash->error( __( 'Unable to delete your media post.' ) );
     }
 
-    public function view( $id ) {
-        //$id = $this->request->getQuery( 'id' );
+    /**
+     * View individual media post owned by user.
+     *
+     * @param string|null $id Media id.
+     * @return \Cake\Http\Response|void
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function view( $id = null ) {
         $userMedia = $this->Media->get( $id );
         $this->set( compact( 'userMedia' ) );
     }
 
+    /**
+     * View all media posts owned by user.
+     * 
+     * @return \Cake\Http\Response|void
+     */
     public function posts() {
         $userProducts = $this->Media->find( 'all' )
                 ->where( ['author_id' => $this->Auth->user( 'user_id' )] );
         $this->set( 'userProducts', $this->paginate( $userProducts ) );
     }
 
-    public function edit( $id ) {
+    /**
+     * Edit media post owned by user.
+     * 
+     * @param string|null $id Media id.
+     * @return \Cake\Http\Response|null Redirects on successful edit.
+     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     */
+    public function edit( $id = null ) {
         // allow authors to update an entry
         $userMedia = $this->Media->get( $id );
         if ( $this->request->is( ['post', 'put'] ) ) {
             $this->Media->patchEntity( $userMedia, $this->request->getData() );
             if ( $this->Media->save( $userMedia ) ) {
-                //$this->Flash->success( __( 'Your media has been updated.' ) );
+                $this->Flash->success( __( 'Your post has been updated.' ) );
                 return $this->redirect( ['action' => 'view', $id] );
             }
-            //$this->Flash->error( __( 'Unable to update your article.' ) );
+            $this->Flash->error( __( 'Unable to update your post.' ) );
         }
 
         $genreList = $this->MediaHelper->getGenreList();
         $this->set( compact( 'genreList', 'userMedia' ) );
     }
 
+    /**
+     * Allow registered users to upload video or image to sell.
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add.
+     */
     public function add() {
         $newMedia = $this->Media->newEntity();
 
@@ -72,13 +108,16 @@ class MediaController extends AppController {
 
                 $mediaName = strtolower( $input['file']['name'] );
 
+                // Truncate file name to last 100 characters if it exceeds 150. DB only stores up to 150 chars for links.
+                $mediaName = (strlen( $mediaName ) > 150) ? substr( $mediaName, -100 ) : $mediaName;
+
                 // add "unique" string to the name of the file to avoid over writes
-                $mediaStoredName = uniqid() . '-' . $mediaName;
+                $mediaStoredName = uniqid( '', true ) . '-' . $mediaName;
 
                 // path link for full image that will be stored in the database
                 $mediaPathLink = 'media/' . $genreName . '/' . $mediaStoredName;
 
-                // the absolute path where the media will be stored
+                // the absolute path where the uploaded media will be moved to
                 $storedPath = WWW_ROOT . 'img/' . $mediaPathLink;
 
                 $input['media_link'] = $mediaPathLink;
@@ -89,18 +128,19 @@ class MediaController extends AppController {
 
                 if ( strstr( $mime, 'image/' ) ) {
                     // path link for thumbnail that will be stored in the database
-                    $mediaThumbLink = 'media/' . $genreName . '/' . 'thumbnail-' . $mediaStoredName;
+                    // use a different uniqid to avoid users from changing url link to access full image
+                    $mediaThumbLink = 'media/' . $genreName . '/' . uniqid( 'thumbnail-' ) . '-' . $mediaName;
                     $input['type_id'] = 1; // image
                     $input['thumb_link'] = $mediaThumbLink;
 
                     $newMedia = $this->Media->patchEntity( $newMedia, $input );
 
                     if ( $this->Media->save( $newMedia ) ) {
-                        // generate and store thumbnail it. Also store uploaded file
+                        // generate and store thumbnail. Also move uploaded file
                         $this->generateThumbnail( $input['file']['tmp_name'], $mediaThumbLink );
                         move_uploaded_file( $input['file']['tmp_name'], $storedPath );
                     } else {
-                        //$this->Flash->error( __( 'The picture could not be saved. Please, try again.' ) );
+                        $this->Flash->error( __( 'The picture could not be uploaded. Please, try again.' ) );
                     }
                 } else {
                     $input['type_id'] = 2; // video
@@ -109,7 +149,7 @@ class MediaController extends AppController {
                     if ( $this->Media->save( $newMedia ) ) {
                         move_uploaded_file( $input['file']['tmp_name'], $storedPath );
                     } else {
-                        //$this->Flash->error( __( 'The media could not be saved. Please, try again.' ) );
+                        $this->Flash->error( __( 'The video could not be uploaded. Please, try again.' ) );
                     }
                 }
                 // return $this->redirect( ['controller' => 'Media', 'action' => 'view', $newMedia->media_id] );
@@ -117,13 +157,17 @@ class MediaController extends AppController {
         }
         $genreList = $this->MediaHelper->getGenreList();
 
-
         $this->set( compact( 'genreList', 'newMedia' ) );
     }
 
+    /**
+     * Generate a thumbnail for images to store in filesystem.
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add.
+     */
     private function generateThumbnail( $source, $mediaThumbLink ) {
-        $nw = 300;
-        $nh = 300;
+        $nw = 400;
+        $nh = 400;
         $imageInfo = getimagesize( $source );
         $w = $imageInfo[0];
         $h = $imageInfo[1];
@@ -188,17 +232,21 @@ class MediaController extends AppController {
         imagedestroy( $dimg );
     }
 
+    /**
+     * Allow registered users to access add or posts method. Allow media owners to view, edit or delete their posts.
+     * 
+     * 
+     * @param type $user
+     * @return boolean
+     */
     public function isAuthorized( $user ) {
-        // All registered users can add articles
 
         if ( in_array( $this->request->getParam( 'action' ), ['add', 'posts'] ) ) {
             return true;
         }
 
-        // The owner of an article can edit and delete it
         if ( in_array( $this->request->getParam( 'action' ), ['view', 'edit', 'delete'] ) ) {
             $mediaId = (int) $this->request->getParam( 'pass.0' );
-            //$mediaId = (int) $this->request->getQuery( 'id' );
             if ( $this->Media->isOwnedBy( $mediaId, $user['user_id'] ) ) {
                 return true;
             }

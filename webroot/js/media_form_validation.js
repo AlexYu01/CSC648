@@ -40,18 +40,29 @@ $(document).ready(function () {
                     }
                 }
             },
+            genre_id: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please choose a genre for your media'
+                    }
+                }
+            },
             price: {
                 validators: {
                     notEmpty: {
                         message: 'Please enter a price for your media'
                     },
+                    lessThan: {
+                        value: 1000000,
+                        message: 'Price must be less than $1 million'
+                    },
                     greaterThan: {
                         value: 0,
                         message: 'Price must be greater than $0'
                     },
-                    lessThan: {
-                        value: 1000000,
-                        message: 'Price must be less than $1 million'
+                    regexp: {
+                        regexp: /^\d+(?:\.\d\d?)?$/,
+                        message: 'Please enter a valid price'
                     }
                 }
             }

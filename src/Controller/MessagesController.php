@@ -13,6 +13,11 @@ use App\Controller\AppController;
  */
 class MessagesController extends AppController {
 
+    /**
+     * Initialization hook method.
+     *
+     * @return void
+     */
     public function initialize() {
         parent::initialize();
         $this->loadComponent( 'Paginator' );
@@ -24,6 +29,11 @@ class MessagesController extends AppController {
         'limit' => 15
     ];
 
+    /**
+     * Display inbox messages of the logged in user
+     * 
+     * @return Cake\ORM\Entity $messages
+     */
     public function receivedMsgs() {
         $user = $this->Auth->user( 'user_id' );
 
@@ -42,10 +52,15 @@ class MessagesController extends AppController {
                     'alias' => 'u',
                     'type' => 'INNER',
                     'conditions' => 'u.user_id = Messages.sender_id'
-        ] );
+                ] );
         $this->set( 'messages', $this->paginate( $messages ) );
     }
 
+    /**
+     * Display outbox messages of the logged in user
+     * 
+     * @return Cake\ORM\Entity $messages
+     */
     public function sentMsgs() {
         $user = $this->Auth->user( 'user_id' );
 
@@ -64,32 +79,12 @@ class MessagesController extends AppController {
                     'alias' => 'u',
                     'type' => 'INNER',
                     'conditions' => 'u.user_id = Messages.receiver_id'
-        ] );
+                ] );
         $this->set( 'messages', $this->paginate( $messages ) );
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Message id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    /*
-      public function view($id = null)
-      {
-      $message = $this->Messages->get($id, [
-      'contain' => []
-      ]);
-
-      $this->set('message', $message);
-      $this->set('_serialize', ['message']);
-      }
-     * 
-     */
-
-    /**
-     * Add method
+     * Allow registered users to send messages to authors
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
@@ -98,60 +93,22 @@ class MessagesController extends AppController {
         if ( $this->request->is( 'post' ) ) {
             $message = $this->Messages->patchEntity( $message, $this->request->getData() );
             if ( $this->Messages->save( $message ) ) {
-                $media = $this->Media->get($message->media_id);
+                $media = $this->Media->get( $message->media_id );
                 $media['sold_count'] += 1;
                 $this->Media->save( $media );
                 return $this->redirect( $this->referer() );
             }
         }
 
-        $messages = $this->Messages->find( 'all', ['limit' => 200] );
-        /*
-          $senders = $this->Messages->Senders->find('list', ['limit' => 200]);
-          $receivers = $this->Messages->Receivers->find('list', ['limit' => 200]);
-          $media = $this->Messages->Media->find('list', ['limit' => 200]);
-         * 
-         */
-        $this->set( compact( 'message', 'messages' ) );
+        $this->set( compact( 'message' ) );
         $this->set( '_serialize', ['message'] );
     }
 
     /**
-     * Edit method
+     * Allow users to delete messages
      *
      * @param string|null $id Message id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    /*
-      public function edit($id = null)
-      {
-      $message = $this->Messages->get($id, [
-      'contain' => []
-      ]);
-      if ($this->request->is(['patch', 'post', 'put'])) {
-      $message = $this->Messages->patchEntity($message, $this->request->getData());
-      if ($this->Messages->save($message)) {
-      $this->Flash->success(__('The message has been saved.'));
-
-      return $this->redirect(['action' => 'index']);
-      }
-      $this->Flash->error(__('The message could not be saved. Please, try again.'));
-      }
-      $messages = $this->Messages->find('list', ['limit' => 200]);
-
-      $senders = $this->Messages->Senders->find('list', ['limit' => 200]);
-      $receivers = $this->Messages->Receivers->find('list', ['limit' => 200]);
-      $media = $this->Messages->Media->find('list', ['limit' => 200]);
-      $this->set(compact('message', 'messages', 'senders', 'receivers', 'media'));
-      $this->set('_serialize', ['message']);
-      }
-      /*
-      /**
-     * Delete method
-     *
-     * @param string|null $id Message id.
-     * @return \Cake\Http\Response|null Redirects to index.
+     * @return \Cake\Http\Response|null Redirects to referer (posts).
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete( $id = null ) {
@@ -166,6 +123,13 @@ class MessagesController extends AppController {
         return $this->redirect( $this->referer() );
     }
 
+    /**
+     * Allow users to mark inbox messages as read
+     *
+     * @param string|null $id Message id.
+     * @return \Cake\Http\Response|null Redirects to referer (posts).
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
     public function read( $id = null ) {
         $this->request->allowMethod( ['post', 'read'] );
         $message = $this->Messages->get( $id );
@@ -180,6 +144,12 @@ class MessagesController extends AppController {
         return $this->redirect( $this->referer() );
     }
 
+    /**
+     * Allow registered users to access sentsMsgs, receivedMsgs, newMsg, read, delete.
+     * 
+     * @param type $user
+     * @return boolean
+     */
     public function isAuthorized( $user ) {
         if ( in_array( $this->request->getParam( 'action' ), ['sentMsgs', 'read',
                     'receivedMsgs',
