@@ -74,13 +74,16 @@ class MediaController extends AppController {
 
                 $mediaName = strtolower( $input['file']['name'] );
 
+                // Truncate file name to last 100 characters if it exceeds 150. DB only stores up to 150 chars for links.
+                $mediaName = (strlen( $mediaName ) > 150) ? substr( $mediaName, -100 ) : $mediaName;
+
                 // add "unique" string to the name of the file to avoid over writes
-                $mediaStoredName = uniqid() . '-' . $mediaName;
+                $mediaStoredName = uniqid( '', true ) . '-' . $mediaName;
 
                 // path link for full image that will be stored in the database
                 $mediaPathLink = 'media/' . $genreName . '/' . $mediaStoredName;
 
-                // the absolute path where the media will be stored
+                // the absolute path where the uploaded media will be moved to
                 $storedPath = WWW_ROOT . 'img/' . $mediaPathLink;
 
                 $input['media_link'] = $mediaPathLink;
@@ -92,14 +95,14 @@ class MediaController extends AppController {
                 if ( strstr( $mime, 'image/' ) ) {
                     // path link for thumbnail that will be stored in the database
                     // use a different uniqid to avoid users from changing url link to access full image
-                    $mediaThumbLink = 'media/' . $genreName . '/' . 'thumbnail-' . uniqid() . '-' . $mediaName;
+                    $mediaThumbLink = 'media/' . $genreName . '/' . uniqid( 'thumbnail-' ) . '-' . $mediaName;
                     $input['type_id'] = 1; // image
                     $input['thumb_link'] = $mediaThumbLink;
 
                     $newMedia = $this->Media->patchEntity( $newMedia, $input );
 
                     if ( $this->Media->save( $newMedia ) ) {
-                        // generate and store thumbnail it. Also store uploaded file
+                        // generate and store thumbnail. Also move uploaded file
                         $this->generateThumbnail( $input['file']['tmp_name'], $mediaThumbLink );
                         move_uploaded_file( $input['file']['tmp_name'], $storedPath );
                     } else {
@@ -125,8 +128,8 @@ class MediaController extends AppController {
     }
 
     private function generateThumbnail( $source, $mediaThumbLink ) {
-        $nw = 300;
-        $nh = 300;
+        $nw = 400;
+        $nh = 400;
         $imageInfo = getimagesize( $source );
         $w = $imageInfo[0];
         $h = $imageInfo[1];
