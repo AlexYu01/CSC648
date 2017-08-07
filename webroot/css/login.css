@@ -52,9 +52,19 @@ span{
 #login{
     box-shadow: 3px 3px 3px #01545b;
     width: 300px;
-    margin-right: 100px;
+    top: 35px;
+}
+
+#submit{
+    box-shadow: 3px 3px 3px #01545b;
+    width: 300px;
+    top: 35px;
 }
 
 #fb-bt{
-    margin-top: 15px;
+    margin-top: 65px;
+}
+
+.button{
+    right: 0px;
 }
