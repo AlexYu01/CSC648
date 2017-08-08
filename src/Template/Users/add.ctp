@@ -1,18 +1,17 @@
 <?php
 $this->layout = "default_no_menu";
 echo $this->Html->css( 'login.css' );
-
 use Cake\Core\Configure;
 ?>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?= $this->Html->script( 'https://s.codepen.io/assets/libs/modernizr.js' ) ?>
+        <?= $this->Html->script( 'modernizr-2.6.2.min' ) ?>
 
         <?= $this->Html->css( 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' ) ?>
         <?= $this->Html->css( 'bootstrap-theme.min' ) ?>
 
-        <?= $this->Html->script( 'https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css' ) ?>
+        <?= $this->Html->css( 'https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css' ) ?>
 
         <?= $this->Html->script( 'jquery.min' ) ?>
         <?= $this->Html->script( 'bootstrap.min' ) ?>
@@ -37,10 +36,10 @@ use Cake\Core\Configure;
             $this->Form->create( $user, ['id' => 'register_form',
                 'class' => 'form-horizontal'] )
             ?>
-
+            
+            <h2 class="text-center">Registration</h2>    
+            <legend><?= ('Please enter your information') ?> </legend>
             <fieldset>
-                <h2 class="text-center">Registration</h2>
-
                 <!-- Email input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label">E-Mail</label>
@@ -53,6 +52,7 @@ use Cake\Core\Configure;
                                 'class' => 'form-control', 'placeholder' => 'E-Mail Address',
                                 'label' => false, 'error' => false] )
                             ?>
+
                         </div>
                     </div>
                 </div>
@@ -104,6 +104,8 @@ use Cake\Core\Configure;
                         </div>
                     </div>
                 </div>
+                
+                <!-- Agreement checkbox-->
 
                 <div class="form-group">
                     <label class="col-md-4 control-label" ></label>
@@ -118,7 +120,6 @@ use Cake\Core\Configure;
                 </div>
 
                 <!-- Capctha -->
-
                 <div class="form-group">
                     <label class="col-md-4 control-label" ></label>
                     <div class="col-md-4 inputGroupContainer">
@@ -152,10 +153,24 @@ use Cake\Core\Configure;
                         validating: 'glyphicon glyphicon-refresh'
                     },
                     fields: {
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please supply your email address'
+                                },
+                                emailAddress: {
+                                    message: 'Please supply a valid email address'
+                                }
+                            }
+                        },
                         username: {
                             validators: {
                                 notEmpty: {
                                     message: 'Please enter your desired username'
+                                },
+                                regexp: {
+                                    regexp: /^[A-Za-z0-9]+$/,
+                                    message: 'Please enter only alphabets, or numbers'
                                 }
                             }
                         },
@@ -186,16 +201,6 @@ use Cake\Core\Configure;
                                 }
                             }
                         },
-                        email: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please supply your email address'
-                                },
-                                emailAddress: {
-                                    message: 'Please supply a valid email address'
-                                }
-                            }
-                        },
                         agreement: {
                             validators: {
                                 notEmpty: {
@@ -211,13 +216,13 @@ use Cake\Core\Configure;
                             /*
                              // Prevent form submission
                              e.preventDefault();
-
+                             
                              // Get the form instance
                              var $form = $(e.target);
-
+                             
                              // Get the BootstrapValidator instance
                              var bv = $form.data('bootstrapValidator');
-
+                             
                              // Use Ajax to submit form data
                              $.post($form.attr('action'), $form.serialize(), function (result) {
                              console.log(result);

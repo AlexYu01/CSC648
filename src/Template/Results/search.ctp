@@ -18,16 +18,22 @@
 <link rel="stylesheet" href="css/style.css">
 <!-- Modernizr JS -->
 <script src="js/modernizr-2.6.2.min.js"></script>
-<?php echo $this->Html->css('home-index1');?>
+<?php echo $this->Html->css('home-index1'); ?>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
 <script src="js/respond.min.js"></script>
 <![endif]-->
 
 <h1 class="page-header">
+    <?php echo $resultReport ?>
 
 </h1>
-
+<style>
+    .tg-template-img {
+        padding-top: 22.5%;
+        padding-bottom: 22.5%
+    }
+</style>
 <div  id="gallery-container" class="tg-gallery">
 
     <div id="fh5co-main">
@@ -39,26 +45,37 @@
                     <?php foreach ($results as $media): ?>
                         <div class="item">
                             <div class="animate-box">
-                                <a href="<?= $this->Url->build(['controller' => 'Item', 'action' => 'image', '?' => ['id' => $media->media_id]])?>" class="image-popup fh5co-board-img"><?= $this->Html->image($media->media_link) ?></a >  
+                                <a href="<?= $this->Url->build(['controller' => 'Item', 'action' => 'image', '?' => ['id' => $media->media_id]]) ?>" class="image-popup fh5co-board-img">
+                                    <?php
+                                    if ($media->type_id == 1) {
+                                        echo $this->Html->image('/img/' . $media->thumb_link);
+                                    } elseif ($media->type_id == 2) {
+                                        echo $this->Html->media('/img/' . $media->media_link, [                                            
+                                            'loop',
+                                            'controlsList' => 'nodownload nofullscreen',
+                                            'class' => 'tg-template-img',
+                                            'id' => 'vid',
+                                            'autoplay',
+                                            'muted'                                            
+                                        ]);
+                                    }
+                                    ?></a >  
                             </div>
                             <div class="fh5co-desc">
                                 Title: <?= $media->media_title ?><br>
                                 Author Name: <?= $media->u['username'] ?><br>
                                 Price: <?= $media->price ?> dollars <br>
-                                <?php echo $this->Html->link(__('View More Info and Buy it'), ['controller' => 'Item', 'action' => 'index', '?' => array('id' => $media->media_id)]); ?>
+                        <?php echo $this->Html->link(__('View More Info and Buy it'), ['controller' => 'Item', 'action' => 'index', '?' => array('id' => $media->media_id)]); ?>
 
                             </div>
                         </div>
-                    <?php endforeach; ?>
+<?php endforeach; ?>
 
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
 <!-- jQuery Easing -->
@@ -73,3 +90,9 @@
 <script src="js/salvattore.min.js"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
+<script>
+    //Force video to play after page loaded
+    $(document).ready(function(){
+        document.getElementById('vid').play();
+    });
+</script>

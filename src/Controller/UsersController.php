@@ -16,16 +16,28 @@ use Cake\Auth\DefaultPasswordHasher;
  */
 class UsersController extends AppController {
 
+    /**
+     * Initialization hook method.
+     *
+     * @return void
+     */
     public function initialize() {
         parent::initialize();
     }
 
+    /**
+     * Allow unauthenticated users to access add, logout, facebook
+     * 
+     * @param Event $event
+     */
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout','facebook']);
+
+        $this->Auth->allow( ['add', 'logout', 'forgotPassword', 'facebook'] );
+
     }
 
     /**
@@ -56,9 +68,9 @@ class UsersController extends AppController {
     }
 
     /**
-     * Add method
+     * Allow registration and logs new users in.
      *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     * @return \Cake\Http\Response|null Redirects on successful add.
      */
     public function add() {
 
@@ -103,6 +115,12 @@ class UsersController extends AppController {
         $this->set(compact('user'));
     }
 
+    /**
+     * Allow registered users to login
+     * 
+     * @return \Cake\Http\Response|null Redirects on successful login.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When inputs does not match any existing accounts.
+     */
     public function login() {
         // make sure a logged in user cant access login page
         if ( $this->request->session()->read( 'Auth' ) ) {
@@ -127,7 +145,16 @@ class UsersController extends AppController {
             $this->Flash->error(__('Invalid username or password, try again'));
         }
     }
-
+    
+    public function forgotPassword(){
+        
+    }
+    
+   /**
+     * Allow logged in users to logout
+     * 
+     * @return \Cake\Http\Response|null Redirects on successful logout.
+     */
     public function logout() {
         return $this->redirect($this->Auth->logout());
     }
@@ -155,7 +182,13 @@ class UsersController extends AppController {
         $this->set(compact('user', 'users'));
         $this->set('_serialize', ['user']);
     }
-
+    
+    /**
+     * Allow users to register/login with Facebook
+     * 
+     * @return \Cake\Http\Response|null Redirects on successful login.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When inputs does not match any existing accounts.
+     */
     public function facebook() {
         $this->autoRender = false;
         $current_time = date('Y-m-d G:i:s', time());
@@ -222,7 +255,7 @@ class UsersController extends AppController {
         return $this->redirect(['action' => 'index']);
     }
 
-    /*
+    /**
      * general users are only allowed to access login, logout, add, and facebook
      * all other functions require admin role
      */

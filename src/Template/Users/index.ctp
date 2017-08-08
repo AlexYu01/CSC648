@@ -3,7 +3,6 @@
   * @var \App\View\AppView $this
   * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
   */
-$this->layout = "default_no_menu";
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
 <nav class="large-2 medium-4 columns" id="actions-sidebar">

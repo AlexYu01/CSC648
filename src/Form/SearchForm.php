@@ -7,16 +7,13 @@ use Cake\Form\Schema;
 use Cake\Validation\Validator;
 
 /**
- * Since search is not adding, updating, or deleting an entry in a table we use
- * a model-less form like this one. For registration the form will use the 
- * UsersTable model to define its structure.
+ * Model-less form that acts as the search bar
  */
 class SearchForm extends Form {
 
     protected function _buildSchema( Schema $schema ) {
         return $schema->addField( 'search', 'string' )
                         ->addField( 'dropDown', 'string' );
-        // ->addField('body', ['type' => 'text']);
     }
 
     protected function _buildValidator( Validator $validator ) {
