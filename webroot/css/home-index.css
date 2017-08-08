@@ -1121,7 +1121,7 @@ main {
 }
 
 html {
-	min-width: 700px;
+	/* min-width: 700px; */
 }
 
 html.using-optiscroll {
