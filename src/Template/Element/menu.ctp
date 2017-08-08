@@ -12,7 +12,7 @@
 
 <input type="checkbox" checked="true" class="sbs-switch -hidden"
        id="sb-switch">
-<label for="sb-switch" class="sbs-icon" id="sb-toggle" style="z-index:9999;"> <svg
+<label for="sb-switch" class="sbs-icon" id="sb-toggle" style="position:fixed;top:50px;z-index:9999;"> <svg
         class="sbs-stroke -absolute" x="0px" y="0px" width="50px"
         height="50px" viewBox="0 0 50 50" aria-labelledby="Toggle navigation"
         role="button">
