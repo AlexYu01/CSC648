@@ -37,7 +37,7 @@ class MediaController extends AppController {
             if ( $media['thumb_link'] != null ) {
                 unlink( WWW_ROOT . 'img/' . $media['thumb_link'] );
             }
-            $this->Flash->success( __( 'Your media posthas been deleted.' ) );
+            $this->Flash->success( __( 'Your media post has been deleted.' ) );
             return $this->redirect( ['action' => 'posts'] );
         }
         $this->Flash->error( __( 'Unable to delete your media post.' ) );
