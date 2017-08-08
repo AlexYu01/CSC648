@@ -1,7 +1,6 @@
 <?php
 $this->layout = "default_no_menu";
 echo $this->Html->css( 'login.css' );
-
 use Cake\Core\Configure;
 ?>
 <html>
@@ -153,7 +152,6 @@ use Cake\Core\Configure;
                         invalid: 'glyphicon glyphicon-remove',
                         validating: 'glyphicon glyphicon-refresh'
                     },
-
                     fields: {
                         email: {
                             validators: {

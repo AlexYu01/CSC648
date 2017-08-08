@@ -8,7 +8,7 @@ class ResultsController extends AppController {
 
     // limit 4 results per page
     public $paginate = [
-        'limit' => 12
+        'limit' => 30
     ];
 
     /**
@@ -68,15 +68,19 @@ class ResultsController extends AppController {
 
         // use the ternary operator ?: to determine if searchGenreName is null if 
         // true then set searchGenreName to 'all genres'.
-        $searchGenre = $searchGenreId ?: 'genre_id';
+
         $searchGenreName = $searchGenreName ?: 'all genres';
         $validTerm = $searchTerm ?: 'all media';
 
         // user searched with either genre and/or a term.
         $results = $this->Media
                 ->find( 'all' )
-                ->where( ['genre_id' => $searchGenre, 'OR' => [['media_title LIKE' => '%' . $searchTerm . '%'],
+                ->where( ['OR' => [['media_title LIKE' => '%' . $searchTerm . '%'],
                 ['media_desc LIKE' => '%' . $searchTerm . '%']]] );
+
+        if ( $searchGenreId != null ) {
+            $results->where( ['genre_id' => $searchGenreId] );
+        }
 
         /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
          * after results is returned).
@@ -86,13 +90,13 @@ class ResultsController extends AppController {
          * SELECT media_id, media_title, upload_date, media_link, price,
          *      media_desc, u.username
          * FROM media INNER JOIN users u ON u.user_id = author_id
-         * WHERE genre_id = $searchGenre AND (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%);
+         * WHERE genre_id = $searchGenreId AND (media_title LIKE %$searchTerm% OR media_desc LIKE %$searchTerm%);
          */
 
         if ( !($results->isEmpty()) ) {
             $resultReport = 'Displaying results for \'' . $validTerm . '\' under ' . $searchGenreName . '.';
         } else {
-            $results = $this->defaultResults( $searchGenre );
+            $results = $this->defaultResults( $searchGenreId );
             $resultReport = 'There were no results for \'' . $validTerm . '\'. Here are some top sellers under ' . $searchGenreName . '.';
         }
 
@@ -116,11 +120,12 @@ class ResultsController extends AppController {
      * @param string $searchGenre
      * @return Cake\ORM\Entity $results
      */
-    private function defaultResults( $searchGenre ) {
-        $results = $this->Media
-                ->find( 'all' )
-                ->where( ['genre_id' => $searchGenre] )
-                ->order( ['sold_count' => 'DESC'] );
+    private function defaultResults( $searchGenreId ) {
+        $results = $this->Media->find( 'all' );
+        if ( $searchGenreId != null ) {
+            $results->where( ['genre_id' => $searchGenreId] );
+        }
+        $results->order( ['sold_count' => 'DESC'] );
 
         /* Note: Raw query equivalent (SELECT and INNER JOIN is performed later
          * after results is returned.
@@ -128,7 +133,7 @@ class ResultsController extends AppController {
          * SELECT media_id, media_title, upload_date, media_link, price,
          *      media_desc, u.username
          * FROM media INNER JOIN users u ON u.user_id = author_id
-         * WHERE genre_id = $searchGenre
+         * WHERE genre_id = $searchGenreId
          * ORDER BY Media.sold_count DESC;
          *
          */

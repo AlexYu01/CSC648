@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= $this->Flash->render(); ?>
-        
+
         <?= $this->Html->script( 'modernizr-2.6.2.min' ) ?>
 
         <?= $this->Html->css( 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' ) ?>
@@ -17,7 +17,7 @@
 
         <!-- Input validation -->
         <?= $this->Html->script( 'media_form_validation' ) ?>
-        
+
         <!-- drag and drop and file validation-->
         <?= $this->Html->css( 'dropzone' ) ?>
         <?= $this->Html->script( 'dropzone' ) ?>
@@ -28,6 +28,10 @@
     </head>
 
     <style>
+        .form-control {
+            position: static !important;
+        }
+
         body {
             background: #333;
         }
@@ -35,7 +39,7 @@
         .dropzone .dz-preview .dz-image {
             width: 100%;
             height: auto;
-
+            position: static;
         }
 
         #previews {
@@ -44,6 +48,7 @@
         }
 
         .dropzone .dz-preview .dz-progress {
+            z-index: 0;
             height: 3%;
             left: 10%;
             top: 47%;
@@ -122,7 +127,7 @@
                     </div>
                 </div>
 
-                <!-- Text input-->
+                <!-- Drop down-->
 
                 <div class="form-group">
                     <label class="col-md-4 control-label" >Genre</label> 
@@ -130,14 +135,14 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <?=
-                            $this->Form->select( 'genre_id', $genreList, ['empty' =>'Choose One',
+                            $this->Form->select( 'genre_id', $genreList, ['empty' => 'Choose One',
                                 'class' => 'form-control selectpicker', 'label' => false] )
                             ?>
                         </div>
                     </div>
                 </div>
 
-                <!-- Drop down-->
+                <!-- Text inout-->
 
                 <div class="form-group">
                     <label class="col-md-4 control-label" >Price</label> 
