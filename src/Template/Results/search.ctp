@@ -37,9 +37,18 @@
 
                 <div id="fh5co-board" data-columns>
                     <?php foreach ($results as $media): ?>
+                    
                         <div class="item">
                             <div class="animate-box">
-                                <a href="<?= $this->Url->build(['controller' => 'Item', 'action' => 'image', '?' => ['id' => $media->media_id]])?>" class="image-popup fh5co-board-img"><?= $this->Html->image($media->media_link) ?></a >  
+                                <a href="<?= $this->Url->build(['controller' => 'Item', 'action' => 'image', '?' => ['id' => $media->media_id]])?>" class="image-popup fh5co-board-img">
+                                <?php if($media->type_id == 1){  echo $this->Html->image('/img/'.$media->media_link);}
+                                elseif($media->type_id == 2){ 
+                                    echo $this->Html->media('/img/' . $media->media_link, [
+                                'controls',
+                                'controlsList' => 'nodownload',
+                                'class' => 'img-thumbnail embed-responsive-item',
+                                'style' => 'margin-top:25%'
+                                ]);} ?></a >  
                             </div>
                             <div class="fh5co-desc">
                                 Title: <?= $media->media_title ?><br>
