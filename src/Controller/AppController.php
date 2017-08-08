@@ -18,7 +18,6 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use App\Form\SearchForm;
 use Cake\Validation\Validator;
 
 $validator = new Validator();
@@ -52,29 +51,31 @@ class AppController extends Controller {
         $this->loadModel( 'MediaGenres' );
         $mgResults = $this->MediaGenres->find( 'all' )->toArray();
         $this->set( 'genresData', $mgResults );
-
         
-        //$this->loadComponent( 'Auth',
-        //        [
-            /*  'authenticate' => [
-              'Form' => [
-              'fields' => ['username' => 'email', 'password' => 'password']
-              ]
-              ],
-              // possibly dont need loginAction
-              'loginAction' => [
-              'controller' => 'Users',
-              'action' => 'login'],
-             * 'loginRedirect' => [
-                'controller' => 'Homepage',
-                'action' => 'index'
+        if($this->request->session()->read('Auth')){
+            $this->loadModel('Messages');
+            $query = $this->Messages->find('all',['conditions'=>['Messages.status' => '0','Messages.receiver_id'=>$this->request->session()->read('Auth.User.user_id')]]);
+            $unreadCount = $query->count();
+            $this->set(compact('unreadCount'));
+        }
+        
+        $this->loadComponent( 'Auth', [
+            'authorize' => ['Controller'],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email', 'password' => 'password']
+                ]
+            ],
+            'loginRedirect' => [
+                'controller' => 'Media',
+                'action' => 'posts'
             ],
             'logoutRedirect' => [
                 'controller' => 'Homepage',
                 'action' => 'index',
-            ]
+            ],
+            'authError' => ''
         ] );
-            /*
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -90,18 +91,26 @@ class AppController extends Controller {
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
-    
     public function beforeRender( Event $event ) {
         if ( !array_key_exists( '_serialize', $this->viewVars ) &&
-                in_array( $this->response->type(),
-                        ['application/json', 'application/xml'] )
+                in_array( $this->response->type(), ['application/json', 'application/xml'] )
         ) {
             $this->set( '_serialize', true );
         }
     }
 
     public function beforeFilter( Event $event ) {
-        //$this->Auth->allow( ['index', 'search'] );
+        $this->Auth->allow( ['index', 'search', 'image','facebook'] );
     }
- 
+    
+    public function isAuthorized( $user ) {
+        // Admin can access every action
+        if ( isset( $user['role'] ) && $user['role'] === 'admin' ) {
+            return true;
+        }
+        
+        // Default deny
+        return false;
+    }
+
 }

@@ -277,6 +277,31 @@ body:not (.team5-menu-enabled ) #team5-menu.override-editor-fixes {
 	transition: all .3s linear
 }
 
+.breadcrumb {
+	font-size: 14px;
+	padding: 8px 15px;
+	margin: 10px 0 0 30px;
+	list-style: none;
+}
+
+.breadcrumb>li {
+	display: inline-block
+}
+
+.breadcrumb>li+li:before {
+	padding: 0 5px;
+	color: #ccc;
+	content: "/\00a0"
+}
+
+.breadcrumb a {
+	color: #4eb7f5;
+}
+
+.breadcrumb>.active {
+	color: #ccc;
+}
+
 body:not (.body-achromatic-sidebar ) #team5-menu[data-layout=left] .wm-links-wrapper
 	{
 	margin-left: 72px
@@ -1096,7 +1121,7 @@ main {
 }
 
 html {
-	min-width: 700px;
+	/* min-width: 700px; */
 }
 
 html.using-optiscroll {
@@ -1952,25 +1977,17 @@ header {
 	margin-top: 20px;
 	margin-bottom: 31px;
 }
-/*
+
 .tg-container {
-	-webkit-transform: translateZ(0);
-	transform: translateZ(0);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-flex-grow: 1;
-	-ms-flex-positive: 1;
 	flex-grow: 1;
 	min-height: calc(100vh - 78px);
 	border-left: 1px solid rgba(32, 48, 60, 0.1);
 }
 
 .ie .tg-container {
-	-webkit-flex: 1 1 0px;
-	-ms-flex: 1 1 0px;
 	flex: 1 1 0px;
 }
-*/
+
 .tg-gallery {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -2421,6 +2438,52 @@ to {
 }
 
 }
+
+.div-logo{
+		text-align:center;
+}
+
+@media (max-width : 600px){
+	.div-logo{
+		text-align:left;
+	}
+	
+	#logo{
+		font-size: 32px;
+	}
+	
+	#wm-user-component{
+		float:left;
+	}
+	
+ 	.signin{
+		height:30px;
+		right: -200px;
+		font-size:12px;
+		margin-top:13px;
+		padding-top:7px;
+		border-radius:20px;
+	}
+	
+	/* menu control */
+	#sb-switch{
+		display:none;
+	}
+	
+	#sb-toggle{
+		display:none;
+	}
+	
+	#sidebar{
+		display:none;
+	}
+	
+	#div-tg-padding{
+		display:none;
+	}
+	
+}
+
 @media ( max-width : 63.99em) {
 	.-sidebar-open .tg-template {
 		width: calc(( 100% - 48px)/1);
@@ -2512,12 +2575,15 @@ to {
 		width: calc(( 100% - 2px)/4);
 		margin: 0 30px 86px;
 	}
+	
 	.tg-template:nth-child(2n+2) {
 		margin-right: 36px;
 	}
+	
 	.ie .tg-template:nth-child(2n+2), .edge .tg-template:nth-child(2n+2) {
 		margin-right: 35.99px;
 	}
+	
 	.tg-template:nth-child(2n+1) {
 		margin-left: 36px;
 	}

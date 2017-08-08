@@ -1,0 +1,88 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 1, 2017, 9:48:38 PM
+    Author     : Andy
+*/
+
+body{
+            background-color: #f2fcff;            
+        }
+        .modal-open {
+            overflow: scroll;
+        }
+
+        .container{
+            margin-top: 2%;
+        }
+
+        #detail-container{
+            margin-top: -20px;
+        }
+
+        @media screen and (min-width: 992px){
+            #imgbox:hover{
+                -webkit-transition: all 200ms ease-in;
+                -webkit-transform: scale(1.1);
+                -ms-transition: all 200ms ease-in;
+                -ms-transform: scale(1.1);
+                -mos-transition: all 200ms ease-in;
+                -mos-transform: scale(1.1);
+                transition: all 200ms ease-in;
+                transform: scale(1.1);
+            }
+        }
+        #lbModal .modal-content{
+            background-color: black;
+            background: transparent;
+            height: 100%;
+        }
+        
+        #contacModal .modal-content{
+            margin: 10%;
+        }
+        
+        #contacModal .modal-header{
+            border-bottom: 0px;
+        }
+        
+        #msg-box{
+            height: 150px;
+            margin: 0 auto;
+        }
+        
+        
+
+        #lbModal .modal-header{
+            border-bottom: 0px;
+            background: transparent;
+        }
+
+        #lbModal .close{
+            color:white;
+            opacity: 1;
+            font-size: 3em;
+        }
+
+        #lb-image{
+            width:75%;
+            height:75%;
+            margin-left: 12.5%;
+        }
+
+        #suggest-container{
+            width:100%;
+            margin-top:5%; 
+            background-color: #def1f7;
+        }
+
+        #suggest-container > .row{
+            padding-bottom: 10px;
+        }
+
+        video{
+            width: 100%;
+        }

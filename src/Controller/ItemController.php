@@ -85,7 +85,12 @@ class ItemController extends AppController {
             if ($item->media_link != null) {
                 // Load the stamp and the photo to apply the watermark to
                 $stamp = imagecreatefrompng('img/logos/Logomakr_211c5G.png');
-                $im = imagecreatefromjpeg('img/' . $item->media_link);
+                if(substr($item->media_link, strlen($item->media_link) - 3) == 'jpg'){
+                    $im = imagecreatefromjpeg('img/' . $item->media_link);
+                }else if(substr($item->media_link, strlen($item->media_link) - 3) == 'png'){
+                    $im = imagecreatefrompng('img/' . $item->media_link);
+                }
+                
                 // Set the margins for the stamp and get the height/width of the stamp image
                 $max_x = imagesx($im);
                 $max_y = imagesy($im);
@@ -126,6 +131,10 @@ class ItemController extends AppController {
         } catch (\Exception $exc) {
             
         }
+    }
+    
+    public function test(){
+        
     }
 
 }

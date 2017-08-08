@@ -5,7 +5,6 @@
 <head>
 	<!-- css & js file import --> <?= $this->element('header-base'); ?> <!-- css & js file import -->
 	<title>CSC648 - Team5 - PictureSque - Home</title>
-        <?= $this->Html->css('home-index1.css');?>
 </head>
 
 <body class="gray-background" style="background: none !important;">
@@ -16,6 +15,8 @@
 			<!-- left side menu  --> <?= $this->element('menu'); ?> <!-- left side menu  -->
 		
 			<section id="gallery-container" class="tg-container">
+				<!-- left side breadcrumb  --> <?= $this->element('breadcrumb'); ?> <!-- left side breadcrumb  -->
+				
 				<!-- start right side content -->
 					<?= $this->render('index_content'); ?>
 				<!-- stop right side content -->
