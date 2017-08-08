@@ -1,5 +1,10 @@
 /vendor/*
 /tmp/*
 /logs/*
+<<<<<<< HEAD
+nbproject/
+config/app.php
+=======
 /config/app.php
 /nbproject/private/
+>>>>>>> 1afd4d745843686236e853b048040ef26b6b0e8e

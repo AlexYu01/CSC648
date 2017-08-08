@@ -25,9 +25,9 @@
 <![endif]-->
 
 <h1 class="page-header">
+    <?php echo $resultReport?>
 
 </h1>
-
 <div  id="gallery-container" class="tg-gallery">
 
     <div id="fh5co-main">
