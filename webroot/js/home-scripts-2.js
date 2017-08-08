@@ -334,8 +334,11 @@
 			sbCollapse = document.getElementById('sb-collapse');
 			sbSwitchStroke = document.querySelector('.sbs-stroke');
 
-//			hideSidebar();
-			//sbSwitch.classList.add('-hidden');	
+			// init collapse side menu in mobile
+			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				sbSwitch.checked = false;
+				hideSidebar();
+			}
 			
 			sidebar.removeEventListener('transitionend', sidebarAnimationEnded);
 			sidebar.addEventListener('transitionend', sidebarAnimationEnded,
