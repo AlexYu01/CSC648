@@ -47,43 +47,50 @@ class UsersTable extends Table
             ->integer('user_id')
             ->allowEmpty('user_id', 'create')
             ->add('user_id', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+        
         $validator
             ->notEmpty('username')
             ->requirePresence('username', 'create')
             ->add('username', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'This username has been taken']);
-        $validator
-            ->requirePresence('password', 'create')
-            ->notEmpty('password');
         
         $validator
-            ->requirePresence('confirmPassword', 'create');
-                /* validated by bootstrap validator
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');  
+        
+        $validator
+            ->requirePresence('confirmPassword', 'create')
             ->notEmpty('confirmPassword')
             ->add('confirmPassword', 'no-misspelling', ['rule' => ['compareWith', 'password'], 'message' => 'Passwords do not match']);
-                 * 
-                 */
+        
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmpty('email')
             ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'This email has already been used']);
+        
         $validator
             ->dateTime('registered_date')
             ->allowEmpty('registered_date');
+        
         $validator
             ->allowEmpty('token');
+        
         $validator
             ->dateTime('last_login_date')
             ->allowEmpty('last_login_date');
+        
         $validator
             ->allowEmpty('token');
+        
         $validator
             ->allowEmpty('salt');
+        
         $validator
             ->allowEmpty('role');
         
         $validator
                 ->allowEmpty('terms');
+        
         return $validator;
     }
     /**

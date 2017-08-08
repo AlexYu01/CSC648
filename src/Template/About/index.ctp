@@ -20,7 +20,7 @@ $this->layout = 'default_no_menu';
     </head>
     <body>
             <!--<div class="header-image"><?= $this->Html->image( 'cake.logo.svg' ) ?></div>-->
-        <div class="header-title" style="margin-top: 15px;margin-left: 15px;">                
+        <div class="header-title text-center" style="margin-top: 15px;margin-left: 15px;">                
             <?php
             echo $this->Html->link( 'Andy\'s About Page', ['controller' => 'About',
                 'action' => 'andy'], ['class' => 'btn btn-info'] );
