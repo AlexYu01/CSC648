@@ -19,9 +19,14 @@
         <?= $this->Html->script( 'media_form_validation' ) ?>
     </head>
     <style>
+        .form-control {
+            position: static !important;
+        }
+
         .error-message { 
             color: #FF0000;
         }
+
         .error.message {
             color: #FF0000;
         }
@@ -87,7 +92,7 @@
                             </div>
                         </div>
 
-                        <!-- Text input-->
+                        <!-- Drop down-->
 
                         <div class="form-group">
                             <label class="col-md-4 control-label" >Genre</label> 
@@ -96,13 +101,14 @@
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                     <?=
                                     $this->Form->select( 'genre_id', $genreList, [
+                                        'empty' => 'Choose One',
                                         'class' => 'form-control selectpicker', 'label' => false] )
                                     ?>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Drop down-->
+                        <!-- Text input-->
 
                         <div class="form-group">
                             <label class="col-md-4 control-label" >Price</label> 
@@ -111,7 +117,7 @@
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
                                     <?=
                                     $this->Form->control( 'price', ['class' => 'form-control',
-                                        'type' => 'number', 'label' => false] )
+                                        'type' => 'text', 'label' => false] )
                                     ?>
                                 </div>
                             </div>
