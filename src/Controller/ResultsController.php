@@ -102,7 +102,7 @@ class ResultsController extends AppController {
 
         // Added on query at the end for all search results.
         $results->select( ['media_id', 'media_title', 'upload_date',
-                    'media_link', 'thumb_link', 'media_desc', 'u.username'] )
+                    'media_link', 'thumb_link', 'type_id', 'media_desc', 'u.username'] )
                 ->join( [
                     'table' => 'users',
                     'alias' => 'u',
