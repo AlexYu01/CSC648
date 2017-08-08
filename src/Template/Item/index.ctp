@@ -37,7 +37,8 @@ $this->layout = 'default_no_menu';
                             <?php
                         } else if ($item->type_id == 2) {
                             echo $this->Html->media('/img/' . $item->media_link, [
-                                'controls',
+                                'autoplay',
+                                'loop',                                
                                 'controlsList' => 'nodownload'
                             ]);
                         }
@@ -124,6 +125,7 @@ $this->layout = 'default_no_menu';
                                 echo $this->Html->media('/img/' . $similar_item->media_link, [
                                 'autoplay',
                                 'loop',
+                                'muted',
                                 'controlsList' => 'nodownload',
                                 'class' => 'img-thumbnail embed-responsive-item',
                                 'style' => 'margin-top:25%'
