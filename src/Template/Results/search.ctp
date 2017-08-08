@@ -37,7 +37,6 @@
 
                 <div id="fh5co-board" data-columns>
                     <?php foreach ($results as $media): ?>
-
                         <div class="item">
                             <div class="animate-box">
                                 <a href="<?= $this->Url->build(['controller' => 'Item', 'action' => 'image', '?' => ['id' => $media->media_id]]) ?>" class="image-popup fh5co-board-img">
@@ -48,7 +47,6 @@
                                         echo $this->Html->media('/img/' . $media->media_link, [                                            
                                             'loop',
                                             'controlsList' => 'nodownload nofullscreen',
-                                            'style' => 'margin-top:25%',
                                             'class' => 'tg-template-img',
                                             'id' => 'vid',
                                             'autoplay',
