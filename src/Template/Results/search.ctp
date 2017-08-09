@@ -28,6 +28,12 @@
     <?php echo $resultReport ?>
 
 </h1>
+<style>
+     .tg-template-img {
+         padding-top: 22.5%;
+         padding-bottom: 22.5%
+     }
+ </style>
 <div  id="gallery-container" class="tg-gallery">
 
     <div id="fh5co-main">
@@ -42,7 +48,7 @@
                                 <a href="<?= $this->Url->build(['controller' => 'Item', 'action' => 'image', '?' => ['id' => $media->media_id]]) ?>" class="image-popup fh5co-board-img">
                                     <?php
                                     if ($media->type_id == 1) {
-                                        echo $this->Html->image('/img/' . $media->media_link);
+                                        echo $this->Html->image('/img/' . $media->thumb_link);
                                     } elseif ($media->type_id == 2) {
                                         echo $this->Html->media('/img/' . $media->media_link, [                                            
                                             'loop',
