@@ -6,11 +6,21 @@
  * and open the template in the editor.
  */
 
-// src/Controller/ArticlesController.php
-
 namespace App\Controller;
 
+use App\Controller\AppController;
+use Cake\Event\Event;
+
 class AboutController extends AppController {
+    
+    /**
+     * Initialization hook method.
+     *
+     * @return void
+     */
+    public function initialize() {
+        parent::initialize();
+    }
 
     public function index() {
         
@@ -23,9 +33,30 @@ class AboutController extends AppController {
     public function calvin() {
         
     }
-
-    public function about() {
+    
+    public function andrew() {
         
+    }
+    
+    public function cody() {
+        
+    }
+    
+    public function haotian() {
+        
+    }
+    
+    public function teng() {
+        
+    }
+    
+    public function tiffany() {
+        
+    }
+    
+    public function beforeFilter( Event $event ) {
+        parent::beforeFilter($event);
+        $this->Auth->allow( ['index', 'andy', 'calvin','andrew', 'cody','haotian', 'teng','tiffany'] );
     }
 
 }

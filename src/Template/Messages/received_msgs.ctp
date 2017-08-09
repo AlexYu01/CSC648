@@ -12,7 +12,9 @@
     </head>
     <body>
         <div class="container">
+            <!-- load buttons from user_menu -->
             <?= $this->element('user_menu'); ?>
+            
             <h1>My Inbox</h1>
             <table class="table table-hover">
                 <tr>
@@ -24,7 +26,7 @@
 
                     <th>Title</th>
 
-                    <th><?=
+                    <th class="hidden-xs"><?=
                         $this->Paginator->sort( 'message_content', $this->Html->tag( 'span', '', [
                                     'class' => 'glyphicon glyphicon-sort'] ) . ' Message Content', [
                             'escape' => false] )
@@ -54,7 +56,7 @@
                                         'controller' => 'Media', 'action' => 'view',
                                         $message->media_id] ) : ''
                             ?></td>
-                        <td><?= $message->message_content ?></td>
+                        <td class="hidden-xs"><?= $message->message_content ?></td>
                         <td><?= $message->date->format( DATE_RFC850 ) ?></td>
                         <td class="actions">
                             <?=

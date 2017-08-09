@@ -3,23 +3,35 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= $this->Flash->render(); ?>
-        <?= $this->Html->script( 'https://s.codepen.io/assets/libs/modernizr.js' ) ?>
+
+        <?= $this->Html->script( 'modernizr-2.6.2.min' ) ?>
 
         <?= $this->Html->css( 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' ) ?>
         <?= $this->Html->css( 'bootstrap-theme.min' ) ?>
 
-        <?= $this->Html->script( 'https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css' ) ?>
+        <?= $this->Html->css( 'https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css' ) ?>
 
         <?= $this->Html->script( 'jquery.min' ) ?>
         <?= $this->Html->script( 'bootstrap.min' ) ?>
         <?= $this->Html->script( 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js' ) ?>
 
+        <!-- Input validation -->
+        <?= $this->Html->script( 'media_form_validation' ) ?>
+
+        <!-- drag and drop and file validation-->
         <?= $this->Html->css( 'dropzone' ) ?>
         <?= $this->Html->script( 'dropzone' ) ?>
 
+        <!-- used for making thumbnail of the video -->
+        <?= $this->Html->script( 'rsvp' ) ?>
+        <?= $this->Html->script( 'frame-grab' ) ?>
     </head>
 
     <style>
+        .form-control {
+            position: static !important;
+        }
+
         body {
             background: #333;
         }
@@ -27,7 +39,7 @@
         .dropzone .dz-preview .dz-image {
             width: 100%;
             height: auto;
-
+            position: static;
         }
 
         #previews {
@@ -36,6 +48,7 @@
         }
 
         .dropzone .dz-preview .dz-progress {
+            z-index: 0;
             height: 3%;
             left: 10%;
             top: 47%;
@@ -47,7 +60,19 @@
             width: 100%;
             height: auto;
         }
-        
+
+        .dropzone {
+            height: 100%;
+            width: 100%;
+            border: 2px dashed #0087F7;
+            border-radius: 5px;
+        }
+
+        .dropzone.dz-drag-hover {
+            border: 2px dashed #0087F7;
+            border-radius: 5px;
+            background: #E3F2FD;
+        }
     </style>
 
     <body>
@@ -67,15 +92,15 @@
                 <!-- Text input-->
                 <div class="container-fluid">
                     <div class="row">
-                        
+
                         <div id="previews" class="dropzone-previews"></div>
                     </div>
                 </div>
-                <div class="dz-message" data-dz-message><span>Drag and drop files or click here</span></div>
-                    
+                <div class="dz-message" data-dz-message><span>Drag and drop files or click here<br>Max 8MB file. Supported formats: jpg, jpeg, gif, png, mp4</span></div>
+
                 <div class="form-group">
                     <label class="col-md-4 control-label">Title</label>
-                    
+
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
@@ -102,7 +127,7 @@
                     </div>
                 </div>
 
-                <!-- Text input-->
+                <!-- Drop down-->
 
                 <div class="form-group">
                     <label class="col-md-4 control-label" >Genre</label> 
@@ -110,14 +135,14 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <?=
-                            $this->Form->select( 'genre_id', $genreList, [
+                            $this->Form->select( 'genre_id', $genreList, ['empty' => 'Choose One',
                                 'class' => 'form-control selectpicker', 'label' => false] )
                             ?>
                         </div>
                     </div>
                 </div>
 
-                <!-- Drop down-->
+                <!-- Text inout-->
 
                 <div class="form-group">
                     <label class="col-md-4 control-label" >Price</label> 
@@ -126,12 +151,12 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
                             <?=
                             $this->Form->control( 'price', ['class' => 'form-control',
-                                'type' => 'number', 'label' => false] )
+                                'type' => 'text', 'label' => false] )
                             ?>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Fall back for browsers that cannot support drag & drop-->
 
                 <div class="fallback">
@@ -155,74 +180,8 @@
 
 
         <script>
-            $(document).ready(function () {
-                $('#media').bootstrapValidator({
 
-                    feedbackIcons: {
-                        valid: 'glyphicon glyphicon-ok',
-                        invalid: 'glyphicon glyphicon-remove',
-                        validating: 'glyphicon glyphicon-refresh'
-                    },
-                    fields: {
-                        media_title: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please enter a title for your media'
-                                },
-                                stringLength: {
-                                    max: 30,
-                                    message: 'No more than 30 characters allowed'
-                                }
-                            }
-                        },
-                        media_desc: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please enter a description for your media'
-                                },
-                                stringLength: {
-                                    min: 10,
-                                    max: 200,
-                                    message: 'Please enter at least 10 characters and no more than 200'
-                                }
-                            }
-                        },
-                        price: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please enter a price for your media'
-                                },
-                                greaterThan: {
-                                    value: 0,
-                                    message: 'Price must be greater than $0'
-                                },
-                                lessThan: {
-                                    value: 1000000,
-                                    message: 'Price must be less than $1 million'
-                                }
-                            }
-                        }
-                    }
-                })
-                        .on('success.form.bv', function (e) {
-                            $('#success_message').slideDown({opacity: "show"}, "slow") // Do something ...
-                            $('#media').data('bootstrapValidator').resetForm();
-                            /*
-                             // Prevent form submission
-                             e.preventDefault();
-                             
-                             // Get the form instance
-                             var $form = $(e.target);
-                             
-                             // Get the BootstrapValidator instance
-                             var bv = $form.data('bootstrapValidator');
-                             
-                             // Use Ajax to submit form data
-                             $.post($form.attr('action'), $form.serialize(), function (result) {
-                             console.log(result);
-                             }, 'json');*/
-                        });
-            });
+            /* Input validation taken care of by media_form_validation.js */
 
             Dropzone.options.media = {
                 maxFiles: 1,
@@ -241,6 +200,7 @@
 
                     var myDropzone = this;
 
+                    // Files are uploaded when user clicks on submitBtn and all fields are valid
                     $("#submitBtn").on('click', function (e) {
                         var validator = $('#media').data('bootstrapValidator');
                         validator.validate();
@@ -259,6 +219,45 @@
                     this.on("error", function (file, message) {
                         alert(message);
                         this.removeFile(file);
+                    });
+
+
+                    // create thumbnail for video
+                    self = this;
+                    this.on("addedfile", function (file) {
+
+                        // check file extension, see:
+                        // http://stackoverflow.com/questions/190852/how-can-i-get-file-extensions-with-javascript
+                        var comps = file.name.split(".");
+                        if (comps.length === 1 || (comps[0] === "" && comps.length === 2)) {
+                            return;
+                        }
+                        var ext = comps.pop().toLowerCase();
+                        if (ext == 'mov' || ext == 'mpeg' || ext == 'mp4' || ext == 'wmv') {
+
+                            // create a hidden <video> element with video file.
+                            FrameGrab.blob_to_video(file).then(
+                                    function videoRendered(videoEl) {
+
+                                        // extract video frame at 1 sec into a 500px image and
+                                        // set to the <img> element.
+                                        var frameGrab = new FrameGrab({video: videoEl});
+                                        frameGrab.grab('img', 1, 500).then(
+                                                function frameGrabbed(itemEntry) {
+                                                    self.emit('thumbnail', file, itemEntry.container.src);
+                                                },
+                                                function frameFailedToGrab(reason) {
+                                                    console.log("Can't grab the video frame from file: " +
+                                                            file.name + ". Reason: " + reason);
+                                                }
+                                        );
+                                    },
+                                    function videoFailedToRender(reason) {
+                                        console.log("Can't convert the file to a video element: " +
+                                                file.name + ". Reason: " + reason);
+                                    }
+                            );
+                        }
                     });
                 },
                 success: function (file, response) {

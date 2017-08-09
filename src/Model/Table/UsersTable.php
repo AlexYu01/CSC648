@@ -1,11 +1,9 @@
 <?php
 namespace App\Model\Table;
-
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-
 /**
  * Users Model
  *
@@ -20,7 +18,6 @@ use Cake\Validation\Validator;
  */
 class UsersTable extends Table
 {
-
     /**
      * Initialize method
      *
@@ -30,18 +27,14 @@ class UsersTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-
         $this->setTable('users');
         $this->setDisplayField('user_id');
         $this->setPrimaryKey('user_id');
-
-
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
     }
-
     /**
      * Default validation rules.
      *
@@ -54,56 +47,52 @@ class UsersTable extends Table
             ->integer('user_id')
             ->allowEmpty('user_id', 'create')
             ->add('user_id', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
-
+        
         $validator
             ->notEmpty('username')
             ->requirePresence('username', 'create')
             ->add('username', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'This username has been taken']);
-
-        $validator
-            ->requirePresence('password', 'create')
-            ->notEmpty('password');
         
         $validator
-            ->requirePresence('confirmPassword', 'create');
-                /* validated by bootstrap validator
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');  
+        
+        $validator
+            ->requirePresence('confirmPassword', 'create')
             ->notEmpty('confirmPassword')
             ->add('confirmPassword', 'no-misspelling', ['rule' => ['compareWith', 'password'], 'message' => 'Passwords do not match']);
-                 * 
-                 */
-
+        
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmpty('email')
             ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'This email has already been used']);
-
+        
         $validator
             ->dateTime('registered_date')
             ->allowEmpty('registered_date');
-
+        
         $validator
             ->allowEmpty('token');
-
+        
         $validator
             ->dateTime('last_login_date')
             ->allowEmpty('last_login_date');
-
+        
         $validator
             ->allowEmpty('token');
-
+        
         $validator
             ->allowEmpty('salt');
-
+        
         $validator
             ->allowEmpty('role');
         
         $validator
                 ->allowEmpty('terms');
-
+        
         return $validator;
     }
-
     /**
      * Returns a rules checker object that will be used for validating
      * application integrity.
@@ -117,7 +106,6 @@ class UsersTable extends Table
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['userID']));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
-
         return $rules;
     }
 }
