@@ -13,7 +13,6 @@
                     echo $this->Html->media('/img/' . $media->media_link, [                        
                         'controlsList' => 'nodownload nofullscreen',
                         'class' => 'tg-template-img',
-                        'style' => 'margin-top:20%',
                         'autoplay',
                         'muted',
                         'loop'
