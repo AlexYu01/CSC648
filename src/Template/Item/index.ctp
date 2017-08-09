@@ -37,7 +37,8 @@ $this->layout = 'default_no_menu';
                             <?php
                         } else if ($item->type_id == 2) {
                             echo $this->Html->media('/img/' . $item->media_link, [
-                                'controls',
+                                'autoplay',
+                                'loop',                                
                                 'controlsList' => 'nodownload'
                             ]);
                         }
@@ -122,7 +123,9 @@ $this->layout = 'default_no_menu';
                                 <img class="img-thumbnail"  src="<?= $this->url->build((['controller' => 'Item', 'action' => 'image', '?' => ['id' => $similar_item->media_id], 'resize' => '250x250'])) ?>">
                             <?php }elseif($similar_item->type_id == 2){
                                 echo $this->Html->media('/img/' . $similar_item->media_link, [
-                                'controls',
+                                'autoplay',
+                                'loop',
+                                'muted',
                                 'controlsList' => 'nodownload',
                                 'class' => 'img-thumbnail embed-responsive-item',
                                 'style' => 'margin-top:25%'

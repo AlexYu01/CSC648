@@ -1,0 +1,41 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 7, 2017, 9:38:02 PM
+    Author     : ipcal
+*/
+
+#username{
+    border-width: 1px; 
+    border-radius: 5px; 
+    width: 300px;
+}
+
+#password{
+    border-width: 1px; 
+    border-radius: 5px; 
+    width: 300px;
+}
+
+#email{
+    border-width: 1px; 
+    border-radius: 5px; 
+    width: 300px;
+}
+
+#confirmpassword{
+    border-width: 1px; 
+    border-radius: 5px; 
+    width: 300px;
+}
+
+legend{
+    text-align: center;
+}
+
+.form-control{
+    position: static !important;
+}
