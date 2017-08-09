@@ -14,4 +14,11 @@
         echo $this->Html->script( 'home-scripts' );
         echo $this->Html->script( 'jquery.infinitescroll.min' );
 ?>
+<style>
+    @media only screen and (max-width: 800px) {
+    #disclaimer {
+        font-size: 7px;
+    }
+}
+</style>
 

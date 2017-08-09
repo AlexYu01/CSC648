@@ -4,7 +4,8 @@
     <?= $this->Html->script( 'google_analytics.js' ); ?>    
     <nav id="team5-menu" class="team5-menu" lang="en" style="position:fixed;right:0;left:0;z-index:1;">
         <div class="div-logo" style="padding-top: 10px;">
-            <a href="<?= $this->url->build( ['controller' => 'Homepage', 'action' => 'index'] ) ?>" id="logo">PictureSque</a>
+            <a href="<?= $this->url->build( ['controller' => 'Homepage', 'action' => 'index'] ) ?>" id="logo">PictureSque</a> 
+            <p class="center"><em id="disclaimer">SFSU Software Engineering Project, Summer 2017.  For Demonstration Only</em></p>
         </div>
 
 
