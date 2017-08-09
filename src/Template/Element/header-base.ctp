@@ -15,7 +15,7 @@
         echo $this->Html->script( 'jquery.infinitescroll.min' );
 ?>
 <style>
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 1000px) {
     #disclaimer {
         font-size: 7px;
     }
