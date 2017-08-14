@@ -222,6 +222,6 @@ if (Configure::read('debug')) {
 }
 
 Configure::write('google_recatpcha_settings', array(
-    'site_key'=>'6LcidCsUAAAAADsatdH2I5HXTwwWOhXGYSq1EYwG',
-    'secret_key'=>'6LcidCsUAAAAAHiBqeUQW8vs6eU-jKym7yfcjG6c'
+    'site_key'=>'6Lee3SwUAAAAACi9vXMOF64qdwWNLkkN9mx3BGAx',
+    'secret_key'=>'6Lee3SwUAAAAAKm43BzKrBK8DaRvhNnJ8OJHqVa_'
 ));
