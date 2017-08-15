@@ -1730,8 +1730,7 @@ header {
 	text-align: center;
 }
 
-@
--webkit-keyframes tg-button-animation {from { background-color:#459fed;
+@-webkit-keyframes tg-button-animation {from { background-color:#459fed;
 	
 }
 
@@ -1740,8 +1739,7 @@ to {
 }
 
 }
-@
-keyframes tg-button-animation {from { background-color:#459fed;
+@keyframes tg-button-animation {from { background-color:#459fed;
 	
 }
 
