@@ -6,6 +6,7 @@ http.createServer(function (req,res){
 }).listen(3000)
 */
 var app = require("express")();
+var fs =    require('fs');
 var port = 3000;
 var options = {
     key:    fs.readFileSync('/etc/letsencrypt/keys/0000_key-certbot.pem'),
@@ -15,7 +16,7 @@ var options = {
 var https = require('https').Server(options,app);
 var io = require('socket.io')(https);
 var bodyParser = require('body-parser');
-var fs =    require('fs');
+
 
 
 app.use(bodyParser.json());
