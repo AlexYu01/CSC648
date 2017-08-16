@@ -41,6 +41,6 @@ io.on('connection',function(socket){
     })
 })
 
-https.listen(8443,function(){
+https.listen(port,function(){
     console.log("Listening on port: " + port);
 })
