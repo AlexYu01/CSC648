@@ -7,7 +7,7 @@ http.createServer(function (req,res){
 */
 var app = require("express")();
 var fs =    require('fs');
-var port = 3000;
+var port = 8443;
 var options = {
     key:    fs.readFileSync('/etc/letsencrypt/live/www.sfsu648.me/privkey.pem'),
     cert:   fs.readFileSync('/etc/letsencrypt/live/www.sfsu648.me/cert.pem')
@@ -41,6 +41,6 @@ io.on('connection',function(socket){
     })
 })
 
-https.listen(3000,function(){
+https.listen(port,function(){
     console.log("Listening on port: " + port);
 })
