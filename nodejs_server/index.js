@@ -12,8 +12,8 @@ var options = {
     key:    fs.readFileSync('/etc/letsencrypt/live/www.sfsu648.me/privkey.pem'),
     cert:   fs.readFileSync('/etc/letsencrypt/live/www.sfsu648.me/cert.pem')
 };
-var https = require('https').Server(app);
-var io = require('socket.io')(options,https);
+var https = require('https').Server(options,app);
+var io = require('socket.io')(https);
 var bodyParser = require('body-parser');
 
 
