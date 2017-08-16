@@ -8,7 +8,7 @@ var counter = 0;
 function getNotification(login = false,counter = 0) {
     if (login !== '') {
         
-        socket = io('http://52.8.38.134:3000/', {
+        socket = io('https://www.sfsu648.me:3000/', {
             query: {
                 id: login
             }
