@@ -8,13 +8,12 @@ http.createServer(function (req,res){
 var app = require("express")();
 var fs =    require('fs');
 var port = 3000;
-/*var options = {
-    key:    fs.readFileSync('/etc/letsencrypt/keys/0000_key-certbot.pem'),
-    cert:   fs.readFileSync('/etc/letsencrypt/csr/0000_csr-certbot.pem'),
-    ca:     fs.readFileSync('/etc/letsencrypt/csr/0000_csr-certbot.pem')
-};*/
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var options = {
+    key:    fs.readFileSync('/etc/letsencrypt/live/www.sfsu648.me/privkey.pem'),
+    cert:   fs.readFileSync('/etc/letsencrypt/live/www.sfsu648.me/cert.pem')
+};
+var https = require('https').Server(app);
+var io = require('socket.io')(options,https);
 var bodyParser = require('body-parser');
 
 
@@ -42,6 +41,6 @@ io.on('connection',function(socket){
     })
 })
 
-http.listen(3000,function(){
+https.listen(3000,function(){
     console.log("Listening on port: " + port);
 })
