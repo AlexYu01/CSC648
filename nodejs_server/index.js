@@ -14,7 +14,7 @@ var port = 3000;
     ca:     fs.readFileSync('/etc/letsencrypt/csr/0000_csr-certbot.pem')
 };*/
 var http = require('http').Server(app);
-var io = require('socket.io')(https);
+var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
 
 
