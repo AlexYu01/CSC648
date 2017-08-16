@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -7,13 +7,13 @@ var socket = null;
 var counter = 0;
 function getNotification(login = false,counter = 0) {
     if (login !== '') {
-        
-        socket = io('https://www.sfsu648.me:3000/', {
+
+        socket = io('https://www.sfsu648.me:8443/', {
             query: {
                 id: login
             }
         });
-        
+
         socket.on('messages', function (msg) {
             if (msg.id == login) {
                 counter += 1;
@@ -23,9 +23,3 @@ function getNotification(login = false,counter = 0) {
         })
 }
 }
-
-
-
-
-
-            
