@@ -7,8 +7,8 @@ http.createServer(function (req,res){
 */
 var app = require("express")();
 var port = 3000;
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var https = require('https').Server(app);
+var io = require('socket.io')(https);
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
